@@ -1,0 +1,38 @@
+package CameraSlider
+
+import ClosureTimers
+
+
+framehandle fh
+framehandle label
+
+init
+
+    doAfter(5.01) ->
+        createCamControll()
+
+string xy = "EscMenuLabelTextTemplate"
+string yx = "EscMenuSliderTemplate"
+
+function createSliderDistance()
+    fh = BlzCreateFrame(yx, BlzGetOriginFrame(ORIGIN_FRAME_GAME_UI, 0), 0, 0)
+    label = BlzCreateFrame(xy, fh, 0, 0)
+    
+    BlzFrameSetPoint(label, FRAMEPOINT_LEFT, fh, FRAMEPOINT_RIGHT, 0, 0)
+    BlzFrameSetAbsPoint(fh, FRAMEPOINT_LEFT, 0.009, 0.02)
+
+    BlzFrameSetMinMaxValue(fh, 500, 3000)
+    BlzFrameSetValue(fh, 2000)
+    BlzFrameSetStepSize(fh, 100)
+
+function updateCam()
+    SetCameraField(CAMERA_FIELD_TARGET_DISTANCE, BlzFrameGetValue(BlzGetFrameByName(yx, 0)), 0)
+    BlzFrameSetText(BlzGetFrameByName(xy, 0), R2SW(BlzFrameGetValue(BlzGetFrameByName(yx, 0)), 1, 1))
+
+function createCamControll()
+    let t = CreateTrigger()
+    for i = 1 to 3
+        t.registerDialogButtonEvent(udg_Button[i])
+    t.addAction() ->
+        createSliderDistance()
+        TimerStart(CreateTimer(), 0.1, true, function updateCam)

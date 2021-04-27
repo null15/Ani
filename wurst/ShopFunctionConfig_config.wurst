@@ -1,0 +1,37 @@
+package ShopFunctionConfig_config
+
+import ItemInShop
+import initlater ShopAPI
+
+@config public function configShopCategories()
+    CATEGORY_NAMES[0] = "Recommended"
+    CATEGORY_NAMES[1] = "Basic items"
+    CATEGORY_NAMES[2] = "Intelligence"
+    CATEGORY_NAMES[3] = "Agility"
+    CATEGORY_NAMES[4] = "Neutral"
+
+@config public function shopConfig_onOpenShop(player p)
+
+    if p == GetLocalPlayer()
+        udg_TB.display(false)
+        mbg.display(false)
+
+@config public function shopConfig_onCloseShop(player p)
+
+    if p == GetLocalPlayer()
+        udg_TB.display(true)
+        mbg.display(true)
+
+@config public function shopConfig_shopCanBuy(unit u, ItemInShop itm) returns bool
+    let cost = getItemCostForHero(u, itm)
+    if u.getOwner().getGold() >= cost
+        if u.isAlive() and (hasSpaceForItem(u, itm) and gg_rct_Base.contains(u.getPos()))
+            return true
+    return false
+
+@config public function shopConfig_sortItems(ItemInShop a, ItemInShop b) returns int
+    return a castTo int - b castTo int // sort by setup order
+    //return a.getTotalCost() - b.getTotalCost() // sort by gold cost
+
+init
+

@@ -1,0 +1,6 @@
+---
+projectName: Choice Battle v4.0.0
+dependencies:
+- https://github.com/wurstscript/wurstStdlib2
+- https://github.com/Jampi0n/wurst-advanced-shop-ui
+- https://github.com/Jampi0n/wurst-advanced-shop-ui:main

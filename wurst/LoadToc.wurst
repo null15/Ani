@@ -1,0 +1,16 @@
+package LoadToc
+
+
+
+
+init
+
+    if BlzLoadTOCFile("war3mapImported/MyResourceField.toc")
+    else
+        print("Resource Field did not load.")
+
+    if GetClickedButton() == udg_Button[1] or GetClickedButton() == udg_Button[2] or GetClickedButton() == udg_Button[3]
+        if BlzLoadTOCFile("templates.toc")
+        else
+            print("Templates did not load.")
+    
