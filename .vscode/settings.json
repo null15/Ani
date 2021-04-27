@@ -1,0 +1,13 @@
+{
+  "wurst.javaOpts" : [ "-XX:+UseG1GC", "-XX:+UseStringDeduplication", "-XX:+AggressiveOpts", "-Xmx12G" ],
+  "files.associations" : {
+    "wurst.build" : "yaml"
+  },
+  "search.useIgnoreFiles" : false,
+  "yaml.schemas" : {
+    "./.vscode/wbschema.json" : "/wurst.build"
+  },
+  "wurst.wurstJar" : "C:\\Users\\akeno\\.wurst\\wurstscript.jar",
+  "wurst.wc3path" : "C:\\Program Files (x86)\\Warcraft III",
+  "git.ignoreLimitWarning" : true
+}
