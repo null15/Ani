@@ -3,12 +3,18 @@ package ShopFunctionConfig_config
 import ItemInShop
 import initlater ShopAPI
 
+@config public constant NUM_CATEGORIES = 9
+
 @config public function configShopCategories()
     CATEGORY_NAMES[0] = "Recommended"
-    CATEGORY_NAMES[1] = "Basic items"
-    CATEGORY_NAMES[2] = "Intelligence"
-    CATEGORY_NAMES[3] = "Agility"
-    CATEGORY_NAMES[4] = "Neutral"
+    CATEGORY_NAMES[1] = "Sets"
+    CATEGORY_NAMES[2] = "Melee"
+    CATEGORY_NAMES[3] = "Utility/Control"
+    CATEGORY_NAMES[4] = "Strength"
+    CATEGORY_NAMES[5] = "Agility"
+    CATEGORY_NAMES[6] = "Offensive"
+    CATEGORY_NAMES[7] = "I hate my life"
+    CATEGORY_NAMES[8] = "Components"
 
 @config public function shopConfig_onOpenShop(player p)
 
