@@ -93,7 +93,7 @@ Frame "BUTTON" "TW_Shop_ItemButtonWithCost"  {
 
 
 Frame "BACKDROP" "TW_Shop_Window" {
-	BackdropBackground  "AnimeShopBg.tga",
+	BackdropBackground  "AnimeBgShop.dds",
 	BackdropBlendAll,
 }
 
