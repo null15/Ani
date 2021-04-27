@@ -1,0 +1,260 @@
+package Start
+
+trigger gg_trg_Start
+
+init
+
+
+	initStart()
+
+
+function startFunc001C()
+	SetUnitPosition(GetEnumUnit(), GetRectCenterX(gg_rct_Resp4), GetRectCenterY(gg_rct_Resp4))
+	UnitAddAbility(GetEnumUnit(), 'A0ZC')
+	IssueImmediateOrder(GetEnumUnit(), "divineshield")
+	UnitRemoveAbility(GetEnumUnit(), 'A0ZC')
+	UnitRemoveAbility(GetEnumUnit(), 'A1F9')
+	UnitRemoveAbility(GetEnumUnit(), 'A1FA')
+	if GetUnitAbilityLevel(GetEnumUnit(), 'A17X') > 0
+		UnitAddAbility(GetEnumUnit(), 'A182')
+	
+	if GetUnitTypeId(GetEnumUnit()) == 'H04U'
+		IssueImmediateOrder(GetEnumUnit(), "bearform")
+	
+
+function startFunc001B()
+	SetUnitPosition(GetEnumUnit(), GetRectCenterX(gg_rct_Resp6), GetRectCenterY(gg_rct_Resp6))
+	UnitAddAbility(GetEnumUnit(), 'A0ZC')
+	IssueImmediateOrder(GetEnumUnit(), "divineshield")
+	UnitRemoveAbility(GetEnumUnit(), 'A0ZC')
+	UnitRemoveAbility(GetEnumUnit(), 'A1F9')
+	UnitRemoveAbility(GetEnumUnit(), 'A1FA')
+	if GetUnitAbilityLevel(GetEnumUnit(), 'A17X') > 0
+		UnitAddAbility(GetEnumUnit(), 'A182')
+	
+	if GetUnitTypeId(GetEnumUnit()) == 'H04U'
+		IssueImmediateOrder(GetEnumUnit(), "bearform")
+	
+
+function startFunc001A()
+	SetUnitPosition(GetEnumUnit(), GetRectCenterX(gg_rct_Resp3), GetRectCenterY(gg_rct_Resp3))
+	UnitAddAbility(GetEnumUnit(), 'A0ZC')
+	IssueImmediateOrder(GetEnumUnit(), "divineshield")
+	UnitRemoveAbility(GetEnumUnit(), 'A0ZC')
+	UnitRemoveAbility(GetEnumUnit(), 'A1F9')
+	UnitRemoveAbility(GetEnumUnit(), 'A1FA')
+	if GetUnitAbilityLevel(GetEnumUnit(), 'A17X') > 0
+		UnitAddAbility(GetEnumUnit(), 'A182')
+	
+	if GetUnitTypeId(GetEnumUnit()) == 'H04U'
+		IssueImmediateOrder(GetEnumUnit(), "bearform")
+	
+
+function startFunc002C()
+	SetUnitPosition(GetEnumUnit(), GetRectCenterX(gg_rct_Resp5), GetRectCenterY(gg_rct_Resp5))
+	UnitAddAbility(GetEnumUnit(), 'A0ZC')
+	IssueImmediateOrder(GetEnumUnit(), "divineshield")
+	UnitRemoveAbility(GetEnumUnit(), 'A0ZC')
+	UnitRemoveAbility(GetEnumUnit(), 'A1F9')
+	UnitRemoveAbility(GetEnumUnit(), 'A1FA')
+	if GetUnitAbilityLevel(GetEnumUnit(), 'A17X') > 0
+		UnitAddAbility(GetEnumUnit(), 'A182')
+	
+	if GetUnitTypeId(GetEnumUnit()) == 'H04U'
+		IssueImmediateOrder(GetEnumUnit(), "bearform")
+	
+
+function startFunc002B()
+	SetUnitPosition(GetEnumUnit(), GetRectCenterX(gg_rct_Resp2), GetRectCenterY(gg_rct_Resp2))
+	UnitAddAbility(GetEnumUnit(), 'A0ZC')
+	IssueImmediateOrder(GetEnumUnit(), "divineshield")
+	UnitRemoveAbility(GetEnumUnit(), 'A0ZC')
+	UnitRemoveAbility(GetEnumUnit(), 'A1F9')
+	UnitRemoveAbility(GetEnumUnit(), 'A1FA')
+	if GetUnitAbilityLevel(GetEnumUnit(), 'A17X') > 0
+		UnitAddAbility(GetEnumUnit(), 'A182')
+	
+	if GetUnitTypeId(GetEnumUnit()) == 'H04U'
+		IssueImmediateOrder(GetEnumUnit(), "bearform")
+	
+
+function startFunc002A()
+	SetUnitPosition(GetEnumUnit(), GetRectCenterX(gg_rct_Resp1), GetRectCenterY(gg_rct_Resp1))
+	UnitAddAbility(GetEnumUnit(), 'A0ZC')
+	IssueImmediateOrder(GetEnumUnit(), "divineshield")
+	UnitRemoveAbility(GetEnumUnit(), 'A0ZC')
+	UnitRemoveAbility(GetEnumUnit(), 'A1F9')
+	UnitRemoveAbility(GetEnumUnit(), 'A1FA')
+	if GetUnitAbilityLevel(GetEnumUnit(), 'A17X') > 0
+		UnitAddAbility(GetEnumUnit(), 'A182')
+	
+	if GetUnitTypeId(GetEnumUnit()) == 'H04U'
+		IssueImmediateOrder(GetEnumUnit(), "bearform")
+	
+
+function startFunc003A()
+	SetUnitPosition(GetEnumUnit(), GetRectCenterX(gg_rct_Resp5), GetRectCenterY(gg_rct_Resp5))
+	UnitAddAbility(GetEnumUnit(), 'A0ZC')
+	IssueImmediateOrder(GetEnumUnit(), "divineshield")
+	UnitRemoveAbility(GetEnumUnit(), 'A0ZC')
+	UnitRemoveAbility(GetEnumUnit(), 'A1F9')
+	UnitRemoveAbility(GetEnumUnit(), 'A1FA')
+	if GetUnitAbilityLevel(GetEnumUnit(), 'A17X') > 0
+		UnitAddAbility(GetEnumUnit(), 'A182')
+	
+	if GetUnitTypeId(GetEnumUnit()) == 'H04U'
+		IssueImmediateOrder(GetEnumUnit(), "bearform")
+	
+
+function start_Actions()
+
+	integer i=0
+	integer ri
+
+	let g=CreateGroup()
+
+	DestroyTimerDialog(udg_TB)
+	udg_TB=null
+	if UnitIsAlive(Lucy[i])
+		KillUnit(Lucy[i])
+	
+	DisableTrigger(gg_trg_AtalantaE2)
+	DisableTrigger(gg_trg_NellelE2)
+	DisableTrigger(gg_trg_IchigoT2)
+	DisableTrigger(gg_trg_AcceleratorPassive2)
+	udg_B=true
+
+	while true
+		if i == 12
+			break
+		if Hero[i] != null
+			SetUnitState(Hero[i], UNIT_STATE_MANA, GetUnitState(Hero[i], UNIT_STATE_MAX_MANA))
+			UnitResetCooldown(Hero[i])
+		i=i + 1
+	i=0
+
+	if ArenasOff != 70 and ArenasOff != 75 and ArenasOff != 100 and ArenasOff != 95 and ArenasOff != 90 and ArenasOff != 85 and ArenasOff != 80 and ArenasOff != 10 and ArenasOff != 20 and ArenasOff != 30 and ArenasOff != 40 and ArenasOff != 50 and ArenasOff != 55 and ArenasOff != 60 and ArenasOff != 65
+		ri=GetRandomInt(1, 3)
+		if ri == 1
+			ForGroup(udg_CG[1], function startFunc001A)
+		else if ri == 2
+			ForGroup(udg_CG[1], function startFunc001B)
+		else if ri == 3
+			ForGroup(udg_CG[1], function startFunc001C)
+		
+		ri=GetRandomInt(1, 3)
+		if ri == 1
+			ForGroup(udg_CG[2], function startFunc002A)
+		else if ri == 2
+			ForGroup(udg_CG[2], function startFunc002B)
+		else if ri == 3
+			ForGroup(udg_CG[2], function startFunc002C)
+		
+		DU=true
+		DisableTrigger(duels)
+		DisableTrigger(gg_trg_MoveToArena2)
+		DisableTrigger(gg_trg_MoveToBase2)
+		DisableTrigger(gg_trg_ArenaCamera)
+		DisableTrigger(gg_trg_PauseAllUnits)
+		DisableTrigger(gg_trg_ClearAllUnit)
+		EnableTrigger(eoc)
+		EnableTrigger(gg_trg_MoveToArena)
+		TimerStart(TD, 300, false, function EndOfRound)
+		DestroyTimerDialog(TG)
+		TG=CreateTimerDialog(TD)
+		TimerDialogSetTitle(TG, "Time until round is over:")
+		TimerDialogSetTitleColor(TG, 0, 225, 255, 144)
+		TimerDialogDisplay(TG, true)
+		if round == 6
+			AddItemToStock(udg_n00A_0035, 'I039', 1, 1)
+		
+		VoiceStartRound()
+	else
+		DestroyTimerDialog(TG)
+		PauseTimer(TD)
+
+		while true
+
+			if i == 12
+				break
+
+			if Hero[i] != null
+				GroupAddUnit(gf, Hero[i])
+				GroupAddUnit(g, Hero[i])
+				SetUnitFacing(Hero[i], 90)
+				PauseUnit(Hero[i], true)
+				win[0]=0
+				
+
+			i=i + 1
+
+		DU=false
+		fi[1]=GetRandomUnitFromGroup(g)
+		GroupRemoveUnit(g, fi[1])
+		fi[2]=GetRandomUnitFromGroup(g)
+		GroupRemoveUnit(g, fi[2])
+		UnitRemoveAbility(fi[1], 'A0QL')
+		UnitRemoveAbility(fi[2], 'A0QL')
+		SetUnitFlyHeight(fi[1], 0, 0)
+		SetUnitFlyHeight(fi[2], 0, 0)
+		SetUnitPosition(fi[1], GetRectCenterX(gg_rct_F1), GetRectCenterY(gg_rct_F1))
+		SetUnitPosition(fi[2], GetRectCenterX(gg_rct_F2), GetRectCenterY(gg_rct_F2))
+		SetUnitFacing(fi[1], 360)
+		SetUnitFacing(fi[2], 180)
+		GroupEnumUnitsInRect(G, bj_mapInitialPlayableArea, FrendaBool)
+
+		while true
+			E=FirstOfGroup(G)
+			if E == null
+				break
+			RemoveUnit(E)
+			GroupRemoveUnit(G, E)
+
+		SetUnitState(fi[1], UNIT_STATE_LIFE, GetUnitState(fi[1], UNIT_STATE_MAX_LIFE))
+		SetUnitState(fi[2], UNIT_STATE_LIFE, GetUnitState(fi[2], UNIT_STATE_MAX_LIFE))
+		SetUnitState(fi[1], UNIT_STATE_MANA, GetUnitState(fi[1], UNIT_STATE_MAX_MANA))
+		SetUnitState(fi[2], UNIT_STATE_MANA, GetUnitState(fi[2], UNIT_STATE_MAX_MANA))
+		UnitRemoveBuffs(fi[1], true, true)
+		UnitRemoveBuffs(fi[2], true, true)
+		SetUnitInvulnerable(fi[1], true)
+		SetUnitInvulnerable(fi[2], true)
+		SetCameraPosition(GetRectCenterX(gg_rct_ArenaNormal), GetRectCenterY(gg_rct_ArenaNormal))
+		DisableTrigger(eoc)
+		DisableTrigger(gg_trg_MoveToArena)
+		EnableTrigger(duels)
+		EnableTrigger(gg_trg_ClearAllUnit)
+		EnableTrigger(gg_trg_MoveToArena2)
+		EnableTrigger(gg_trg_ArenaCamera)
+		EnableTrigger(gg_trg_MoveToBase2)
+		EnableTrigger(gg_trg_PauseAllUnits)
+		SetCameraField(CAMERA_FIELD_ZOFFSET, 1200., 0)
+		CameraSetupApplyForceDuration(udg_Camera, false, 0)
+		DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "3!")
+		PauseUnit(fi[1], true)
+		PauseUnit(fi[2], true)
+		bj_lastPlayedSound=CreateSound("ChoiceSounds\\Voice\\" + InitVoice2(GetUnitTypeId(fi[1]) , GetUnitTypeId(fi[2])), false, false, true, 12700, 12700, "")
+		StartSound(bj_lastPlayedSound)
+		KillSoundWhenDone(bj_lastPlayedSound)
+		PolledWait(1)
+		PauseUnit(fi[1], true)
+		PauseUnit(fi[2], true)
+		DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "2!")
+		PolledWait(1)
+		PauseUnit(fi[1], true)
+		PauseUnit(fi[2], true)
+		DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "1!")
+		PolledWait(1)
+		PauseUnit(fi[1], false)
+		PauseUnit(fi[2], false)
+		DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "Fight!")
+		SetUnitInvulnerable(fi[1], false)
+		SetUnitInvulnerable(fi[2], false)
+		SetForceAllianceStateBJ(all[0], all[0], bj_ALLIANCE_UNALLIED)
+	
+	DestroyGroup(g)
+
+function initStart()
+	gg_trg_Start = CreateTrigger()
+	TriggerRegisterTimerExpireEvent(gg_trg_Start, udg_Timer)
+	TriggerAddAction(gg_trg_Start, function start_Actions)
+

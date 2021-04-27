@@ -1,0 +1,15 @@
+package ItemFinalize
+
+import ItemInShop
+import Components
+import Meleeitems
+import Sets
+import Execute
+import Utilityitems
+import OffensiveItems
+
+init
+
+    execute() ->
+        
+        ItemInShop.finalize()

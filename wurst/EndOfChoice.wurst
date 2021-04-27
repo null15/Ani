@@ -1,0 +1,244 @@
+package EndOfChoice
+
+import ClosureTimers
+
+init
+
+    endOfChoiceInit()
+
+
+function endOfCond() returns bool
+    let n = GetTriggerUnit()
+    return GetOwningPlayer(n) != Player(14) and GetUnitAbilityLevel(n, 'A14Y') == 0 and GetUnitTypeId(GetTriggerUnit()) != 'H03W' and GetUnitTypeId(GetTriggerUnit()) != 'H03X' and GetUnitTypeId(GetTriggerUnit()) != 'H03V' and GetUnitTypeId(GetTriggerUnit()) != 'H03U' and GetUnitTypeId(GetTriggerUnit()) != 'H03T' and GetUnitTypeId(GetTriggerUnit()) != 'H03Y' and GetUnitTypeId(GetTriggerUnit()) != 'H03O' and GetUnitTypeId(n) != 'H007' and GetUnitTypeId(n) != 'H035' and IsUnitType(n, UNIT_TYPE_HERO) == true and ( (GroupIsDeath(udg_CG[1]) and GroupIsDeath(udg_CG[2]) ) or ( GroupIsDeath(udg_CG[1]) and GroupIsDeath(udg_CG[3]) ) or ( GroupIsDeath(udg_CG[2]) and GroupIsDeath(udg_CG[3]) ))
+
+function endOfChoiceAct()
+    
+    item array itt
+    unit gon
+    bool b = false
+
+    udg_B = false
+
+    if GroupIsDeath(udg_CG[2]) and TC == false
+
+        win[1] = win[1] + 1
+
+        for he = 0 to 4
+
+            SetPlayerState(Player(he), PLAYER_STATE_RESOURCE_LUMBER, GetPlayerState(Player(he), PLAYER_STATE_RESOURCE_LUMBER) + 1)
+
+        doAfter(2.5) -> 
+            ClearTextMessages()
+            DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "|cb0f12121The first team won and gained a point.")
+            DisplayTextToPlayer(GetLocalPlayer(), 0, 0, " ")
+            DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "Both teams are also awarded with |cd6c2b93e2500|r Gold.")
+
+    else if GroupIsDeath(udg_CG[1]) and TC == false
+
+        win[2] = win[2] + 1
+        for he = 5 to 9
+
+            SetPlayerState(Player(he), PLAYER_STATE_RESOURCE_LUMBER, GetPlayerState(Player(he), PLAYER_STATE_RESOURCE_LUMBER) + 1)
+    
+        doAfter(2.5) -> 
+            ClearTextMessages()
+            DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "|cb91e3cc2The second team won and gained a point.")
+            DisplayTextToPlayer(GetLocalPlayer(), 0, 0, " ")
+            DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "Both teams are also awarded with |cd6c2b93e2500|r Gold.")
+
+
+    else if GroupIsDeath(udg_CG[2]) and GroupIsDeath(udg_CG[1]) and TC == true
+
+        if win[1] != 14 and win[2] != 14
+
+            win[1] = win[1] + 1
+            win[2] = win[2] + 1
+
+            doAfter(2.5) -> 
+                ClearTextMessages()
+                DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "|ca7d459c4Draw, both teams gained a point.")
+                DisplayTextToPlayer(GetLocalPlayer(), 0, 0, " ")
+                DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "Both teams are also given |cd6c2b93e2500|r Gold.")
+                
+                TC = false
+
+        else
+
+            doAfter(2.5) -> 
+                ClearTextMessages()
+                DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "|ca7d459c4Draw. As a team has 14 wins, both team gains no point for this round.")
+                DisplayTextToPlayer(GetLocalPlayer(), 0, 0, " ")
+                DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "Both teams are also given |cd6c2b93e2500|r Gold.")
+
+                TC = false
+            
+    
+    n = GetTriggerUnit()
+    if GetUnitAbilityLevel(n, 'A0YT') > 0
+        SetUnitOwner(n, LoadPlayerHandle(h, GetHandleId(n), StringHash("CS")), true)
+        UnitRemoveAbility(n, 'A0YT')
+    
+    for i = 0 to 12
+        SetUnitPosition(Hero[i], RX, RY)
+        UnitRemoveAbility(Hero[i], 'BOhx')
+        UnitRemoveAbility(Hero[i], 'BO3E')
+        UnitRemoveAbility(Hero[i], 'BO3E')
+        UnitRemoveAbility(Hero[i], 'A0QL')
+        UnitRemoveAbility(Hero[i], 'A1DH')
+        UnitRemoveAbility(Hero[i], 'A0IH')
+        UnitRemoveAbility(Hero[i], 'A13R')
+        UnitRemoveAbility(Hero[i], 'A13O')
+        UnitRemoveAbility(Hero[i], 'A13U')
+        UnitRemoveAbility(Hero[i], 'A1FA')
+        UnitRemoveAbility(Hero[i], 'A1F9')
+        UnitRemoveBuffs(Hero[i], true, true)
+
+        if GetUnitTypeId(Hero[i]) == 'H04F'
+            SaveInteger(h, GetHandleId(Hero[i]), StringHash("recall"), 2)
+        UnitRemoveAbility(Hero[i], 'A0WR')
+        SetHeroLevel(Hero[i], GetHeroLevel(Hero[i]) + 3, true)
+
+        if GetHeroLevel(Hero[i]) == 21
+            SetHeroLevel(Hero[i], 22, true)
+
+
+        SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD) + 2500)
+
+        if GetPlayerState(Player(i), PLAYER_STATE_LUMBER_GATHERED) >= udg_rou
+            CustomVictoryBJ(Player(i), true, true)
+            b = true
+
+        if UnitIsAlive(Hero[i]) == false
+            ReviveHero(Hero[i], RX, RY, false)
+
+        rfhr[i] = 1
+
+        if GetUnitTypeId(Hero[i]) == 'H04B'
+            n=CreateUnit(GetOwningPlayer(Hero[i]), 'H04A', GetRectCenterX(gg_rct_Resp7), GetRectCenterY(gg_rct_Resp7), 0)
+            gon=Hero[i]
+            Gon=n
+            Hero[i]=n
+            udg_Hero[i + 1]=n
+
+            if GetHeroLevel(gon) > 1
+                SetHeroLevel(n, GetHeroLevel(gon), false)
+
+            SetHeroInt(n, GetHeroInt(n, false) + stats[i] * 3, true)
+            SetHeroAgi(n, GetHeroAgi(n, false) + stats[i] * 3, true)
+            SetHeroStr(n, GetHeroStr(n, false) + stats[i] * 3, true)
+
+
+            for is = 0 to 5
+                itt[is]=UnitItemInSlot(gon, is)
+
+            if GetPlayerId(GetOwningPlayer(Hero[i])) < 5
+                GroupAddUnit(udg_CG[1], n)
+
+            else if GetPlayerId(GetOwningPlayer(Hero[i])) > 4 and GetPlayerId(GetOwningPlayer(Hero[i])) < 10
+                GroupAddUnit(udg_CG[2], n)
+                
+
+            for is = 0 to 5
+
+                if GetItemTypeId(itt[is]) != 'I03S'
+                    UnitAddItemById(n, GetItemTypeId(itt[is]))
+
+            RemoveUnit(gon)
+            if GetLocalPlayer() == Player(i)
+                ClearSelection()
+                SelectUnit(n, true)
+        
+
+        if Player(i) == GetLocalPlayer()
+            SelectUnit(Hero[i], true)
+
+        cell[i] = 0
+        SetUnitTimeScale(Hero[i], 1)
+        UnitAddType(Hero[i], UNIT_TYPE_ETHEREAL)
+        UnitRemoveType(Hero[i], UNIT_TYPE_ETHEREAL)
+        UnitAddAbility(Hero[i], 'Agho')
+        UnitRemoveAbility(Hero[i], 'Agho')
+        UnitAddAbility(Hero[i], 'A00D')
+        UnitRemoveAbility(Hero[i], 'A00D')
+        IssueImmediateOrder(Hero[i], "unimmolation")
+        SetUnitFlyHeight(Hero[i], 0, 0)
+        GroupClear(udg_KG[i])
+        
+    for i = 0 to 11
+        if GetPlayerState(Player(i), PLAYER_STATE_LUMBER_GATHERED) >= udg_rou
+            CustomVictoryBJ(Player(i), true, true)
+            b = true
+
+
+    if b == true
+        DestroyTimer(udg_Timer)
+        DestroyTimerDialog(udg_TB)  
+
+        for i = 0 to 11
+            if GetPlayerState(Player(i), PLAYER_STATE_LUMBER_GATHERED) < udg_rou
+                CustomDefeatBJ(Player(i), "You lose!")
+            
+    else
+        TimerStart(udg_Timer, 30, false, null)
+        DestroyTimerDialog(udg_TB)
+        DestroyTimerDialog(TG)
+        udg_TB=CreateTimerDialog(udg_Timer)
+        TimerDialogSetTitle(udg_TB, "Round starts in:")
+        TimerDialogSetTitleColor(udg_TB, 0, 225, 255, 144)
+        TimerDialogDisplay(udg_TB, true)
+
+    round = round + 1
+    if ArenasAreOff == false
+        ArenasOff=round
+
+    Rounds = true
+    if win[1] >= udg_rou
+        CustomVictoryBJ(Player(0), true, true)
+        CustomVictoryBJ(Player(1), true, true)
+        CustomVictoryBJ(Player(2), true, true)
+        CustomVictoryBJ(Player(3), true, true)
+        CustomVictoryBJ(Player(4), true, true)
+        CustomDefeatBJ(Player(5), "You lose!")
+        CustomDefeatBJ(Player(6), "You lose!")
+        CustomDefeatBJ(Player(7), "You lose!")
+        CustomDefeatBJ(Player(8), "You lose!")
+        CustomDefeatBJ(Player(9), "You lose!")
+        DestroyTimer(udg_Timer)
+        DestroyTimerDialog(udg_TB)
+    else if win[2] >= udg_rou
+        CustomDefeatBJ(Player(0), "You lose!")
+        CustomDefeatBJ(Player(1), "You lose!")
+        CustomDefeatBJ(Player(2), "You lose!")
+        CustomDefeatBJ(Player(3), "You lose!")
+        CustomDefeatBJ(Player(4), "You lose!")
+        CustomVictoryBJ(Player(5), true, true)
+        CustomVictoryBJ(Player(6), true, true)
+        CustomVictoryBJ(Player(7), true, true)
+        CustomVictoryBJ(Player(8), true, true)
+        CustomVictoryBJ(Player(9), true, true)
+        DestroyTimer(udg_Timer)
+        DestroyTimerDialog(udg_TB)
+    else if win[3] >= udg_rou
+        CustomDefeatBJ(Player(0), "You lose!")
+        CustomDefeatBJ(Player(1), "You lose!")
+        CustomDefeatBJ(Player(2), "You lose!")
+        CustomDefeatBJ(Player(3), "You lose!")
+        CustomDefeatBJ(Player(4), "You lose!")
+        CustomDefeatBJ(Player(5), "You lose!")
+        CustomDefeatBJ(Player(6), "You lose!")
+        CustomDefeatBJ(Player(7), "You lose!")
+        CustomVictoryBJ(Player(8), true, true)
+        CustomVictoryBJ(Player(9), true, true)
+        CustomVictoryBJ(Player(10), true, true)
+        CustomVictoryBJ(Player(11), true, true)
+        DestroyTimer(udg_Timer)
+        DestroyTimerDialog(udg_TB)
+
+function endOfChoiceInit()
+    eoc = CreateTrigger()
+
+    for i = 0 to 9
+        TriggerRegisterPlayerUnitEvent(eoc, Player(i), EVENT_PLAYER_UNIT_DEATH, null)
+
+    TriggerAddAction(eoc, function endOfChoiceAct)
+    TriggerAddCondition(eoc, Condition(function endOfCond))

@@ -1,0 +1,46 @@
+package AnimeShop
+
+import public ItemFinalize
+import ShopUI
+import ClosureTimers
+//import UnitIds
+//import RecommendedItems
+
+
+ShopUI array playerShopUI
+
+unit array heroCopies
+
+
+
+init
+/*
+    let amItems = new RecommendedItems(UnitIds.archmage)
+    let palItems = new RecommendedItems(UnitIds.paladin)
+    let mkItems = new RecommendedItems(UnitIds.mountainking)
+    let blmItems = new RecommendedItems(UnitIds.bloodmage)
+*/
+
+
+    for i = 1 to bj_MAX_PLAYERS
+        heroCopies[i] = null
+        playerShopUI[i] = new ShopUI(players[i-1], null)
+        CreateTrigger()
+        ..registerPlayerKeyPress(players[i-1], OSKEY_ESCAPE, OSKEY_META.NONE, true)
+        ..addAction() ->
+            let id = GetTriggerPlayer().getId() + 1
+            if playerShopUI[id].isEnabled()
+                playerShopUI[id].closeShop()
+                if GetLocalPlayer().getId() == id
+                    ClearSelection()
+                    SelectUnit(udg_Hero[id],true)
+            else
+                playerShopUI[id].openShop()
+    doAfter(10) -> 
+        doPeriodically(1.) cb ->
+            for i = 1 to bj_MAX_PLAYERS
+                if udg_Hero[i] != null and heroCopies[i] != udg_Hero[i]
+                    if heroCopies[i] == null
+                        playerShopUI[i].start(udg_Hero[i])
+                    playerShopUI[i].setInventoryUnit(udg_Hero[i])   
+                    heroCopies[i] = udg_Hero[i]

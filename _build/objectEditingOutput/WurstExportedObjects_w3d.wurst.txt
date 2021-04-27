@@ -1,0 +1,339 @@
+package WurstExportedObjects_w3d
+import ObjEditingNatives
+
+// Modified Table (contains all custom objects)
+
+@compiletime function create_w3d_D01O()
+	let def = createObjectDefinition("w3d", 'D01O', 'NOal')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\Theatre.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 24.0)
+	..setLvlDataUnreal("dmis", 0, 0, 24.0)
+
+
+@compiletime function create_w3d_D01N()
+	let def = createObjectDefinition("w3d", 'D01N', 'ZPfw')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\TwinGear.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 4.0)
+	..setLvlDataUnreal("dmis", 0, 0, 4.0)
+
+
+@compiletime function create_w3d_D01M()
+	let def = createObjectDefinition("w3d", 'D01M', 'ZPfw')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\Gear.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 4.0)
+	..setLvlDataUnreal("dmis", 0, 0, 4.0)
+
+
+@compiletime function create_w3d_D01L()
+	let def = createObjectDefinition("w3d", 'D01L', 'JZud')
+	..setLvlDataUnreal("ddes", 0, 0, 0.5)
+
+
+@compiletime function create_w3d_D01J()
+	let def = createObjectDefinition("w3d", 'D01J', 'ZPfw')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\UBW.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 3.2)
+	..setLvlDataUnreal("dmis", 0, 0, 3.2)
+
+
+@compiletime function create_w3d_D01I()
+	let def = createObjectDefinition("w3d", 'D01I', 'ZPfw')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\SwordStanding.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 1.0)
+	..setLvlDataUnreal("dmis", 0, 0, 0.5)
+
+
+@compiletime function create_w3d_D01H()
+	let def = createObjectDefinition("w3d", 'D01H', 'ZPfw')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\mailBox.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 1.0)
+	..setLvlDataUnreal("dmis", 0, 0, 1.0)
+
+
+@compiletime function create_w3d_D01G()
+	let def = createObjectDefinition("w3d", 'D01G', 'ZPfw')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\phone.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 5.0)
+	..setLvlDataUnreal("dmis", 0, 0, 5.0)
+
+
+@compiletime function create_w3d_D01F()
+	let def = createObjectDefinition("w3d", 'D01F', 'ZPfw')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\ka.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 1.5)
+	..setLvlDataUnreal("dmis", 0, 0, 1.5)
+
+
+@compiletime function create_w3d_D01E()
+	let def = createObjectDefinition("w3d", 'D01E', 'ZPfw')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\trashContainerOpen.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 0.5)
+	..setLvlDataUnreal("dmis", 0, 0, 0.5)
+
+
+@compiletime function create_w3d_D01D()
+	let def = createObjectDefinition("w3d", 'D01D', 'ZPfw')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\trashCan.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 1.3)
+	..setLvlDataUnreal("dmis", 0, 0, 1.3)
+
+
+@compiletime function create_w3d_D01C()
+	let def = createObjectDefinition("w3d", 'D01C', 'ZPfw')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\concreteFance.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 1.3)
+	..setLvlDataUnreal("dmis", 0, 0, 1.3)
+
+
+@compiletime function create_w3d_D01B()
+	let def = createObjectDefinition("w3d", 'D01B', 'ZPfw')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\Crane.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 2.0)
+	..setLvlDataUnreal("dmis", 0, 0, 2.0)
+
+
+@compiletime function create_w3d_D01A()
+	let def = createObjectDefinition("w3d", 'D01A', 'ZPfw')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\RoadBlock_White.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 4.0)
+	..setLvlDataUnreal("dmis", 0, 0, 4.0)
+
+
+@compiletime function create_w3d_D019()
+	let def = createObjectDefinition("w3d", 'D019', 'ZPfw')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\Straight Track.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 0.5)
+	..setLvlDataUnreal("dmis", 0, 0, 0.5)
+
+
+@compiletime function create_w3d_D017()
+	let def = createObjectDefinition("w3d", 'D017', 'ZRrk')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\ScreenAnimated.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 3.0)
+	..setLvlDataUnreal("dmis", 0, 0, 3.0)
+	..setLvlDataInt("dvar", 0, 0, 1)
+	..setLvlDataString("dptx", 0, 0, "")
+
+
+@compiletime function create_w3d_D016()
+	let def = createObjectDefinition("w3d", 'D016', 'ZRrk')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\TortureTableCorpse.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 1.5)
+	..setLvlDataUnreal("dmis", 0, 0, 1.5)
+	..setLvlDataInt("dvar", 0, 0, 1)
+	..setLvlDataString("dptx", 0, 0, "")
+
+
+@compiletime function create_w3d_D015()
+	let def = createObjectDefinition("w3d", 'D015', 'ZRrk')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\resurect.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 1.0)
+	..setLvlDataUnreal("dmis", 0, 0, 1.0)
+	..setLvlDataInt("dvar", 0, 0, 1)
+	..setLvlDataString("dptx", 0, 0, "")
+
+
+@compiletime function create_w3d_D014()
+	let def = createObjectDefinition("w3d", 'D014', 'ZRrk')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\HideoutWall3.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 3.0)
+	..setLvlDataUnreal("dmis", 0, 0, 2.0)
+	..setLvlDataInt("dvar", 0, 0, 1)
+	..setLvlDataString("dptx", 0, 0, "")
+
+
+@compiletime function create_w3d_D013()
+	let def = createObjectDefinition("w3d", 'D013', 'ZRrk')
+	..setLvlDataString("dfil", 0, 0, "Doodads\\Dungeon\\Props\\Bookshelf\\Bookshelf.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 3.0)
+	..setLvlDataUnreal("dmis", 0, 0, 3.0)
+	..setLvlDataInt("dvar", 0, 0, 1)
+	..setLvlDataString("dptx", 0, 0, "")
+
+
+@compiletime function create_w3d_D011()
+	let def = createObjectDefinition("w3d", 'D011', 'ZRrk')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\TorchLamp.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 1.5)
+	..setLvlDataUnreal("dmis", 0, 0, 1.5)
+	..setLvlDataInt("dvar", 0, 0, 1)
+	..setLvlDataString("dptx", 0, 0, "")
+
+
+@compiletime function create_w3d_D010()
+	let def = createObjectDefinition("w3d", 'D010', 'ZRrk')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\Laboratory_Water.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 0.3)
+	..setLvlDataUnreal("dmis", 0, 0, 0.3)
+	..setLvlDataInt("dvar", 0, 0, 1)
+	..setLvlDataString("dptx", 0, 0, "")
+
+
+@compiletime function create_w3d_D00Z()
+	let def = createObjectDefinition("w3d", 'D00Z', 'ZRrk')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\metalshelf.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 3.0)
+	..setLvlDataUnreal("dmis", 0, 0, 2.0)
+	..setLvlDataInt("dvar", 0, 0, 1)
+	..setLvlDataString("dptx", 0, 0, "")
+
+
+@compiletime function create_w3d_D00Y()
+	let def = createObjectDefinition("w3d", 'D00Y', 'ZRrk')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\HideoutWall2.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 3.0)
+	..setLvlDataUnreal("dmis", 0, 0, 2.0)
+	..setLvlDataInt("dvar", 0, 0, 1)
+	..setLvlDataString("dptx", 0, 0, "")
+
+
+@compiletime function create_w3d_D00X()
+	let def = createObjectDefinition("w3d", 'D00X', 'ZRrk')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\HideoutPillar.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 5.0)
+	..setLvlDataUnreal("dmis", 0, 0, 5.0)
+	..setLvlDataInt("dvar", 0, 0, 1)
+	..setLvlDataString("dptx", 0, 0, "")
+
+
+@compiletime function create_w3d_D00W()
+	let def = createObjectDefinition("w3d", 'D00W', 'ZRrk')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\HideoutFlor.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 2.0)
+	..setLvlDataUnreal("dmis", 0, 0, 2.0)
+	..setLvlDataInt("dvar", 0, 0, 1)
+	..setLvlDataString("dptx", 0, 0, "")
+
+
+@compiletime function create_w3d_D00V()
+	let def = createObjectDefinition("w3d", 'D00V', 'ZRrk')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\HideoutWall1.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 3.0)
+	..setLvlDataUnreal("dmis", 0, 0, 2.0)
+	..setLvlDataInt("dvar", 0, 0, 1)
+	..setLvlDataString("dptx", 0, 0, "")
+
+
+@compiletime function create_w3d_D00S()
+	let def = createObjectDefinition("w3d", 'D00S', 'ZPfw')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\two jhxcom_2001.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 0.7)
+	..setLvlDataUnreal("dmis", 0, 0, 0.7)
+
+
+@compiletime function create_w3d_D00I()
+	let def = createObjectDefinition("w3d", 'D00I', 'ZPfw')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\Advertise.mdl")
+	..setLvlDataUnreal("dmis", 0, 0, 1.2)
+
+
+@compiletime function create_w3d_D00G()
+	let def = createObjectDefinition("w3d", 'D00G', 'ZPfw')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\Bush.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 1.0)
+	..setLvlDataUnreal("dmis", 0, 0, 0.5)
+
+
+@compiletime function create_w3d_D00F()
+	let def = createObjectDefinition("w3d", 'D00F', 'ZPfw')
+	..setLvlDataString("dfil", 0, 0, "Doodads\\LordaeronSummer\\Plants\\LillyPad\\LillyPad.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 1.0)
+	..setLvlDataUnreal("dmis", 0, 0, 0.5)
+
+
+@compiletime function create_w3d_D00C()
+	let def = createObjectDefinition("w3d", 'D00C', 'ZRrk')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\stone_03.mdl")
+	..setLvlDataInt("dvar", 0, 0, 1)
+	..setLvlDataInt("dvb1", 1, 0, 65)
+	..setLvlDataInt("dvg1", 1, 0, 125)
+	..setLvlDataInt("dvr1", 1, 0, 55)
+
+
+@compiletime function create_w3d_D009()
+	let def = createObjectDefinition("w3d", 'D009', 'DOtb')
+	..setLvlDataString("dcat", 0, 0, "E")
+	..setLvlDataString("dfil", 0, 0, "Doodads\\Cityscape\\Props\\City_Fountain\\City_Fountain.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 1.0)
+	..setLvlDataUnreal("dmis", 0, 0, 1.0)
+	..setLvlDataString("dptx", 0, 0, "")
+	..setLvlDataString("dtil", 0, 0, "A")
+
+
+@compiletime function create_w3d_D008()
+	let def = createObjectDefinition("w3d", 'D008', 'LOlp')
+	..setLvlDataString("dcat", 0, 0, "E")
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\StreetLight.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 1.0)
+	..setLvlDataUnreal("dmis", 0, 0, 1.0)
+	..setLvlDataString("dtil", 0, 0, "A")
+
+
+@compiletime function create_w3d_D006()
+	let def = createObjectDefinition("w3d", 'D006', 'DOtb')
+	..setLvlDataString("dcat", 0, 0, "E")
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\izgorod.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 0.5)
+	..setLvlDataUnreal("dmis", 0, 0, 0.5)
+	..setLvlDataString("dptx", 0, 0, "")
+	..setLvlDataString("dtil", 0, 0, "A")
+
+
+@compiletime function create_w3d_D005()
+	let def = createObjectDefinition("w3d", 'D005', 'NOal')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\izgorod.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 0.5)
+	..setLvlDataUnreal("dmis", 0, 0, 0.5)
+
+
+@compiletime function create_w3d_D004()
+	let def = createObjectDefinition("w3d", 'D004', 'NOal')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\KMFence1.mdl")
+
+
+@compiletime function create_w3d_D003()
+	let def = createObjectDefinition("w3d", 'D003', 'ZPfw')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\KBusStop.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 1.0)
+	..setLvlDataUnreal("dmis", 0, 0, 1.0)
+
+
+@compiletime function create_w3d_D001()
+	let def = createObjectDefinition("w3d", 'D001', 'ZPfw')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\grass.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 1.0)
+	..setLvlDataUnreal("dmis", 0, 0, 0.5)
+	..setLvlDataInt("dvb1", 1, 0, 150)
+	..setLvlDataInt("dvb1", 2, 0, 150)
+	..setLvlDataInt("dvb1", 3, 0, 150)
+	..setLvlDataInt("dvb1", 4, 0, 150)
+	..setLvlDataInt("dvb1", 5, 0, 150)
+	..setLvlDataInt("dvr1", 1, 0, 0)
+	..setLvlDataInt("dvr1", 2, 0, 0)
+	..setLvlDataInt("dvr1", 3, 0, 0)
+	..setLvlDataInt("dvr1", 4, 0, 0)
+	..setLvlDataInt("dvr1", 5, 0, 0)
+
+
+// Original Table (contains all modified default objects)
+// Wurst does not support modifying default objects
+// but you can copy these functions and replace 'xxxx' with a new, custom id.
+
+@compiletime function create_w3d_    ()
+	let def = createObjectDefinition("w3d", '    ', 'YSw0')
+	..setLvlDataUnreal("dfxr", 0, 0, -1.0)
+
+
+@compiletime function create_w3d_    ()
+	let def = createObjectDefinition("w3d", '    ', 'YOwa')
+	..setLvlDataString("dfil", 0, 0, "war3mapImported\\Skameika2.mdl")
+	..setLvlDataUnreal("dmas", 0, 0, 1.2)
+	..setLvlDataUnreal("dmis", 0, 0, 1.2)
+
+
+@compiletime function create_w3d_    ()
+	let def = createObjectDefinition("w3d", '    ', 'YOlp')
+	..setLvlDataUnreal("dmas", 0, 0, 1.0)
+	..setLvlDataUnreal("dmis", 0, 0, 1.0)
+
+

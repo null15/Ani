@@ -1,0 +1,24 @@
+package OffensiveItems
+
+
+import ItemConfiguration
+import Execute
+
+constant CATEGORY = 6
+
+
+init
+
+    execute() ->
+
+        setupItem('I03H', CATEGORY, 1500) // Glove C
+        addRequirement('I03G')
+
+        setupItem('I03I', CATEGORY, 2250) // Glove B
+        addRequirement('I03H')
+
+        setupItem('I03J', CATEGORY, 3000) // Glove A
+        addRequirement('I03I')
+
+        setupItem('I03K', CATEGORY, 3750) // Glove S
+        addRequirement('I03J')
