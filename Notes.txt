@@ -1,0 +1,5 @@
+Disabled MapInit trigger in trigger editor, nothing broke.
+
+Shop creation at base gone.
+
+Taverns to select heroes too, as a result.
