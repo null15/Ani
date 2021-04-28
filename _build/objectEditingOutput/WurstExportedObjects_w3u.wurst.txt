@@ -53968,6 +53968,50 @@ import ObjEditingNatives
 	..setString("umvt", "fly")
 
 
+@compiletime function create_w3u_n010()
+	let def = createObjectDefinition("w3u", 'n010', 'nmrk')
+	..setString("ushb", "")
+	..setInt("udro", 0)
+	..setString("umdl", "shop_1.mdl")
+	..setUnreal("umvh", 10.0)
+	..setString("umvt", "hover")
+	..setString("unam", "Market")
+	..setString("upat", "")
+	..setString("uubs", "")
+	..setString("uabi", "Aneu,Asid,A058,Asud,Apit")
+	..setUnreal("ucol", 125.0)
+
+
+@compiletime function create_w3u_n011()
+	let def = createObjectDefinition("w3u", 'n011', 'nmrk')
+	..setString("ushb", "")
+	..setInt("udro", 0)
+	..setString("umdl", "advertise1.mdl")
+	..setReal("usca", 2.0)
+	..setUnreal("umvh", 10.0)
+	..setString("umvt", "hover")
+	..setString("unam", "Billboard")
+	..setString("upat", "")
+	..setString("uubs", "")
+	..setString("uabi", "Aloc,Aneu,Asid,A058,Asud,Apit")
+	..setString("uabs", "Aloc,Aneu,Asid,Avul,Asud,Apit")
+
+
+@compiletime function create_w3u_n012()
+	let def = createObjectDefinition("w3u", 'n012', 'nmrk')
+	..setString("ushb", "")
+	..setInt("udro", 0)
+	..setString("umdl", "shop_2.mdl")
+	..setUnreal("umvh", 10.0)
+	..setString("umvt", "hover")
+	..setString("unam", "Market")
+	..setString("upat", "")
+	..setString("uubs", "")
+	..setString("uabi", "Aneu,Asid,A058,Asud,Apit")
+	..setString("ides", "A store for sellings goods.")
+	..setUnreal("ucol", 125.0)
+
+
 // Original Table (contains all modified default objects)
 // Wurst does not support modifying default objects
 // but you can copy these functions and replace 'xxxx' with a new, custom id.
