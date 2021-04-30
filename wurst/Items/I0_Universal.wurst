@@ -8,7 +8,7 @@ init
  
     execute() ->
 
-        setupItem('I03A', CATEGORY, 1250) // Alastor
+        setupItem('I03A', CATEGORY, 5700) // Alastor
         addRequirement('I02R')
         addRequirement('I02S')
         addRequirement('I02T')
@@ -18,3 +18,83 @@ init
         addRequirement('I06K') //Quincy Glove
         addRequirement('I06M') //Quincy Medallion
         addRequirement('I06N') //Quincy Overcoat
+
+        setupItem('I042', CATEGORY, 4700) // Captain Set
+        addRequirement('I01I') // Sword B
+        addRequirement('I02T') // Wind Orb
+
+        setupItem('I02Q', CATEGORY, 4750) // Hell Malocchio Ring
+        addRequirement('I02P') // Fake Malocchio Ring
+
+        setupItem('I02W', CATEGORY, 5400) // Fire Boots
+        addRequirement('I01X') // 
+        addRequirement('I02R') // 
+        addRequirement('I01M') // 
+        addRequirement('I01F') // 
+        
+        setupItem('I054', CATEGORY, 5400) // Ice Boots
+        addRequirement('I01X') // 
+        addRequirement('I01M') // 
+        addRequirement('I02S') // 
+        addRequirement('I01F') // 
+
+        setupItem('I046', CATEGORY, 5400) // Wind Boots
+        addRequirement('I01X') // 
+        addRequirement('I02T') // 
+        addRequirement('I01M') // 
+        addRequirement('I01F') // 
+
+        setupItem('I04L', CATEGORY, 4900) // Ice Essence
+        addRequirement('I02S') // 
+        addRequirement('I01M') // 
+        addRequirement('I02S') // 
+
+        setupItem('I04V', CATEGORY, 6300) // Imagine Breaker
+        addRequirement('I01M') // 
+        addRequirement('I01K') // 
+        addRequirement('I03I') // 
+
+        setupItem('I06Q', CATEGORY, 5000) // Kaleidoscope Ruby
+        addRequirement('I01W') // 
+        addRequirement('I01W') // 
+        addRequirement('I06C') // 
+
+        setupItem('I06R', CATEGORY, 5000) // Kaleidoscope Sapphire
+        addRequirement('I01W') // 
+        addRequirement('I01W') // 
+        addRequirement('I06C') // 
+
+        setupItem('I05B', CATEGORY, 4750) // Mare Thunder Ring
+        addRequirement('I05A') // 
+
+        setupItem('I03Q', CATEGORY, 4500) // Orb of Space
+        addRequirement('I06C') // 
+
+        setupItem('I03P', CATEGORY, 4500) // Orb of Time
+        addRequirement('I06C') // 
+
+        setupItem('I03R', CATEGORY, 4500) // Orb of Void
+        addRequirement('I01M') // 
+        addRequirement('I06C') // 
+
+        setupItem('I01E', CATEGORY, 4750) // Vongola Sky Ring
+        addRequirement('I01D') // 
+
+        setupItem('I044', CATEGORY, 5700) // Seal of Elements
+        addRequirement('I02T') // 
+        addRequirement('I02R') // 
+        addRequirement('I02S') // 
+
+        setupItem('I04G', CATEGORY, 5000) // Tornado
+        addRequirement('I02T') // 
+        addRequirement('I01X') // 
+        addRequirement('I01X') // 
+
+        setupItem('I04T', CATEGORY, 4500) // Yata Mirror
+        addRequirement('I03Z') // 
+        addRequirement('I03Y') // 
+        addRequirement('I01M') // 
+        addRequirement('I01M') // 
+
+        setupItem('I020', CATEGORY, 4250) // Staff of Darkness
+        addRequirement('I06C') // 

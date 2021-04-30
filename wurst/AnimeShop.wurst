@@ -3,7 +3,7 @@ package AnimeShop
 import public ItemFinalize
 import ShopUI
 import ClosureTimers
-
+import ShopAppearanceOverride
 //import UnitIds
 //import RecommendedItems
 
@@ -27,7 +27,7 @@ init
 
     for i = 1 to bj_MAX_PLAYERS
         heroCopies[i] = null
-        playerShopUI[i] = new ShopUI(players[i-1], null)
+        playerShopUI[i] = new ShopUI(players[i-1], null, new ShopAppearanceConfig ())
         CreateTrigger()
         ..registerPlayerKeyPress(players[i-1], OSKEY_B, OSKEY_META.NONE, true)
         ..addAction() ->

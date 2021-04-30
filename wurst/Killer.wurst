@@ -1,0 +1,231 @@
+package Killer
+
+
+
+integer id
+integer id2
+integer i
+
+init
+
+
+    initTrig_Killer()
+
+function trig_Killer_Conditions() returns boolean
+    return IsUnitType(GetTriggerUnit(),UNIT_TYPE_HERO) and GetUnitAbilityLevel(GetTriggerUnit(),'A14Y')==0 and GetUnitTypeId(GetTriggerUnit())!='H03Y' and GetUnitTypeId(GetTriggerUnit())!='H03T' and GetUnitTypeId(GetTriggerUnit())!='H03W' and GetUnitTypeId(GetTriggerUnit())!='H03X' and GetUnitTypeId(GetTriggerUnit())!='H03V' and GetUnitTypeId(GetTriggerUnit())!='H03U' and GetUnitTypeId(GetTriggerUnit())!='H035' and GetUnitTypeId(GetTriggerUnit())!='H007' and GetOwningPlayer(GetTriggerUnit())!=Player(14)
+
+function killerSound(integer id, integer id2)
+
+    if(GetUnitTypeId(Hero[id])=='H059' or GetUnitTypeId(Hero[id])=='H070') and GetUnitTypeId(Hero[id2])!='H05A'
+        bj_lastPlayedSound=CreateSound("war3mapImported\\GilKill"+I2S(GetRandomInt(1,6))+".mp3",false,false,true,12700,12700,"")
+        StartSound(bj_lastPlayedSound)
+        KillSoundWhenDone(bj_lastPlayedSound)
+
+    if GetUnitTypeId(Hero[id])=='H059' and GetUnitTypeId(Hero[id2])=='H05A'
+        bj_lastPlayedSound=CreateSound("war3mapImported\\GilgameshKilledEmiya.mp3",false,false,true,12700,12700,"")
+        StartSound(bj_lastPlayedSound)
+        KillSoundWhenDone(bj_lastPlayedSound)
+
+    if(GetUnitTypeId(Hero[id])=='H00I' or GetUnitTypeId(Hero[id])=='H00O') and (GetUnitTypeId(Hero[id2])=='H02Y' or GetUnitTypeId(Hero[id2])=='H02Z')
+        bj_lastPlayedSound=CreateSound("war3mapImported\\ByakuranKillGenikishi.mp3",false,false,true,12700,12700,"")
+        StartSound(bj_lastPlayedSound)
+        KillSoundWhenDone(bj_lastPlayedSound)
+
+    if GetUnitTypeId(Hero[id])=='H06M' and GetUnitAbilityLevel(Hero[id2],'A1EB')>0
+        bj_lastPlayedSound=CreateSound("war3mapImported\\Heroine_X_attackselect3.mp3",false,false,true,12700,12700,"")
+        StartSound(bj_lastPlayedSound)
+        KillSoundWhenDone(bj_lastPlayedSound)
+
+    if GetUnitTypeId(Hero[id])=='H006' and GetUnitTypeId(Hero[id2])=='H057'
+        bj_lastPlayedSound=CreateSound("war3mapImported\\ItachiKillSasuke.mp3",false,false,true,12700,12700,"")
+        StartSound(bj_lastPlayedSound)
+        KillSoundWhenDone(bj_lastPlayedSound)
+
+    if GetUnitTypeId(Hero[id2])=='H006' and GetUnitTypeId(Hero[id])=='H057'
+        bj_lastPlayedSound=CreateSound("war3mapImported\\SasukeKillsItachi.mp3",false,false,true,12700,12700,"")
+        StartSound(bj_lastPlayedSound)
+        KillSoundWhenDone(bj_lastPlayedSound)
+
+
+function killerCombo()
+    let t=GetExpiredTimer()
+    let id=GetHandleId(t)
+    let i=LoadInteger(h,id,0)
+    if kombo[i]>0
+        kombo[i]=kombo[i]-1
+    else
+        PauseTimer(t)
+        CK[i]=0
+
+
+
+function trig_Killer_Actions()
+    let c=GetTriggerUnit()
+    let u=GetKillingUnit()
+
+    let ic=GetPlayerId(GetOwningPlayer(c))
+    let iu=GetPlayerId(GetOwningPlayer(u))
+
+
+    if GetUnitTypeId(Hero[iu])=='H049'
+        yuji4[iu]=yuji4[iu]+1
+        UnitAddAbility(Hero[iu],'A0T8')
+        SetUnitAbilityLevel(Hero[iu],'A0T8',2)
+        UnitRemoveAbility(Hero[iu],'A0T8')
+        UnitAddAbility(Hero[iu],'A0T7')
+        SetUnitAbilityLevel(Hero[iu],'A0T7',2)
+        UnitRemoveAbility(Hero[iu],'A0T7')
+
+    if GetUnitAbilityLevel(c,'A165')>0
+        SetHeroAgi(u,GetHeroAgi(u,false)+2,true)
+        SetHeroStr(u,GetHeroStr(u,false)+2,true)
+        SetHeroInt(u,GetHeroInt(u,false)+2,true)
+        if GetUnitTypeId(u)=='H00X' and GetRandomInt(0,100)<33
+        
+        hibari[iu]=hibari[iu]+2
+
+    if u!=null and GetUnitTypeId(u)!='H02A' and GetUnitAbilityLevel(u,'A105')>0
+        SetUnitState(u,UNIT_STATE_LIFE,GetWidgetLife(u)+GetUnitState(u,UNIT_STATE_MAX_LIFE)*(0.07+0.03*GetUnitAbilityLevel(u,'A105')))
+        SetUnitState(u,UNIT_STATE_MANA,GetWidgetMana(u)+GetUnitState(u,UNIT_STATE_MAX_MANA)*(0.07+0.03*GetUnitAbilityLevel(u,'A105')))
+        SetHeroInt(u,GetHeroInt(u,false)+2,true)
+
+    if u!=null and GetUnitTypeId(u)!='H02A' and DU==true and GetUnitTypeId(c)!='H06U'
+        udg_kill[iu]=udg_kill[iu]+1
+        udg_death[ic]=udg_death[ic]+1
+        killerSound(iu,ic)
+        stats[ic]=stats[ic]+1
+        if GetUnitAbilityLevel(Hero[iu],'A1F3')>0
+            SetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD,GetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD)+100)
+        
+        for i = 0 to 11
+            if GetUnitTypeId(Hero[iu])=='H077' and IsUnitAlly(Hero[i],Player(i)) and (GetUnitTypeId(Hero[i])=='H059' or GetUnitTypeId(Hero[i])=='H070' or GetUnitTypeId(Hero[i])=='H06S')
+                SetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD,GetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD)+100)
+        
+        if GetUnitTypeId(c)!='H06U'
+            SetHeroAgi(Hero[ic],GetHeroAgi(Hero[ic],false)+3,true)
+            SetHeroStr(Hero[ic],GetHeroStr(Hero[ic],false)+3,true)
+            SetHeroInt(Hero[ic],GetHeroInt(Hero[ic],false)+3,true)
+
+        if CK[iu]==0
+            TimerStart(combo[iu],1,true,function killerCombo)
+            SaveInteger(h,GetHandleId(combo[iu]),0,iu)
+
+        CK[iu]=CK[iu]+1
+        kombo[iu]=10+5*CK[iu]
+        if CK[iu]==1
+            DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[iu]+GetPlayerName(Player(iu))+" ("+GetUnitName(Hero[iu])+")|r has Killed "+Color[ic]+GetPlayerName(Player(ic))+" ("+GetUnitName(Hero[ic])+")|r and receives a bounty worth 125 gold.")
+            SetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD,GetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD)+125)
+        else if CK[iu]==2
+            bj_lastPlayedSound=CreateSound("Double_Kill.mp3",false,false,true,12700,12700,"")
+            StartSound(bj_lastPlayedSound)
+            KillSoundWhenDone(bj_lastPlayedSound)
+            DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[iu]+GetPlayerName(Player(iu))+" ("+GetUnitName(Hero[iu])+")|r has killed "+Color[ic]+GetPlayerName(Player(ic))+" ("+GetUnitName(Hero[ic])+")")
+            DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[iu]+GetPlayerName(Player(iu))+" ("+GetUnitName(Hero[iu])+")|r has killed " +Color[ic]+GetPlayerName(Player(ic))+ "|r for a Double Kill and receives 155 worth of gold.")
+            SetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD,GetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD)+155)
+        else if CK[iu]==3
+            bj_lastPlayedSound=CreateSound("triple_kill.mp3",false,false,true,12700,12700,"")
+            StartSound(bj_lastPlayedSound)
+            KillSoundWhenDone(bj_lastPlayedSound)
+            DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[iu]+GetPlayerName(Player(iu))+" ("+GetUnitName(Hero[iu])+")|r has killed "+Color[ic]+GetPlayerName(Player(ic))+" ("+GetUnitName(Hero[ic])+")")
+            DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[iu]+GetPlayerName(Player(iu))+" ("+GetUnitName(Hero[iu])+")|r has killed " +Color[ic]+GetPlayerName(Player(ic))+ "|r for a Triple Kill and receives 205 worth of gold.")
+            SetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD,GetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD)+205)
+        else if CK[iu]==4
+            bj_lastPlayedSound=CreateSound("UltraKill.mp3",false,false,true,12700,12700,"")
+            StartSound(bj_lastPlayedSound)
+            KillSoundWhenDone(bj_lastPlayedSound)
+            DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[iu]+GetPlayerName(Player(iu))+" ("+GetUnitName(Hero[iu])+")|r has killed "+Color[ic]+GetPlayerName(Player(ic))+" ("+GetUnitName(Hero[ic])+")")
+            DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[iu]+GetPlayerName(Player(iu))+" ("+GetUnitName(Hero[iu])+")|r has killed " +Color[ic]+GetPlayerName(Player(ic))+ "|r for a Quadra Kill and receives 305 worth of gold.")
+            SetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD,GetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD)+305)
+        else if CK[iu]==5
+            bj_lastPlayedSound=CreateSound("MegaKill.mp3",false,false,true,12700,12700,"")
+            StartSound(bj_lastPlayedSound)
+            KillSoundWhenDone(bj_lastPlayedSound)
+            DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[iu]+GetPlayerName(Player(iu))+" ("+GetUnitName(Hero[iu])+")|r has killed "+Color[ic]+GetPlayerName(Player(ic))+" ("+GetUnitName(Hero[ic])+")")
+            DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[iu]+GetPlayerName(Player(iu))+" ("+GetUnitName(Hero[iu])+")|r has killed " +Color[ic]+GetPlayerName(Player(ic))+ "|r for a Penta Kill and receives 505 worth of gold.")
+            SetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD,GetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD)+505)
+        else if CK[iu]==6
+            bj_lastPlayedSound=CreateSound("Rampage.mp3",false,false,true,12700,12700,"")
+            StartSound(bj_lastPlayedSound)
+            KillSoundWhenDone(bj_lastPlayedSound)
+            DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[iu]+GetPlayerName(Player(iu))+" ("+GetUnitName(Hero[iu])+")|r has killed "+Color[ic]+GetPlayerName(Player(ic))+" ("+GetUnitName(Hero[ic])+")")
+            DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[iu]+GetPlayerName(Player(iu))+" ("+GetUnitName(Hero[iu])+")|r has killed " +Color[ic]+GetPlayerName(Player(ic))+ "|r for a Hexa Kill and receives 1005 worth of gold.")
+            SetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD,GetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD)+1005)
+        else if CK[iu]==7
+            bj_lastPlayedSound=CreateSound("Ownrage.mp3",false,false,true,12700,12700,"")
+            StartSound(bj_lastPlayedSound)
+            KillSoundWhenDone(bj_lastPlayedSound)
+            DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[iu]+GetPlayerName(Player(iu))+" ("+GetUnitName(Hero[iu])+")|r has killed "+Color[ic]+GetPlayerName(Player(ic))+" ("+GetUnitName(Hero[ic])+")")
+            DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[iu]+GetPlayerName(Player(iu))+" ("+GetUnitName(Hero[iu])+")|r has killed " +Color[ic]+GetPlayerName(Player(ic))+ "|r for a Hexa Kill and receives 1505 worth of gold.")
+            SetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD,GetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD)+1505)
+        else if CK[iu]==8
+            bj_lastPlayedSound=CreateSound("GodLike.mp3",false,false,true,12700,12700,"")
+            StartSound(bj_lastPlayedSound)
+            KillSoundWhenDone(bj_lastPlayedSound)
+            DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[iu]+GetPlayerName(Player(iu))+" ("+GetUnitName(Hero[iu])+")|r has killed "+Color[ic]+GetPlayerName(Player(ic))+" ("+GetUnitName(Hero[ic])+")")
+            DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[iu]+GetPlayerName(Player(iu))+" ("+GetUnitName(Hero[iu])+")|r has killed " +Color[ic]+GetPlayerName(Player(ic))+ "|r for a Hexa Kill and receives 2005 worth of gold.")
+            SetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD,GetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD)+2005)
+        else if CK[iu]==9
+            bj_lastPlayedSound=CreateSound("HolyShit.mp3",false,false,true,12700,12700,"")
+            StartSound(bj_lastPlayedSound)
+            KillSoundWhenDone(bj_lastPlayedSound)
+            DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[iu]+GetPlayerName(Player(iu))+" ("+GetUnitName(Hero[iu])+")|r has killed "+Color[ic]+GetPlayerName(Player(ic))+" ("+GetUnitName(Hero[ic])+")")
+            DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[iu]+GetPlayerName(Player(iu))+" ("+GetUnitName(Hero[iu])+")|r has killed " +Color[ic]+GetPlayerName(Player(ic))+ "|r for a Hexa Kill and receives 2505 worth of gold.")
+            SetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD,GetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD)+2505)
+        else if CK[iu]==10
+            bj_lastPlayedSound=CreateSound("WhoreCombo.mp3",false,false,true,12700,12700,"")
+            StartSound(bj_lastPlayedSound)
+            KillSoundWhenDone(bj_lastPlayedSound)
+            DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[iu]+GetPlayerName(Player(iu))+" ("+GetUnitName(Hero[iu])+")|r has killed "+Color[ic]+GetPlayerName(Player(ic))+" ("+GetUnitName(Hero[ic])+")")
+            DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[iu]+GetPlayerName(Player(iu))+" ("+GetUnitName(Hero[iu])+")|r has killed " +Color[ic]+GetPlayerName(Player(ic))+ "|r for a Hexa Kill and receives 3005 worth of gold.")
+            SetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD,GetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD)+3005)
+        
+        DestroyEffect(AddSpecialEffect("Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl",GetUnitX(u),GetUnitY(u)))
+    else if u!=null and GetUnitTypeId(u)!='H02A' and DU==false
+        udg_kill[iu]=udg_kill[iu]+1
+        udg_death[ic]=udg_death[ic]+1
+        if GetUnitAbilityLevel(Hero[iu],'A1F3')>0
+            SetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD,GetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD)+100)
+        
+        DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[iu]+GetPlayerName(Player(iu))+" ("+GetUnitName(Hero[iu])+")|r has killed "+Color[ic]+GetPlayerName(Player(ic))+" ("+GetUnitName(Hero[ic])+")|r and receives an additional 500 worth of gold.")
+        SetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD,GetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD)+500)
+        DestroyEffect(AddSpecialEffect("Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl",GetUnitX(u),GetUnitY(u)))
+    else if u==null and GetUnitTypeId(u)!='H02A' and LoadBoolean(h,GetHandleId(c),StringHash("cond"))==false and GetUnitTypeId(c)!='H06U'
+        udg_death[ic]=udg_death[ic]+1
+        DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[ic]+GetPlayerName(Player(ic))+" ("+GetUnitName(Hero[ic])+")|r is dead.")
+        SetHeroAgi(Hero[ic],GetHeroAgi(Hero[ic],false)+3,true)
+        SetHeroStr(Hero[ic],GetHeroStr(Hero[ic],false)+3,true)
+        SetHeroInt(Hero[ic],GetHeroInt(Hero[ic],false)+3,true)
+        stats[ic]=stats[ic]+1
+    else if u!=null and GetUnitTypeId(u)=='H02A'
+        DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[ic]+GetPlayerName(Player(ic))+" ("+GetUnitName(Hero[ic])+")|r Dies by the hands of Elizabeth.")
+        SetHeroAgi(u,GetHeroAgi(u,false)+7,true)
+        SetHeroStr(u,GetHeroStr(u,false)+7,true)
+        SetHeroInt(u,GetHeroInt(u,false)+7,true)
+        SetHeroAgi(Hero[ic],GetHeroAgi(Hero[ic],false)+3,true)
+        SetHeroStr(Hero[ic],GetHeroStr(Hero[ic],false)+3,true)
+        SetHeroInt(Hero[ic],GetHeroInt(Hero[ic],false)+3,true)
+        stats[ic]=stats[ic]+1
+        SetHeroLevel(u,GetHeroLevel(u)+1,true)
+        udg_death[ic]=udg_death[ic]+1
+        PlaySoundBJ(gg_snd_exiao)
+        RemoveSavedBoolean(h,GetHandleId(c),StringHash("cond"))
+        KillUnit(LoadUnitHandle(h,GetHandleId(c),StringHash("heart")))
+        RemoveSavedHandle(h,GetHandleId(c),StringHash("heart"))
+
+    if IsUnitAlly(u,GetOwningPlayer(c)) and GetUnitTypeId(c)!='H06U'
+        if GetUnitAbilityLevel(Hero[iu],'A1F3')>0
+            SetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD,GetPlayerState(Player(iu),PLAYER_STATE_RESOURCE_GOLD)+100)
+        
+        SetHeroAgi(Hero[ic],GetHeroAgi(Hero[ic],false)+3,true)
+        SetHeroStr(Hero[ic],GetHeroStr(Hero[ic],false)+3,true)
+        SetHeroInt(Hero[ic],GetHeroInt(Hero[ic],false)+3,true)
+        stats[ic]=stats[ic]+1
+
+
+
+function initTrig_Killer()
+    gg_trg_Killer=CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ(gg_trg_Killer,EVENT_PLAYER_UNIT_DEATH)
+    TriggerAddCondition(gg_trg_Killer,Condition(function trig_Killer_Conditions))
+    TriggerAddAction(gg_trg_Killer,function trig_Killer_Actions)
+

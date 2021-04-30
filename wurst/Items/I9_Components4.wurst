@@ -23,9 +23,6 @@ init
         setupItem('I06C', CATEGORY, 3500) // Staff S
         addRequirement('I01Z')
 
-        setupItem('I020', CATEGORY, 4250) // Staff SS
-        addRequirement('I06C')
-
         ///////////////////////
 
         setupItem('I01H', CATEGORY, 600) // Sword D
@@ -39,14 +36,51 @@ init
         setupItem('I01K', CATEGORY, 2850) // Sword A
         addRequirement('I01I')
 
-        setupItem('I01L', CATEGORY, 3600) // Hardene Sword
+        setupItem('I01L', CATEGORY, 3600) // Hardened Sword
         addRequirement('I01K')
-
-        //////////////////////////
-
-        setupItem('I03G', CATEGORY, 750) // Glove D
-
-        /////////////////////////
 
         setupItem('I01O', CATEGORY, 4450) // Sandai Kitetsu
         addRequirement('I01L')
+
+        //////////////////////////
+
+        setupItem('I03G', CATEGORY, 750) // Glove D 
+        
+        setupItem('I03H', CATEGORY, 1500) // Glove E
+        addRequirement('I03G')
+
+        setupItem('I03I', CATEGORY, 2250) // Glove C
+        addRequirement('I03H')
+
+        setupItem('I03J', CATEGORY, 3000) // Glove B
+        addRequirement('I03I')
+
+        setupItem('I03K', CATEGORY, 3750) // Glove A
+        addRequirement('I03J')
+
+        //////////////////////////
+
+        setupItem('I02R', CATEGORY, 2000) // Orb of Fire
+
+        //////////////////////////
+
+        setupItem('I02S', CATEGORY, 2000) // Orb of Ice
+
+        //////////////////////////
+
+        setupItem('I02T', CATEGORY, 1700) // Orb of Wind
+
+        //////////////////////////
+
+        setupItem('I01M', CATEGORY, 750) // Medallion of Courage
+
+        // make this give stat ^, prob 7 to all stat
+
+        //////////////////////////
+
+        setupItem('I01F', CATEGORY, 750) // Speed Boots
+
+        // ^ make this give X ms and 3 all stat
+
+
+        

@@ -27,7 +27,7 @@ function endOfChoiceAct()
 
             SetPlayerState(Player(he), PLAYER_STATE_RESOURCE_LUMBER, GetPlayerState(Player(he), PLAYER_STATE_RESOURCE_LUMBER) + 1)
 
-        doAfter(2.5) -> 
+        doAfter(5) -> 
             ClearTextMessages()
             DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "|cb0f12121The first team won and gained a point.")
             DisplayTextToPlayer(GetLocalPlayer(), 0, 0, " ")
@@ -40,7 +40,7 @@ function endOfChoiceAct()
 
             SetPlayerState(Player(he), PLAYER_STATE_RESOURCE_LUMBER, GetPlayerState(Player(he), PLAYER_STATE_RESOURCE_LUMBER) + 1)
     
-        doAfter(2.5) -> 
+        doAfter(5) -> 
             ClearTextMessages()
             DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "|cb91e3cc2The second team won and gained a point.")
             DisplayTextToPlayer(GetLocalPlayer(), 0, 0, " ")
@@ -54,7 +54,7 @@ function endOfChoiceAct()
             win[1] = win[1] + 1
             win[2] = win[2] + 1
 
-            doAfter(2.5) -> 
+            doAfter(5) -> 
                 ClearTextMessages()
                 DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "|ca7d459c4Draw, both teams gained a point.")
                 DisplayTextToPlayer(GetLocalPlayer(), 0, 0, " ")
@@ -64,7 +64,7 @@ function endOfChoiceAct()
 
         else
 
-            doAfter(2.5) -> 
+            doAfter(5) -> 
                 ClearTextMessages()
                 DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "|ca7d459c4Draw. As a team has 14 wins, both team gains no point for this round.")
                 DisplayTextToPlayer(GetLocalPlayer(), 0, 0, " ")
@@ -179,7 +179,7 @@ function endOfChoiceAct()
                 CustomDefeatBJ(Player(i), "You lose!")
             
     else
-        TimerStart(udg_Timer, 30, false, null)
+        TimerStart(udg_Timer, 1, false, null)
         DestroyTimerDialog(udg_TB)
         DestroyTimerDialog(TG)
         udg_TB=CreateTimerDialog(udg_Timer)

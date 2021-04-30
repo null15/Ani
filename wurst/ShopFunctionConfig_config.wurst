@@ -2,19 +2,7 @@ package ShopFunctionConfig_config
 
 import ItemInShop
 import initlater ShopAPI
-
-@config public constant NUM_CATEGORIES = 9
-
-@config public function configShopCategories()
-    CATEGORY_NAMES[0] = "Recommended"
-    CATEGORY_NAMES[1] = "Sets"
-    CATEGORY_NAMES[2] = "Melee"
-    CATEGORY_NAMES[3] = "Utility/Control"
-    CATEGORY_NAMES[4] = "Strength"
-    CATEGORY_NAMES[5] = "Agility"
-    CATEGORY_NAMES[6] = "Offensive"
-    CATEGORY_NAMES[7] = "I hate my life"
-    CATEGORY_NAMES[8] = "Components"
+import ShopAppearance
 
 @config public function shopConfig_onOpenShop(player p)
 
@@ -36,8 +24,8 @@ import initlater ShopAPI
     return false
 
 @config public function shopConfig_sortItems(ItemInShop a, ItemInShop b) returns int
-    //return a castTo int - b castTo int // sort by setup order
-    return a.getTotalCost() - b.getTotalCost() // sort by gold cost
+    return a castTo int - b castTo int // sort by setup order
+    //return a.getTotalCost() - b.getTotalCost() // sort by gold cost
 
 init
 

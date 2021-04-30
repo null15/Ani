@@ -24,11 +24,11 @@ init
         setupItem('I03C', CATEGORY, 1200) //Anbu Vest
     
         //
-    
-        setupItem('I06H', CATEGORY, 1000) //Saiyan Armor
-        setupItem('I06G', CATEGORY, 1500) //Saiyan Boots
-        setupItem('I06F', CATEGORY, 1500) //Saiyan Gloves
-        setupItem('I06I', CATEGORY, 1000) //Saiyan Scouter
+
+        setupItem('I035', CATEGORY, 1200) //Madao Box
+        setupItem('I034', CATEGORY, 1300) //Madao Dog
+        setupItem('I032', CATEGORY, 1000) //Madao Glasses
+        setupItem('I033', CATEGORY, 1100) //Madao Cap
         
         //
     
@@ -39,7 +39,7 @@ init
 
         //
 
-        setupItem('I035', CATEGORY, 1200) //Madao Box
-        setupItem('I034', CATEGORY, 1300) //Madao Dog
-        setupItem('I032', CATEGORY, 1000) //Madao Glasses
-        setupItem('I033', CATEGORY, 1100) //Madao Cap
+        setupItem('I06H', CATEGORY, 1000) //Saiyan Armor
+        setupItem('I06G', CATEGORY, 1500) //Saiyan Boots
+        setupItem('I06F', CATEGORY, 1500) //Saiyan Gloves
+        setupItem('I06I', CATEGORY, 1000) //Saiyan Scouter

@@ -1,0 +1,24 @@
+package ShopAppearanceOverride
+
+
+import ShopAppearance
+import FrameWrapperDefinitions
+
+
+
+public class ShopAppearanceConfig extends ShopAppearance
+
+    override function pageButtonCreate(int index, string text)
+        
+        let fw = setCategoryButton(index, pageBackground.addTextButton(text))
+        let fh = fw.frame()
+        fh.setPoint(FRAMEPOINT_TOP, pageBackground, FRAMEPOINT_TOP, 0, -0.030 - 0.0285 * index)
+        setFrameIndex(fh, index)
+        onClickCategoryButton.registerFrameEvent(fh, FRAMEEVENT_CONTROL_CLICK)
+
+        BlzFrameSetSize(fh, 0.175, 0.03)
+
+
+
+
+init

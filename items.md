@@ -39,6 +39,8 @@ Tornado
 
 Yata Mirror
 
+Staff of Darkness
+
 
 **Strength**
 
