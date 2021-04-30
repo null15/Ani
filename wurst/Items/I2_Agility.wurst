@@ -1,0 +1,19 @@
+package I2_Agility
+
+import ItemConfiguration
+import Execute
+
+constant CATEGORY = 2
+init
+ 
+    execute() ->
+
+        setupItem('I038', CATEGORY, 4500) // Scythe
+        addRequirement('I01I')
+        addRequirement('I03B')
+        
+        setupItem('I03F', CATEGORY, 4900) // Anbu Set
+        addRequirement('I03E') //Anbu Boots
+        addRequirement('I03D') //Anbu Sword
+        addRequirement('I03B') //Anbu Mask
+        addRequirement('I03C') //Anbu Vest

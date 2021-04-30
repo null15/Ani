@@ -1,0 +1,15 @@
+package I3_Intelligence
+
+import ItemConfiguration
+import Execute
+
+constant CATEGORY = 3
+init
+ 
+    execute() ->
+
+        setupItem('I040', CATEGORY, 4600) // Akatsuki Set
+        addRequirement('I03X') //Akatsuki Cloak
+        addRequirement('I03Y') //Akatsuki Hat
+        addRequirement('I03Z') //Akatsuki Headband
+        addRequirement('I03W') //Akatsuki Ring

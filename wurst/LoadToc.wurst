@@ -1,3 +1,15 @@
 package LoadToc
 
+import ClosureTimers
+
 init
+
+    if GetClickedButton() == udg_Button[1] or GetClickedButton() == udg_Button[2] or GetClickedButton() == udg_Button[3]
+        if BlzLoadTOCFile("templates.toc")
+        else
+            print("Templates did not load.")
+/*
+        if BlzLoadTOCFile("ShopButton/ShopButton.toc")
+        else
+            print("ShopButton did not load.")
+*/

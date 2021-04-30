@@ -1,0 +1,21 @@
+package I1_Strength
+
+import ItemConfiguration
+import Execute
+
+constant CATEGORY = 1
+init
+ 
+    execute() ->
+
+        setupItem('I036', CATEGORY, 5000) // Madao Set
+        addRequirement('I035') //Madao Box
+        addRequirement('I034') //Madao Dog
+        addRequirement('I032') //Madao Glasses
+        addRequirement('I033') //Madao Cap
+
+        setupItem('I06E', CATEGORY, 5000) // Saiyan Set
+        addRequirement('I06H') //Saiyan ARmor
+        addRequirement('I06G') //Saiyan Boots
+        addRequirement('I06F') //Saiyan Gloves
+        addRequirement('I06I') //Saiyan Scouter

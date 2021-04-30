@@ -1,0 +1,11 @@
+package I7_Components2
+
+import ItemConfiguration
+import Execute
+
+constant CATEGORY = 7
+
+init
+
+    execute() ->
+

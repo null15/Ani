@@ -1,0 +1,15 @@
+package I4_Melee
+
+import ItemConfiguration
+import Execute
+
+constant CATEGORY = 4
+
+init
+
+    execute() ->
+
+        setupItem('I03N', CATEGORY, 5500) // Samehada
+        addRequirement('I01O')
+
+        //

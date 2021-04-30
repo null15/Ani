@@ -1,0 +1,11 @@
+package I8_Components3
+
+import ItemConfiguration
+import Execute
+
+constant CATEGORY = 8
+
+init
+
+    execute() ->
+

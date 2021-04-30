@@ -1,12 +1,18 @@
 package ItemFinalize
 
 import ItemInShop
-import Components
-import Meleeitems
-import Sets
 import Execute
-import Utilityitems
-import OffensiveItems
+
+import I0_Universal
+import I1_Strength
+import I2_Agility
+import I3_Intelligence
+import I4_Melee
+import I5_Support
+import I6_Components1
+import I7_Components2
+import I8_Components3
+import I9_Components4
 
 init
 

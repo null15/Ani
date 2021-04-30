@@ -1,0 +1,20 @@
+package I0_Universal
+
+import ItemConfiguration
+import Execute
+
+constant CATEGORY = 0
+init
+ 
+    execute() ->
+
+        setupItem('I03A', CATEGORY, 1250) // Alastor
+        addRequirement('I02R')
+        addRequirement('I02S')
+        addRequirement('I02T')
+
+        setupItem('I06J', CATEGORY, 5000) // Quincy Set
+        addRequirement('I06L') //Quincy Cross
+        addRequirement('I06K') //Quincy Glove
+        addRequirement('I06M') //Quincy Medallion
+        addRequirement('I06N') //Quincy Overcoat

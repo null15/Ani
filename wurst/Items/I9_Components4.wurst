@@ -1,0 +1,52 @@
+package I9_Components4
+
+import ItemConfiguration
+import Execute
+
+constant CATEGORY = 9
+
+init
+
+    execute() ->
+
+        setupItem('I01W', CATEGORY, 500) // Staff D
+
+        setupItem('I01X', CATEGORY, 1250) // Staff C
+        addRequirement('I01W')
+
+        setupItem('I01Y', CATEGORY, 2000) // Staff B
+        addRequirement('I01X')
+
+        setupItem('I01Z', CATEGORY, 2750) // Staff A
+        addRequirement('I01Y')
+
+        setupItem('I06C', CATEGORY, 3500) // Staff S
+        addRequirement('I01Z')
+
+        setupItem('I020', CATEGORY, 4250) // Staff SS
+        addRequirement('I06C')
+
+        ///////////////////////
+
+        setupItem('I01H', CATEGORY, 600) // Sword D
+
+        setupItem('I01J', CATEGORY, 1350) // Sword C
+        addRequirement('I01H')
+
+        setupItem('I01I', CATEGORY, 2100) // Sword B
+        addRequirement('I01J')
+
+        setupItem('I01K', CATEGORY, 2850) // Sword A
+        addRequirement('I01I')
+
+        setupItem('I01L', CATEGORY, 3600) // Hardene Sword
+        addRequirement('I01K')
+
+        //////////////////////////
+
+        setupItem('I03G', CATEGORY, 750) // Glove D
+
+        /////////////////////////
+
+        setupItem('I01O', CATEGORY, 4450) // Sandai Kitetsu
+        addRequirement('I01L')
