@@ -5215,7 +5215,7 @@ import ObjEditingNatives
 
 @compiletime function create_w3a_A1EV()
 	let def = createObjectDefinition("w3a", 'A1EV', 'Aspb')
-	..setLvlDataString("spb1", 1, 1, "A06P,A06M,A0QW")
+	..setLvlDataString("spb1", 1, 1, "A06P,A0QW,A06G")
 	..setLvlDataInt("spb2", 1, 2, 0)
 	..setLvlDataInt("spb3", 1, 3, 12)
 	..setLvlDataInt("spb4", 1, 4, 12)
