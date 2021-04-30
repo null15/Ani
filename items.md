@@ -1,7 +1,6 @@
 **Universal**
 
 
-
 Alastor
 
 Captain Set
@@ -41,9 +40,7 @@ Tornado
 Yata Mirror
 
 
-
 **Strength**
-
 
 
 Mare Mist Ring
@@ -65,9 +62,7 @@ Vongola Sun Ring
 Saiyan Set
 
 
-
 **Agility**
-
 
 
 Anbu Set
@@ -91,9 +86,7 @@ Scythe of Death
 Yamato
 
 
-
 **Intelligence**
-
 
 
 Bashosen
@@ -113,9 +106,7 @@ Vongola Mist Ring
 Vongola Thunder Ring
 
 
-
 **Melee**
-
 
 
 Dark Excalibur
@@ -142,7 +133,9 @@ Vongola Gloves Ver. X
 
 Yamato
 
+
 **Support**
+
 
 Holy Grail
 
@@ -153,9 +146,7 @@ Droid Guard MK. 2
 Droid Guard MK. 3
 
 
-
 **Components (1/4)**
-
 
 
 Akatsuki Cloak
@@ -167,7 +158,6 @@ Akatsuki Headband
 Akatsuki Ring
 
 
-
 Anbu Boots
 
 Anbu Mask
@@ -175,7 +165,6 @@ Anbu Mask
 Anbu Sword
 
 Anbu Vest
-
 
 
 Madao Box
@@ -187,7 +176,6 @@ Madao Glasses
 Madao Cap
 
 
-
 Quincy Cross
 
 Quincy Glove
@@ -195,7 +183,6 @@ Quincy Glove
 Quincy Medallion
 
 Quincy Overcoat
-
 
 
 Saiyan Armor
@@ -207,23 +194,7 @@ Saiyan Gloves
 Saiyan Scouter
 
 
-
-Orb of Fire
-
-Orb of Ice
-
-Orb of Wind
-
-
-
-Speed Boots
-
-Medallion of Courage
-
-
-
 **Components (2/4)**
-
 
 
 Vongola Cloud Ring + its other rings
@@ -249,9 +220,7 @@ Hell Malocchio Ring + its other rings
 Ossa Impressione + its other rings
 
 
-
 **Components (3/4)**
-
 
 
 Mare Cloud Ring + its other rings
@@ -269,9 +238,19 @@ Mare Sun Ring + its other rings
 Mare Thunder Ring + its other rings
 
 
-
 **Components (4/4)**
 
+
+Orb of Fire
+
+Orb of Ice
+
+Orb of Wind
+
+
+Speed Boots
+
+Medallion of Courage
 
 
 Gloves + its other components
@@ -279,5 +258,6 @@ Gloves + its other components
 Staff + its components
 
 Sword + its components
+
 
 Sandai Kitetsu
