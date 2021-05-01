@@ -1,0 +1,39 @@
+package Table2
+
+init
+
+//doAfter(0.01) ->
+    initTrig_Table2()
+        
+
+function trig_Table2_Actions() 
+
+    udg_Dialog=DialogCreate()
+    DialogClear(udg_Dialog)
+    DialogSetMessage(udg_Dialog,"Choice Modes")
+    udg_Button[1]=DialogAddButton(udg_Dialog,"All Pick (AP)",0)
+    udg_Button[2]=DialogAddButton(udg_Dialog,"All Random (AR)",0)
+    udg_Button[3]=DialogAddButton(udg_Dialog,"Draft Mode (DM)",0)
+
+    if GetPlayerSlotState(Player(0))==PLAYER_SLOT_STATE_PLAYING
+        DialogDisplay(Player(0),udg_Dialog,true)
+    else if GetPlayerSlotState(Player(0))!=PLAYER_SLOT_STATE_PLAYING and GetPlayerSlotState(Player(1))==PLAYER_SLOT_STATE_PLAYING
+        DialogDisplay(Player(1),udg_Dialog,true)
+    else if GetPlayerSlotState(Player(0))!=PLAYER_SLOT_STATE_PLAYING and GetPlayerSlotState(Player(1))!=PLAYER_SLOT_STATE_PLAYING and GetPlayerSlotState(Player(2))==PLAYER_SLOT_STATE_PLAYING
+        DialogDisplay(Player(2),udg_Dialog,true)
+    TriggerRegisterDialogEvent(gg_trg_Dialog2,udg_Dialog)
+    DestroyTrigger(GetTriggeringTrigger())
+    GroupEnumUnitsInRange(G,0,0,99999999,null)
+    while E != null
+        E=FirstOfGroup(G)
+        if GetUnitTypeId(E)=='htow'
+            SetUnitVertexColor(E,255,255,255,0)
+        GroupRemoveUnit(G,E)
+
+
+
+function initTrig_Table2()
+    gg_trg_Table2=CreateTrigger()
+    TriggerRegisterTimerEventSingle(gg_trg_Table2,5)
+    TriggerAddAction(gg_trg_Table2,function trig_Table2_Actions)
+

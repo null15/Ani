@@ -1,6 +1,6 @@
 package ShopConfig_config
 
-import ItemInShop
+import initlater ShopConfig
 
 @config public constant NUM_CATEGORIES = 10
 

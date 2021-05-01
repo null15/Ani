@@ -1,8 +1,7 @@
 package ShopFunctionConfig_config
 
-import ItemInShop
+import initlater ItemInShop
 import initlater ShopAPI
-import ShopAppearance
 
 @config public function shopConfig_onOpenShop(player p)
 

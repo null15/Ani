@@ -15,7 +15,6 @@ init
         setupItem('I03Y', CATEGORY, 1100) //Akatsuki Hat
         setupItem('I03Z', CATEGORY, 1200) //Akatsuki Headband
         setupItem('I03W', CATEGORY, 1200) //Akatsuki Ring
-    
         //
     
         setupItem('I03E', CATEGORY, 1000) //Anbu Boots

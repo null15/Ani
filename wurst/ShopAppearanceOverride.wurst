@@ -16,9 +16,7 @@ public class ShopAppearanceConfig extends ShopAppearance
         setFrameIndex(fh, index)
         onClickCategoryButton.registerFrameEvent(fh, FRAMEEVENT_CONTROL_CLICK)
 
-        BlzFrameSetSize(fh, 0.175, 0.03)
-
-
+        BlzFrameSetSize(fh, 0.575, 0.53)
 
 
 init
