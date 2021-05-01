@@ -15,6 +15,6 @@ function preRoundTimer()
     for i = 1 to 3
         t.registerDialogButtonEvent(udg_Button[i])
     t.addAction() ->
-        udg_Timer.start(99999, null)
+        udg_Timer.start(5, null)
         udg_TB = udg_Timer.createTimerDialog()
         udg_TB.setTimeColor(colorA(0, 225, 255, 144))

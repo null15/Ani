@@ -1,0 +1,313 @@
+package Ih
+
+init
+
+    initTrig_Ih()
+
+function trig_Ih_Actions()
+
+    let u=GetTriggerUnit()
+    let p=GetOwningPlayer(u)
+    let id=GetPlayerId(p)
+    integer i = 1
+    integer l__s=0
+    let x1=GetRectCenterX(gg_rct_Rect1)
+    let y1=GetRectCenterY(gg_rct_Rect1)
+    let g=CreateGroup()
+    let ty=GetUnitTypeId(u)
+
+    if cmb!=true
+
+        IH('H00E',u,"war3mapImported\\BTNKimimaro.blp")
+        IH('H00A',u,"ReplaceableTextures\\CommandButtons\\BTNLamboB.blp")
+        IH('H00J',u,"war3mapImported\\BTNLuffy.blp")
+        IH('H00L',u,"war3mapImported\\BTNRob_lucci.blp")
+        IH('H058',u,"ReplaceableTextures\\CommandButtons\\BTNNami.blp")
+        IH('H008',u,"war3mapImported\\BTNFranky.blp")
+        IH('H017',u,"ReplaceableTextures\\CommandButtons\\BTNshana1.blp")
+        IH('H01A',u,"ReplaceableTextures\\CommandButtons\\BTNMukuroR.blp")
+        IH('H00M',u,"ReplaceableTextures\\CommandButtons\\BTNZoro.blp")
+        IH('H00C',u,"ReplaceableTextures\\CommandButtons\\BTNTsuna.blp")
+        IH('H00H',u,"ReplaceableTextures\\CommandButtons\\BTNRyohei1.blp")
+        IH('H00X',u,"ReplaceableTextures\\CommandButtons\\BTNHibariK.blp")
+        IH('H014',u,"ReplaceableTextures\\CommandButtons\\BTNGokudera1.blp")
+        IH('H00P',u,"war3mapImported\\BTNgecko moria.blp")
+        IH('H00K',u,"ReplaceableTextures\\CommandButtons\\BTNEnel.blp")
+        IH('H016',u,"ReplaceableTextures\\CommandButtons\\BTNYamamotoT.blp")
+        IH('H00D',u,"war3mapImported\\BTNAce.blp")
+        IH('H032',u,"war3mapImported\\BTNMei_Terumi.blp")
+        IH('H00Z',u,"war3mapImported\\BTNGintoki.blp")
+        IH('H00I',u,"ReplaceableTextures\\CommandButtons\\BTNByakuran1.blp")
+        IH('H012',u,"war3mapImported\\BTNIchigo.blp")
+        IH('H006',u,"war3mapImported\\BTNItachiNew.blp")
+        IH('H018',u,"ReplaceableTextures\\CommandButtons\\BTNIshida.blp")
+        IH('H00N',u,"war3mapImported\\BTNViper.blp")
+        IH('H01C',u,"ReplaceableTextures\\CommandButtons\\BTNUrahara.blp")
+        IH('H01D',u,"ReplaceableTextures\\CommandButtons\\BTNMakaAlbarn1.blp")
+        IH('H01F',u,"ReplaceableTextures\\CommandButtons\\BTNBlackStar1.blp")
+        IH('H01H',u,"ReplaceableTextures\\CommandButtons\\BTNDeathTheKid1.blp")
+        IH('H01J',u,"ReplaceableTextures\\CommandButtons\\BTNJiraiya.blp")
+        IH('H01L',u,"war3mapImported\\BTNMauyry.blp")
+        IH('H01M',u,"war3mapImported\\BTNdevil_may_cry3.blp")
+        IH('H027',u,"ReplaceableTextures\\CommandButtons\\BTNOumaShu.blp")
+        IH('H02B',u,"ReplaceableTextures\\CommandButtons\\BTNAccelerator.blp")
+        IH('H02D',u,"war3mapImported\\BTNHaku2.blp")
+        IH('H01B',u,"war3mapImported\\BTNLightning_Gamma.blp")
+        IH('H02F',u,"ReplaceableTextures\\CommandButtons\\BTNKirito1.blp")
+        IH('H02G',u,"war3mapImported\\BTNJellal.blp")
+        IH('H02H',u,"war3mapImported\\BTNGoku.blp")
+        IH('H02I',u,"war3mapImported\\BTNVegeta.blp")
+        IH('H02J',u,"war3mapImported\\BTNIchimaruGin.blp")
+        IH('H02K',u,"war3mapImported\\BTNKanameTousen.blp")
+        IH('H02L',u,"war3mapImported\\BTNBroly.blp")
+        IH('H02M',u,"war3mapImported\\BTNAizen.blp")
+        IH('H02P',u,"war3mapImported\\BTNTrafalgar_Law.blp")
+        IH('H02O',u,"war3mapImported\\BTNSuperBuu.blp")
+        IH('H02R',u,"war3mapImported\\BTNGaara.blp")
+        IH('H02S',u,"war3mapImported\\BTNKizaru.blp")
+        IH('H02U',u,"ReplaceableTextures\\CommandButtons\\BTNAokiji.blp")
+        IH('H02V',u,"war3mapImported\\BTNStyleMagnus.blp")
+        IH('H02X',u,"war3mapImported\\BTNKiller_Bee.blp")
+        IH('H02Y',u,"war3mapImported\\BTNGenkshi.blp")
+        IH('H033',u,"war3mapImported\\BTNMadara.blp")
+        IH('H034',u,"war3mapImported\\BTNGotenks.blp")
+        IH('H03B',u,"war3mapImported\\BTNKukko.blp")
+        IH('H03L',u,"war3mapImported\\BTNNeliel.blp")
+        IH('H03K',u,"war3mapImported\\BTNGogeta.blp")
+        IH('H00Y',u,"war3mapImported\\BTNSakazuki1.blp")
+        IH('H03N',u,"war3mapImported\\BTNVegili.blp")
+        IH('H078',u,"BTNDiavolo5.blp")
+        IH('H03P',u,"war3mapImported\\BTNKatsura_Kotaro.blp")
+        IH('H03R',u,"war3mapImported\\BTNYoumu.blp")
+        IH('H03Z',u,"war3mapImported\\BTNMinato.blp")
+        IH('H03S',u,"war3mapImported\\BTNPain.blp")
+        IH('H031',u,"war3mapImported\\BTNSanji.blp")
+        IH('H042',u,"war3mapImported\\BTNTrunks.blp")
+        IH('H043',u,"war3mapImported\\BTNSuperVegito.blp")
+        IH('H044',u,"ReplaceableTextures\\CommandButtons\\BTNMisaka.blp")
+        IH('H045',u,"war3mapImported\\BTNUlquiorra_Cifer.blp")
+        IH('H047',u,"war3mapImported\\BTNLaxus.blp")
+        IH('H048',u,"war3mapImported\\BTNFrieza.blp")
+        IH('H049',u,"war3mapImported\\BTNSakaiYuji.blp")
+        IH('H04A',u,"war3mapImported\\BTNGon.blp")
+        IH('H04C',u,"war3mapImported\\BTNYuzurihaInori.blp")
+        IH('H04E',u,"war3mapImported\\BTNKillua.blp")
+        IH('H07E',u,"BTNPitou.blp")
+        IH('H04F',u,"war3mapImported\\BTNNarutoSage.blp")
+        IH('H04H',u,"war3mapImported\\BTNSogiitaGunha.blp")
+        IH('H04L',u,"war3mapImported\\BTNGray.blp")
+        IH('H04O',u,"war3mapImported\\BTNKurapika.blp")
+        IH('H04T',u,"war3mapImported\\BTNSinon.blp")
+        IH('H04Z',u,"war3mapImported\\BTNTetokuKakine.blp")
+        IH('H052',u,"war3mapImported\\BTNperfect_cell.blp")
+        IH('H053',u,"war3mapImported\\BTNLouise.blp")
+        IH('H054',u,"war3mapImported\\BTNnatsu_dragneel.blp")
+        IH('H055',u,"war3mapImported\\BTNXanxus.blp")
+        IH('H057',u,"war3mapImported\\BTNSasukeUchiha.blp")
+        IH('H059',u,"war3mapImported\\BTNGilgamesh.blp")
+        IH('H05A',u,"war3mapImported\\BTNEmiyaShirou.blp")
+        IH('H05D',u,"ReplaceableTextures\\CommandButtons\\BTNSakura.blp")
+        IH('H05C',u,"ReplaceableTextures\\CommandButtons\\BTNSaber.blp")
+        IH('H05N',u,"ReplaceableTextures\\CommandButtons\\BTNGajeel.blp")
+        IH('H05Q',u,"ReplaceableTextures\\CommandButtons\\BTNFujitora.blp")
+        IH('H05R',u,"ReplaceableTextures\\CommandButtons\\BTNKamidzeTouma.blp")
+        IH('H05Z',u,"ReplaceableTextures\\CommandButtons\\BTNSabrac.blp")
+        IH('H060',u,"ReplaceableTextures\\CommandButtons\\BTNWhitebeard.blp")
+        IH('H061',u,"ReplaceableTextures\\CommandButtons\\BTNRyougi.blp")
+        IH('H063',u,"ReplaceableTextures\\CommandButtons\\BTNFrenda.blp")
+        IH('H064',u,"ReplaceableTextures\\CommandButtons\\BTNSakuraSaber.blp")
+        IH('H066',u,"ReplaceableTextures\\CommandButtons\\BTNJoker.blp")
+        IH('H067',u,"ReplaceableTextures\\CommandButtons\\BTNTamamo.blp")
+        IH('H069',u,"ReplaceableTextures\\CommandButtons\\BTNNanaya.blp")
+        IH('H06B',u,"ReplaceableTextures\\CommandButtons\\BTNSaberExtra.blp")
+        IH('H06C',u,"ReplaceableTextures\\CommandButtons\\BTNShuwen.blp")
+        IH('H06D',u,"ReplaceableTextures\\CommandButtons\\BTNSaberAlter.blp")
+        IH('H06F',u,"ReplaceableTextures\\CommandButtons\\BTNJeanneAlter.blp")
+        IH('H051',u,"ReplaceableTextures\\CommandButtons\\BTNShielder.blp")
+        IH('H06G',u,"ReplaceableTextures\\CommandButtons\\BTNAtalanta.blp")
+        IH('H06M',u,"ReplaceableTextures\\CommandButtons\\BTNHeroineX.blp")
+        IH('H06T',u,"ReplaceableTextures\\CommandButtons\\BTNLucy.blp")
+        IH('H06Y',u,"ReplaceableTextures\\CommandButtons\\BTNScathach.blp")
+        IH('H06Z',u,"ReplaceableTextures\\CommandButtons\\BTNScathach2.blp")
+        IH('H072',u,"ReplaceableTextures\\CommandButtons\\BTNArchetype.blp")
+        IH('H073',u,"ReplaceableTextures\\CommandButtons\\BTNRin.blp")
+        IH('H074',u,"ReplaceableTextures\\CommandButtons\\BTNOrihime_Inoue.blp")
+        IH('H075',u,"ReplaceableTextures\\CommandButtons\\BTNKingHassan.blp")
+        IH('H076',u,"ReplaceableTextures\\CommandButtons\\BTNRuler.blp")
+        IH('H077',u,"ReplaceableTextures\\CommandButtons\\BTNEnkidu.blp")
+        IH('H03H',u,"BTNIzuku.blp")
+        IH('H082',u,"ReplaceableTextures\\CommandButtons\\BTNimageEscanor.blp")
+        IH('H084',u,"ReplaceableTextures\\CommandButtons\\BTNMordredIcon.blp")
+
+        hero[id]=u
+        
+        if GetUnitTypeId(u)=='H074'
+            oreha=u
+        
+        nowpick=1
+        if GetHeroLevel(u)==1
+            SetHeroLevel(u,3,true)
+        
+        SaveGroupHandle(h,id,StringHash("SpellGroup"),CreateGroup())
+        SetUnitTurnSpeed(u,2)
+        SaveInteger(h,GetHandleId(u),StringHash("expl"),0)
+        RemoveUnitFromAllStock(GetUnitTypeId(u))
+        if GetUnitTypeId(u)=='H04A'
+            Gon=u
+        
+        if udg_RM==false
+            GroupAddUnit(lrg,u)
+            while true
+                if GetUnitTypeId(u)==udg_RH[i]
+                    udg_RH[i]=0
+                
+                i=i+1
+
+                if i == 113
+                    break
+
+        
+        SaveInteger(h,GetHandleId(u),'A1GS',0)
+        bj_lastPlayedSound=CreateSound("ChoiceSounds\\Voice\\"+InitVoice(ty),false,false,true,12700,12700,"")
+        if GetLocalPlayer()==p
+            StartSound(bj_lastPlayedSound)
+        
+        KillSoundWhenDone(bj_lastPlayedSound)
+    else if IsUnitType(u,UNIT_TYPE_HERO)
+        if IsUnitType(u,UNIT_TYPE_HERO)
+            RemoveUnit(u)
+            while true
+                if i == 113
+                    break
+                if GetUnitTypeId(u)==udg_RH[i]
+                    udg_RH[i]=0
+                
+                i=i+1
+            cmi=cmi-1
+            if cmp==1
+                BJDebugMsg("|cFFFF0000The first team has banned|r|cFFFF9999 "+GetUnitName(u)+"|r, |cFFFF0000there is|r "+I2S(cmi)+" |cFFFF0000ban(s) remaining|r")
+            else
+                BJDebugMsg("|cFF3333FFThe second team has banned|r|cFFFF9999 "+GetUnitName(u)+"|r,|cFF3333FFthere is|r "+I2S(cmi)+" |cFF3333FFban(s) remaining|r")
+            
+        
+        if cmi==0 and cmp==1 and pick==0
+            BJDebugMsg("|cFF33FF44The second team will now ban|r")
+            cmb=true
+            cmi=2
+            cmp=2
+            RemoveUnit(cmu)
+            SetPlayerStateBJ(Player(0),PLAYER_STATE_FOOD_CAP_CEILING,0)
+            SetPlayerStateBJ(Player(0),PLAYER_STATE_RESOURCE_FOOD_CAP,0)
+            SetPlayerStateBJ(Player(5),PLAYER_STATE_FOOD_CAP_CEILING,5)
+            SetPlayerStateBJ(Player(5),PLAYER_STATE_RESOURCE_FOOD_CAP,5)
+            cmu=CreateUnit(Player(5),'ewsp',x1,y1,0)
+        
+        if cmi==0 and cmp==2 and pick==0
+            BJDebugMsg("|cFF33FF44The banning procedure has been completed, choose your hero!|r")
+            while true
+                if l__s == 11
+                    break
+                CreateUnit(Player(l__s),'ewsp',x1,y1,0)
+                SetPlayerStateBJ(Player(l__s),PLAYER_STATE_FOOD_CAP_CEILING,0)
+                SetPlayerStateBJ(Player(l__s),PLAYER_STATE_RESOURCE_FOOD_CAP,0)
+                l__s=l__s+1
+            DisplayTextToPlayer(Player(0),0,0,"Wait 3 seconds.")
+            cmb=false
+            TriggerSleepAction(3)
+            nowpick=0
+            pickb=false
+
+            pick=1
+            randcond=true
+            EnableTrigger(gg_trg_PickPreloadSystem)
+        
+
+    if cmb != true and pick != 0 and nowpick != playedplayers
+
+        if pick==1
+            if GetPlayerSlotState(Player(5))==PLAYER_SLOT_STATE_PLAYING and pickon[5]!=true
+                SetPlayerStateBJ(Player(5),PLAYER_STATE_FOOD_CAP_CEILING,5)
+                SetPlayerStateBJ(Player(5),PLAYER_STATE_RESOURCE_FOOD_CAP,5)
+                DisplayTextToPlayer(Player(0),0,0,"Player "+Color[5]+GetPlayerName(Player(5))+"|r is now picking")
+                DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[5]+GetPlayerName(Player(5))+"|r is now picking")
+                nowpick=1
+                pickon[5]=true
+            else if GetPlayerSlotState(Player(6))==PLAYER_SLOT_STATE_PLAYING and pickon[6]!=true
+                SetPlayerStateBJ(Player(6),PLAYER_STATE_FOOD_CAP_CEILING,5)
+                SetPlayerStateBJ(Player(6),PLAYER_STATE_RESOURCE_FOOD_CAP,5)
+                DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[6]+GetPlayerName(Player(6))+"|r is now picking")
+                nowpick=3
+                pickon[6]=true
+            else if GetPlayerSlotState(Player(7))==PLAYER_SLOT_STATE_PLAYING and pickon[7]!=true
+                SetPlayerStateBJ(Player(7),PLAYER_STATE_FOOD_CAP_CEILING,5)
+                SetPlayerStateBJ(Player(7),PLAYER_STATE_RESOURCE_FOOD_CAP,5)
+                DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[6]+GetPlayerName(Player(7))+"|r is now picking")
+                nowpick=5
+                pickon[7]=true
+            else if GetPlayerSlotState(Player(8))==PLAYER_SLOT_STATE_PLAYING and pickon[8]!=true
+                SetPlayerStateBJ(Player(8),PLAYER_STATE_FOOD_CAP_CEILING,5)
+                SetPlayerStateBJ(Player(8),PLAYER_STATE_RESOURCE_FOOD_CAP,5)
+                DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[7]+GetPlayerName(Player(8))+"|r is now picking")
+                nowpick=7
+                pickon[8]=true
+            else if GetPlayerSlotState(Player(9))==PLAYER_SLOT_STATE_PLAYING and pickon[9]!=true
+                SetPlayerStateBJ(Player(9),PLAYER_STATE_FOOD_CAP_CEILING,5)
+                SetPlayerStateBJ(Player(9),PLAYER_STATE_RESOURCE_FOOD_CAP,5)
+                DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[8]+GetPlayerName(Player(9))+"|r is now picking")
+                nowpick=9
+                pickon[9]=true
+            
+            else if pick==2
+
+            if GetPlayerSlotState(Player(0))==PLAYER_SLOT_STATE_PLAYING and pickon[0]!=true
+                SetPlayerStateBJ(Player(0),PLAYER_STATE_FOOD_CAP_CEILING,5)
+                SetPlayerStateBJ(Player(0),PLAYER_STATE_RESOURCE_FOOD_CAP,5)
+                DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[0]+GetPlayerName(Player(0))+"|r is now picking")
+                nowpick=2
+                pickon[0]=true
+            else if GetPlayerSlotState(Player(1))==PLAYER_SLOT_STATE_PLAYING and pickon[1]!=true
+                SetPlayerStateBJ(Player(1),PLAYER_STATE_FOOD_CAP_CEILING,5)
+                SetPlayerStateBJ(Player(1),PLAYER_STATE_RESOURCE_FOOD_CAP,5)
+                DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[1]+GetPlayerName(Player(1))+"|r is now picking")
+                nowpick=4
+                pickon[1]=true
+            else if GetPlayerSlotState(Player(2))==PLAYER_SLOT_STATE_PLAYING and pickon[2]!=true
+                SetPlayerStateBJ(Player(2),PLAYER_STATE_FOOD_CAP_CEILING,5)
+                SetPlayerStateBJ(Player(2),PLAYER_STATE_RESOURCE_FOOD_CAP,5)
+                DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[2]+GetPlayerName(Player(2))+"|r is now picking")
+                nowpick=6
+                pickon[2]=true
+            else if GetPlayerSlotState(Player(3))==PLAYER_SLOT_STATE_PLAYING and pickon[3]!=true
+                SetPlayerStateBJ(Player(3),PLAYER_STATE_FOOD_CAP_CEILING,5)
+                SetPlayerStateBJ(Player(3),PLAYER_STATE_RESOURCE_FOOD_CAP,5)
+                DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[3]+GetPlayerName(Player(3))+"|r is now picking")
+                pickon[3]=true
+                nowpick=8
+            else if GetPlayerSlotState(Player(4))==PLAYER_SLOT_STATE_PLAYING and pickon[4]!=true
+                SetPlayerStateBJ(Player(4),PLAYER_STATE_FOOD_CAP_CEILING,5)
+                SetPlayerStateBJ(Player(4),PLAYER_STATE_RESOURCE_FOOD_CAP,5)
+                DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[4]+GetPlayerName(Player(4))+"|r is now picking")
+                pickon[4]=true
+                nowpick=10
+            
+        
+        if pick==1
+            pick=2
+        else if pick==2
+            pick=1
+        
+        if nowpick==playedplayers and timerg==false
+            //TimerStart(udg_Timer,75.0,false,null)
+            //udg_TB=CreateTimerDialog(udg_Timer)
+            TimerDialogSetTitle(udg_TB,"Round starts in:")
+            TimerDialogDisplay(udg_TB,true)
+            timerg=true
+        
+
+    DestroyGroup(g)
+
+function initTrig_Ih()
+    gg_trg_Ih=CreateTrigger()
+    TriggerRegisterEnterRectSimple(gg_trg_Ih,gg_rct_Rect1)
+    TriggerAddAction(gg_trg_Ih,function trig_Ih_Actions)
+
