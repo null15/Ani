@@ -6,12 +6,20 @@ Frame "FRAME" "HeroSelectorLiteDraft" {
 	Width 0.6,
 	Height 0.4,
 	Frame "BACKDROP" "Box1" {
-		BackdropBackground "AnimeBgShop.dds",
+		BackdropBackground "Transparent.blp",
 		BackdropCornerSize 0.005,
 		BackdropBackgroundInsets 0.0010 0.0010 0.0010 0.0010,
 		SetAllPoints,
-		BackdropBlendAll,
+		//BackdropBlendAll,
+
+		Frame "BACKDROP" "Box1Background" {
+            BackdropBackgroundInsets 0.01 0.01 0.01 0.01,
+            SetAllPoints,
+        }
+	
 	}
+
+
 	Frame "POPUPMENU" "PopUp1" {
 		Width 0.28,
 		Height 0.035,

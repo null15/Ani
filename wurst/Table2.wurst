@@ -18,6 +18,11 @@ function trig_Table2_Actions()
         DialogDisplay(Player(1),udg_Dialog,true)
     else if GetPlayerSlotState(Player(0))!=PLAYER_SLOT_STATE_PLAYING and GetPlayerSlotState(Player(1))!=PLAYER_SLOT_STATE_PLAYING and GetPlayerSlotState(Player(2))==PLAYER_SLOT_STATE_PLAYING
         DialogDisplay(Player(2),udg_Dialog,true)
+    else if GetPlayerSlotState(Player(0))!=PLAYER_SLOT_STATE_PLAYING and GetPlayerSlotState(Player(1))!=PLAYER_SLOT_STATE_PLAYING and GetPlayerSlotState(Player(2))!=PLAYER_SLOT_STATE_PLAYING and GetPlayerSlotState(Player(3))==PLAYER_SLOT_STATE_PLAYING
+        DialogDisplay(Player(3),udg_Dialog,true)
+    else if GetPlayerSlotState(Player(0))!=PLAYER_SLOT_STATE_PLAYING and GetPlayerSlotState(Player(1))!=PLAYER_SLOT_STATE_PLAYING and GetPlayerSlotState(Player(2))!=PLAYER_SLOT_STATE_PLAYING and GetPlayerSlotState(Player(3))!=PLAYER_SLOT_STATE_PLAYING and GetPlayerSlotState(Player(4))==PLAYER_SLOT_STATE_PLAYING
+        DialogDisplay(Player(4),udg_Dialog,true)
+
     TriggerRegisterDialogEvent(gg_trg_Dialog2,udg_Dialog)
     DestroyTrigger(GetTriggeringTrigger())
     GroupEnumUnitsInRange(G,0,0,99999999,null)
