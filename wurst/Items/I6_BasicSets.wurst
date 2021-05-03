@@ -13,23 +13,41 @@ init
 
         //
 
-        setupItem('I03X', CATEGORY, 1100) //Akatsuki Cloak
-        setupItem('I03Y', CATEGORY, 1100) //Akatsuki Hat
-        setupItem('I03Z', CATEGORY, 1200) //Akatsuki Headband
-        setupItem('I03W', CATEGORY, 1200) //Akatsuki Ring
+        setupItem('I03X', CATEGORY, 1000) //Akatsuki Cloak
+        setupItem('I03Y', CATEGORY, 1500) //Akatsuki Hat
+        setupItem('I03Z', CATEGORY, 1500) //Akatsuki Headband
+        setupItem('I03W', CATEGORY, 1000) //Akatsuki Ring
+
+        setupItem('I040', CATEGORY, 5000) // Akatsuki Set
+        addRequirement('I03X') //Akatsuki Cloak
+        addRequirement('I03Y') //Akatsuki Hat
+        addRequirement('I03Z') //Akatsuki Headband
+        addRequirement('I03W') //Akatsuki Ring
         //
     
         setupItem('I03E', CATEGORY, 1000) //Anbu Boots
-        setupItem('I03D', CATEGORY, 1200) //Anbu Mask
+        setupItem('I03D', CATEGORY, 1500) //Anbu Mask
         setupItem('I03B', CATEGORY, 1500) //Anbu Sword
-        setupItem('I03C', CATEGORY, 1200) //Anbu Vest
+        setupItem('I03C', CATEGORY, 1000) //Anbu Vest
+
+        setupItem('I03F', CATEGORY, 5000) // Anbu Set
+        addRequirement('I03E') //Anbu Boots
+        addRequirement('I03D') //Anbu Sword
+        addRequirement('I03B') //Anbu Mask
+        addRequirement('I03C') //Anbu Vest
     
         //
 
-        setupItem('I035', CATEGORY, 1200) //Madao Box
-        setupItem('I034', CATEGORY, 1300) //Madao Dog
+        setupItem('I035', CATEGORY, 1500) //Madao Box
+        setupItem('I034', CATEGORY, 1000) //Madao Dog
         setupItem('I032', CATEGORY, 1000) //Madao Glasses
-        setupItem('I033', CATEGORY, 1100) //Madao Cap
+        setupItem('I033', CATEGORY, 1500) //Madao Cap
+
+        setupItem('I036', CATEGORY, 5000) // Madao Set
+        addRequirement('I035') //Madao Box
+        addRequirement('I034') //Madao Dog
+        addRequirement('I032') //Madao Glasses
+        addRequirement('I033') //Madao Cap
         
         //
     
@@ -38,9 +56,21 @@ init
         setupItem('I06M', CATEGORY, 1000) //Quincy Medallion
         setupItem('I06N', CATEGORY, 1000) //Quincy Overcoat
 
+        setupItem('I06J', CATEGORY, 5000) // Quincy Set
+        addRequirement('I06L') //Quincy Cross
+        addRequirement('I06K') //Quincy Glove
+        addRequirement('I06M') //Quincy Medallion
+        addRequirement('I06N') //Quincy Overcoat
+
         //
 
         setupItem('I06H', CATEGORY, 1000) //Saiyan Armor
         setupItem('I06G', CATEGORY, 1500) //Saiyan Boots
         setupItem('I06F', CATEGORY, 1500) //Saiyan Gloves
         setupItem('I06I', CATEGORY, 1000) //Saiyan Scouter
+
+        setupItem('I06E', CATEGORY, 5000) // Saiyan Set
+        addRequirement('I06H') //Saiyan ARmor
+        addRequirement('I06G') //Saiyan Boots
+        addRequirement('I06F') //Saiyan Gloves
+        addRequirement('I06I') //Saiyan Scouter

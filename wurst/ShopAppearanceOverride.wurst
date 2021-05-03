@@ -3,8 +3,9 @@ package ShopAppearanceOverride
 
 import ShopAppearance
 import FrameWrapperDefinitions
-
-
+import Assets
+import ClosureFrames
+import initlater ShopUI
 
 public class ShopAppearanceConfig extends ShopAppearance
 
@@ -12,10 +13,40 @@ public class ShopAppearanceConfig extends ShopAppearance
         
         let fw = setCategoryButton(index, pageBackground.addTextButton(text))
         let fh = fw.frame()
-        fh.setPoint(FRAMEPOINT_TOP, pageBackground, FRAMEPOINT_TOP, 0, -0.030 - 0.0285 * index) //-0.030 - 0.0285
+        fh.setPoint(FRAMEPOINT_TOP, pageBackground, FRAMEPOINT_TOP, 0, -0.030 - 0.0305 * index) //-0.030 - 0.0285
         setFrameIndex(fh, index)
         onClickCategoryButton.registerFrameEvent(fh, FRAMEEVENT_CONTROL_CLICK)
 
         BlzFrameSetSize(fh, 1.75, 0.75)
+
+
+    override function shopBackgroundCreate()
+        shopBackground = createFrame("TW_Shop_Window", GAME_UI, 0, 0)
+        ..hide()
+        ..setAbsPoint(FRAMEPOINT_TOPLEFT, 0.0, 0.55)
+        ..setSize(0.8, 0.41)
+
+
+    override function tooltipBackgroundCreate()
+
+        tooltipBackground = createFrame("TW_Shop_Background", shopBackground, 0, PermanentIndex.getNewIndex())
+        ..setSize(itemDescWidth, itemDescHeight)
+        ..setPoint(FRAMEPOINT_TOPLEFT, recipeTreeBackground, FRAMEPOINT_BOTTOMLEFT, 0, 0)
+        itemIcon = tooltipBackground.addIcon(Icons.bTNTemp)
+        itemIcon.frame().setPoint(FRAMEPOINT_TOPLEFT, tooltipBackground, FRAMEPOINT_TOPLEFT, 0.017, -0.030)
+        itemDescription = createFrame("TW_Shop_Text", tooltipBackground, 0, PermanentIndex.getNewIndex())
+        ..setSize(itemDescWidth - 0.03, itemDescHeight - 0.02)
+        ..setPoint(FRAMEPOINT_TOPLEFT, itemIcon.frame(), FRAMEPOINT_BOTTOMLEFT, 0, -0.015)
+        ..setText("")
+        buyButton = tooltipBackground.addTextButton("Buy for: 0")
+        buyButton.frame()..setPoint(FRAMEPOINT_TOPRIGHT, tooltipBackground, FRAMEPOINT_TOPRIGHT, -0.015, -0.030)..onClick() ->
+            BlzGetTriggerFrame()..setEnabled(false)..setEnabled(true)
+            ShopUI.clickBuy(GetTriggerPlayer())
+        
+        itemTitle = createFrame("TW_Shop_Title", tooltipBackground, 0, PermanentIndex.getNewIndex())
+        ..setPoint(FRAMEPOINT_LEFT, this.itemIcon.frame(), FRAMEPOINT_RIGHT, 0.01, -0.001)
+        ..setText("Gauntlets of Ogre Strength")
+        ..setSize(recipeTreeWidth - 0.034, 0.03)
+        ..setTextAlignment(TEXT_JUSTIFY_MIDDLE, TEXT_JUSTIFY_LEFT)
 
 init

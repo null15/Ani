@@ -11,7 +11,48 @@ init
 
     execute() ->
 
+        //
+        
+        setupItem('I02J', CATEGORY, 4250) // Vongola Ossa Impressione Ring S
+        addRequirement('I02I')
+
+        setupItem('I01O', CATEGORY, 4450) // Sandai Kitetsu
+        addRequirement('I01L')
+
+        setupItem('I04E', CATEGORY, 4750) // Vongola 666 Ring
+        addRequirement('I04D')
+        
+        setupItem('I03L', CATEGORY, 4800) // Vongola Glove Ver. X
+        addRequirement('I03K')
+        addRequirement('I01M')
+
+        setupItem('I050', CATEGORY, 5000) // Gegetsuburi
+        addRequirement('I01M')
+        addRequirement('I03B')
+        addRequirement('I033')
+        addRequirement('I01J')
+
+        setupItem('I031', CATEGORY, 5000) // Patriot
+        addRequirement('I020')
+        addRequirement('I01H')
+
+        setupItem('I04F', CATEGORY, 5500) // Excalibur
+        addRequirement('I01O')
+        addRequirement('I01M')
+
         setupItem('I03N', CATEGORY, 5500) // Samehada
         addRequirement('I01O')
 
-        //
+        setupItem('I02V', CATEGORY, 5600) // Yamato
+
+        setupItem('I01U', CATEGORY, 5800) // Fang
+        addRequirement('I01O')
+        addRequirement('I01X')
+
+        setupItem('I01S', CATEGORY, 5800) // Dark Excalibur
+        addRequirement('I01O')
+        addRequirement('I01X')
+
+        setupItem('I01Q', CATEGORY, 5800) // Shusui
+        addRequirement('I01O')
+        addRequirement('I01J')

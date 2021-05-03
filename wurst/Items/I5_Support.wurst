@@ -10,5 +10,22 @@ init
  
     execute() ->
 
-        setupItem('I03N', CATEGORY, 5500) // Dummy item, remove
-        addRequirement('I01O') // Dummy as well, remove
+        setupItem('I04H', CATEGORY, 800) // Droid Guard Mk. I
+
+        setupItem('I04I', CATEGORY, 2350) // Droid Guard Mk. II
+        addRequirement('I04H')
+        addRequirement('I04H')
+        addRequirement('I01M')
+
+        setupItem('I066', CATEGORY, 3450) // Droid Guard Mk. III
+        addRequirement('I04I')
+        addRequirement('I04H')
+
+        setupItem('I068', CATEGORY, 4300) // Holy Grail
+        addRequirement('I03X')
+        addRequirement('I035')
+        addRequirement('I02R')
+
+        setupItem('I06O', CATEGORY, 6300) // Dark Grail
+        addRequirement('I068')
+        addRequirement('I02R')

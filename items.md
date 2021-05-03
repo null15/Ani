@@ -1,151 +1,149 @@
 **Universal**
 
 
-Alastor
+Alastor //
 
-Captain Set
+Captain Set //
 
-Hell Malocchio Ring
+Hell Malocchio Ring //
 
-Fire Boots
+Fire Boots //
 
-Ice Boots
+Ice Boots //
 
-Wind Boots
+Wind Boots //
 
-Ice Essence
+Ice Essence //
 
-Imagine Breaker
+Imagine Breaker //
 
-Kaleidoscope Ruby
+Kaleidoscope Ruby //
 
-Kaleidoscope Sapphire
+Kaleidoscope Sapphire //
 
-Mare Thunder Ring
+Mare Thunder Ring //
 
-Orb of Space
+Orb of Space //
 
-Orb of Time
+Orb of Time //
 
-Orb of Void
+Orb of Void //
 
-Quincy Set
+Quincy Set //
 
-Vongola Sky Ring
+Vongola Sky Ring //
 
-Seal of Elements
+Seal of Elements //
 
-Tornado
+Tornado //
 
-Yata Mirror
+Yata Mirror //
 
-Staff of Darkness
+Staff of Darkness //
 
 
 **Strength**
 
 
-Mare Mist Ring
+Mare Mist Ring //
 
-Mare Rain Ring
+Mare Rain Ring //
 
-Mare Sky Ring
+Mare Sky Ring //
 
-Mare Sun Ring
+Mare Sun Ring //
 
-Gungnir
+Gungnir //
 
-Madao Set
+Madao Set //
 
-Vongola Cloud Ring
+Vongola Cloud Ring //
 
-Vongola Sun Ring
+Vongola Sun Ring //
 
-Saiyan Set
+Saiyan Set //
 
 
 **Agility**
 
 
-Anbu Set
+Anbu Set //
 
-Mare Cloud Ring
+Mare Cloud Ring //
 
-Mare Rain Ring
+Mare Rain Ring //
 
-Mare Sky Ring
+Mare Sky Ring //
 
-Mare Storm Ring
+Mare Storm Ring //
 
-Vongola Cloud Ring
+Vongola Cloud Ring //
 
-Vongola Rain Ring
+Vongola Rain Ring //
 
-Vongola Storm Ring
+Vongola Storm Ring //
 
-Scythe of Death
+Scythe of Death //
 
-Yamato
+Yamato //
 
 
 **Intelligence**
 
 
-Bashosen
+Bashosen //
 
-Mare Mist Ring
+Mare Mist Ring //
 
-Mare Sky Ring
+Mare Sky Ring //
 
-Mare Storm Ring
+Mare Storm Ring //
 
-Mare Sun Ring
+Mare Sun Ring //
 
-Ice Gloves
+Ice Gloves //
 
-Vongola Mist Ring
+Vongola Mist Ring //
 
-Vongola Thunder Ring
+Vongola Thunder Ring //
 
 
 **Melee**
 
 
-Dark Excalibur
+Dark Excalibur //
 
-Excalibur
+Excalibur //
 
-Hell 666 Ring
+Hell 666 Ring //
 
-Ossa Impressione
+Ossa Impressione //
 
-Fang
+Fang //
 
-Gegetsuburi
+Gegetsuburi //
 
-Hardened Sword
+Patriot //
 
-Patriot
+Samehada //
 
-Samehada
+Shusui //
 
-Shusui
+Vongola Gloves Ver. X //
 
-Vongola Gloves Ver. X
-
-Yamato
+Yamato //
 
 
 **Support**
 
 
-Holy Grail
+Holy Grail //
 
-Dark Grail
+Dark Grail //
 
-Droid Guard MK. 2
+Droid Guard MK. 2 //
 
-Droid Guard MK. 3
+Droid Guard MK. 3 //
 
 
 **Components (1/4)**

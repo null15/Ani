@@ -11,9 +11,25 @@ init
 
     execute() ->
 
-        setupItem('I00L', CATEGORY, 750) // Vongola Cloud Ring D
+        setupItem('I00R', CATEGORY, 500) // Vongola Storm Ring D
+                
+        setupItem('I00S', CATEGORY, 1250) // Vongola Storm Ring C
+        addRequirement('I00R')
+
+        setupItem('I00T', CATEGORY, 2000) // Vongola Storm Ring B
+        addRequirement('I00S')
+
+        setupItem('I00U', CATEGORY, 2750) // Vongola Storm Ring A
+        addRequirement('I00T')
+
+        setupItem('I00V', CATEGORY, 3500) // Vongola Storm Ring S
+        addRequirement('I00U')
+
+        //////////////////////////
+
+        setupItem('I00L', CATEGORY, 1000) // Vongola Cloud Ring D
             
-        setupItem('I00M', CATEGORY, 1500) // Vongola Cloud Ring C
+        setupItem('I00M', CATEGORY, 1750) // Vongola Cloud Ring C
         addRequirement('I00L')
 
         setupItem('I00N', CATEGORY, 2500) // Vongola Cloud Ring B
@@ -28,9 +44,9 @@ init
         //////////////////////////
 
         
-        setupItem('I00F', CATEGORY, 750) // Vongola Mist Ring D
+        setupItem('I00F', CATEGORY, 1000) // Vongola Mist Ring D
             
-        setupItem('I00G', CATEGORY, 1500) // Vongola Mist Ring C
+        setupItem('I00G', CATEGORY, 1750) // Vongola Mist Ring C
         addRequirement('I00F')
 
         setupItem('I00H', CATEGORY, 2500) // Vongola Mist Ring B
@@ -44,9 +60,9 @@ init
 
         //////////////////////////
 
-        setupItem('I00X', CATEGORY, 750) // Vongola Rain Ring D
+        setupItem('I00X', CATEGORY, 1000) // Vongola Rain Ring D
             
-        setupItem('I00Y', CATEGORY, 1500) // Vongola Rain Ring C
+        setupItem('I00Y', CATEGORY, 1750) // Vongola Rain Ring C
         addRequirement('I00X')
 
         setupItem('I00Z', CATEGORY, 2500) // Vongola Rain Ring B
@@ -60,9 +76,9 @@ init
 
         //////////////////////////
 
-        setupItem('I019', CATEGORY, 750) // Vongola Sky Ring D
+        setupItem('I019', CATEGORY, 1000) // Vongola Sky Ring D
             
-        setupItem('I01A', CATEGORY, 1500) // Vongola Sky Ring C
+        setupItem('I01A', CATEGORY, 1750) // Vongola Sky Ring C
         addRequirement('I019')
 
         setupItem('I01B', CATEGORY, 2500) // Vongola Sky Ring B
@@ -76,18 +92,34 @@ init
 
         //////////////////////////
 
-        setupItem('I00R', CATEGORY, 500) // Vongola Storm Ring D
+        setupItem('I007', CATEGORY, 1000) // Vongola Sun Ring D
             
-        setupItem('I00S', CATEGORY, 1250) // Vongola Storm Ring C
-        addRequirement('I00R')
+        setupItem('I009', CATEGORY, 1750) // Vongola Sun Ring C
+        addRequirement('I007')
 
-        setupItem('I00T', CATEGORY, 2000) // Vongola Storm Ring B
-        addRequirement('I00S')
+        setupItem('I00A', CATEGORY, 2500) // Vongola Sun Ring B
+        addRequirement('I009')
 
-        setupItem('I00U', CATEGORY, 2750) // Vongola Storm Ring A
-        addRequirement('I00T')
+        setupItem('I00B', CATEGORY, 3250) // Vongola Sun Ring A
+        addRequirement('I00A')
 
-        setupItem('I00V', CATEGORY, 3500) // Vongola Storm Ring S
-        addRequirement('I00U')
+        setupItem('I00C', CATEGORY, 4000) // Vongola Sun Ring S
+        addRequirement('I00B')
+
+        //////////////////////////
+
+        setupItem('I013', CATEGORY, 1000) // Vongola Thunder Ring D
+            
+        setupItem('I014', CATEGORY, 1750) // Vongola Thunder Ring C
+        addRequirement('I013')
+
+        setupItem('I015', CATEGORY, 2500) // Vongola Thunder Ring B
+        addRequirement('I014')
+
+        setupItem('I016', CATEGORY, 3250) // Vongola Thunder Ring A
+        addRequirement('I015')
+
+        setupItem('I017', CATEGORY, 4000) // Vongola Thunder Ring S
+        addRequirement('I016')
 
         //////////////////////////

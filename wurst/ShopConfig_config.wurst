@@ -2,7 +2,7 @@ package ShopConfig_config
 
 import initlater ShopConfig
 
-@config public constant NUM_CATEGORIES = 12
+@config public constant NUM_CATEGORIES = 10
 
 @config public constant RECOMMENDED_CATEGORY = -1
 
@@ -13,10 +13,17 @@ import initlater ShopConfig
     CATEGORY_NAMES[3] = "Intelligence"
     CATEGORY_NAMES[4] = "Melee"
     CATEGORY_NAMES[5] = "Support"
-    CATEGORY_NAMES[6] = "Basic (Sets)"
-    CATEGORY_NAMES[7] = "Basic (Vongola 1)"
-    CATEGORY_NAMES[8] = "Basic (Vongola 2)"
-    CATEGORY_NAMES[9] = "Basic (Mare 1)"
-    CATEGORY_NAMES[10] = "Basic (Mare 2)"
-    CATEGORY_NAMES[11] = "Basic (Misc)"
+    CATEGORY_NAMES[6] = "Sets"
+    CATEGORY_NAMES[7] = "Vongola Rings"
+    CATEGORY_NAMES[8] = "Mare Rings"
+    CATEGORY_NAMES[9] = "Miscellaneous"
+
+
+@config public constant MAX_ITEMS_IN_LIST = 35
+// number of icons that can be shown in the builds into list
+@config public constant MAX_BUILDS_INTO_ICONS = 12
+// number of icons that can be shown in the recipe tree
+@config public constant MAX_RECIPE_TREE_ICONS = 24
+
+
 init

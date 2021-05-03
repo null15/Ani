@@ -10,14 +10,28 @@ init
  
     execute() ->
 
+        setupItem('I05Z', CATEGORY, 4750) // Mare Mist Ring
+        addRequirement('I05Y')
+
+        setupItem('I05T', CATEGORY, 4750) // Mare Rain Ring
+        addRequirement('I05S')
+
+        setupItem('I04R', CATEGORY, 4750) // Mare Sky Ring
+        addRequirement('I04Q')
+
+        setupItem('I05H', CATEGORY, 4750) // Mare Sun Ring
+        addRequirement('I05G')
+
+        setupItem('I00Q', CATEGORY, 4750) // Vongola Cloud Ring
+        addRequirement('I00P')
+
+        setupItem('I00D', CATEGORY, 4750) // Vongola Sun Ring
+        addRequirement('I00C')
+
+        setupItem('I048', CATEGORY, 5000) // Gungnir
+        addRequirement('I01O')
+        addRequirement('I01W')
+
         setupItem('I036', CATEGORY, 5000) // Madao Set
-        addRequirement('I035') //Madao Box
-        addRequirement('I034') //Madao Dog
-        addRequirement('I032') //Madao Glasses
-        addRequirement('I033') //Madao Cap
 
         setupItem('I06E', CATEGORY, 5000) // Saiyan Set
-        addRequirement('I06H') //Saiyan ARmor
-        addRequirement('I06G') //Saiyan Boots
-        addRequirement('I06F') //Saiyan Gloves
-        addRequirement('I06I') //Saiyan Scouter

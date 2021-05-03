@@ -10,12 +10,33 @@ init
  
     execute() ->
 
+        setupItem('I00W', CATEGORY, 4250) // Vongola Storm Ring
+        addRequirement('I00V')
+
         setupItem('I038', CATEGORY, 4500) // Scythe
         addRequirement('I01I')
         addRequirement('I03B')
-        
-        setupItem('I03F', CATEGORY, 4900) // Anbu Set
-        addRequirement('I03E') //Anbu Boots
-        addRequirement('I03D') //Anbu Sword
-        addRequirement('I03B') //Anbu Mask
-        addRequirement('I03C') //Anbu Vest
+
+        setupItem('I065', CATEGORY, 4750) // Mare Cloud Ring
+        addRequirement('I064')
+
+        setupItem('I05T', CATEGORY, 4750) // Mare Rain Ring
+        addRequirement('I05S')
+
+        setupItem('I04R', CATEGORY, 4750) // Mare Sky Ring
+        addRequirement('I04Q')
+
+        setupItem('I05N', CATEGORY, 4750) // Mare Storm Ring
+        addRequirement('I05M')
+
+        setupItem('I00Q', CATEGORY, 4750) // Vongola Cloud Ring
+        addRequirement('I00P')
+
+        setupItem('I012', CATEGORY, 4750) // Vongola Rain Ring
+        addRequirement('I011')
+
+        setupItem('I03F', CATEGORY, 5000) // Anbu Set
+
+        setupItem('I02V', CATEGORY, 5600) // Yamato
+        addRequirement('I02T')
+        addRequirement('I01L')
