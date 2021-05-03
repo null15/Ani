@@ -26,12 +26,6 @@ init
         addRequirement('I03K')
         addRequirement('I01M')
 
-        setupItem('I050', CATEGORY, 5000) // Gegetsuburi
-        addRequirement('I01M')
-        addRequirement('I03B')
-        addRequirement('I033')
-        addRequirement('I01J')
-
         setupItem('I031', CATEGORY, 5000) // Patriot
         addRequirement('I020')
         addRequirement('I01H')
@@ -39,6 +33,12 @@ init
         setupItem('I04F', CATEGORY, 5500) // Excalibur
         addRequirement('I01O')
         addRequirement('I01M')
+
+        setupItem('I050', CATEGORY, 5500) // Gegetsuburi
+        addRequirement('I01M')
+        addRequirement('I03B')
+        addRequirement('I033')
+        addRequirement('I01J')
 
         setupItem('I03N', CATEGORY, 5500) // Samehada
         addRequirement('I01O')

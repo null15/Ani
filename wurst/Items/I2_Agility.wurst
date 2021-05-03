@@ -21,16 +21,13 @@ init
         addRequirement('I064')
 
         setupItem('I05T', CATEGORY, 4750) // Mare Rain Ring
-        addRequirement('I05S')
 
         setupItem('I04R', CATEGORY, 4750) // Mare Sky Ring
-        addRequirement('I04Q')
 
         setupItem('I05N', CATEGORY, 4750) // Mare Storm Ring
         addRequirement('I05M')
 
         setupItem('I00Q', CATEGORY, 4750) // Vongola Cloud Ring
-        addRequirement('I00P')
 
         setupItem('I012', CATEGORY, 4750) // Vongola Rain Ring
         addRequirement('I011')

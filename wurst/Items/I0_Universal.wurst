@@ -20,9 +20,11 @@ init
         addRequirement('I01M') // 
 
         setupItem('I03Q', CATEGORY, 4500) // Orb of Space
+        addRequirement('I01M') // 
         addRequirement('I06C') // 
 
         setupItem('I03P', CATEGORY, 4500) // Orb of Time
+        addRequirement('I01M') // 
         addRequirement('I06C') // 
 
         setupItem('I03R', CATEGORY, 4500) // Orb of Void
@@ -74,8 +76,8 @@ init
 
         setupItem('I054', CATEGORY, 5400) // Ice Boots
         addRequirement('I01X') // 
-        addRequirement('I01M') // 
         addRequirement('I02S') // 
+        addRequirement('I01M') // 
         addRequirement('I01F') // 
 
         setupItem('I046', CATEGORY, 5400) // Wind Boots

@@ -19,13 +19,13 @@ init
 
         setupItem('I066', CATEGORY, 3450) // Droid Guard Mk. III
         addRequirement('I04I')
-        addRequirement('I04H')
+        addRequirement('I01M')
 
-        setupItem('I068', CATEGORY, 4300) // Holy Grail
+        setupItem('I068', CATEGORY, 4500) // Holy Grail
         addRequirement('I03X')
         addRequirement('I035')
         addRequirement('I02R')
 
-        setupItem('I06O', CATEGORY, 6300) // Dark Grail
+        setupItem('I06O', CATEGORY, 6500) // Dark Grail
         addRequirement('I068')
         addRequirement('I02R')

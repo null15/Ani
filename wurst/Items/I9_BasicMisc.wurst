@@ -86,16 +86,16 @@ init
         setupItem('I02E', CATEGORY, 500) // Vongola Ossa Impressione Ring D
             
         setupItem('I02F', CATEGORY, 1250) // Vongola Ossa Impressione Ring C
-        addRequirement('I00L')
+        addRequirement('I02E')
 
         setupItem('I02G', CATEGORY, 2000) // Vongola Ossa Impressione Ring B
-        addRequirement('I00M')
+        addRequirement('I02F')
 
         setupItem('I02H', CATEGORY, 2750) // Vongola Ossa Impressione Ring A
-        addRequirement('I00N')
+        addRequirement('I02G')
 
         setupItem('I02I', CATEGORY, 3500) // Vongola Ossa Impressione Ring S
-        addRequirement('I00O')
+        addRequirement('I02H')
 
         //////////////////////////
 

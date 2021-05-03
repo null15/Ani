@@ -19,16 +19,12 @@ init
         addRequirement('I017')
 
         setupItem('I05Z', CATEGORY, 4750) // Mare Mist Ring
-        addRequirement('I05Y')
 
         setupItem('I04R', CATEGORY, 4750) // Mare Sky Ring
-        addRequirement('I04Q')
 
         setupItem('I05N', CATEGORY, 4750) // Mare Storm Ring
-        addRequirement('I05M')
 
         setupItem('I05H', CATEGORY, 4750) // Mare Sun Ring
-        addRequirement('I05G')
 
         setupItem('I00K', CATEGORY, 4750) // Vongola Mist Ring
         addRequirement('I00J')

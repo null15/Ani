@@ -179,7 +179,7 @@ function endOfChoiceAct()
                 CustomDefeatBJ(Player(i), "You lose!")
             
     else
-        TimerStart(udg_Timer, 1, false, null)
+        TimerStart(udg_Timer, 9999, false, null)
         DestroyTimerDialog(udg_TB)
         DestroyTimerDialog(TG)
         udg_TB=CreateTimerDialog(udg_Timer)
