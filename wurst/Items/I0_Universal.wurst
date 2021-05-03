@@ -3,6 +3,8 @@ package I0_Universal
 import ItemConfiguration
 import Execute
 
+public integer univ
+
 constant CATEGORY = 0
 init
  

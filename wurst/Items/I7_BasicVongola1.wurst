@@ -1,0 +1,93 @@
+package I7_BasicVongola1
+
+import ItemConfiguration
+import Execute
+
+public integer comp2
+
+constant CATEGORY = 7
+
+init
+
+    execute() ->
+
+        setupItem('I00L', CATEGORY, 750) // Vongola Cloud Ring D
+            
+        setupItem('I00M', CATEGORY, 1500) // Vongola Cloud Ring C
+        addRequirement('I00L')
+
+        setupItem('I00N', CATEGORY, 2500) // Vongola Cloud Ring B
+        addRequirement('I00M')
+
+        setupItem('I00O', CATEGORY, 3250) // Vongola Cloud Ring A
+        addRequirement('I00N')
+
+        setupItem('I00P', CATEGORY, 4000) // Vongola Cloud Ring S
+        addRequirement('I00O')
+
+        //////////////////////////
+
+        
+        setupItem('I00F', CATEGORY, 750) // Vongola Mist Ring D
+            
+        setupItem('I00G', CATEGORY, 1500) // Vongola Mist Ring C
+        addRequirement('I00F')
+
+        setupItem('I00H', CATEGORY, 2500) // Vongola Mist Ring B
+        addRequirement('I00G')
+
+        setupItem('I00I', CATEGORY, 3250) // Vongola Mist Ring A
+        addRequirement('I00H')
+
+        setupItem('I00J', CATEGORY, 4000) // Vongola Mist Ring S
+        addRequirement('I00I')
+
+        //////////////////////////
+
+        setupItem('I00X', CATEGORY, 750) // Vongola Rain Ring D
+            
+        setupItem('I00Y', CATEGORY, 1500) // Vongola Rain Ring C
+        addRequirement('I00X')
+
+        setupItem('I00Z', CATEGORY, 2500) // Vongola Rain Ring B
+        addRequirement('I00Y')
+
+        setupItem('I010', CATEGORY, 3250) // Vongola Rain Ring A
+        addRequirement('I00Z')
+
+        setupItem('I011', CATEGORY, 4000) // Vongola Rain Ring S
+        addRequirement('I010')
+
+        //////////////////////////
+
+        setupItem('I019', CATEGORY, 750) // Vongola Sky Ring D
+            
+        setupItem('I01A', CATEGORY, 1500) // Vongola Sky Ring C
+        addRequirement('I019')
+
+        setupItem('I01B', CATEGORY, 2500) // Vongola Sky Ring B
+        addRequirement('I01A')
+
+        setupItem('I01C', CATEGORY, 3250) // Vongola Sky Ring A
+        addRequirement('I01B')
+
+        setupItem('I01D', CATEGORY, 4000) // Vongola Sky Ring S
+        addRequirement('I01C')
+
+        //////////////////////////
+
+        setupItem('I00R', CATEGORY, 500) // Vongola Storm Ring D
+            
+        setupItem('I00S', CATEGORY, 1250) // Vongola Storm Ring C
+        addRequirement('I00R')
+
+        setupItem('I00T', CATEGORY, 2000) // Vongola Storm Ring B
+        addRequirement('I00S')
+
+        setupItem('I00U', CATEGORY, 2750) // Vongola Storm Ring A
+        addRequirement('I00T')
+
+        setupItem('I00V', CATEGORY, 3500) // Vongola Storm Ring S
+        addRequirement('I00U')
+
+        //////////////////////////

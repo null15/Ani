@@ -3,6 +3,8 @@ package I3_Intelligence
 import ItemConfiguration
 import Execute
 
+public integer inte
+
 constant CATEGORY = 3
 init
  

@@ -3,6 +3,8 @@ package I4_Melee
 import ItemConfiguration
 import Execute
 
+public integer mele
+
 constant CATEGORY = 4
 
 init

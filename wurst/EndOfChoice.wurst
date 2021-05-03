@@ -188,6 +188,7 @@ function endOfChoiceAct()
         TimerDialogDisplay(udg_TB, true)
 
     round = round + 1
+
     if ArenasAreOff == false
         ArenasOff=round
 

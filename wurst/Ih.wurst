@@ -299,7 +299,7 @@ function trig_Ih_Actions()
         if nowpick==playedplayers and timerg==false
             //TimerStart(udg_Timer,75.0,false,null)
             //udg_TB=CreateTimerDialog(udg_Timer)
-            TimerDialogSetTitle(udg_TB,"Round starts in:")
+            TimerDialogSetTitle(udg_TB,"Round starts inn:")
             TimerDialogDisplay(udg_TB,true)
             timerg=true
         

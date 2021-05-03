@@ -3,6 +3,8 @@ package I1_Strength
 import ItemConfiguration
 import Execute
 
+public integer stre
+
 constant CATEGORY = 1
 init
  

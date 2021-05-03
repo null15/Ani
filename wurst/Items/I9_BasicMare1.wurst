@@ -1,0 +1,76 @@
+package I9_BasicMare1
+
+import ItemConfiguration
+import Execute
+
+public integer comp4
+
+constant CATEGORY = 9
+
+init
+
+    execute() ->
+
+        setupItem('I060', CATEGORY, 1000) // Mare Cloud Ring D
+            
+        setupItem('I061', CATEGORY, 1750) // Mare Cloud Ring C
+        addRequirement('I060')
+
+        setupItem('I062', CATEGORY, 2500) // Mare Cloud Ring B
+        addRequirement('I061')
+
+        setupItem('I063', CATEGORY, 3250) // Mare Cloud Ring A
+        addRequirement('I062')
+
+        setupItem('I064', CATEGORY, 4000) // Mare Cloud Ring S
+        addRequirement('I063')
+        
+        /////////////
+
+        setupItem('I05U', CATEGORY, 1000) // Mare Mist Ring D
+            
+        setupItem('I05V', CATEGORY, 1750) // Mare Mist Ring C
+        addRequirement('I05U')
+
+        setupItem('I05W', CATEGORY, 2500) // Mare Mist Ring B
+        addRequirement('I05V')
+
+        setupItem('I05X', CATEGORY, 3250) // Mare Mist Ring A
+        addRequirement('I05W')
+
+        setupItem('I05Y', CATEGORY, 4000) // Mare Mist Ring S
+        addRequirement('I05X')
+
+        /////////////
+
+        setupItem('I05O', CATEGORY, 1000) // Mare Rain Ring D
+    
+        setupItem('I05P', CATEGORY, 1750) // Mare Rain Ring C
+        addRequirement('I05O')
+
+        setupItem('I05Q', CATEGORY, 2500) // Mare Rain Ring B
+        addRequirement('I05P')
+
+        setupItem('I05R', CATEGORY, 3250) // Mare Rain Ring A
+        addRequirement('I05Q')
+
+        setupItem('I05S', CATEGORY, 4000) // Mare Rain Ring S
+        addRequirement('I05R')
+
+        /////////////
+
+        setupItem('I04M', CATEGORY, 1000) // Mare Sky Ring D
+
+        setupItem('I04N', CATEGORY, 1750) // Mare Sky Ring C
+        addRequirement('I04M')
+
+        setupItem('I04O', CATEGORY, 2500) // Mare Sky Ring B
+        addRequirement('I04N')
+
+        setupItem('I04P', CATEGORY, 3250) // Mare Sky Ring A
+        addRequirement('I04O')
+
+        setupItem('I04Q', CATEGORY, 4000) // Mare Sky Ring S
+        addRequirement('I04P')
+
+        /////////////

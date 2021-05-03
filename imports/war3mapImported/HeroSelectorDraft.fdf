@@ -1,11 +1,12 @@
 IncludeFile "UI\FRAMEDEF\UI\ESCMENUMAINPANEL.FDF",
 IncludeFile "UI\FRAMEDEF\UI\ESCMENUTEMPLATES.FDF",
+IncludeFile "PopUpFrameMoon.FDF",
 
 Frame "FRAME" "HeroSelectorLiteDraft" {
 	Width 0.6,
 	Height 0.4,
-	Frame "BACKDROP" "Box1" INHERITS "EscMenuBackdrop" {
-		BackdropBackground "AnimeShopBg.tga", //BACKGROUND UI
+	Frame "BACKDROP" "Box1" {
+		BackdropBackground "AnimeBgShop.dds",
 		BackdropCornerSize 0.005,
 		BackdropBackgroundInsets 0.0010 0.0010 0.0010 0.0010,
 		SetAllPoints,
@@ -18,19 +19,19 @@ Frame "FRAME" "HeroSelectorLiteDraft" {
 		SetPoint TOP, "HeroSelectorLiteDraft", TOP, 0.0000, -0.0200,
 		PopupButtonInset 0.01,
 		ControlBackdrop "PopUpBackdrop",
-		Frame "BACKDROP" "PopUpBackdrop" INHERITS "EscMenuButtonBackdropTemplate" {
+		Frame "BACKDROP" "PopUpBackdrop" INHERITS "EscMenuButtonBackdropTemplate2" {
 		}
 		ControlDisabledBackdrop "PopUpBackdropDisabled",
-		Frame "BACKDROP" "PopUpBackdropDisabled" INHERITS "EscMenuButtonDisabledBackdropTemplate" {
+		Frame "BACKDROP" "PopUpBackdropDisabled" INHERITS "EscMenuButtonDisabledBackdropTemplate2" {
 		}
 		PopupTitleFrame "PopUpTitle",
-		Frame "GLUETEXTBUTTON" "PopUpTitle" INHERITS WITHCHILDREN "EscMenuPopupMenuTitleTemplate" {
+		Frame "GLUETEXTBUTTON" "PopUpTitle" INHERITS WITHCHILDREN "EscMenuPopupMenuTitleTemplate2" {
 		}
 		PopupArrowFrame "PopupArrow",
-		Frame "BUTTON" "PopupArrow" INHERITS WITHCHILDREN "EscMenuPopupMenuArrowTemplate" {
+		Frame "BUTTON" "PopupArrow" INHERITS WITHCHILDREN "EscMenuPopupMenuArrowTemplate2" {
 		}
 		PopupMenuFrame "PopUp1PopUpMenu",
-		Frame "MENU" "PopUp1PopUpMenu" INHERITS WITHCHILDREN "EscMenuPopupMenuMenuTemplate" {
+		Frame "MENU" "PopUp1PopUpMenu" INHERITS WITHCHILDREN "EscMenuPopupMenuMenuTemplate2" {
 			MenuItem "Bleach", -2,
 			MenuItem "Dragonball", -2,
 			MenuItem "Fairy Tail", -2,

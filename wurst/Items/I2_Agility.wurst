@@ -3,6 +3,8 @@ package I2_Agility
 import ItemConfiguration
 import Execute
 
+public integer agil
+
 constant CATEGORY = 2
 init
  

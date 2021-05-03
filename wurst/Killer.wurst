@@ -191,7 +191,7 @@ function trig_Killer_Actions()
         DestroyEffect(AddSpecialEffect("Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl",GetUnitX(u),GetUnitY(u)))
     else if u==null and GetUnitTypeId(u)!='H02A' and LoadBoolean(h,GetHandleId(c),StringHash("cond"))==false and GetUnitTypeId(c)!='H06U'
         udg_death[ic]=udg_death[ic]+1
-        DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[ic]+GetPlayerName(Player(ic))+" ("+GetUnitName(Hero[ic])+")|r is dead.")
+        DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[ic]+GetPlayerName(Player(ic))+" ("+GetUnitName(Hero[ic])+")|r is deadd.")
         SetHeroAgi(Hero[ic],GetHeroAgi(Hero[ic],false)+3,true)
         SetHeroStr(Hero[ic],GetHeroStr(Hero[ic],false)+3,true)
         SetHeroInt(Hero[ic],GetHeroInt(Hero[ic],false)+3,true)

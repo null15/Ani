@@ -3,8 +3,12 @@ package I5_Support
 import ItemConfiguration
 import Execute
 
+public integer supp
+
 constant CATEGORY = 5
 init
  
     execute() ->
 
+        setupItem('I03N', CATEGORY, 5500) // Dummy item, remove
+        addRequirement('I01O') // Dummy as well, remove

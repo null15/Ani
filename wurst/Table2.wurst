@@ -10,10 +10,7 @@ function trig_Table2_Actions()
 
     udg_Dialog=DialogCreate()
     DialogClear(udg_Dialog)
-    DialogSetMessage(udg_Dialog,"Choice Modes")
-    udg_Button[1]=DialogAddButton(udg_Dialog,"All Pick (AP)",0)
-    udg_Button[2]=DialogAddButton(udg_Dialog,"All Random (AR)",0)
-    udg_Button[3]=DialogAddButton(udg_Dialog,"Draft Mode (DM)",0)
+    udg_Button[1]=DialogAddButton(udg_Dialog,"Start",0)
 
     if GetPlayerSlotState(Player(0))==PLAYER_SLOT_STATE_PLAYING
         DialogDisplay(Player(0),udg_Dialog,true)

@@ -12,11 +12,10 @@ public class ShopAppearanceConfig extends ShopAppearance
         
         let fw = setCategoryButton(index, pageBackground.addTextButton(text))
         let fh = fw.frame()
-        fh.setPoint(FRAMEPOINT_TOP, pageBackground, FRAMEPOINT_TOP, 0, -0.030 - 0.0285 * index)
+        fh.setPoint(FRAMEPOINT_TOP, pageBackground, FRAMEPOINT_TOP, 0, -0.030 - 0.0285 * index) //-0.030 - 0.0285
         setFrameIndex(fh, index)
         onClickCategoryButton.registerFrameEvent(fh, FRAMEEVENT_CONTROL_CLICK)
 
-        BlzFrameSetSize(fh, 0.575, 0.53)
-
+        BlzFrameSetSize(fh, 1.75, 0.75)
 
 init
