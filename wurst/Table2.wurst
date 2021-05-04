@@ -35,6 +35,7 @@ function trig_Table2_Actions()
 
 
 function initTrig_Table2()
+    gg_trg_Table2.destr()
     gg_trg_Table2=CreateTrigger()
     TriggerRegisterTimerEventSingle(gg_trg_Table2,5)
     TriggerAddAction(gg_trg_Table2,function trig_Table2_Actions)

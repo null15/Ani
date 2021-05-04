@@ -1,0 +1,135 @@
+package T //BigBangKameHameHa // A0P9
+
+init
+
+    bigBangKamehamehaInit()
+
+function condBigBangKamehameha() returns boolean
+    return GetSpellAbilityId()=='A0P9' and udg_B==true
+
+function castBigBangKamehameha2()
+    let t=GetExpiredTimer()
+    let id=GetHandleId(t)
+    let u=LoadUnitHandle(h,id,0)
+    let l__d=LoadUnitHandle(h,id,1)
+    let a=LoadReal(h,id,4)
+    let dist=LoadReal(h,id,10)
+    let x=GetUnitX(l__d)+60*Cos(a)
+    let y=GetUnitY(l__d)+60*Sin(a)
+    let dmg=LoadReal(h,id,11)
+    let p=GetOwningPlayer(u)
+    let g=LoadGroupHandle(h,id,3)
+
+    if dist>0
+        SetUnitX(l__d,x)
+        SetUnitY(l__d,y)
+        n=CreateUnit(p,'e0NR',x,y,a*bj_RADTODEG)
+        SetUnitTimeScale(n,0)
+        UnitApplyTimedLife(n,1,1)
+        n=CreateUnit(p,'e0NO',x,y,a*bj_RADTODEG)
+        SetUnitTimeScale(n,5)
+        SetUnitScale(n,2.3,2.3,2.3)
+        UnitApplyTimedLife(n,1,0.2)
+        GroupEnumUnitsInRange(g,x,y,250,Base)
+        idg=GetHandleId(g)
+        SaveReal(h,id,10,dist-30)
+        while true
+            E=FirstOfGroup(g)
+            ide=GetHandleId(E)
+            if Condition_Base(p,E) and LoadUnitHandle(h,idg,ide) != E
+                UnitDamageTarget(u,E,dmg,false,false,null,null,null)
+                SaveUnitHandle(h,idg,ide,E)
+            
+            GroupRemoveUnit(g,E)
+            if E == null
+                break
+    else
+        GroupEnumUnitsInRange(g,x,y,750,Base)
+        while true
+            E=FirstOfGroup(g)
+            ide=GetHandleId(E)
+            if Condition_Base(p,E) and LoadUnitHandle(h,idg,ide)!=E
+                UnitDamageTarget(u,E,dmg,false,false,null,null,null)
+            
+            GroupRemoveUnit(g,E)
+            if E == null
+                break
+
+        ShakeCamera(0.5,20)
+        UnitApplyTimedLife(CreateUnit(p,'e0DL',x,y,GetRandomReal(0,359)),1,3)
+        UnitApplyTimedLife(CreateUnit(p,'e0DK',x,y,GetRandomReal(0,359)),1,3)
+        UnitApplyTimedLife(CreateUnit(p,'e0DJ',x,y,GetRandomReal(0,359)),1,3)
+        UnitApplyTimedLife(CreateUnit(p,'e0KO',x,y,GetRandomReal(0,359)),1,4)
+        bj_lastPlayedSound=CreateSound("war3mapImported\\Hit.mp3",false,false,true,12700,12700,"")
+        StartSound(bj_lastPlayedSound)
+        KillSoundWhenDone(bj_lastPlayedSound)
+        RemoveUnit(l__d)
+        FlushChildHashtable(h,GetHandleId(g))
+        DestroyGroup(g)
+        PauseTimer(t)
+        DestroyTimer(t)
+        FlushChildHashtable(h,id)
+
+function castBigBangKamehameha()
+    let u=GetTriggerUnit()
+    let t=CreateTimer()
+    let id=GetHandleId(t)
+    let x=GetUnitX(u)
+    let y=GetUnitY(u)
+    let x1=GetSpellTargetX()
+    let y1=GetSpellTargetY()
+    let a=Atan2(y1-y,x1-x)
+    let p=GetOwningPlayer(u)
+    let agil = I2R(GetHeroAgi(u,true))
+    real dmg = 14 * agil
+
+    SaveUnitHandle(h,id,0,u)
+    SaveGroupHandle(h,id,3,CreateGroup())
+    SaveReal(h,id,4,a)
+    SaveReal(h,id,10,5500)
+    SetUnitInvulnerable(u,true)
+    UnitApplyTimedLife(CreateUnit(p,'e0DG',x+50*Cos(a),y+50*Sin(a),GetRandomReal(0,359)),1,4)
+    UnitApplyTimedLife(CreateUnit(p,'e0BY',x+50*Cos(a),y+50*Sin(a),GetRandomReal(0,359)),1,4)
+    if GetUnitAbilityLevel(u,'A171')==0
+        SetUnitAnimation(u,"Spell Throw")
+    else
+        SetUnitAnimation(u,"Spell Throw Alternate")
+
+    SetUnitTimeScale(u,0.1)
+    PauseUnit(u,true)
+    bj_lastPlayedSound=CreateSound("war3mapImported\\BigBangkamehameha.mp3",false,false,true,12700,12700,"")
+    StartSound(bj_lastPlayedSound)
+    KillSoundWhenDone(bj_lastPlayedSound)
+    UnitAddAbility(u,'A0NP')
+    PolledWait(3.7)
+    UnitRemoveAbility(u,'A0NP')
+    PauseUnit(u,false)
+    SetUnitInvulnerable(u,false)
+    SetUnitTimeScale(u,1)
+    UnitApplyTimedLife(CreateUnit(p,'e0OK',x+50*Cos(a),y+50*Sin(a),a*bj_RADTODEG),1,1)
+    UnitApplyTimedLife(CreateUnit(p,'e0NN',x+50*Cos(a),y+50*Sin(a),a*bj_RADTODEG),1,1)
+    UnitApplyTimedLife(CreateUnit(p,'e0NP',x,y,a*bj_RADTODEG),1,1)
+    UnitApplyTimedLife(CreateUnit(p,'e0NQ',x,y,a*bj_RADTODEG),1,1)
+    n=CreateUnit(p,'e0NO',x,y,a*bj_RADTODEG)
+    UnitApplyTimedLife(n,1,1)
+    SetUnitTimeScale(n,2)
+    n=CreateUnit(p,'e0DG',x,y,a*bj_RADTODEG)
+    SaveUnitHandle(h,id,1,n)
+    SetUnitScale(n,15,15,15)
+    if GetUnitAbilityLevel(u,'B044')>0
+        dmg=dmg+4*GetHeroAgi(u,true)+4*GetHeroStr(u,true)
+
+    UnitRemoveAbility(u,'B044')
+    SaveReal(h,id,11,dmg)
+    TimerStart(t,0.017,true,function castBigBangKamehameha2)
+
+function bigBangKamehamehaInit()
+    let t=CreateTrigger()
+    integer i=0
+    while true
+        TriggerRegisterPlayerUnitEvent(t,Player(i),EVENT_PLAYER_UNIT_SPELL_EFFECT,null)
+        i=i+1
+        if i == bj_MAX_PLAYER_SLOTS
+            break
+    TriggerAddAction(t,function castBigBangKamehameha)
+    TriggerAddCondition(t,Condition(function condBigBangKamehameha))

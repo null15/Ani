@@ -1,9 +1,7 @@
 package Repick
 
 integer y = 0
-unit array heroArray
-group her0
-integer heronum = 0
+string repickCount = ""
 
 init
 
@@ -32,13 +30,13 @@ function trig_Repick_Actions()
         udg_Repick[i]=udg_Repick[i]+1
         x = 1
         while true
-            //BJDebugMsg(I2S(id))
+
             id=GetRandomInt(1,113)
-            //BJDebugMsg(I2S(id))
+
             if udg_RH[id]!=0
                 
-                udg_Hero[i] = PlaceRandomUnit(RandomPool, GetTriggerPlayer(), GetRectCenterX(gg_rct_Rect1), GetRectCenterY(gg_rct_Rect1), 0)
-                UnitPoolRemoveUnitType(RandomPool, GetUnitTypeId(udg_Hero[i]))
+                udg_Hero[i] = PlaceRandomUnit(randomPool, GetTriggerPlayer(), GetRectCenterX(gg_rct_Rect1), GetRectCenterY(gg_rct_Rect1), 0)
+                UnitPoolRemoveUnitType(randomPool, GetUnitTypeId(udg_Hero[i]))
                 
                 if Player(i-1)==Player(0)or Player(i-1)==Player(1)or Player(i-1)==Player(2)or Player(i-1)==Player(3)or Player(i-1)==Player(4)
                     GroupAddUnit(udg_CG[1],udg_Hero[i])
@@ -58,10 +56,16 @@ function trig_Repick_Actions()
                 break
             j=j+1
 
+        repickCount = I2S(udg_Repick[i])
         SetHeroLevel(udg_Hero[i],lvl,false)
+
         DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player"+udg_Color[i]+" ("+GetPlayerName(p)+")|r has repicked their hero into "+GetUnitName(udg_Hero[i]) + "|r.")
+        DisplayTextToPlayer(p,0,0,"\n|cff8ad48eRepick Count:|r [" + repickCount + "/2]")
+
     else
-        DisplayTextToPlayer(p,0,0,"You are unable to use repick.")
+        repickCount = I2S(udg_Repick[i])
+        DisplayTextToPlayer(p,0,0,"Either you are not at |cffbb4ea9base|r, did not |cff9e4040random|r, played for more than |cff5398d85 rounds|r or used up your repicks.")
+        DisplayTextToPlayer(p,0,0,"\n|cffd88c4eRepick Count:|r [" + repickCount + "/2]")
 
 function initTrig_Repick()
     gg_trg_Repick.destr()

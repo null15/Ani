@@ -1,0 +1,30 @@
+package HPBars
+
+init
+
+    initTrig_At_0s()
+
+function trig_At_0s_Actions()
+    SetReservedLocalHeroButtons( 1 )
+    MultiboardAllowDisplayBJ( false )
+    bj_forLoopAIndex = 1
+    bj_forLoopAIndexEnd = 24
+    while true
+        if bj_forLoopAIndex > bj_forLoopAIndexEnd
+            break
+        bj_forLoopBIndex = 1
+        bj_forLoopBIndexEnd = 24
+        while true
+            if bj_forLoopBIndex > bj_forLoopBIndexEnd
+                break
+            if (IsPlayerAlly(ConvertedPlayer(GetForLoopIndexA()), ConvertedPlayer(GetForLoopIndexB())))
+                SetPlayerAllianceBJ( ConvertedPlayer(GetForLoopIndexA()), ALLIANCE_SHARED_ADVANCED_CONTROL, true, ConvertedPlayer(GetForLoopIndexB()) )
+            bj_forLoopBIndex = bj_forLoopBIndex + 1
+        bj_forLoopAIndex = bj_forLoopAIndex + 1
+
+//===========================================================================
+function initTrig_At_0s()
+    gg_trg_At_0s = CreateTrigger(  )
+    TriggerRegisterTimerEventSingle( gg_trg_At_0s, 0.0 )
+    TriggerAddAction( gg_trg_At_0s, function trig_At_0s_Actions )
+

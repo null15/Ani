@@ -236,6 +236,7 @@ function endOfChoiceAct()
         DestroyTimerDialog(udg_TB)
 
 function endOfChoiceInit()
+    eoc.destr()
     eoc = CreateTrigger()
 
     for i = 0 to 9

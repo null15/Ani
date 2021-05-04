@@ -8,6 +8,8 @@ framehandle label
 
 init
 
+    gg_trg_Camera.destr()
+
     doAfter(5.01) ->
         createCamControll()
 

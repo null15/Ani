@@ -255,6 +255,7 @@ function start_Actions()
 	DestroyGroup(g)
 
 function initStart()
+	gg_trg_Start.destr()
 	gg_trg_Start = CreateTrigger()
 	TriggerRegisterTimerExpireEvent(gg_trg_Start, udg_Timer)
 	TriggerAddAction(gg_trg_Start, function start_Actions)

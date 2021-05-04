@@ -1,5 +1,5 @@
 ---
-projectName: Choice Battle v4.0.0
+projectName: Anime Arena v1.0.0
 dependencies:
 - https://github.com/wurstscript/wurstStdlib2
 - https://github.com/Jampi0n/wurst-advanced-shop-ui

@@ -1,0 +1,437 @@
+package HeroSelector
+
+import ClosureTimers
+
+    
+public integer array heroes
+public integer array playerPage
+
+public integer array banns
+
+public framehandle box
+public framehandle array heroButton
+public framehandle array heroButtonIcon
+public framehandle array heroButtonTooltip
+
+public framehandle array bannButton
+public framehandle array bannButtonIcon
+public framehandle array bannButtonIconPushed
+public framehandle array bannButtonTooltip
+
+public framehandle tooltipBox
+public framehandle tooltipBoxText
+
+public timer updateTimer
+//public framehandle array heroButtonIconOff
+public framehandle array heroButtonIconPushed
+public integer pageSize = 27
+
+public framehandle boxBackground
+
+
+init
+
+
+    doAfter(1) -> 
+        updateTeamCaptains()
+
+        
+
+//
+function createSimpleTooltip(framehandle frame, string text) returns framehandle
+
+    let toolTipParent = BlzCreateFrameByType("FRAME", "", frame, "", 0)
+    let toolTipBox = BlzCreateFrame("EscMenuControlBackdropTemplate", toolTipParent, 0, 0)
+    let toolTip = BlzCreateFrame("TasButtonTextTemplate", toolTipBox, 0, 0)
+    BlzFrameSetPoint(toolTip, FRAMEPOINT_BOTTOM, frame, FRAMEPOINT_TOP, 0, 0.008)
+    BlzFrameSetPoint(toolTipBox, FRAMEPOINT_TOPLEFT, toolTip, FRAMEPOINT_TOPLEFT, -0.008, 0.008)
+    BlzFrameSetPoint(toolTipBox, FRAMEPOINT_BOTTOMRIGHT, toolTip, FRAMEPOINT_BOTTOMRIGHT, 0.008, -0.008)
+    BlzFrameSetText(toolTip, text)
+    BlzFrameSetTooltip(frame, toolTipParent)
+    return toolTip
+//
+
+
+function updateTeamCaptains()
+    integer index
+    integer teamIndex
+    player p
+
+    index = 0
+    while true
+        p = Player(index)
+        teamIndex = GetPlayerTeam(p)
+        if GetPlayerSlotState(p) == PLAYER_SLOT_STATE_PLAYING and teamIndex >= 0 and (teamCaptain[teamIndex] == null or GetPlayerSlotState(teamCaptain[teamIndex]) != PLAYER_SLOT_STATE_PLAYING)
+            teamCaptain[teamIndex] = p
+        
+        index = index + 1
+
+        if index == bj_MAX_PLAYER_SLOTS
+            break
+
+
+function initrandomPool()
+    integer max = 7*pageSize + 13
+    while true
+        if heroes[max] > 0
+            UnitPoolAddUnitType(randomPool, heroes[max], 1)
+        
+        max = max - 1
+
+        if max < 0
+            break
+
+
+
+
+function randomButtonAction()
+    let i=GetPlayerId(GetTriggerPlayer())
+    
+    if bannsCount[0] == 3 and bannsCount[1] == 0
+        rand[i]=true
+        udg_Hero[i] = PlaceRandomUnit(randomPool, GetTriggerPlayer(), GetRectCenterX(gg_rct_Rect1), GetRectCenterY(gg_rct_Rect1), 0)
+        UnitPoolRemoveUnitType(randomPool, GetUnitTypeId(udg_Hero[i]))
+        if GetLocalPlayer() == GetTriggerPlayer()
+            BlzFrameSetVisible(box, false)
+        
+    
+    //else
+        
+        //BJDebugMsg("Please wait with picking until ban phase is over.")
+    
+    
+
+
+
+public function initHero()
+
+    // 0 = Bleach
+    // 1 = Dragonball
+    // 2 = Fairy Tail
+    // 3 = Naruto 1
+    // 4 = Naruto 2
+    // 5 = Nasuverse 1
+    // 6 = Nasuverse 2
+    // 7 = One Piece 1
+    // 8 = One Piece 2
+    // 9 = Reborn 1
+    // 10 = Reborn 2
+    // 11 = Other Anime 1
+    // 12 = Other Anime 2
+    // 13 = Other Anime 3
+
+    heroes[0*pageSize + 0] = 'H02M' // Aizen
+    heroes[0*pageSize + 1] = 'H012' // Ichigo
+    heroes[0*pageSize + 2] = 'H02J' // Ichimaru
+    heroes[0*pageSize + 3] = 'H02K' // Kaname
+    heroes[0*pageSize + 4] = 'H01L' // Kurotsuchi
+    heroes[0*pageSize + 5] = 'H03L' // Nelliel
+    heroes[0*pageSize + 6] = 'H074' // Orihime
+    heroes[0*pageSize + 7] = 'H045' // Ulquiorra
+    heroes[0*pageSize + 8] = 'H01C' // Urahara
+    heroes[0*pageSize + 9] = 'H018' // Uryu
+
+    heroes[1*pageSize + 0] = 'H02L' // Broly
+    heroes[1*pageSize + 1] = 'H03K' // Gogeta
+    heroes[1*pageSize + 2] = 'H034' // Gotenks
+    heroes[1*pageSize + 3] = 'H048' // Lord Frieza
+    heroes[1*pageSize + 4] = 'H052' // Perfect Cell
+    heroes[1*pageSize + 5] = 'H02H' // Son Goku
+    heroes[1*pageSize + 6] = 'H02O' // Super Buu
+    heroes[1*pageSize + 7] = 'H043' // Super Vegito
+    heroes[1*pageSize + 8] = 'H042' // Trunks
+    heroes[1*pageSize + 9] = 'H02I' // Vegeta
+    
+    heroes[2*pageSize + 0] = 'H05N' // Gajeel
+    heroes[2*pageSize + 1] = 'H04L' // Gray
+    heroes[2*pageSize + 2] = 'H02G' // Jellal
+    heroes[2*pageSize + 3] = 'H047' // Laxus
+    heroes[2*pageSize + 4] = 'H06T' // Lucy
+    heroes[2*pageSize + 5] = 'H054' // Natsu
+    
+    heroes[3*pageSize + 0] = 'H02R' // Gaara
+    heroes[3*pageSize + 1] = 'H02D' // Haku
+    heroes[3*pageSize + 2] = 'H086' // Hinata
+    heroes[3*pageSize + 3] = 'H01J' // Jiraiya
+    heroes[3*pageSize + 4] = 'H02X' // Bee
+    heroes[3*pageSize + 5] = 'H00E' // Kimimaro
+    heroes[3*pageSize + 6] = 'H03Z' // Minato
+    heroes[3*pageSize + 7] = 'H04F' // Naruto
+    heroes[3*pageSize + 8] = 'H03S' // Pain
+    heroes[3*pageSize + 9] = 'H05D' // Sakura
+    heroes[3*pageSize + 10] = 'H032' // Mei
+    heroes[3*pageSize + 11] = 'H006' // Itachi
+    heroes[3*pageSize + 12] = 'H033' // Madara
+    heroes[3*pageSize + 13] = 'H057' // Sasuke
+    
+    heroes[4*pageSize + 0] = 'H072' // Archetype
+    heroes[4*pageSize + 1] = 'H06G' // Atalanta
+    heroes[4*pageSize + 2] = 'H05A' // Emiya Shirou
+    heroes[4*pageSize + 3] = 'H077' // Enkidu
+    heroes[4*pageSize + 4] = 'H059' // Gilgamesh
+    heroes[4*pageSize + 5] = 'H076' // Jeanne D'Arc
+    heroes[4*pageSize + 6] = 'H06F' // Jeanne D'Arc Alter
+    heroes[4*pageSize + 7] = 'H075' // King Hassan
+    heroes[4*pageSize + 8] = 'H06C' // Li Shuwen
+    heroes[4*pageSize + 9] = 'H06M' // Mysterious Heroine X
+    heroes[4*pageSize + 10] = 'H05C' // Saber Artoria
+    heroes[4*pageSize + 11] = 'H084' // Saber Mordred
+    heroes[4*pageSize + 12] = 'H06B' // Saber Nero
+    heroes[4*pageSize + 13] = 'H06Y' // Scathach
+    heroes[4*pageSize + 14] = 'H051' // Shielder
+    heroes[4*pageSize + 15] = 'H069' // Shiki Nanaya
+    heroes[4*pageSize + 16] = 'H061' // Shiki Ryougi
+    heroes[4*pageSize + 17] = 'H067' // Tamamo no Mae
+    heroes[4*pageSize + 18] = 'H073' // Tohsaka Rin
+
+    heroes[5*pageSize + 0] = 'H00Y' // Admiral Akainu
+    heroes[5*pageSize + 1] = 'H02U' // Admiral Aokiji
+    heroes[5*pageSize + 2] = 'H05Q' // Admiral Fujitora
+    heroes[5*pageSize + 3] = 'H02S' // Admiral Kizaru
+    heroes[5*pageSize + 4] = 'H066' // Donquixote Doflamingo
+    heroes[5*pageSize + 5] = 'H00K' // Enel
+    heroes[5*pageSize + 6] = 'H00P' // Gekko Moria
+    heroes[5*pageSize + 7] = 'H00J' // Monkey D. Luffy
+    heroes[5*pageSize + 8] = 'H00D' // Portgas D. Ace
+    heroes[5*pageSize + 9] = 'H058' // Nami
+    heroes[5*pageSize + 10] = 'H00L' // Rob Lucci
+    heroes[5*pageSize + 11] = 'H00M' // Roronoa Zoro
+    heroes[5*pageSize + 12] = 'H031' // Sanji Vinsmoke
+    heroes[5*pageSize + 13] = 'H02P' // Trafalgar Law
+    heroes[5*pageSize + 14] = 'H060' // Whitebeard
+    
+    heroes[6*pageSize + 0] = 'H00A' // Bovino Lambo
+    heroes[6*pageSize + 1] = 'H00I' // Byakuran
+    heroes[6*pageSize + 2] = 'H01B' // Gamma
+    heroes[6*pageSize + 3] = 'H02Y' // Genkshi
+    heroes[6*pageSize + 4] = 'H014' // Gokudera Hayato
+    heroes[6*pageSize + 5] = 'H00X' // Hibari Kyoya
+    heroes[6*pageSize + 6] = 'H01A' // Rokudo Mukuro
+    heroes[6*pageSize + 7] = 'H00H' // Sasagawa Ryohei
+    heroes[6*pageSize + 8] = 'H00C' // Sawada Tsunayoshi
+    heroes[6*pageSize + 9] = 'H00N' // Viper
+    heroes[6*pageSize + 10] = 'H055' // Xanxus
+    heroes[6*pageSize + 11] = 'H016' // Yamamoto Takeshi
+    
+    heroes[7*pageSize + 0] = 'H01M' // Dante
+    heroes[7*pageSize + 1] = 'H03H' // Deku
+    heroes[7*pageSize + 2] = 'H078' // Diavolo
+    heroes[7*pageSize + 3] = 'H082' // Escanor
+    heroes[7*pageSize + 4] = 'H03P' // Katsura Kotarou
+    heroes[7*pageSize + 5] = 'H02F' // Kirito
+    heroes[7*pageSize + 6] = 'H03B' // Kuuko
+    heroes[7*pageSize + 7] = 'H053' // Louise Francoise
+    heroes[7*pageSize + 8] = 'H027' // Ouma Shu
+    heroes[7*pageSize + 9] = 'H00Z' // Sakata Gintoki
+    heroes[7*pageSize + 10] = 'H04T' // Sinon
+    heroes[7*pageSize + 11] = 'H03N' // Vergil
+    heroes[7*pageSize + 12] = 'H03R' // Yomu Konpaku
+    heroes[7*pageSize + 13] = 'H04C' // Yuzuriha Inori
+    
+
+
+public function updateButton(integer index, integer unitCode)
+    if unitCode > 0
+        BlzFrameSetVisible(heroButton[index], true)
+        BlzFrameSetTexture(heroButtonIcon[index], BlzGetAbilityIcon(unitCode), 0, false)
+        BlzFrameSetTexture(heroButtonIconPushed[index], BlzGetAbilityIcon(unitCode), 0, false)
+    //    BlzFrameSetTexture(heroButtonIconOff[index], GetDisabledIcon(BlzGetAbilityIcon(unitCode)), 0, false)
+        BlzFrameSetText(heroButtonTooltip[index], GetObjectName(unitCode))
+        BlzFrameSetVisible(heroButtonTooltip[index], true)
+    else
+        BlzFrameSetVisible(heroButton[index], false)
+        BlzFrameSetVisible(heroButtonTooltip[index], false)
+    
+
+
+public function showPage(integer page)
+    integer loopA = 0
+    string imagePath = ""
+
+    if page == 0
+        imagePath = "Pages/Bleach.blp"
+    else if page == 1
+        imagePath = "Bleach.blp"
+    else if page == 2
+        imagePath = "Pages/Dragonball.blp"
+    else if page == 3
+        imagePath = "Dragonball.blp"
+    else if page == 4
+        imagePath = "AnimeBgShop.dds"
+    else if page == 5
+        imagePath = "AnimeBgShop.dds"
+    else if page == 6
+        imagePath = "AnimeBgShop.dds"
+    else if page == 7
+        imagePath = "AnimeBgShop.dds"
+    
+        
+    BlzFrameSetTexture(boxBackground, imagePath, 0, true)
+    
+    while true
+        if loopA == pageSize
+            break
+       // BJDebugMsg("updateButton: "+I2S(loopA) + " - "+ GetObjectName(heroes[page*pageSize + loopA]))
+        updateButton(loopA, heroes[page*pageSize + loopA])
+        loopA = loopA + 1
+
+
+
+
+public function actionPopUp1()
+    let newPage = R2I(BlzGetTriggerFrameValue())
+
+    
+    //BJDebugMsg("NewPage: "+I2S(newPage))
+    playerPage[GetPlayerId(GetTriggerPlayer())] = newPage
+    if GetLocalPlayer() == GetTriggerPlayer()
+        showPage(newPage)
+    
+
+
+public function tooltipBoxUpdate()
+    integer loopA = 0
+    while true
+        if loopA >= pageSize
+            break
+        if BlzFrameIsVisible(heroButtonTooltip[loopA])
+            BlzFrameSetPoint(tooltipBoxText, FRAMEPOINT_TOP, heroButton[loopA], FRAMEPOINT_BOTTOM, 0.0, 0.0)
+            BlzFrameSetText(tooltipBoxText, BlzGetAbilityExtendedTooltip(heroes[playerPage[GetPlayerId(GetLocalPlayer())]*pageSize + loopA], 0))
+            BlzFrameSetVisible(tooltipBox, true)
+            return
+        
+        loopA = loopA + 1
+
+    BlzFrameSetVisible(tooltipBox, false)
+
+
+
+public function actionIconButton()
+    let playerId = GetPlayerId(GetTriggerPlayer())
+    let buttonIndex = S2I(BlzFrameGetText(BlzGetTriggerFrame()))
+    let unitCode = heroes[playerPage[playerId]*pageSize + buttonIndex]
+    let teamIndex = GetPlayerTeam(GetTriggerPlayer())
+    let teamValue = teamIndex*10
+    integer bannButtonIndex
+    
+    BlzFrameSetEnable(BlzGetTriggerFrame(), false) //disable the clicked button
+    BlzFrameSetEnable(BlzGetTriggerFrame(), true) //enable it again.
+    
+    if bannsCount[teamIndex] < 3
+        if teamCaptain[teamIndex] == GetTriggerPlayer()
+            bannButtonIndex = teamValue + bannsCount[teamIndex]
+            banns[bannButtonIndex] = unitCode
+            BlzFrameSetVisible(bannButton[bannButtonIndex], true)
+            BlzFrameSetTexture(bannButtonIcon[bannButtonIndex], BlzGetAbilityIcon(unitCode), 0, false)
+            BlzFrameSetTexture(bannButtonIconPushed[bannButtonIndex], BlzGetAbilityIcon(unitCode), 0, false)
+            BlzFrameSetText(bannButtonTooltip[bannButtonIndex], GetObjectName(unitCode))
+            bannsCount[teamIndex] = bannsCount[teamIndex] + 1
+            UnitPoolRemoveUnitType(randomPool, unitCode)
+        else
+            return
+        
+        
+    else if bannsCount[0] >= 3 and bannsCount[1] >= 0
+        CreateUnit(GetTriggerPlayer(), unitCode, GetRectCenterX(gg_rct_Rect1), GetRectCenterY(gg_rct_Rect1), 0)
+        if GetLocalPlayer() == GetTriggerPlayer()
+            BlzFrameSetVisible(box, false)
+        
+    else
+        return
+    
+
+    //BJDebugMsg(I2S(playerPage[playerId]) + " / " + I2S(buttonIndex) + " => " + GetObjectName(heroes[playerPage[playerId]*pageSize + buttonIndex]))
+    
+    // remove that Hero from selecting it
+    heroes[playerPage[playerId]*pageSize + buttonIndex] = 0
+    UnitPoolRemoveUnitType(randomPool, unitCode)
+    showPage(playerPage[GetPlayerId(GetLocalPlayer())])
+    
+
+
+public function create(integer index)
+    integer loopA = 0
+    trigger trig
+
+    box = BlzCreateFrame("HeroSelectorLiteDraft", BlzGetOriginFrame(ORIGIN_FRAME_GAME_UI, 0), 0, index)
+    boxBackground = BlzGetFrameByName("Box1Background", index)
+    BlzFrameSetAbsPoint(box, FRAMEPOINT_TOP, 0.4, 0.56)
+
+    BlzFrameSetValue(BlzGetFrameByName("PopUp1", index), 0)
+
+    trig = CreateTrigger()
+    BlzTriggerRegisterFrameEvent(trig, BlzGetFrameByName("PopUp1", index), FRAMEEVENT_POPUPMENU_ITEM_CHANGED)
+    TriggerAddAction(trig, function actionPopUp1)
+
+    trig = CreateTrigger()
+    TriggerAddAction(trig, function actionIconButton)
+
+
+    while true
+        if loopA == pageSize
+            break
+        if loopA >= 10
+            heroButtonIcon[loopA] = BlzGetFrameByName("IconButton"+I2S(loopA)+"Backdrop", index)
+    //            BJDebugMsg("updateButton: "+"IconButton"+I2S(loopA)+"Backdrop" + I2S( GetHandleId(heroButtonIcon[loopA])))
+            //heroButtonIconOff[loopA] = BlzGetFrameByName("IconButton"+I2S(loopA)+"BackdropDisabled", index)
+            heroButtonIconPushed[loopA] = BlzGetFrameByName("IconButton"+I2S(loopA)+"BackdropPushed", index)
+            heroButton[loopA] = BlzGetFrameByName("IconButton"+I2S(loopA), index)
+        else
+            heroButtonIcon[loopA] = BlzGetFrameByName("IconButton0"+I2S(loopA)+"Backdrop", index)
+            //heroButtonIconOff[loopA] = BlzGetFrameByName("IconButton0"+I2S(loopA)+"BackdropDisabled", index)
+            heroButtonIconPushed[loopA] = BlzGetFrameByName("IconButton0"+I2S(loopA)+"BackdropPushed", index)
+            heroButton[loopA] = BlzGetFrameByName("IconButton0"+I2S(loopA), index)
+        
+        heroButtonTooltip[loopA] = createSimpleTooltip(heroButton[loopA], "")
+        BlzFrameSetText(heroButton[loopA], I2S(loopA))
+        BlzTriggerRegisterFrameEvent(trig, heroButton[loopA], FRAMEEVENT_CONTROL_CLICK)
+        loopA = loopA + 1
+
+    loopA = 0
+    while true
+        if loopA == 3
+            break
+        bannButtonIcon[loopA] = BlzGetFrameByName("BannButton0"+I2S(loopA)+"Backdrop", index)
+        bannButton[loopA] = BlzGetFrameByName("BannButton0"+I2S(loopA), index)
+        bannButtonIconPushed[loopA] = BlzGetFrameByName("BannButton0"+I2S(loopA)+"BackdropPushed", index)
+        
+        bannButtonTooltip[loopA] = createSimpleTooltip(bannButton[loopA], "")
+
+        loopA = loopA + 1
+
+    loopA = 10
+    while true
+        if loopA == 13
+            break
+        bannButtonIcon[loopA] = BlzGetFrameByName("bannButton"+I2S(loopA)+"Backdrop", index)
+        bannButton[loopA] = BlzGetFrameByName("bannButton"+I2S(loopA), index)
+        bannButtonIconPushed[loopA] = BlzGetFrameByName("bannButton"+I2S(loopA)+"BackdropPushed", index)
+        
+        bannButtonTooltip[loopA] = createSimpleTooltip(bannButton[loopA], "")
+
+        loopA = loopA + 1
+
+    tooltipBox = BlzCreateFrame("NoGlassEscMenuControlBackdropTemplate", box, 0, 0)
+    tooltipBoxText = BlzCreateFrame("TasButtonTextTemplate", tooltipBox, 0, 0)
+
+    //BlzFrameSetPoint(tooltipBoxText, FRAMEPOINT_TOPRIGHT, box, FRAMEPOINT_TOPLEFT, -0.008, 0.00)
+    BlzFrameSetPoint(tooltipBox, FRAMEPOINT_TOPLEFT, tooltipBoxText, FRAMEPOINT_TOPLEFT, -0.008, 0.008)
+    BlzFrameSetPoint(tooltipBox, FRAMEPOINT_BOTTOMRIGHT, tooltipBoxText, FRAMEPOINT_BOTTOMRIGHT, 0.008, -0.008)
+    BlzFrameSetSize(tooltipBoxText, 0.2, 0)
+    BlzFrameSetVisible(tooltipBox, false)
+        
+    updateTimer = CreateTimer()
+    TimerStart(updateTimer, 0.05, true, function tooltipBoxUpdate)
+    initHero()
+    showPage(0)
+
+    initrandomPool()
+
+    trig = CreateTrigger()
+    TriggerAddAction(trig, function randomButtonAction)
+    BlzTriggerRegisterFrameEvent(trig, BlzGetFrameByName("IconButtonRandom", index), FRAMEEVENT_CONTROL_CLICK)
+
+
+
+
+

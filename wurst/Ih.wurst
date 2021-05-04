@@ -307,6 +307,7 @@ function trig_Ih_Actions()
     DestroyGroup(g)
 
 function initTrig_Ih()
+    // gg_trg_Ih.destr() // <-- this one runs on map init, might cause side effects if destroyed
     gg_trg_Ih=CreateTrigger()
     TriggerRegisterEnterRectSimple(gg_trg_Ih,gg_rct_Rect1)
     TriggerAddAction(gg_trg_Ih,function trig_Ih_Actions)
