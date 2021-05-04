@@ -1,9 +1,9 @@
-package I8_BasicMare1
+package I8_BasicMare
 
 import ItemConfiguration
 import Execute
 
-public integer comp3
+public integer mare
 
 constant CATEGORY = 8
 

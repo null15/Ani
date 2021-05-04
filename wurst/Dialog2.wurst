@@ -41,8 +41,9 @@ function trig_Dialog2_Actions()
         for i = 0 to 10
             CreateUnit(Player(i), 'ewsp', x1, y1, 0)
         GroupEnumUnitsInRange(g, x1, y1, 500, null)
-        //TimerStart(udg_Timer,75.0,false,null)
-        //udg_TB=CreateTimerDialog(udg_Timer)
+
+        TimerStart(udg_Timer,125.0,false,null)
+        udg_TB=CreateTimerDialog(udg_Timer)
         TimerDialogSetTitle(udg_TB, "Round starts in:")
         TimerDialogDisplay(udg_TB, true)
         randcond=true
@@ -67,6 +68,7 @@ function trig_Dialog2_Actions()
         GroupRemoveUnit(G, E)
 
 function initTrig_Dialog2()
+    gg_trg_Dialog2.destr()
     gg_trg_Dialog2=CreateTrigger()
     TriggerAddCondition(gg_trg_Dialog2, Condition(function trig_Dialog2_Conditions))
     TriggerAddAction(gg_trg_Dialog2, function trig_Dialog2_Actions)

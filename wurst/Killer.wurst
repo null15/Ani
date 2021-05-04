@@ -8,7 +8,6 @@ integer i
 
 init
 
-
     initTrig_Killer()
 
 function trig_Killer_Conditions() returns boolean
@@ -191,7 +190,7 @@ function trig_Killer_Actions()
         DestroyEffect(AddSpecialEffect("Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl",GetUnitX(u),GetUnitY(u)))
     else if u==null and GetUnitTypeId(u)!='H02A' and LoadBoolean(h,GetHandleId(c),StringHash("cond"))==false and GetUnitTypeId(c)!='H06U'
         udg_death[ic]=udg_death[ic]+1
-        DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+Color[ic]+GetPlayerName(Player(ic))+" ("+GetUnitName(Hero[ic])+")|r is deadd.")
+        DisplayTextToPlayer(GetLocalPlayer(),0,0,"<== Player "+Color[ic]+GetPlayerName(Player(ic))+" ("+GetUnitName(Hero[ic])+")|r died ==>")
         SetHeroAgi(Hero[ic],GetHeroAgi(Hero[ic],false)+3,true)
         SetHeroStr(Hero[ic],GetHeroStr(Hero[ic],false)+3,true)
         SetHeroInt(Hero[ic],GetHeroInt(Hero[ic],false)+3,true)
@@ -224,6 +223,7 @@ function trig_Killer_Actions()
 
 
 function initTrig_Killer()
+    gg_trg_Killer.destr()
     gg_trg_Killer=CreateTrigger()
     TriggerRegisterAnyUnitEventBJ(gg_trg_Killer,EVENT_PLAYER_UNIT_DEATH)
     TriggerAddCondition(gg_trg_Killer,Condition(function trig_Killer_Conditions))

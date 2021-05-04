@@ -3,7 +3,6 @@ package ItemFinalize
 import ItemInShop
 import Execute
 
-
 import I0_Universal
 import I1_Strength
 import I2_Agility
@@ -11,10 +10,9 @@ import I3_Intelligence
 import I4_Melee
 import I5_Support
 import I6_BasicSets
-import I7_BasicVongola1
-import I8_BasicMare1
+import I7_BasicVongola
+import I8_BasicMare
 import I9_BasicMisc
-
 
 init
 
@@ -22,16 +20,15 @@ init
         
         ItemInShop.finalize()
 
-
     // Just to hide import warnings
-    
+
     univ = 0
     stre = 0
     agil = 0
     inte = 0
     mele = 0
     supp = 0
-    comp1 = 0
-    comp2 = 0
-    comp3 = 0
-    comp4 = 0
+    sets = 0
+    vong = 0
+    mare = 0
+    misc = 0

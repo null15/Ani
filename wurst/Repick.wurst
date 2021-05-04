@@ -19,7 +19,7 @@ function trig_Repick_Actions()
     let lvl=GetHeroLevel(udg_Hero[i])
     integer x
 
-    if rand[i-1]==true and udg_Repick[i]!=2 and udg_B==false
+    if rand[i-1]==true and udg_Repick[i]!=2 and udg_B==false and round < 5
         sssb[i-1]=false
         while true
             t1[j]=UnitRemoveItemFromSlot(udg_Hero[i],j)
@@ -64,7 +64,7 @@ function trig_Repick_Actions()
         DisplayTextToPlayer(p,0,0,"You are unable to use repick.")
 
 function initTrig_Repick()
-
+    gg_trg_Repick.destr()
     gg_trg_Repick=CreateTrigger()
 
     for y = 0 to 11

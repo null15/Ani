@@ -31,7 +31,7 @@ function endOfChoiceAct()
             ClearTextMessages()
             DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "|cb0f12121The first team won and gained a point.")
             DisplayTextToPlayer(GetLocalPlayer(), 0, 0, " ")
-            DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "Both teams are also awarded with |cd6c2b93e2500|r Gold.")
+            DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "Both teams are also awarded with |cd6c2b93e2000|r Gold.")
 
     else if GroupIsDeath(udg_CG[1]) and TC == false
 
@@ -44,7 +44,7 @@ function endOfChoiceAct()
             ClearTextMessages()
             DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "|cb91e3cc2The second team won and gained a point.")
             DisplayTextToPlayer(GetLocalPlayer(), 0, 0, " ")
-            DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "Both teams are also awarded with |cd6c2b93e2500|r Gold.")
+            DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "Both teams are also awarded with |cd6c2b93e2000|r Gold.")
 
 
     else if GroupIsDeath(udg_CG[2]) and GroupIsDeath(udg_CG[1]) and TC == true
@@ -58,7 +58,7 @@ function endOfChoiceAct()
                 ClearTextMessages()
                 DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "|ca7d459c4Draw, both teams gained a point.")
                 DisplayTextToPlayer(GetLocalPlayer(), 0, 0, " ")
-                DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "Both teams are also given |cd6c2b93e2500|r Gold.")
+                DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "Both teams are also given |cd6c2b93e2000|r Gold.")
                 
                 TC = false
 
@@ -68,7 +68,7 @@ function endOfChoiceAct()
                 ClearTextMessages()
                 DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "|ca7d459c4Draw. As a team has 14 wins, both team gains no point for this round.")
                 DisplayTextToPlayer(GetLocalPlayer(), 0, 0, " ")
-                DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "Both teams are also given |cd6c2b93e2500|r Gold.")
+                DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "Both teams are also given |cd6c2b93e2000|r Gold.")
 
                 TC = false
             
@@ -102,7 +102,7 @@ function endOfChoiceAct()
             SetHeroLevel(Hero[i], 22, true)
 
 
-        SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD) + 2500)
+        SetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD, GetPlayerState(Player(i), PLAYER_STATE_RESOURCE_GOLD) + 2000)
 
         if GetPlayerState(Player(i), PLAYER_STATE_LUMBER_GATHERED) >= udg_rou
             CustomVictoryBJ(Player(i), true, true)
@@ -179,7 +179,7 @@ function endOfChoiceAct()
                 CustomDefeatBJ(Player(i), "You lose!")
             
     else
-        TimerStart(udg_Timer, 9999, false, null)
+        TimerStart(udg_Timer, 45, false, null)
         DestroyTimerDialog(udg_TB)
         DestroyTimerDialog(TG)
         udg_TB=CreateTimerDialog(udg_Timer)

@@ -3,6 +3,14 @@ package ShopFunctionConfig_config
 import initlater ItemInShop
 import initlater ShopAPI
 
+@config public function shopConfig_shopClickBuy(unit u, ItemInShop itm)
+    if shopConfig_shopCanBuy(u, itm)
+        let boughtItem = tryBuy(u, itm)
+        if boughtItem == null
+            print("") // could not be bought
+        else
+            print(boughtItem.getName() + "") // was successfully bought
+
 @config public function shopConfig_shopCanBuy(unit u, ItemInShop itm) returns bool
     let cost = getItemCostForHero(u, itm)
     if u.getOwner().getGold() >= cost
@@ -22,9 +30,9 @@ import initlater ShopAPI
         udg_TB.display(true)
         mbg.display(true)
 
-@config public function shopConfig_sortItems(ItemInShop a, ItemInShop b) returns int
-    return a.getSetupOrder() - b.getSetupOrder() // sort by setup order
-    //return a.getTotalCost() - b.getTotalCost() // sort by gold cost
+@config public function shopConfig_sortItems(ItemInShop a, ItemInShop b, int _page) returns int
+    return a.getSetupOrder(_page) - b.getSetupOrder(_page) // sort by setup order
+    // return a.getTotalCost() - b.getTotalCost() // sort by gold cost
 
 init
 

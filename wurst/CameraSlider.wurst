@@ -21,8 +21,8 @@ function createSliderDistance()
     BlzFrameSetPoint(label, FRAMEPOINT_LEFT, fh, FRAMEPOINT_RIGHT, 0, 0)
     BlzFrameSetAbsPoint(fh, FRAMEPOINT_LEFT, 0.009, 0.02)
 
-    BlzFrameSetMinMaxValue(fh, 500, 3000)
-    BlzFrameSetValue(fh, 2000)
+    BlzFrameSetMinMaxValue(fh, 1000, 4000)
+    BlzFrameSetValue(fh, 2500)
     BlzFrameSetStepSize(fh, 100)
 
 function updateCam()

@@ -44,6 +44,11 @@ init
         setupItem('I01E', CATEGORY, 4750) // Vongola Sky Ring
         addRequirement('I01D') // 
 
+        setupItem('I043', CATEGORY, 4800) // Orb of Blood
+        addRequirement('I033') // 
+        addRequirement('I06L') // 
+        addRequirement('I06M') // 
+
         setupItem('I04L', CATEGORY, 4900) // Ice Essence
         addRequirement('I02S') // 
         addRequirement('I01M') // 

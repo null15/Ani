@@ -3,7 +3,7 @@ package I9_BasicMisc
 import ItemConfiguration
 import Execute
 
-public integer comp4
+public integer misc
 
 constant CATEGORY = 9
 

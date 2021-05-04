@@ -3,7 +3,7 @@ package I6_BasicSets
 import ItemConfiguration
 import Execute
 
-public integer comp1
+public integer sets
 
 constant CATEGORY = 6
 

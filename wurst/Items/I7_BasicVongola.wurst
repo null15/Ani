@@ -1,9 +1,9 @@
-package I7_BasicVongola1
+package I7_BasicVongola
 
 import ItemConfiguration
 import Execute
 
-public integer comp2
+public integer vong
 
 constant CATEGORY = 7
 
