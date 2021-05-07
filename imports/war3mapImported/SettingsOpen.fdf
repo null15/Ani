@@ -1,0 +1,12 @@
+IncludeFile "UI\FRAMEDEF\UI\ESCMENUTEMPLATES.FDF",
+
+Frame "FRAME" "OpenSettings" {
+	Width 0.2,
+	Height 0.2,
+	Frame "GLUECHECKBOX" "OpenSettingsIcon1" INHERITS WITHCHILDREN "EscMenuCheckBoxTemplate" {
+		Width 0.024,
+		Height 0.024,
+		UseActiveContext,
+		SetPoint BOTTOMLEFT, "OpenSettings", BOTTOMLEFT, 0.1525, -0.392,
+	}
+}

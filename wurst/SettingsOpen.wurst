@@ -1,15 +1,15 @@
 package SettingsOpen
 
-//import ClosureTimers
+import ClosureTimers
 
 public framehandle settingsOpen
 
 init
-/*
+
     doAfter(1) -> 
-        BlzLoadTOCFile("war3mapImported/SettingsOpen.toc")
+        BlzLoadTOCFile("war3mapImported\\SettingsOpen.toc")
         settingsOpen(0)
-*/
+
 public function settingsOpen(integer index)
 
     settingsOpen = BlzCreateFrame("OpenSettings", BlzGetOriginFrame(ORIGIN_FRAME_GAME_UI, 0), 0, index)
