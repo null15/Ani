@@ -1,20 +1,37 @@
 package preRoundTimer
-
-import ClosureTimers
+//import ClosureTimers
+//import HeroSelector
 
 init
-
-
-    doAfter(5) ->
-        preRoundTimer()
+/*
+    doAfter(1) -> 
         nzInit()
+        preRoundTimer()
+
 
 function preRoundTimer()
 
     let t = CreateTrigger()
-    for i = 1 to 3
-        t.registerDialogButtonEvent(udg_Button[i])
+
+    udg_Dialog=DialogCreate()
+    DialogClear(udg_Dialog)
+    udg_Button[1]=DialogAddButton(udg_Dialog,"Start",0)
+    DialogDisplay(teamCaptain[0], udg_Dialog, true)
+
+    TriggerRegisterDialogEvent(gg_trg_Dialog2,udg_Dialog)
+    DestroyTrigger(GetTriggeringTrigger())
+    GroupEnumUnitsInRange(G,0,0,99999999,null)
+    while E != null
+        E=FirstOfGroup(G)
+        if GetUnitTypeId(E)=='htow'
+            SetUnitVertexColor(E,255,255,255,0)
+        GroupRemoveUnit(G,E)
+
+    t.registerDialogButtonEvent(udg_Button[1])
     t.addAction() ->
-        udg_Timer.start(5, null)
+
+        udg_Timer.start(0.01, null)
         udg_TB = udg_Timer.createTimerDialog()
         udg_TB.setTimeColor(colorA(0, 225, 255, 144))
+        udg_TB.setTitle("preround timer: ")
+        udg_TB.display(true)*/

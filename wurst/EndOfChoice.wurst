@@ -239,8 +239,16 @@ function endOfChoiceInit()
     eoc.destr()
     eoc = CreateTrigger()
 
-    for i = 0 to 9
-        TriggerRegisterPlayerUnitEvent(eoc, Player(i), EVENT_PLAYER_UNIT_DEATH, null)
+    TriggerRegisterPlayerUnitEvent(eoc, Player(0), EVENT_PLAYER_UNIT_DEATH, null)
+    TriggerRegisterPlayerUnitEvent(eoc, Player(1), EVENT_PLAYER_UNIT_DEATH, null)
+    TriggerRegisterPlayerUnitEvent(eoc, Player(2), EVENT_PLAYER_UNIT_DEATH, null)
+    TriggerRegisterPlayerUnitEvent(eoc, Player(3), EVENT_PLAYER_UNIT_DEATH, null)
+    TriggerRegisterPlayerUnitEvent(eoc, Player(4), EVENT_PLAYER_UNIT_DEATH, null)
+    TriggerRegisterPlayerUnitEvent(eoc, Player(5), EVENT_PLAYER_UNIT_DEATH, null)
+    TriggerRegisterPlayerUnitEvent(eoc, Player(6), EVENT_PLAYER_UNIT_DEATH, null)
+    TriggerRegisterPlayerUnitEvent(eoc, Player(7), EVENT_PLAYER_UNIT_DEATH, null)
+    TriggerRegisterPlayerUnitEvent(eoc, Player(8), EVENT_PLAYER_UNIT_DEATH, null)
+    TriggerRegisterPlayerUnitEvent(eoc, Player(9), EVENT_PLAYER_UNIT_DEATH, null)
 
     TriggerAddAction(eoc, function endOfChoiceAct)
     TriggerAddCondition(eoc, Condition(function endOfCond))

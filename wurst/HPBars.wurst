@@ -8,12 +8,12 @@ function trig_At_0s_Actions()
     SetReservedLocalHeroButtons( 1 )
     MultiboardAllowDisplayBJ( false )
     bj_forLoopAIndex = 1
-    bj_forLoopAIndexEnd = 24
+    bj_forLoopAIndexEnd = 12
     while true
         if bj_forLoopAIndex > bj_forLoopAIndexEnd
             break
         bj_forLoopBIndex = 1
-        bj_forLoopBIndexEnd = 24
+        bj_forLoopBIndexEnd = 12
         while true
             if bj_forLoopBIndex > bj_forLoopBIndexEnd
                 break
@@ -25,6 +25,6 @@ function trig_At_0s_Actions()
 //===========================================================================
 function initTrig_At_0s()
     gg_trg_At_0s = CreateTrigger(  )
-    TriggerRegisterTimerEventSingle( gg_trg_At_0s, 0.0 )
+    TriggerRegisterTimerEventSingle( gg_trg_At_0s, 0.01 )
     TriggerAddAction( gg_trg_At_0s, function trig_At_0s_Actions )
 

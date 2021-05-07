@@ -1,37 +1,31 @@
 package Table2
 
+import HeroSelector
+
 init
 
-//doAfter(0.01) ->
     initTrig_Table2()
-        
 
-function trig_Table2_Actions() 
-
+function trig_Table2_Actions()
     udg_Dialog=DialogCreate()
     DialogClear(udg_Dialog)
-    udg_Button[1]=DialogAddButton(udg_Dialog,"Start",0)
+    DialogSetMessage(udg_Dialog,"Are you ready to play?")
+    udg_Button[1]=DialogAddButton(udg_Dialog,"Yes! :)",0)
 
-    if GetPlayerSlotState(Player(0))==PLAYER_SLOT_STATE_PLAYING
-        DialogDisplay(Player(0),udg_Dialog,true)
-    else if GetPlayerSlotState(Player(0))!=PLAYER_SLOT_STATE_PLAYING and GetPlayerSlotState(Player(1))==PLAYER_SLOT_STATE_PLAYING
-        DialogDisplay(Player(1),udg_Dialog,true)
-    else if GetPlayerSlotState(Player(0))!=PLAYER_SLOT_STATE_PLAYING and GetPlayerSlotState(Player(1))!=PLAYER_SLOT_STATE_PLAYING and GetPlayerSlotState(Player(2))==PLAYER_SLOT_STATE_PLAYING
-        DialogDisplay(Player(2),udg_Dialog,true)
-    else if GetPlayerSlotState(Player(0))!=PLAYER_SLOT_STATE_PLAYING and GetPlayerSlotState(Player(1))!=PLAYER_SLOT_STATE_PLAYING and GetPlayerSlotState(Player(2))!=PLAYER_SLOT_STATE_PLAYING and GetPlayerSlotState(Player(3))==PLAYER_SLOT_STATE_PLAYING
-        DialogDisplay(Player(3),udg_Dialog,true)
-    else if GetPlayerSlotState(Player(0))!=PLAYER_SLOT_STATE_PLAYING and GetPlayerSlotState(Player(1))!=PLAYER_SLOT_STATE_PLAYING and GetPlayerSlotState(Player(2))!=PLAYER_SLOT_STATE_PLAYING and GetPlayerSlotState(Player(3))!=PLAYER_SLOT_STATE_PLAYING and GetPlayerSlotState(Player(4))==PLAYER_SLOT_STATE_PLAYING
-        DialogDisplay(Player(4),udg_Dialog,true)
+    print("Captain for team 1 is: " + GetPlayerName(teamCaptain[0]))
+    DialogDisplay(teamCaptain[0], udg_Dialog, true)
 
     TriggerRegisterDialogEvent(gg_trg_Dialog2,udg_Dialog)
     DestroyTrigger(GetTriggeringTrigger())
     GroupEnumUnitsInRange(G,0,0,99999999,null)
-    while E != null
+    while true
         E=FirstOfGroup(G)
-        if GetUnitTypeId(E)=='htow'
+        if E==null
+            break
+        if GetUnitTypeId(E)=='htow' 
             SetUnitVertexColor(E,255,255,255,0)
+        
         GroupRemoveUnit(G,E)
-
 
 
 function initTrig_Table2()
@@ -39,4 +33,5 @@ function initTrig_Table2()
     gg_trg_Table2=CreateTrigger()
     TriggerRegisterTimerEventSingle(gg_trg_Table2,5)
     TriggerAddAction(gg_trg_Table2,function trig_Table2_Actions)
+
 

@@ -4,10 +4,7 @@ trigger gg_trg_Start
 
 init
 
-
 	initStart()
-
-	// asd
 
 function startFunc001C()
 	SetUnitPosition(GetEnumUnit(), GetRectCenterX(gg_rct_Resp4), GetRectCenterY(gg_rct_Resp4))

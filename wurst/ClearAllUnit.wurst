@@ -17,7 +17,7 @@ function clearAllUnitCast()
             UnitRemoveBuffs(Hero[i],true,true)
             SetUnitInvulnerable(Hero[i],true)
             SetUnitLifePercentBJ(Hero[i],100)
-            UnitAddAbility(Hero[i],'A0QL')
+            //UnitAddAbility(Hero[i],'A0QL') <-- Anyone with this ability ID is immune to spells except Target ones
         i = i+1
         if i == 12
             break

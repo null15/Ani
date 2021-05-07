@@ -285,13 +285,13 @@ import ObjEditingNatives
 	..setInt("ubpx", 2)
 	..setInt("ubpy", 1)
 	..setString("icid", "A000")
-	..setString("ides", "Increase health by 650.")
+	..setString("ides", "Increase health by 1000.")
 	..setInt("igol", 1000)
 	..setInt("ihtp", 9999999)
 	..setString("unam", "Quincy Medallion")
 	..setInt("istr", 0)
 	..setString("utip", "Quincy Medallion")
-	..setString("utub", "Increase health by 650.")
+	..setString("utub", "Increase health by 1000.")
 
 
 @compiletime function create_w3t_I06L()
@@ -362,13 +362,13 @@ import ObjEditingNatives
 	..setString("iico", "ReplaceableTextures\\CommandButtons\\BTNSA3.blp")
 	..setInt("ubpx", 2)
 	..setString("icid", "A000")
-	..setString("ides", "Increased armor by 30")
+	..setString("ides", "Increased armor by 20")
 	..setInt("igol", 1000)
 	..setInt("ihtp", 9999999)
 	..setString("unam", "Saiyan Armor")
 	..setInt("istr", 0)
 	..setString("utip", "Saiyan Armor")
-	..setString("utub", "Increased armor by 30")
+	..setString("utub", "Increased armor by 20")
 
 
 @compiletime function create_w3t_I06G()
@@ -1357,14 +1357,14 @@ import ObjEditingNatives
 	..setInt("ubpx", 3)
 	..setString("icla", "Permanent")
 	..setString("icid", "A118")
-	..setString("ides", "Increases the hero's all stats by 20, and HP by 1200.|n|n|cFF9933FFActive|r: \"Cooling\" - For 10 seconds, prohibits the target to restore any kind of HP, also deals 10% of max HP damage over 10 seconds.\r\n\r\n|cFFFF0000Cooldown|r: 30 seconds.")
+	..setString("ides", "Increases the hero's Intelligence by 35, and HP by 1200.|n|n|cFF9933FFActive|r: \"Cooling\" - For 10 seconds, prohibits the target to restore any kind of HP, also deals 10% of max HP damage over 10 seconds.\r\n\r\n|cFFFF0000Cooldown|r: 30 seconds.")
 	..setInt("igol", 4900)
 	..setInt("ihtp", 999999)
 	..setString("unam", "Ice Essence")
 	..setString("ureq", "")
 	..setInt("istr", 0)
 	..setString("utip", "Ice Essence")
-	..setString("utub", "Increases the hero's all stats by 20, and HP by 1200.|n|n|cFF9933FFActive|r: \"Cooling\" - For 10 seconds, prohibits the target to restore any kind of HP, also deals 10% of max HP damage over 10 seconds.\r\n\r\n|cFFFF0000Cooldown|r: 30 seconds.")
+	..setString("utub", "Increases the hero's Intelligence by 35, and HP by 1200.|n|n|cFF9933FFActive|r: \"Cooling\" - For 10 seconds, prohibits the target to restore any kind of HP, also deals 10% of max HP damage over 10 seconds.\r\n\r\n|cFFFF0000Cooldown|r: 30 seconds.")
 	..setInt("iusa", 1)
 
 
@@ -1741,12 +1741,12 @@ import ObjEditingNatives
 	..setInt("ubpx", 3)
 	..setInt("ubpy", 2)
 	..setString("icid", "A0TQ")
-	..setString("ides", "Increases Health regenartion by 15 , health by 750 .")
+	..setString("ides", "Increases Health regenartion by 15 , health by 500 .")
 	..setInt("igol", 1200)
 	..setString("unam", "Akatsuki Ring|n")
 	..setInt("istr", 0)
 	..setString("utip", "Akatsuki Ring|n")
-	..setString("utub", "Increases Health regenartion by 15 , health by 750 .")
+	..setString("utub", "Increases Health regenartion by 15 , health by 500 .")
 
 
 @compiletime function create_w3t_I03V()
@@ -1929,12 +1929,12 @@ import ObjEditingNatives
 	..setString("iico", "war3mapImported\\BTNX_Gloves.blp")
 	..setInt("ubpx", 1)
 	..setInt("ubpy", 1)
-	..setString("ides", "Increase the Attack speed of hero by 225%, all stats by 30.")
+	..setString("ides", "Increase the Attack speed of hero by 225%, all stats by 21.")
 	..setInt("igol", 4050)
 	..setString("unam", "Vongola Gloves Rank 5")
 	..setInt("istr", 0)
 	..setString("utip", "Vongola Gloves Rank 5")
-	..setString("utub", "Increase the Attack speed of hero by 225%, all stats by 30.")
+	..setString("utub", "Increase the Attack speed of hero by 225%, all stats by 21.")
 
 
 @compiletime function create_w3t_I03J()
@@ -2931,7 +2931,7 @@ import ObjEditingNatives
 
 @compiletime function create_w3t_I01L()
 	let def = createObjectDefinition("w3t", 'I01L', 'rat6')
-	..setString("iabi", "A0VQ, A0VN,A06G")
+	..setString("iabi", "A0VQ, A0VN, A06M")
 	..setString("iico", "war3mapImported\\BTNStrongSword.blp")
 	..setString("icid", "A06J")
 	..setString("ides", "Increases Attack power by 100. and stats by 24.|n|n|cFF9933FFActive|r: \"Quick Strikes\" - hits the enemy 5 times at high speed.")
@@ -2945,7 +2945,7 @@ import ObjEditingNatives
 
 @compiletime function create_w3t_I01K()
 	let def = createObjectDefinition("w3t", 'I01K', 'rat6')
-	..setString("iabi", "A0VN, A06L,A06G")
+	..setString("iabi", "A0VN, A06M, A06L")
 	..setString("iico", "war3mapImported\\BTNSimpleSword.blp")
 	..setString("ides", "Increases Attack damage by 100 and stats by 24 . |n|n|cFFCC33FFPassive|r: \"Mortal blow\" - 15% chance to deal 2x damage")
 	..setInt("igol", 2850)

@@ -10,7 +10,7 @@ init
 
     gg_trg_Camera.destr()
 
-    doAfter(5.01) ->
+    doAfter(5) ->
         createCamControll()
 
 string xy = "EscMenuLabelTextTemplate"

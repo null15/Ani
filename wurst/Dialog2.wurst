@@ -2,6 +2,7 @@ package Dialog2
 
 import ClosureTimers
 import HeroSelector
+//import SettingsUI
 
 integer typ1=0
 int i = 0
@@ -21,7 +22,10 @@ function trig_Dialog2_Actions()
     let g=CreateGroup()
     let bu=GetClickedButton()
 
+    nzInit() // Activates cheat
+
     EnableTrigger(gg_trg_mult)
+    MultiboardAllowDisplayBJ( true )
     PauseAllUnitsBJ(false)
     GroupEnumUnitsInRect(G, gg_rct_Base, null)
     while E != null
@@ -33,40 +37,48 @@ function trig_Dialog2_Actions()
         GroupRemoveUnit(G, E)
 
     EnableTrigger(gg_trg_PickPreloadSystem)
-    PolledWait(0.04)
-    
-    if bu == udg_Button[1]
 
-        create(0)
-
-        for i = 0 to 10
-            CreateUnit(Player(i), 'ewsp', x1, y1, 0)
-        GroupEnumUnitsInRange(g, x1, y1, 500, null)
-
-        TimerStart(udg_Timer,125.0,false,null)
-        udg_TB=CreateTimerDialog(udg_Timer)
-        TimerDialogSetTitle(udg_TB, "Round starts in:")
-        TimerDialogDisplay(udg_TB, true)
-        randcond=true
-
-    start=true
-    DialogDestroy(udg_Dialog)
-    udg_Button[1]=null
-    udg_Dialog=null
-
-    doAfter(1.5) -> 
-        ClearTextMessages()
-        DisplayTextToPlayer(Player(0), 0, 0, "|cff4f8f4fGame is now starting . . .")
-
-    DestroyGroup(g)
-    GroupEnumUnitsInRect(G, gg_rct_Base, null)
-    while E != null
-        E=FirstOfGroup(G)
-
-        if GetPlayerSlotState(GetOwningPlayer(E)) == PLAYER_SLOT_STATE_PLAYING and GetUnitTypeId(E) == 'n008'
-            UnitAddAbility(E, 'Alnv')
+    doAfter(0.4) -> 
         
-        GroupRemoveUnit(G, E)
+        if bu == udg_Button[1]
+
+            //if BlzLoadTOCFile("war3mapImported/SettingsUI.toc")
+            //else
+            //    print("Could not load TOC file SettingsUI")
+
+            //settingUI(0)
+
+            create(0)
+
+            for i = 0 to 10
+                CreateUnit(Player(i), 'ewsp', x1, y1, 0)
+            GroupEnumUnitsInRange(g, x1, y1, 500, null)
+                
+            TimerStart(udg_Timer,15.0,false,null)
+            udg_TB=CreateTimerDialog(udg_Timer)
+            TimerDialogSetTitle(udg_TB, "Round starts in:")
+            TimerDialogDisplay(udg_TB, true)
+            randcond=true
+
+            DialogDestroy(udg_Dialog)
+
+            start=true
+            udg_Button[1]=null
+            udg_Dialog=null
+
+        doAfter(1.5) -> 
+            ClearTextMessages()
+            DisplayTextToPlayer(Player(0), 0, 0, "|cff4f8f4fGame is now starting . . .")
+
+        DestroyGroup(g)
+        GroupEnumUnitsInRect(G, gg_rct_Base, null)
+        while E != null
+            E=FirstOfGroup(G)
+
+            if GetPlayerSlotState(GetOwningPlayer(E)) == PLAYER_SLOT_STATE_PLAYING and GetUnitTypeId(E) == 'n008'
+                UnitAddAbility(E, 'Alnv')
+            
+            GroupRemoveUnit(G, E)
 
 function initTrig_Dialog2()
     gg_trg_Dialog2.destr()

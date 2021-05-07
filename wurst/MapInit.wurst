@@ -1,0 +1,311 @@
+package MapInit
+
+init
+
+    //initTrig_MapInit()
+
+function createBuildingsForPlayer20()
+    let p=Player(0)
+    unit u
+    
+    
+    u=CreateUnit(p,'n008',2624.0,7104.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+
+    
+function createBuildingsForPlayer1()
+    let p=Player(1)
+    unit u
+    
+    
+    
+    u=CreateUnit(p,'n008',2624.0,6976.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    
+function createBuildingsForPlayer2()
+    let p=Player(2)
+    unit u
+    
+    
+    
+    u=CreateUnit(p,'n008',2624.0,6848.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    
+function createBuildingsForPlayer3()
+    let p=Player(3)
+    unit u
+    
+    
+    
+    u=CreateUnit(p,'n008',2624.0,6720.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    
+function createBuildingsForPlayer4()
+    let p=Player(4)
+    unit u
+    
+    
+    
+    u=CreateUnit(p,'n008',2624.0,6592.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    
+function createBuildingsForPlayer5()
+    let p=Player(5)
+    unit u
+    
+    
+    
+    u=CreateUnit(p,'n008',4416.0,6976.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    
+function createBuildingsForPlayer6()
+    let p=Player(6)
+    unit u
+    
+    
+    
+    u=CreateUnit(p,'n008',4416.0,6848.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    
+function createBuildingsForPlayer7()
+    let p=Player(7)
+    unit u
+    
+    
+    
+    u=CreateUnit(p,'n008',4416.0,6720.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    
+function createBuildingsForPlayer8()
+    let p=Player(8)
+    unit u
+    
+    
+    
+    u=CreateUnit(p,'n008',4416.0,6592.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    
+function createBuildingsForPlayer9()
+    let p=Player(9)
+    unit u
+    
+    
+    
+    u=CreateUnit(p,'n008',4416.0,6464.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    
+function createNeutralHostile()
+    let p=Player(PLAYER_NEUTRAL_AGGRESSIVE)
+    unit u
+    
+    udg_DetroitGroup2=CreateGroup()
+    u=CreateUnit(p,'H00F',13777.5,-5323.3,246.145)
+    SetUnitState(u,UNIT_STATE_MANA,0)
+    u=CreateUnit(p,'h04P',13950.1,-5548.0,150.620)
+    SetUnitState(u,UNIT_STATE_MANA,0)
+    u=CreateUnit(p,'H00F',13775.5,-5470.8,97.111)
+    SetUnitState(u,UNIT_STATE_MANA,0)
+    u=CreateUnit(p,'H00F',13792.7,-5580.6,140.432)
+    SetUnitState(u,UNIT_STATE_MANA,0)
+    u=CreateUnit(p,'H00F',13928.9,-5581.9,354.210)
+    SetUnitState(u,UNIT_STATE_MANA,0)
+    u=CreateUnit(p,'H00F',14028.9,-5563.3,46.276)
+    SetUnitState(u,UNIT_STATE_MANA,0)
+    u=CreateUnit(p,'H00F',13988.7,-5369.4,16.139)
+    SetUnitState(u,UNIT_STATE_MANA,0)
+    u=CreateUnit(p,'H00F',13891.4,-5306.0,129.610)
+    SetUnitState(u,UNIT_STATE_MANA,0)
+    u=CreateUnit(p,'H00F',13955.9,-5447.9,136.081)
+    SetUnitState(u,UNIT_STATE_MANA,0)
+    u=CreateUnit(p,'H00F',13844.9,-5470.8,167.876)
+    SetUnitState(u,UNIT_STATE_MANA,0)
+    u=CreateUnit(p,'H00F',13846.8,-5367.3,246.145)
+    SetUnitState(u,UNIT_STATE_MANA,0)
+    u=CreateUnit(p,'H00F',13909.7,-5499.4,246.145)
+    SetUnitState(u,UNIT_STATE_MANA,0)
+    u=CreateUnit(p,'H00F',13845.3,-5601.5,246.145)
+    SetUnitState(u,UNIT_STATE_MANA,0)
+    u=CreateUnit(p,'H00F',13736.6,-5533.6,246.145)
+    SetUnitState(u,UNIT_STATE_MANA,0)
+    
+function createNeutralPassiveBuildings()
+    let p=Player(PLAYER_NEUTRAL_PASSIVE)
+    unit u
+    
+    u = BlzCreateUnitWithSkin( p, 'n011', 10256.3, 7495.8, 270.000, 'n011' )
+    SetUnitColor( u, ConvertPlayerColor(0) )
+    u = BlzCreateUnitWithSkin( p, 'n012', 10628.0, 7394.1, 270.000, 'n012' )
+    SetUnitColor( u, ConvertPlayerColor(0) )
+    u = BlzCreateUnitWithSkin( p, 'n010', 9853.0, 7409.7, 270.000, 'n010' )
+    SetUnitColor( u, ConvertPlayerColor(0) )
+
+    u=CreateUnit(p,'n00V',-4864.0,6584.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n00T',-4864.0,6784.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n004',2688.0,7168.0,90.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n003',4352.0,7232.0,90.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n005',2880.0,7168.0,90.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n006',-4864.0,7168.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n007',-4608.0,7168.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n000',-4992.0,6976.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n00J',3264.0,7360.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n00U',3648.0,6528.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n009',-4608.0,6784.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    udg_n00A_0035=CreateUnit(p,'n00A',2880.0,7360.0,270.000)
+    SetUnitColor(udg_n00A_0035,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n00B',3776.0,6912.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n00C',4224.0,7360.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n00F',4352.0,7360.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n00E',2688.0,7360.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n00D',-4352.0,6976.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n00I',3072.0,7360.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n00W',3900.0,6528.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n00K',-4608.0,6976.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n00L',-4736.0,6976.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n00M',-4736.0,7168.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n00N',-4736.0,6784.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n00O',-4992.0,7168.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n00P',-4352.0,7168.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n00Q',-4480.0,6784.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n00R',4096.0,7360.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n00S',3968.0,7360.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n00H',-4864.0,6976.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n001',-4480.0,6976.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    u=CreateUnit(p,'n002',-4480.0,7168.0,270.000)
+    SetUnitColor(u,ConvertPlayerColor(0))
+    
+function createNeutralPassive()
+    let p=Player(PLAYER_NEUTRAL_PASSIVE)
+
+    
+    
+    
+    weathereffect we
+    udg_h019_0019=CreateUnit(p,'h019',-7.9,6632.7,272.485)
+
+    we=AddWeatherEffect(gg_rct_UBW2,'FDrl')
+    EnableWeatherEffect(we,true)
+    
+function createPlayerBuildings2()
+    createBuildingsForPlayer20()
+    createBuildingsForPlayer1()
+    createBuildingsForPlayer2()
+    createBuildingsForPlayer3()
+    createBuildingsForPlayer4()
+    createBuildingsForPlayer5()
+    createBuildingsForPlayer6()
+    createBuildingsForPlayer7()
+    createBuildingsForPlayer8()
+    createBuildingsForPlayer9()
+    
+function createPlayerUnits2()
+    
+function createAllUnits2()
+    createNeutralPassiveBuildings()
+    createPlayerBuildings2()
+    createNeutralHostile()
+    createNeutralPassive()
+    createPlayerUnits2()
+    
+    //function CreateCameras()
+    //udg_Camera=CreateCameraSetup()
+    //CameraSetupSetField(udg_Camera,CAMERA_FIELD_ZOFFSET,0.0,0.0)
+    //CameraSetupSetField(udg_Camera,CAMERA_FIELD_ROTATION,90.1,0.0)
+    //CameraSetupSetField(udg_Camera,CAMERA_FIELD_ANGLE_OF_ATTACK,301.7,0.0)
+    //CameraSetupSetField(udg_Camera,CAMERA_FIELD_TARGET_DISTANCE,2657.3,0.0)
+    //CameraSetupSetField(udg_Camera,CAMERA_FIELD_ROLL,0.0,0.0)
+    //CameraSetupSetField(udg_Camera,CAMERA_FIELD_FIELD_OF_VIEW,70.0,0.0)
+    //CameraSetupSetField(udg_Camera,CAMERA_FIELD_FARZ,10000.0,0.0)
+    //CameraSetupSetDestPosition(udg_Camera,10710.0,4930.3,0.0)
+    //udg_Camera2=CreateCameraSetup()
+    //CameraSetupSetField(udg_Camera2,CAMERA_FIELD_ZOFFSET,0.0,0.0)
+    //CameraSetupSetField(udg_Camera2,CAMERA_FIELD_ROTATION,89.0,0.0)
+    //CameraSetupSetField(udg_Camera2,CAMERA_FIELD_ANGLE_OF_ATTACK,305.4,0.0)
+    //CameraSetupSetField(udg_Camera2,CAMERA_FIELD_TARGET_DISTANCE,3890.6,0.0)
+    //CameraSetupSetField(udg_Camera2,CAMERA_FIELD_ROLL,0.0,0.0)
+    //CameraSetupSetField(udg_Camera2,CAMERA_FIELD_FIELD_OF_VIEW,70.0,0.0)
+    //CameraSetupSetField(udg_Camera2,CAMERA_FIELD_FARZ,8857.8,0.0)
+    //CameraSetupSetDestPosition(udg_Camera2,10817.7,4940.7,0.0)
+    //udg_Camera3=CreateCameraSetup()
+    //CameraSetupSetField(udg_Camera3,CAMERA_FIELD_ZOFFSET,0.0,0.0)
+    //CameraSetupSetField(udg_Camera3,CAMERA_FIELD_ROTATION,88.3,0.0)
+    //CameraSetupSetField(udg_Camera3,CAMERA_FIELD_ANGLE_OF_ATTACK,302.4,0.0)
+    //CameraSetupSetField(udg_Camera3,CAMERA_FIELD_TARGET_DISTANCE,5178.4,0.0)
+    //CameraSetupSetField(udg_Camera3,CAMERA_FIELD_ROLL,0.0,0.0)
+    //CameraSetupSetField(udg_Camera3,CAMERA_FIELD_FIELD_OF_VIEW,70.0,0.0)
+    //CameraSetupSetField(udg_Camera3,CAMERA_FIELD_FARZ,8857.8,0.0)
+    //CameraSetupSetDestPosition(udg_Camera3,10944.1,4681.3,0.0)
+    //udg_Gamecam=CreateCameraSetup()
+    //CameraSetupSetField(udg_Gamecam,CAMERA_FIELD_ZOFFSET,0.0,0.0)
+    //CameraSetupSetField(udg_Gamecam,CAMERA_FIELD_ROTATION,90.0,0.0)
+    //CameraSetupSetField(udg_Gamecam,CAMERA_FIELD_ANGLE_OF_ATTACK,304.0,0.0)
+    //CameraSetupSetField(udg_Gamecam,CAMERA_FIELD_TARGET_DISTANCE,3000.0,0.0)
+    //CameraSetupSetField(udg_Gamecam,CAMERA_FIELD_ROLL,0.0,0.0)
+    //CameraSetupSetField(udg_Gamecam,CAMERA_FIELD_FIELD_OF_VIEW,70.0,0.0)
+    //CameraSetupSetField(udg_Gamecam,CAMERA_FIELD_FARZ,5000.0,0.0)
+    //CameraSetupSetDestPosition(udg_Gamecam,11959.1,4852.6,0.0)
+    //udg_Te1=CreateCameraSetup()
+    //CameraSetupSetField(udg_Te1,CAMERA_FIELD_ZOFFSET,0.0,0.0)
+    //CameraSetupSetField(udg_Te1,CAMERA_FIELD_ROTATION,87.6,0.0)
+    //CameraSetupSetField(udg_Te1,CAMERA_FIELD_ANGLE_OF_ATTACK,337.7,0.0)
+    //CameraSetupSetField(udg_Te1,CAMERA_FIELD_TARGET_DISTANCE,2000.0,0.0)
+    //CameraSetupSetField(udg_Te1,CAMERA_FIELD_ROLL,0.0,0.0)
+    //CameraSetupSetField(udg_Te1,CAMERA_FIELD_FIELD_OF_VIEW,70.0,0.0)
+    //CameraSetupSetField(udg_Te1,CAMERA_FIELD_FARZ,4545.5,0.0)
+    //CameraSetupSetDestPosition(udg_Te1,15393.8,1778.4,0.0)
+    //udg_Te3=CreateCameraSetup()
+    //CameraSetupSetField(udg_Te3,CAMERA_FIELD_ZOFFSET,0.0,0.0)
+    //CameraSetupSetField(udg_Te3,CAMERA_FIELD_ROTATION,90.1,0.0)
+    //CameraSetupSetField(udg_Te3,CAMERA_FIELD_ANGLE_OF_ATTACK,316.2,0.0)
+    //CameraSetupSetField(udg_Te3,CAMERA_FIELD_TARGET_DISTANCE,2415.8,0.0)
+    //CameraSetupSetField(udg_Te3,CAMERA_FIELD_ROLL,0.0,0.0)
+    //CameraSetupSetField(udg_Te3,CAMERA_FIELD_FIELD_OF_VIEW,70.0,0.0)
+    //CameraSetupSetField(udg_Te3,CAMERA_FIELD_FARZ,4545.5,0.0)
+    //CameraSetupSetDestPosition(udg_Te3,15368.6,-178.5,0.0)
+    //udg_Te5=CreateCameraSetup()
+    //CameraSetupSetField(udg_Te5,CAMERA_FIELD_ZOFFSET,0.0,0.0)
+    //CameraSetupSetField(udg_Te5,CAMERA_FIELD_ROTATION,178.4,0.0)
+    //CameraSetupSetField(udg_Te5,CAMERA_FIELD_ANGLE_OF_ATTACK,348.7,0.0)
+    //CameraSetupSetField(udg_Te5,CAMERA_FIELD_TARGET_DISTANCE,1024.5,0.0)
+    //CameraSetupSetField(udg_Te5,CAMERA_FIELD_ROLL,0.0,0.0)
+    //CameraSetupSetField(udg_Te5,CAMERA_FIELD_FIELD_OF_VIEW,70.0,0.0)
+    //CameraSetupSetField(udg_Te5,CAMERA_FIELD_FARZ,5500.0,0.0)
+    //CameraSetupSetDestPosition(udg_Te5,16058.7,-167.8,0.0)
+    //
+    //===========================================================================
+function initTrig_MapInit()
+    gg_trg_MapInit = CreateTrigger(  )
+    TriggerAddAction( gg_trg_MapInit, function createAllUnits2 )
+    //TriggerAddAction( gg_trg_MapInit, function CreatePlayerBuildings)
+    //TriggerAddAction( gg_trg_MapInit, function CreateCameras)
+
+    
+    

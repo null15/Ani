@@ -1,0 +1,39 @@
+package LocalRandom
+
+init
+
+    initTrig_LocalRandom()
+
+function trig_LocalRandom_Conditions() returns boolean
+    return udg_RM==false and udg_Hero[GetPlayerId(GetTriggerPlayer())+1]==null and randcond==true
+
+function trig_LocalRandom_Actions()
+    integer id
+    let i=GetPlayerId(GetTriggerPlayer())
+    unit array u
+    rand[i]=true
+    while true
+        //BJDebugMsg(I2S(id))
+        id=GetRandomInt(1,115)
+        //BJDebugMsg(I2S(id))
+        if udg_RH[id]!=0
+            u[i+1]=CreateUnit(Player(i),udg_RH[id],GetRectCenterX(gg_rct_Rect1),GetRectCenterY(gg_rct_Rect1),0)
+            DisplayTextToPlayer(Player(0),0,0,I2S(i))
+            udg_RH[id]=0
+            DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+udg_Color[i+1]+GetPlayerName(Player(i))+"|r Randomed "+GetUnitName(u[i+1]))
+            SetPlayerState(Player(i),PLAYER_STATE_RESOURCE_GOLD,GetPlayerState(Player(i),PLAYER_STATE_RESOURCE_GOLD)+400)
+            if Player(i)==Player(0)or Player(i)==Player(1)or Player(i)==Player(2)or Player(i)==Player(3)or Player(i)==Player(4)
+                GroupAddUnit(udg_CG[1],u[i+1])
+            else if Player(i)==Player(5)or Player(i)==Player(6)or Player(i)==Player(7)or Player(i)==Player(8)or Player(i)==Player(9)
+                GroupAddUnit(udg_CG[2],u[i+1])
+        if u[i+1]!=null
+            break
+
+function initTrig_LocalRandom()
+
+    gg_trg_LocalRandom.destr()
+
+    TriggerRegisterPlayerChatEvent(gg_trg_LocalRandom,Player(0),"",true)
+    TriggerAddCondition(gg_trg_LocalRandom,Condition(function trig_LocalRandom_Conditions))
+    TriggerAddAction(gg_trg_LocalRandom,function trig_LocalRandom_Actions)
+

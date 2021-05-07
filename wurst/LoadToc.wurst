@@ -2,9 +2,8 @@ package LoadToc
 
 
 
-init
 
-    
+init
 
     if GetClickedButton() == udg_Button[1]
         if BlzLoadTOCFile("templates.toc")

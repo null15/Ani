@@ -14,8 +14,6 @@ unit array heroCopies
 
 
 
-
-
 init
 /*
     let amItems = new RecommendedItems(UnitIds.archmage)

@@ -7,9 +7,9 @@ import initlater ShopAPI
     if shopConfig_shopCanBuy(u, itm)
         let boughtItem = tryBuy(u, itm)
         if boughtItem == null
-            print("") // could not be bought
+            //print("") // could not be bought
         else
-            print(boughtItem.getName() + "") // was successfully bought
+            //print(boughtItem.getName() + " was bought") // was successfully bought
 
 @config public function shopConfig_shopCanBuy(unit u, ItemInShop itm) returns bool
     let cost = getItemCostForHero(u, itm)
@@ -35,4 +35,3 @@ import initlater ShopAPI
     // return a.getTotalCost() - b.getTotalCost() // sort by gold cost
 
 init
-
