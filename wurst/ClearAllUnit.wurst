@@ -24,8 +24,8 @@ function clearAllUnitCast()
 
 function initTrig_ClearAllUnit()
     gg_trg_ClearAllUnit.destr()
-    gg_trg_ClearAllUnit=CreateTrigger()
+    /*gg_trg_ClearAllUnit=CreateTrigger()
     TriggerRegisterTimerEvent(gg_trg_ClearAllUnit,1.00,true)
     TriggerAddCondition(gg_trg_ClearAllUnit,Condition(function clearAllUnitCond))
-    TriggerAddAction(gg_trg_ClearAllUnit,function clearAllUnitCast)
+    TriggerAddAction(gg_trg_ClearAllUnit,function clearAllUnitCast)*/
 

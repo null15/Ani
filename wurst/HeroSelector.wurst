@@ -1,6 +1,7 @@
 package HeroSelector
 
 import HashMap
+import ClosureTimers
 
 public integer array playHero
 
@@ -43,6 +44,9 @@ integer bannButtonIndex
 
 public integer heroIndex = 0
 //public integer randomHero = GetRandomInt(0, heroIndex-1)
+
+boolean stopClickingAR = false
+boolean stopClickingAP = false
 
 public constant heroUnitCodeToIndex = new HashMap<int,int>()
 
@@ -95,29 +99,30 @@ function initrandomPool()
         if max < 0
             break
 
-
-
-
 function randomButtonAction()
     let i=GetPlayerId(GetTriggerPlayer())
     let p=GetTriggerPlayer()
-    
-    if bannsCount[0] == 3 and bannsCount[1] == 3 // random func
-        rand[i]=true
 
-        let randomHero = GetRandomInt(0, heroIndex-1)
+    if stopClickingAR == true
+        stopClickingAR = false
+        BlzFrameSetEnable(BlzGetTriggerFrame(), false) //disable the clicked button
+        BlzFrameSetEnable(BlzGetTriggerFrame(), true) //enable it again.
+            
+        if bannsCount[0] == 3 and bannsCount[1] == 0 // random func
+            if GetLocalPlayer() == GetTriggerPlayer()
+                BlzFrameSetVisible(box, false)
 
-        udg_Hero[i] = CreateUnit(p, playHero[randomHero], GetRectCenterX(gg_rct_Rect1), GetRectCenterY(gg_rct_Rect1), 0)
-        playHero[randomHero] = playHero[heroIndex-1]
-        
-        heroUnitCodeToIndex.put(playHero[randomHero], randomHero)
-        heroIndex--
+            rand[i]=true
 
-        print("Unit removed from array: " + GetUnitName(udg_Hero[i]))
+            let randomHero = GetRandomInt(0, heroIndex-1)
 
-        if GetLocalPlayer() == GetTriggerPlayer()
-            BlzFrameSetVisible(box, false)
-        
+            udg_Hero[i] = CreateUnit(p, playHero[randomHero], GetRectCenterX(gg_rct_Rect1), GetRectCenterY(gg_rct_Rect1), 0)
+            playHero[randomHero] = playHero[heroIndex-1]
+            
+            heroUnitCodeToIndex.put(playHero[randomHero], randomHero)
+            heroIndex--
+            doAfter(0.5) -> 
+                stopClickingAR = true
     
     //else
         
@@ -297,8 +302,9 @@ public function showPage(integer page)
     else if page == 6
         imagePath = "Pages/Reborn.dds"
     else if page == 7
+        imagePath = "Pages/ToAru.dds"
+    else if page == 8
         imagePath = "Pages/OtherAnime.dds"
-    
         
     BlzFrameSetTexture(boxBackground, imagePath, 0, true)
     
@@ -357,7 +363,6 @@ public function actionIconButton()
     
     if bannsCount[teamIndex] < 3
         if teamCaptain[teamIndex] == GetTriggerPlayer()
-
             bannButtonIndex = teamValue + bannsCount[teamIndex]
             banns[bannButtonIndex] = unitCode
             BlzFrameSetVisible(bannButton[bannButtonIndex], true)
@@ -371,31 +376,34 @@ public function actionIconButton()
             heroUnitCodeToIndex.put(playHero[heroIndexToRemove], heroIndexToRemove)
             heroIndex--
 
+            if bannsCount[0] == 3 and bannsCount[1] == 0
+                stopClickingAR = true
+                stopClickingAP = true
+
         else
             return
-        
-        
-    else if bannsCount[0] >= 3 and bannsCount[1] >= 3 // ban func
+            
+    else if bannsCount[0] >= 3 and bannsCount[1] >= 0 // ban func
 
-        udg_Hero[i] = CreateUnit(p, playHero[randomHero], GetRectCenterX(gg_rct_Rect1), GetRectCenterY(gg_rct_Rect1), 0)
-        playHero[randomHero] = playHero[heroIndex-1]
-        
-        heroUnitCodeToIndex.put(playHero[randomHero], randomHero)
-        heroIndex--
-        if GetLocalPlayer() == GetTriggerPlayer()
-            BlzFrameSetVisible(box, false)
-        
+        if stopClickingAP == true
+            stopClickingAP = false
+
+            if GetLocalPlayer() == GetTriggerPlayer()
+                BlzFrameSetVisible(box, false)
+
+            udg_Hero[i] = CreateUnit(p, playHero[randomHero], GetRectCenterX(gg_rct_Rect1), GetRectCenterY(gg_rct_Rect1), 0)
+            playHero[randomHero] = playHero[heroIndex-1]
+            
+            heroUnitCodeToIndex.put(playHero[randomHero], randomHero)
+            heroIndex--
+
+            doAfter(0.5) ->
+                stopClickingAP = true
     else
         return
     
-
-    //BJDebugMsg(I2S(playerPage[playerId]) + " / " + I2S(buttonIndex) + " => " + GetObjectName(heroes[playerPage[playerId]*pageSize + buttonIndex]))
-    
-    // remove that Hero from selecting it
     heroes[playerPage[playerId]*pageSize + buttonIndex] = 0
     showPage(playerPage[GetPlayerId(GetLocalPlayer())])
-    
-
 
 public function create(integer index)
     integer loopA = 0

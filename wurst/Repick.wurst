@@ -14,7 +14,6 @@ function trig_Repick_Actions()
     let i=GetPlayerId(GetTriggerPlayer())+1
     integer j=0
     let p=GetOwningPlayer(udg_Hero[i])
-    let p2=GetTriggerPlayer()
     item array t1
     let lvl=GetHeroLevel(udg_Hero[i])
 
@@ -31,25 +30,24 @@ function trig_Repick_Actions()
         udg_Repick[i] = udg_Repick[i] + 1
 
         while true
-
             let randomHero = GetRandomInt(0, heroIndex-1)
+            if playHero[randomHero] != 0
 
-            udg_Hero[i] = CreateUnit(p2, playHero[randomHero], GetRectCenterX(gg_rct_Rect1), GetRectCenterY(gg_rct_Rect1), 0)
-            playHero[randomHero] = playHero[heroIndex-1]
+                udg_Hero[i] = CreateUnit(p, playHero[randomHero], GetRectCenterX(gg_rct_Rect1), GetRectCenterY(gg_rct_Rect1), 0)
+                playHero[randomHero] = playHero[heroIndex-1]
 
-            heroUnitCodeToIndex.put(playHero[randomHero], randomHero)
-            heroIndex--
-    
-            print("Unit removed from array: " + GetUnitName(udg_Hero[i]))
+                heroUnitCodeToIndex.put(playHero[randomHero], randomHero)
+                heroIndex--
             
-            if Player(i-1)==Player(0)or Player(i-1)==Player(1)or Player(i-1)==Player(2)or Player(i-1)==Player(3)or Player(i-1)==Player(4)
-                GroupAddUnit(udg_CG[1],udg_Hero[i])
-            else if Player(i-1)==Player(5)or Player(i-1)==Player(6)or Player(i-1)==Player(7)or Player(i-1)==Player(8)or Player(i-1)==Player(9)
-                GroupAddUnit(udg_CG[2],udg_Hero[i])
+                if Player(i-1)==Player(0)or Player(i-1)==Player(1)or Player(i-1)==Player(2)or Player(i-1)==Player(3)or Player(i-1)==Player(4)
+                    GroupAddUnit(udg_CG[1],udg_Hero[i])
+                else if Player(i-1)==Player(5)or Player(i-1)==Player(6)or Player(i-1)==Player(7)or Player(i-1)==Player(8)or Player(i-1)==Player(9)
+                    GroupAddUnit(udg_CG[2],udg_Hero[i])
             
             break
 
         j=0
+        
         while true
             UnitAddItem(udg_Hero[i],t1[j])
             if j == 5
