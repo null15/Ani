@@ -391,7 +391,7 @@ public function actionIconButton()
             if GetLocalPlayer() == GetTriggerPlayer()
                 BlzFrameSetVisible(box, false)
 
-            udg_Hero[i] = CreateUnit(p, playHero[randomHero], GetRectCenterX(gg_rct_Rect1), GetRectCenterY(gg_rct_Rect1), 0)
+            udg_Hero[i] = CreateUnit(p, unitCode, GetRectCenterX(gg_rct_Rect1), GetRectCenterY(gg_rct_Rect1), 0)
             playHero[randomHero] = playHero[heroIndex-1]
             
             heroUnitCodeToIndex.put(playHero[randomHero], randomHero)

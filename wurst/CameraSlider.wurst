@@ -33,8 +33,7 @@ function updateCam()
 
 function createCamControll()
     let t = CreateTrigger()
-    for i = 1 to 3
-        t.registerDialogButtonEvent(udg_Button[i])
+    t.registerDialogButtonEvent(udg_Button[1])
     t.addAction() ->
         createSliderDistance()
         TimerStart(CreateTimer(), 0.1, true, function updateCam)

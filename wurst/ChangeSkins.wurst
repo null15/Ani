@@ -1,0 +1,176 @@
+package ChangeSkins
+
+import ClosureTimers
+
+public framehandle settingsOpen
+
+trigger settingsAction
+
+init
+
+    doAfter(5) -> 
+        BlzLoadTOCFile("war3mapImported\\SettingsOpen.toc")
+        settingsOpen(0)
+
+function settingsAction()
+    let ip=GetPlayerId(GetTriggerPlayer())
+    let u=Hero[ip]
+    item array it_
+    integer num=0
+    let i=GetPlayerId(GetTriggerPlayer())
+    let p=GetOwningPlayer(u)
+    let id=GetUnitTypeId(u)
+
+    if gg_rct_Base.contains(u.getPos())
+        rfhpick=false
+
+        if id == 'H05Z' //Sabrac
+            udg_Hero[i]=CreateUnit(p,'H07R',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+        else if id == 'H07R'
+            udg_Hero[i]=CreateUnit(p,'H05Z',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+
+        else if id=='H05D' //Sakura
+            udg_Hero[i]=CreateUnit(p,'H06X',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+        else if id=='H06X' 
+            udg_Hero[i]=CreateUnit(p,'H05D',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+
+        else if id=='H04L' //Gray
+            udg_Hero[i]=CreateUnit(p,'H06V',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+        else if id=='H06V' 
+            udg_Hero[i]=CreateUnit(p,'H04L',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+
+        else if id=='H06Y' //Scathach
+            udg_Hero[i]=CreateUnit(p,'H06Z',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+        else if id=='H06Z' 
+            udg_Hero[i]=CreateUnit(p,'H06Y',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)     
+            
+        else if id=='H017' //Shana
+            udg_Hero[i]=CreateUnit(p,'H06W',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+        else if id=='H06W' 
+            udg_Hero[i]=CreateUnit(p,'H017',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+
+        else if id=='H05C' //Artoria
+            udg_Hero[i]=CreateUnit(p,'H06P',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+        else if id=='H06P' 
+            udg_Hero[i]=CreateUnit(p,'H05E',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)  
+        else if id=='H05E' 
+            udg_Hero[i]=CreateUnit(p,'H05C',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)  
+
+        else if id=='H057' //Sasuke
+            udg_Hero[i]=CreateUnit(p,'H07A',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+        else if id=='H07A' 
+            udg_Hero[i]=CreateUnit(p,'H057',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+
+        else if id=='H06T' //Lucy
+            udg_Hero[i]=CreateUnit(p,'H07D',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+        else if id=='H07D' 
+            udg_Hero[i]=CreateUnit(p,'H06T',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+
+        else if id=='H06C' //Kirei
+            udg_Hero[i]=CreateUnit(p,'H07B',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+        else if id=='H07B' 
+            udg_Hero[i]=CreateUnit(p,'H06C',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)     
+            
+        else if id=='H044' //Misaka
+            udg_Hero[i]=CreateUnit(p,'H06R',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+        else if id=='H06R' 
+            udg_Hero[i]=CreateUnit(p,'H044',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+
+        else if id=='H059' //Gilgamesh
+            udg_Hero[i]=CreateUnit(p,'H06S',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+        else if id=='H06S' 
+            udg_Hero[i]=CreateUnit(p,'H070',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+        else if id=='H070' 
+            udg_Hero[i]=CreateUnit(p,'H059',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+            
+        else if id=='H053' //Louise
+            udg_Hero[i]=CreateUnit(p,'H06Q',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+        else if id=='H06Q' 
+            udg_Hero[i]=CreateUnit(p,'H053',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+
+        else if id=='H01H' //Death the Kid
+            udg_Hero[i]=CreateUnit(p,'H06N',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+        else if id=='H06N' 
+            udg_Hero[i]=CreateUnit(p,'H01H',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+
+        else if id=='H05A' //Emiya
+            udg_Hero[i]=CreateUnit(p,'H05B',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+        else if id=='H05B' 
+            udg_Hero[i]=CreateUnit(p,'H05A',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)     
+            
+        else if id=='H012' //Ichigo
+            udg_Hero[i]=CreateUnit(p,'H06D',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+        else if id=='H06D' 
+            udg_Hero[i]=CreateUnit(p,'H012',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+
+        else if id=='H03R' //Yomu
+            udg_Hero[i]=CreateUnit(p,'H064',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+        else if id=='H064' 
+            udg_Hero[i]=CreateUnit(p,'H03R',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)   
+
+        else if id=='H04O' //Kurapika
+            udg_Hero[i]=CreateUnit(p,'H065',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+        else if id=='H065' 
+            udg_Hero[i]=CreateUnit(p,'H04O',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+
+        else if id=='H02U' //Aokiji
+            udg_Hero[i]=CreateUnit(p,'H000',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+        else if id=='H000' 
+            udg_Hero[i]=CreateUnit(p,'H05X',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+        else if id=='H05X' 
+            udg_Hero[i]=CreateUnit(p,'H02U',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+
+        else if id=='H02F' //Kirito
+            udg_Hero[i]=CreateUnit(p,'H05Y',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)
+        else if id=='H05Y' 
+            udg_Hero[i]=CreateUnit(p,'H02F',GetRectCenterX(gg_rct_Resp7),GetRectCenterY(gg_rct_Resp7),0)     
+        else
+            rfhpick=true
+            return
+
+        rfhpick=true
+        Hero[ip]=udg_Hero[i]
+        udg_Hero[ip+1]=udg_Hero[i]
+        if GetHeroLevel(u)>1 
+            SetHeroLevel(udg_Hero[i],GetHeroLevel(u),false)
+        
+        while true
+            if num==6
+                break
+            it_[num]=UnitItemInSlot(u,num)
+            num=num+1
+        
+        if ip<5 
+            GroupAddUnit(udg_CG[1],udg_Hero[i])
+        else if ip>4 and ip<10 
+            GroupAddUnit(udg_CG[2],udg_Hero[i])
+        
+        num=0
+        while true
+            if num==6
+                break
+            UnitAddItemById(udg_Hero[i],GetItemTypeId(it_[num]))
+            num=num+1
+        
+        RemoveUnit(u)
+        if GetLocalPlayer()==p 
+            ClearSelection()
+            SelectUnit(n,true)
+        
+        SetHeroInt(Hero[ip],GetHeroInt(Hero[ip],false)+stats[ip]*3,true)
+        SetHeroAgi(Hero[ip],GetHeroAgi(Hero[ip],false)+stats[ip]*3,true)
+        SetHeroStr(Hero[ip],GetHeroStr(Hero[ip],false)+stats[ip]*3,true)
+
+    else
+        print("|cffa18b4cEither you are not at |cff2aca9abase |cffa18b4cor your character has no |cd6963982skin|cffa18b4c to change into.|r")
+
+public function settingsOpen(integer index)
+
+    settingsOpen = BlzCreateFrame("OpenSettings", BlzGetOriginFrame(ORIGIN_FRAME_GAME_UI, 0), 0, index)
+    BlzFrameSetAbsPoint(settingsOpen, FRAMEPOINT_LEFT, -0.1, 0.5)
+
+    BlzFrameSetVisible(settingsOpen, true)
+
+    settingsAction = CreateTrigger()
+    TriggerAddAction(settingsAction, function settingsAction)
+    BlzTriggerRegisterFrameEvent(settingsAction, BlzGetFrameByName("OpenSettingsIcon1", index), FRAMEEVENT_CHECKBOX_CHECKED)

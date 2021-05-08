@@ -17,3 +17,8 @@ init
         if BlzLoadTOCFile("war3mapImported\\HeroSelector.toc")
         else
             print("HeroSelector did not load.")
+/*
+        if BlzLoadTOCFile("war3mapImported\\ChangeSkins.toc")
+        else
+            print("ChangeSkins did not load.")
+*/

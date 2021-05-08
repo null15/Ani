@@ -6,15 +6,16 @@ Frame "FRAME" "HeroSelectorLiteDraft" {
 	Width 0.6,
 	Height 0.4,
 	Frame "BACKDROP" "Box1" {
-		BackdropBackground "Transparent.blp",
+		BackdropBackground "Transparent.tga",
 		BackdropCornerSize 0.005,
 		BackdropBackgroundInsets 0.0010 0.0010 0.0010 0.0010,
 		SetAllPoints,
-		//BackdropBlendAll,
+		BackdropBlendAll,
 
 		Frame "BACKDROP" "Box1Background" {
             BackdropBackgroundInsets 0.01 0.01 0.01 0.01,
             SetAllPoints,
+			BackdropBlendAll,
         }
 	
 	}
@@ -47,6 +48,7 @@ Frame "FRAME" "HeroSelectorLiteDraft" {
 			MenuItem "Nasuverse", -2,
 			MenuItem "One Piece", -2,
 			MenuItem "Reborn", -2,
+			MenuItem "ToAru", -2,
 			MenuItem "Other Anime", -2,
 		}
 	}
