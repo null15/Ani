@@ -28,19 +28,19 @@ Frame "FRAME" "HeroSelectorLiteDraft" {
 		SetPoint TOP, "HeroSelectorLiteDraft", TOP, 0.0000, -0.0200,
 		PopupButtonInset 0.01,
 		ControlBackdrop "PopUpBackdrop",
-		Frame "BACKDROP" "PopUpBackdrop" INHERITS "EscMenuButtonBackdropTemplate2" {
+		Frame "BACKDROP" "PopUpBackdrop" INHERITS "EscMenuButtonBackdropTemplate" {
 		}
 		ControlDisabledBackdrop "PopUpBackdropDisabled",
-		Frame "BACKDROP" "PopUpBackdropDisabled" INHERITS "EscMenuButtonDisabledBackdropTemplate2" {
+		Frame "BACKDROP" "PopUpBackdropDisabled" INHERITS "EscMenuButtonDisabledBackdropTemplate" {
 		}
 		PopupTitleFrame "PopUpTitle",
-		Frame "GLUETEXTBUTTON" "PopUpTitle" INHERITS WITHCHILDREN "EscMenuPopupMenuTitleTemplate2" {
+		Frame "GLUETEXTBUTTON" "PopUpTitle" INHERITS WITHCHILDREN "EscMenuPopupMenuTitleTemplate" {
 		}
 		PopupArrowFrame "PopupArrow",
-		Frame "BUTTON" "PopupArrow" INHERITS WITHCHILDREN "EscMenuPopupMenuArrowTemplate2" {
+		Frame "BUTTON" "PopupArrow" INHERITS WITHCHILDREN "EscMenuPopupMenuArrowTemplate" {
 		}
 		PopupMenuFrame "PopUp1PopUpMenu",
-		Frame "MENU" "PopUp1PopUpMenu" INHERITS WITHCHILDREN "EscMenuPopupMenuMenuTemplate2" {
+		Frame "MENU" "PopUp1PopUpMenu" INHERITS WITHCHILDREN "EscMenuPopupMenuMenuTemplate" {
 			MenuItem "Bleach", -2,
 			MenuItem "Dragonball", -2,
 			MenuItem "Fairy Tail", -2,
@@ -804,15 +804,15 @@ Frame "FRAME" "HeroSelectorLiteDraft" {
 		SetPoint BOTTOMLEFT, "HeroSelectorLiteDraft", BOTTOMLEFT, 0.0200, 0.0200,
 		ControlBackdrop "BannButton00Backdrop",
 		Frame "BACKDROP" "BannButton00Backdrop" {
-			BackdropBackground "replaceabletextures\commandbuttons\btntemp",
+			BackdropBackground "BanButtons.dds",
 		}
 		ControlDisabledBackdrop "BannButton00BackdropDisabled",
 		Frame "BACKDROP" "BannButton00BackdropDisabled" {
-			BackdropBackground "replaceabletextures\commandbuttonsdisabled\disbtntemp",
+			BackdropBackground "BanButtons.dds",
 		}
 		ControlPushedBackdrop "BannButton00BackdropPushed",
 		Frame "BACKDROP" "BannButton00BackdropPushed" {
-			BackdropBackground "replaceabletextures\commandbuttons\btntemp",
+			BackdropBackground "BanButtons.dds",
 			BackdropBackgroundInsets 0.002 0.002 0.002 0.002,
 		}
 		ControlMouseOverHighlight "ButtonHighLight",
@@ -835,15 +835,15 @@ Frame "FRAME" "HeroSelectorLiteDraft" {
 		SetPoint TOPLEFT, "BannButton00", TOPRIGHT, 0.0040, 0.0000,
 		ControlBackdrop "BannButton01Backdrop",
 		Frame "BACKDROP" "BannButton01Backdrop" {
-			BackdropBackground "replaceabletextures\commandbuttons\btntemp",
+			BackdropBackground "BanButtons.dds",
 		}
 		ControlDisabledBackdrop "BannButton01BackdropDisabled",
 		Frame "BACKDROP" "BannButton01BackdropDisabled" {
-			BackdropBackground "replaceabletextures\commandbuttonsdisabled\disbtntemp",
+			BackdropBackground "BanButtons.dds",
 		}
 		ControlPushedBackdrop "BannButton01BackdropPushed",
 		Frame "BACKDROP" "BannButton01BackdropPushed" {
-			BackdropBackground "replaceabletextures\commandbuttons\btntemp",
+			BackdropBackground "BanButtons.dds",
 			BackdropBackgroundInsets 0.002 0.002 0.002 0.002,
 		}
 		ControlMouseOverHighlight "ButtonHighLight",
@@ -866,15 +866,15 @@ Frame "FRAME" "HeroSelectorLiteDraft" {
 		SetPoint TOPLEFT, "BannButton01", TOPRIGHT, 0.0040, 0.0000,
 		ControlBackdrop "BannButton02Backdrop",
 		Frame "BACKDROP" "BannButton02Backdrop" {
-			BackdropBackground "replaceabletextures\commandbuttons\btntemp",
+			BackdropBackground "BanButtons.dds",
 		}
 		ControlDisabledBackdrop "BannButton02BackdropDisabled",
 		Frame "BACKDROP" "BannButton02BackdropDisabled" {
-			BackdropBackground "replaceabletextures\commandbuttonsdisabled\disbtntemp",
+			BackdropBackground "BanButtons.dds",
 		}
 		ControlPushedBackdrop "BannButton02BackdropPushed",
 		Frame "BACKDROP" "BannButton02BackdropPushed" {
-			BackdropBackground "replaceabletextures\commandbuttons\btntemp",
+			BackdropBackground "BanButtons.dds",
 			BackdropBackgroundInsets 0.002 0.002 0.002 0.002,
 		}
 		ControlMouseOverHighlight "ButtonHighLight",
@@ -897,15 +897,15 @@ Frame "FRAME" "HeroSelectorLiteDraft" {
 		SetPoint BOTTOMRIGHT, "HeroSelectorLiteDraft", BOTTOMRIGHT, -0.0200, 0.0200,
 		ControlBackdrop "BannButton10Backdrop",
 		Frame "BACKDROP" "BannButton10Backdrop" {
-			BackdropBackground "replaceabletextures\commandbuttons\btntemp",
+			BackdropBackground "BanButtons.dds",
 		}
 		ControlDisabledBackdrop "BannButton10BackdropDisabled",
 		Frame "BACKDROP" "BannButton10BackdropDisabled" {
-			BackdropBackground "replaceabletextures\commandbuttonsdisabled\disbtntemp",
+			BackdropBackground "BanButtons.dds",
 		}
 		ControlPushedBackdrop "BannButton10BackdropPushed",
 		Frame "BACKDROP" "BannButton10BackdropPushed" {
-			BackdropBackground "replaceabletextures\commandbuttons\btntemp",
+			BackdropBackground "BanButtons.dds",
 			BackdropBackgroundInsets 0.002 0.002 0.002 0.002,
 		}
 		ControlMouseOverHighlight "ButtonHighLight",
@@ -928,15 +928,15 @@ Frame "FRAME" "HeroSelectorLiteDraft" {
 		SetPoint TOPRIGHT, "BannButton10", TOPLEFT, -0.0040, 0.0000,
 		ControlBackdrop "BannButton11Backdrop",
 		Frame "BACKDROP" "BannButton11Backdrop" {
-			BackdropBackground "replaceabletextures\commandbuttons\btntemp",
+			BackdropBackground "BanButtons.dds",
 		}
 		ControlDisabledBackdrop "BannButton11BackdropDisabled",
 		Frame "BACKDROP" "BannButton11BackdropDisabled" {
-			BackdropBackground "replaceabletextures\commandbuttonsdisabled\disbtntemp",
+			BackdropBackground "BanButtons.dds",
 		}
 		ControlPushedBackdrop "BannButton11BackdropPushed",
 		Frame "BACKDROP" "BannButton11BackdropPushed" {
-			BackdropBackground "replaceabletextures\commandbuttons\btntemp",
+			BackdropBackground "BanButtons.dds",
 			BackdropBackgroundInsets 0.002 0.002 0.002 0.002,
 		}
 		ControlMouseOverHighlight "ButtonHighLight",
@@ -959,15 +959,15 @@ Frame "FRAME" "HeroSelectorLiteDraft" {
 		SetPoint TOPRIGHT, "BannButton11", TOPLEFT, -0.0040, 0.0000,
 		ControlBackdrop "BannButton12Backdrop",
 		Frame "BACKDROP" "BannButton12Backdrop" {
-			BackdropBackground "replaceabletextures\commandbuttons\btntemp",
+			BackdropBackground "BanButtons.dds",
 		}
 		ControlDisabledBackdrop "BannButton12BackdropDisabled",
 		Frame "BACKDROP" "BannButton12BackdropDisabled" {
-			BackdropBackground "replaceabletextures\commandbuttonsdisabled\disbtntemp",
+			BackdropBackground "BanButtons.dds",
 		}
 		ControlPushedBackdrop "BannButton12BackdropPushed",
 		Frame "BACKDROP" "BannButton12BackdropPushed" {
-			BackdropBackground "replaceabletextures\commandbuttons\btntemp",
+			BackdropBackground "BanButtons.dds",
 			BackdropBackgroundInsets 0.002 0.002 0.002 0.002,
 		}
 		ControlMouseOverHighlight "ButtonHighLight",
@@ -998,15 +998,15 @@ Frame "FRAME" "HeroSelectorLiteDraft" {
 		SetPoint BOTTOMLEFT, "HeroSelectorLiteDraft", BOTTOMLEFT, 0.2255, 0.0300,
 		ControlBackdrop "IconButtonRandomBackdrop",
 		Frame "BACKDROP" "IconButtonRandomBackdrop" {
-			BackdropBackground "replaceabletextures\commandbuttons\btntemp",
+			BackdropBackground "RandomButton.dds",
 		}
 		ControlDisabledBackdrop "IconButtonRandomBackdropDisabled",
 		Frame "BACKDROP" "IconButtonRandomBackdropDisabled" {
-			BackdropBackground "replaceabletextures\commandbuttonsdisabled\disbtntemp",
+			BackdropBackground "RandomButton.dds",
 		}
 		ControlPushedBackdrop "IconButtonRandomBackdropPushed",
 		Frame "BACKDROP" "IconButtonRandomBackdropPushed" {
-			BackdropBackground "replaceabletextures\commandbuttons\btntemp",
+			BackdropBackground "RandomButton.dds",
 			BackdropBackgroundInsets 0.002 0.002 0.002 0.002,
 		}
 		ControlMouseOverHighlight "ButtonHighLight",

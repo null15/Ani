@@ -15,7 +15,7 @@ function trig_Table2_Actions()
     print("Captain for team 1 is: " + GetPlayerName(teamCaptain[0]))
     DialogDisplay(teamCaptain[0], udg_Dialog, true)
 
-    TriggerRegisterDialogEvent(gg_trg_Dialog2,udg_Dialog)
+    TriggerRegisterDialogEvent(gg_trg_HeroesStock,udg_Dialog)
     DestroyTrigger(GetTriggeringTrigger())
     GroupEnumUnitsInRange(G,0,0,99999999,null)
     while true

@@ -10,7 +10,7 @@
 Frame "BACKDROP" "EscMenuButtonBackdropTemplate2" {
     //DecorateFileNames, // makes middle part visible, but outer parts not
     BackdropTileBackground,
-    BackdropBackground  "AnimeBgShop.dds", //EscMenuButtonBackground
+    BackdropBackground  "EscMenuButtonBackground",
     //BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R", //  -> crash
     BackdropCornerSize  0.0125, // 
     BackdropBackgroundSize  0.256,
@@ -292,9 +292,8 @@ Frame "MENU" "EscMenuPopupMenuMenuTemplate2" {
 
     ControlBackdrop "EscMenuPopupMenuMenuBackdropTemplate2",
     Frame "BACKDROP" "EscMenuPopupMenuMenuBackdropTemplate2" INHERITS "EscMenuButtonBackdropTemplate2" {
-        //DecorateFileNames,
-        BackdropBackground  "AnimeBgShop.dds",
-        BackdropBlendAll,
+        DecorateFileNames,
+        BackdropBackground "EscMenuEditBoxBackground",
     }
 }
 

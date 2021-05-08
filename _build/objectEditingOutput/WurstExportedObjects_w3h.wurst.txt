@@ -3066,6 +3066,22 @@ import ObjEditingNatives
 	..setString("ftat", "")
 
 
+@compiletime function create_w3h_B07C()
+	let def = createObjectDefinition("w3h", 'B07C', 'BUau')
+	..setString("frac", "")
+	..setString("fart", "ReplaceableTextures\\CommandButtons\\BTNRemT.blp")
+	..setString("fube", "Rem has increased movespeed and hp regen.")
+	..setString("ftip", "Holy madness")
+
+
+@compiletime function create_w3h_B07D()
+	let def = createObjectDefinition("w3h", 'B07D', 'BEar')
+	..setString("frac", "")
+	..setString("fart", "ReplaceableTextures\\CommandButtons\\BTNRemT.blp")
+	..setString("fube", "Rem ranaged attacks will do more damage and she has 100% boosted damage")
+	..setString("ftip", "Holy sadness")
+
+
 // Original Table (contains all modified default objects)
 // Wurst does not support modifying default objects
 // but you can copy these functions and replace 'xxxx' with a new, custom id.
