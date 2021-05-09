@@ -8,6 +8,17 @@ Frame "TEXT" "TasButtonTextTemplate" {
     FontJustificationH JUSTIFYLEFT,
     FontJustificationV JUSTIFYMIDDLE,
 }
+Frame "BACKDROP" "NoGlassEscMenuControlBackdropTemplate" {
+    DecorateFileNames,
+    BackdropTileBackground,
+    BackdropBackground  "EscMenuEditBoxBackground",
+    BackdropCornerFlags "UL|UR|BL|BR|T|L|B|R",
+    BackdropCornerSize  0.0125,
+    BackdropBackgroundSize  0.256,
+    BackdropBackgroundInsets 0.005 0.005 0.005 0.005,
+    BackdropEdgeFile  "EscMenuEditBoxBorder",
+    //BackdropBlendAll,
+}
 
 Frame "FRAME" "HeroSelectorLite" {
 	Width 0.515,

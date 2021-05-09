@@ -20,7 +20,6 @@ Frame "FRAME" "HeroSelectorLiteDraft" {
 	
 	}
 
-
 	Frame "POPUPMENU" "PopUp1" {
 		Width 0.28,
 		Height 0.035,
@@ -805,15 +804,18 @@ Frame "FRAME" "HeroSelectorLiteDraft" {
 		ControlBackdrop "BannButton00Backdrop",
 		Frame "BACKDROP" "BannButton00Backdrop" {
 			BackdropBackground "BanButtons.dds",
+			BackdropBlendAll,
 		}
 		ControlDisabledBackdrop "BannButton00BackdropDisabled",
 		Frame "BACKDROP" "BannButton00BackdropDisabled" {
 			BackdropBackground "BanButtons.dds",
+			BackdropBlendAll,
 		}
 		ControlPushedBackdrop "BannButton00BackdropPushed",
 		Frame "BACKDROP" "BannButton00BackdropPushed" {
 			BackdropBackground "BanButtons.dds",
 			BackdropBackgroundInsets 0.002 0.002 0.002 0.002,
+			BackdropBlendAll,
 		}
 		ControlMouseOverHighlight "ButtonHighLight",
 		Frame "HIGHLIGHT" "ButtonHighLight" {
@@ -836,15 +838,18 @@ Frame "FRAME" "HeroSelectorLiteDraft" {
 		ControlBackdrop "BannButton01Backdrop",
 		Frame "BACKDROP" "BannButton01Backdrop" {
 			BackdropBackground "BanButtons.dds",
+			BackdropBlendAll,
 		}
 		ControlDisabledBackdrop "BannButton01BackdropDisabled",
 		Frame "BACKDROP" "BannButton01BackdropDisabled" {
 			BackdropBackground "BanButtons.dds",
+			BackdropBlendAll,
 		}
 		ControlPushedBackdrop "BannButton01BackdropPushed",
 		Frame "BACKDROP" "BannButton01BackdropPushed" {
 			BackdropBackground "BanButtons.dds",
 			BackdropBackgroundInsets 0.002 0.002 0.002 0.002,
+			BackdropBlendAll,
 		}
 		ControlMouseOverHighlight "ButtonHighLight",
 		Frame "HIGHLIGHT" "ButtonHighLight" {
@@ -867,14 +872,17 @@ Frame "FRAME" "HeroSelectorLiteDraft" {
 		ControlBackdrop "BannButton02Backdrop",
 		Frame "BACKDROP" "BannButton02Backdrop" {
 			BackdropBackground "BanButtons.dds",
+			BackdropBlendAll,
 		}
 		ControlDisabledBackdrop "BannButton02BackdropDisabled",
 		Frame "BACKDROP" "BannButton02BackdropDisabled" {
 			BackdropBackground "BanButtons.dds",
+			BackdropBlendAll,
 		}
 		ControlPushedBackdrop "BannButton02BackdropPushed",
 		Frame "BACKDROP" "BannButton02BackdropPushed" {
 			BackdropBackground "BanButtons.dds",
+			BackdropBlendAll,
 			BackdropBackgroundInsets 0.002 0.002 0.002 0.002,
 		}
 		ControlMouseOverHighlight "ButtonHighLight",
@@ -898,14 +906,17 @@ Frame "FRAME" "HeroSelectorLiteDraft" {
 		ControlBackdrop "BannButton10Backdrop",
 		Frame "BACKDROP" "BannButton10Backdrop" {
 			BackdropBackground "BanButtons.dds",
+			BackdropBlendAll,
 		}
 		ControlDisabledBackdrop "BannButton10BackdropDisabled",
 		Frame "BACKDROP" "BannButton10BackdropDisabled" {
 			BackdropBackground "BanButtons.dds",
+			BackdropBlendAll,
 		}
 		ControlPushedBackdrop "BannButton10BackdropPushed",
 		Frame "BACKDROP" "BannButton10BackdropPushed" {
 			BackdropBackground "BanButtons.dds",
+			BackdropBlendAll,
 			BackdropBackgroundInsets 0.002 0.002 0.002 0.002,
 		}
 		ControlMouseOverHighlight "ButtonHighLight",
@@ -929,14 +940,17 @@ Frame "FRAME" "HeroSelectorLiteDraft" {
 		ControlBackdrop "BannButton11Backdrop",
 		Frame "BACKDROP" "BannButton11Backdrop" {
 			BackdropBackground "BanButtons.dds",
+			BackdropBlendAll,
 		}
 		ControlDisabledBackdrop "BannButton11BackdropDisabled",
 		Frame "BACKDROP" "BannButton11BackdropDisabled" {
 			BackdropBackground "BanButtons.dds",
+			BackdropBlendAll,
 		}
 		ControlPushedBackdrop "BannButton11BackdropPushed",
 		Frame "BACKDROP" "BannButton11BackdropPushed" {
 			BackdropBackground "BanButtons.dds",
+			BackdropBlendAll,
 			BackdropBackgroundInsets 0.002 0.002 0.002 0.002,
 		}
 		ControlMouseOverHighlight "ButtonHighLight",
@@ -960,15 +974,18 @@ Frame "FRAME" "HeroSelectorLiteDraft" {
 		ControlBackdrop "BannButton12Backdrop",
 		Frame "BACKDROP" "BannButton12Backdrop" {
 			BackdropBackground "BanButtons.dds",
+			BackdropBlendAll,
 		}
 		ControlDisabledBackdrop "BannButton12BackdropDisabled",
 		Frame "BACKDROP" "BannButton12BackdropDisabled" {
 			BackdropBackground "BanButtons.dds",
+			BackdropBlendAll,
 		}
 		ControlPushedBackdrop "BannButton12BackdropPushed",
 		Frame "BACKDROP" "BannButton12BackdropPushed" {
 			BackdropBackground "BanButtons.dds",
 			BackdropBackgroundInsets 0.002 0.002 0.002 0.002,
+			BackdropBlendAll,
 		}
 		ControlMouseOverHighlight "ButtonHighLight",
 		Frame "HIGHLIGHT" "ButtonHighLight" {
@@ -988,25 +1005,28 @@ Frame "FRAME" "HeroSelectorLiteDraft" {
 		FrameFont "MasterFont", 0.023, "",
 		Text "Anime Arena",
 		UseActiveContext,
-		SetPoint BOTTOM, "HeroSelectorLiteDraft", BOTTOM, 0.0000, 0.0480,
+		SetPoint BOTTOM, "HeroSelectorLiteDraft", BOTTOM, 0.0000, 0.0550,
 	}
 	Frame "GLUETEXTBUTTON" "IconButtonRandom" {
 		Width 0.15,
-		Height 0.015,
+		Height 0.035,
 		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
 		UseActiveContext,
-		SetPoint BOTTOMLEFT, "HeroSelectorLiteDraft", BOTTOMLEFT, 0.2255, 0.0300,
+		SetPoint BOTTOMLEFT, "HeroSelectorLiteDraft", BOTTOMLEFT, 0.2255, 0.0230,
 		ControlBackdrop "IconButtonRandomBackdrop",
 		Frame "BACKDROP" "IconButtonRandomBackdrop" {
-			BackdropBackground "RandomButton.dds",
+			BackdropBackground "Buttons/RandomButton.dds",
+			BackdropBlendAll,
 		}
 		ControlDisabledBackdrop "IconButtonRandomBackdropDisabled",
 		Frame "BACKDROP" "IconButtonRandomBackdropDisabled" {
-			BackdropBackground "RandomButton.dds",
+			BackdropBackground "Buttons/RandomButton.dds",
+			BackdropBlendAll,
 		}
 		ControlPushedBackdrop "IconButtonRandomBackdropPushed",
 		Frame "BACKDROP" "IconButtonRandomBackdropPushed" {
-			BackdropBackground "RandomButton.dds",
+			BackdropBackground "Buttons/RandomButton.dds",
+			BackdropBlendAll,
 			BackdropBackgroundInsets 0.002 0.002 0.002 0.002,
 		}
 		ControlMouseOverHighlight "ButtonHighLight",

@@ -468,7 +468,7 @@ public function create(integer index)
         loopA = loopA + 1
 
     tooltipBox = BlzCreateFrame("NoGlassEscMenuControlBackdropTemplate", box, 0, 0)
-    tooltipBoxText = BlzCreateFrame("MoonButtonTextTemplate", tooltipBox, 0, 0)
+    tooltipBoxText = BlzCreateFrame("TasButtonTextTemplate", tooltipBox, 0, 0)
 
     //BlzFrameSetPoint(tooltipBoxText, FRAMEPOINT_TOPRIGHT, box, FRAMEPOINT_TOPLEFT, -0.008, 0.00)
     BlzFrameSetPoint(tooltipBox, FRAMEPOINT_TOPLEFT, tooltipBoxText, FRAMEPOINT_TOPLEFT, -0.008, 0.008)
