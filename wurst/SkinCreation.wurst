@@ -1,0 +1,110 @@
+package SkinCreation
+
+import UnitObjEditing
+import ObjectIdGenerator
+import LinkedList
+import HashMap
+import HashSet
+
+constant SKIN_ID_GEN = new IdGenerator('S000')
+constant COMPILETIME_LIST = new LinkedList<Skin>
+
+public interface SetupSkin
+    function run(HeroDefinition def)
+
+class Skin
+    int origId
+    int newId
+    construct(int origId, int newId)
+        this.origId = origId
+        this.newId = newId
+
+
+
+public function addSkin(int origId, int newId) returns int
+    COMPILETIME_LIST.add(new Skin(origId, newId))
+    return newId
+
+public constant skinSabrac = compiletime(addSkin('H05Z', 'H07R'))
+
+public constant skinSakura = compiletime(addSkin('H05D', 'H06X'))
+
+public constant skinGray = compiletime(addSkin('H04L', 'H06V'))
+
+public constant skinScathach = compiletime(addSkin('H06Y', 'H06Z'))
+
+public constant skinShana = compiletime(addSkin('H017', 'H06W'))
+
+public constant skinArtoria1 = compiletime(addSkin('H05C', 'H06P'))
+
+public constant skinArtoria2 = compiletime(addSkin('H05C', 'H05E'))
+
+public constant skinSasuke = compiletime(addSkin('H057', 'H07A'))
+
+public constant skinLucy = compiletime(addSkin('H06T', 'H07D'))
+
+public constant skinKirei = compiletime(addSkin('H06C', 'H07B'))
+
+public constant skinMisaka = compiletime(addSkin('H044', 'H06R'))
+
+public constant skinGilgamesh1 = compiletime(addSkin('H059', 'H06S'))
+
+public constant skinGilgamesh2 = compiletime(addSkin('H059', 'H070'))
+
+public constant skinLouise = compiletime(addSkin('H053', 'H06Q'))
+
+public constant skinDTK = compiletime(addSkin('H01H', 'H06N'))
+
+public constant skinEmiya = compiletime(addSkin('H05A', 'H05B'))
+
+public constant skinIchigo = compiletime(addSkin('H012', 'H06D'))
+
+public constant skinYomu = compiletime(addSkin('H03R', 'H064'))
+
+public constant skinKurapika = compiletime(addSkin('H04O', 'H065'))
+
+public constant skinAokiji1 = compiletime(addSkin('H02U', 'H000'))
+
+public constant skinAokiji2 = compiletime(addSkin('H02U', 'H05X'))
+
+public constant skinKirito = compiletime(addSkin('H02F', 'H05Y'))
+
+constant RUNTIME_LIST = compiletime(COMPILETIME_LIST)
+
+function convertToHashMap(LinkedList<Skin> list) returns HashMap<int,int>
+    let heroesWithSkin = new HashSet<int>()
+    let skinsPerHero = new HashMap<int,LinkedList<int>>()
+    let nextHeroSkinMap = new HashMap<int,int>()
+    for skin in list
+        heroesWithSkin.add(skin.origId)
+    for hero in heroesWithSkin
+        let skinList = new LinkedList<int>
+        skinList.add(hero)
+        skinsPerHero.put(hero, skinList)
+    for skin in list
+        skinsPerHero.get(skin.origId).add(skin.newId)
+    for hero in heroesWithSkin
+        let skinList = skinsPerHero.get(hero)
+        int prev = skinList.peek()
+        for skin in skinList
+            nextHeroSkinMap.put(prev, skin)
+            prev = skin
+        destroy skinList
+    destroy skinsPerHero
+    destroy heroesWithSkin
+    return nextHeroSkinMap
+
+public constant NEXT_HERO_SKIN = convertToHashMap(RUNTIME_LIST)
+
+/*
+init
+    let g = CreateGroup()
+    g.enumUnitsAll(null)
+    for u from g
+        let id = u.getTypeId()
+        for skin in RUNTIME_LIST // using RUNTIME_LIST directly is inefficient. Should first transform to HashMap or similar data structure
+            if skin.origId == id
+                let skinUnit = createUnit(u.getOwner(), skin.newId, u.getPos(), angle(0))
+                if skin.newId == skinSabrac
+                    skinUnit.addItemById(ItemIds.alleriasFluteofAccuracy)
+*/
