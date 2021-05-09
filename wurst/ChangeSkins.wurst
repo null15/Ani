@@ -1,7 +1,6 @@
 package ChangeSkins
 
 import ClosureTimers
-import ObjectIds
 import SkinCreation
 
 public framehandle settingsOpen
