@@ -1,0 +1,49 @@
+package SunStimulation
+
+init
+
+	sunStimulationInit()
+
+function sunStimulationCond() returns boolean
+	return GetSpellAbilityId()=='A02Q'
+
+function sunStimulationCast2()
+	let t=GetExpiredTimer()
+	let id=GetHandleId(t)
+	let u=LoadUnitHandle(h,id,1)
+	let heal=LoadReal(h,id,2)/13
+	let i=LoadInteger(h,id,3)
+	if i<13 
+		SetUnitState(u,UNIT_STATE_LIFE,GetWidgetLife(u)+heal)
+		SaveInteger(h,id,3,i+1)
+		DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\NightElf\\FaerieDragonInvis\\FaerieDragon_Invis.mdl",u,"origin"))
+	else
+		UnitRemoveAbility(u,'A0HB')
+		PauseTimer(t)
+		DestroyTimer(t)
+		DestroyEffect(LoadEffectHandle(h,id,0))
+		FlushChildHashtable(h,id)
+
+function sunStimulationCast()
+	let t=CreateTimer()
+	let u=GetTriggerUnit()
+	let l__d=GetSpellTargetUnit()
+	let id=GetHandleId(t)
+	SaveUnitHandle(h,id,1,l__d)
+	UnitAddAbility(l__d,'A0HB')
+	SaveReal(h,id,2,I2R(GetHeroStr(u,true)*(1+GetUnitAbilityLevel(u,'A02Q'))+75))
+	TimerStart(t,0.5,true,function sunStimulationCast2)
+	bj_lastPlayedSound=CreateSound("HeroSkins\\Ryohei\\RyoheiBreakDown.mp3",false,false,true,12700,12700,"")
+	StartSound(bj_lastPlayedSound)
+	KillSoundWhenDone(bj_lastPlayedSound)
+
+function sunStimulationInit()
+	let t=CreateTrigger()
+	integer i=0
+	while true
+		TriggerRegisterPlayerUnitEvent(t,Player(i),EVENT_PLAYER_UNIT_SPELL_EFFECT,null)
+		i=i+1
+		if i == bj_MAX_PLAYER_SLOTS
+			break
+	TriggerAddAction(t,function sunStimulationCast)
+	TriggerAddCondition(t,Condition(function sunStimulationCond))

@@ -1,0 +1,40 @@
+package CambioRyohei
+
+init
+
+	cambioRyoheiInit()
+
+function cambioRyoheiCond() returns boolean
+	return GetSpellAbilityId()=='A0HC'
+
+function cambioRyoheiCast()
+	let u=GetTriggerUnit()
+	let p=GetOwningPlayer(u)
+	let x=GetUnitX(u)
+	let y=GetUnitY(u)
+	let idu=GetHandleId(u)
+	UnitApplyTimedLife(CreateUnit(p,'e01O',x,y,0),1,1.1)
+	UnitApplyTimedLife(CreateUnit(p,'e0AX',x,y,GetRandomReal(0,359)),1,1)
+	UnitApplyTimedLife(CreateUnit(p,'e0AW',x,y,GetRandomReal(0,359)),1,0.01)
+	UnitApplyTimedLife(CreateUnit(p,'e0B1',x,y,GetRandomReal(0,359)),1,0.4)
+	UnitApplyTimedLife(CreateUnit(p,'e0B4',x,y,GetRandomReal(0,359)),1,0.4)
+	UnitApplyTimedLife(CreateUnit(p,'e0AZ',x,y,GetRandomReal(0,359)),1,0.4)
+	UnitApplyTimedLife(CreateUnit(p,'e0B3',x,y,GetRandomReal(0,359)),1,0.4)
+	UnitAddAbility(u,'A1A3')
+	KillUnit(LoadUnitHandle(h,idu,StringHash("kangaruu")))
+	SaveReal(h,idu,StringHash("time"),0)
+	SaveInteger(h,idu,StringHash("d"),0)
+	bj_lastPlayedSound=CreateSound("HeroSkins\\Ryohei\\RyoheiCambioForma.mp3",false,false,true,12700,12700,"")
+	StartSound(bj_lastPlayedSound)
+	KillSoundWhenDone(bj_lastPlayedSound)
+
+function cambioRyoheiInit()
+	let t=CreateTrigger()
+	integer i=0
+	while true
+		TriggerRegisterPlayerUnitEvent(t,Player(i),EVENT_PLAYER_UNIT_SPELL_EFFECT,null)
+		i=i+1
+		if i == bj_MAX_PLAYER_SLOTS
+			break
+	TriggerAddAction(t,function cambioRyoheiCast)
+	TriggerAddCondition(t,Condition(function cambioRyoheiCond))

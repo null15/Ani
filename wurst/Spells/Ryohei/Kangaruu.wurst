@@ -1,0 +1,84 @@
+package Kangaruu
+
+import SkinCreation
+
+init
+
+	kangaruuInit()
+
+function kangaruuCond() returns boolean
+	return GetSpellAbilityId()=='A02R'
+
+function kangaruuCast2()
+	let t=GetExpiredTimer()
+	let id=GetHandleId(t)
+	let u=LoadUnitHandle(h,id,0)
+	let l__d=LoadUnitHandle(h,id,1)
+	let p=GetOwningPlayer(u)
+	let x=GetUnitX(l__d)
+	let y=GetUnitY(l__d)
+	let dmg=I2R(3*GetHeroStr(u,true))
+
+	DestroyEffect(AddSpecialEffect("Abilities\\Spells\\Human\\Thunderclap\\ThunderClapCaster.mdl",x,y))
+	UnitApplyTimedLife(CreateUnit(p,'e0AW',x,y,GetRandomReal(0,359)),1,0.01)
+	UnitApplyTimedLife(CreateUnit(p,'e0AX',x,y,GetRandomReal(0,359)),1,1)
+	UnitApplyTimedLife(CreateUnit(p,'e04Y',x,y,GetRandomReal(0,359)),1,1)
+	GroupEnumUnitsInRange(G,x,y,300,Base)
+	PauseUnit(l__d,false)
+	IssueImmediateOrder(l__d,"healon")
+	while true
+		E=FirstOfGroup(G)
+		if E==null
+			break
+		if Condition_Base(p,E)
+			UnitDamageTarget(u,E,dmg,true,false,null,null,null)
+			n=CreateUnit(p,'h019',x,y,0)
+			UnitAddAbility(n,'A09B')
+			SetUnitAbilityLevel(n,'A09B',2)
+			UnitApplyTimedLife(n,'BTLF',1)
+			IssueTargetOrder(n,"thunderbolt",E)
+		
+		GroupRemoveUnit(G,E)
+	
+	DestroyTimer(t)
+	FlushChildHashtable(h,id)
+
+function kangaruuCast()
+	let u=GetTriggerUnit()
+	let t=CreateTimer()
+	let id=GetHandleId(t)
+	let p=GetOwningPlayer(u)
+	let pid=GetUnitTypeId(u)
+
+	if pid == 'H00H'
+		n=CreateUnit(p,'e01N',GetUnitX(u),GetUnitY(u),0)
+	else if pid == skinRyohei
+		n=CreateUnit(p,'e01N',GetUnitX(u),GetUnitY(u),0) // e01X
+
+	UnitApplyTimedLife(n,1,7+GetHeroLevel(u)/2)
+	PauseUnit(n,true)
+	SetUnitFlyHeight(n,0,1000)
+
+	RemoveSavedHandle(h,GetHandleId(u),StringHash("kangaruu"))
+	SaveUnitHandle(h,GetHandleId(u),StringHash("kangaruu"),n)
+
+
+	UnitApplyTimedLife(CreateUnit(p,'e01O',GetUnitX(u),GetUnitY(u),0),1,1.1)
+	SaveUnitHandle(h,id,0,u)
+	SaveUnitHandle(h,id,1,n)
+	bj_lastPlayedSound=CreateSound("HeroSkins\\Ryohei\\RyoheiGaryuy.mp3",false,false,true,12700,12700,"")
+	StartSound(bj_lastPlayedSound)
+	KillSoundWhenDone(bj_lastPlayedSound)
+	TimerStart(t,1,false,function kangaruuCast2)
+
+function kangaruuInit()
+	let t=CreateTrigger()
+	integer i=0
+	while true
+		TriggerRegisterPlayerUnitEvent(t,Player(i),EVENT_PLAYER_UNIT_SPELL_EFFECT,null)
+		i=i+1
+		if i == bj_MAX_PLAYER_SLOTS
+			break
+	TriggerAddAction(t,function kangaruuCast)
+	TriggerAddCondition(t,Condition(function kangaruuCond))
+

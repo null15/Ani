@@ -1,0 +1,96 @@
+package MIngram
+
+init
+
+	mIngramInit()
+
+function mIngramCond() returns boolean
+	return GetSpellAbilityId()=='A02W' and udg_B==true
+
+function mIngramCast2()
+	let t=GetExpiredTimer()
+	let id=GetHandleId(t)
+	let u=LoadUnitHandle(h,id,0)
+	let c=LoadUnitHandle(h,id,1)
+	let x=GetUnitX(u)
+	let y=GetUnitY(u)
+	real x1=GetUnitX(c)
+	real y1=GetUnitY(c)
+	let a=LoadReal(h,id,12)
+	let dist=LoadReal(h,id,5)+40
+	let dmg=I2R(GetHeroStr(u,true)*(3+GetUnitAbilityLevel(u,'A02W')))
+	let p=GetOwningPlayer(u)
+	let r=90*bj_DEGTORAD
+	let a2=a*bj_RADTODEG
+	if dist<700 
+		SetUnitX(u,x1)
+		SetUnitY(u,y1)
+		x1=x1+40*Cos(a)
+		y1=y1+40*Sin(a)
+		SetUnitX(c,x1)
+		SetUnitY(c,y1)
+		n=CreateUnit(p,'e01P',x1+90*Cos(a+r),y1+90*Sin(a+r),a2)
+		UnitApplyTimedLife(n,1,0.4)
+		SetUnitTimeScale(n,3)
+		SetUnitAnimation(n,"attack")
+		SetUnitVertexColor(n,255,255,255,100)
+		n=CreateUnit(p,'e01P',x1-90*Cos(a+r),y1-90*Sin(a+r),a2)
+		UnitApplyTimedLife(n,1,0.4)
+		SetUnitTimeScale(n,3)
+		SetUnitAnimation(n,"attack")
+		SetUnitVertexColor(n,255,255,255,100)
+		UnitApplyTimedLife(CreateUnit(p,'e0B1',x1,y1,GetRandomReal(0,359)),1,0.4)
+		UnitApplyTimedLife(CreateUnit(p,'e0AZ',x1,y1,GetRandomReal(0,359)),1,0.4)
+		n=CreateUnit(p,'e0B2',x,y,GetRandomReal(0,359))
+		UnitApplyTimedLife(n,1,0.01)
+		SetUnitVertexColor(n,255,220,40,50)
+		SetUnitFacing(u,a*bj_RADTODEG)
+		SetUnitAnimation(u,"attack")
+		SaveReal(h,id,5,dist)
+	else
+		UnitDamageTarget(u,c,dmg,false,false,null,null,null)
+		Push3(c,75,a,805,"war3mapImported\\s_Shockwave.mdx")
+		PauseTimer(t)
+		DestroyTimer(t)
+		SetUnitVertexColor(u,255,255,255,255)
+		FlushChildHashtable(h,id)
+		PauseUnit(c,false)
+		PauseUnit(u,false)
+		SetUnitTimeScale(u,1)
+
+function mIngramCast()
+	let u=GetTriggerUnit()
+	let c=GetSpellTargetUnit()
+	let t=CreateTimer()
+	let id=GetHandleId(t)
+	let p=GetOwningPlayer(u)
+	let x=GetUnitX(u)
+	let y=GetUnitY(u)
+	let x1=GetSpellTargetX()
+	let y1=GetSpellTargetY()
+	PauseUnit(c,true)
+	PauseUnit(u,true)
+	SaveUnitHandle(h,id,0,u)
+	SaveUnitHandle(h,id,1,c)
+	SetUnitX(u,x1)
+	SetUnitY(u,y1)
+	SetUnitVertexColor(u,255,255,255,125)
+	SaveReal(h,id,12,Atan2(y1-y,x1-x))
+	SetUnitTimeScale(u,3)
+	SetUnitAnimation(u,"attack")
+	bj_lastPlayedSound=CreateSound("HeroSkins\\Ryohei\\MaximumIngram.mp3",false,false,true,12700,12700,"")
+	StartSound(bj_lastPlayedSound)
+	KillSoundWhenDone(bj_lastPlayedSound)
+	UnitApplyTimedLife(CreateUnit(p,'e01O',GetUnitX(u),GetUnitY(u),0),1,1.1)
+	TimerStart(t,0.035,true,function mIngramCast2)
+
+function mIngramInit()
+	let t=CreateTrigger()
+	integer i=0
+	while true
+		TriggerRegisterPlayerUnitEvent(t,Player(i),EVENT_PLAYER_UNIT_SPELL_EFFECT,null)
+		i=i+1
+		if i == bj_MAX_PLAYER_SLOTS
+			break
+	TriggerAddAction(t,function mIngramCast)
+	TriggerAddCondition(t,Condition(function mIngramCond))

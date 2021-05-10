@@ -1,0 +1,87 @@
+package SunCounter
+
+init
+
+    sunCounterInit()
+
+function sunCounterCond() returns boolean
+    return GetSpellAbilityId()=='A0HE'
+
+function sunCounterCast2()
+    let t=GetExpiredTimer()
+    let id=GetHandleId(t)
+    let u=LoadUnitHandle(h,id,0)
+    real x=LoadReal(h,id,1)
+    real y=LoadReal(h,id,2)
+    let a=Atan2(LoadReal(h,id,4)-y,LoadReal(h,id,3)-x)
+    let l__d=LoadReal(h,id,5)
+    let g=LoadGroupHandle(h,id,6)
+    let p=GetOwningPlayer(u)
+    let dmg=I2R(8*GetHeroStr(u,true))
+    if l__d<2000 
+        x=x+l__d*Cos(a)
+        y=y+l__d*Sin(a)
+        n=CreateUnit(p,'e0B1',x,y,(a*bj_RADTODEG))
+        UnitApplyTimedLife(n,1,1)
+        SaveReal(h,id,5,l__d+60)
+        n=CreateUnit(p,'e0B0',x,y,a*bj_RADTODEG)
+        SetUnitTimeScale(n,3)
+        SetUnitScale(n,2.5,2.5,2.5)
+        SetUnitColor(n,PLAYER_COLOR_YELLOW)
+        GroupEnumUnitsInRange(g,x,y,300,Base)
+        idg=GetHandleId(g)
+        while true
+            E=FirstOfGroup(g)
+            if E==null
+                break
+            ide=GetHandleId(E)
+            if Condition_Base(p,E)and E!=LoadUnitHandle(h,idg,ide)
+                Push3(E,65,a,655,"war3mapImported\\s_Shockwave.mdx")
+                UnitDamageTarget(u,E,dmg,false,false,null,null,null)
+                SaveUnitHandle(h,idg,ide,E)
+            
+            GroupRemoveUnit(g,E)
+        
+    else
+        idg=GetHandleId(g)
+        PauseTimer(t)
+        DestroyTimer(t)
+        DestroyGroup(g)
+        FlushChildHashtable(h,id)
+        FlushChildHashtable(h,idg)
+
+function sunCounterCast()
+    let u=GetTriggerUnit()
+    let t=CreateTimer()
+    let id=GetHandleId(t)
+    let x=GetUnitX(u)
+    let y=GetUnitY(u)
+    let a=Atan2(GetSpellTargetY()-y,GetSpellTargetX()-x)
+    let p=GetOwningPlayer(u)
+    SaveGroupHandle(h,id,6,CreateGroup())
+    SaveUnitHandle(h,id,0,u)
+    SaveReal(h,id,1,x)
+    SaveReal(h,id,2,y)
+    SaveReal(h,id,3,GetSpellTargetX())
+    SaveReal(h,id,4,GetSpellTargetY())
+    UnitApplyTimedLife(CreateUnit(p,'e0AX',x,y,GetRandomReal(0,359)),1,1)
+    n=CreateUnit(p,'e0B0',x,y,a*bj_RADTODEG)
+    SetUnitTimeScale(n,2)
+    SetUnitColor(n,PLAYER_COLOR_YELLOW)
+    UnitApplyTimedLife(n,1,1)
+    UnitApplyTimedLife(CreateUnit(p,'e0AW',x,y,GetRandomReal(0,359)),1,0.01)
+    bj_lastPlayedSound=CreateSound("HeroSkins\\Ryohei\\RyoheiT1.mp3",false,false,true,12700,12700,"")
+    StartSound(bj_lastPlayedSound)
+    KillSoundWhenDone(bj_lastPlayedSound)
+    TimerStart(t,0.017,true,function sunCounterCast2)
+
+function sunCounterInit()
+    let t=CreateTrigger()
+    integer i=0
+    while true
+        TriggerRegisterPlayerUnitEvent(t,Player(i),EVENT_PLAYER_UNIT_SPELL_EFFECT,null)
+        i=i+1
+        if i == bj_MAX_PLAYER_SLOTS
+            break
+    TriggerAddAction(t,function sunCounterCast)
+    TriggerAddCondition(t,Condition(function sunCounterCond))
