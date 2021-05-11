@@ -31,7 +31,6 @@ function settingsAction()
             udg_Hero[i] = CreateUnit(p, newId, GetRectCenterX(gg_rct_Resp7), GetRectCenterY(gg_rct_Resp7), 0)
         else
             rfhpick=true
-            print("|cffa18b4cEither you are not at |cff2aca9abase |cffa18b4cor your character has no |cd6963982skin|cffa18b4c to change into.|r")
             return
 
         rfhpick=true
@@ -65,7 +64,7 @@ function settingsAction()
         
         SetHeroInt(Hero[ip],GetHeroInt(Hero[ip],false)+stats[ip]*3,true)
         SetHeroAgi(Hero[ip],GetHeroAgi(Hero[ip],false)+stats[ip]*3,true)
-        SetHeroStr(Hero[ip],GetHeroStr(Hero[ip],false)+stats[ip]*3,true)   
+        SetHeroStr(Hero[ip],GetHeroStr(Hero[ip],false)+stats[ip]*3,true)
 
     else
         print("|cffa18b4cEither you are not at |cff2aca9abase |cffa18b4cor your character has no |cd6963982skin|cffa18b4c to change into.|r")

@@ -100,7 +100,7 @@ function initrandomPool()
             break
 
 function randomButtonAction()
-    let i=GetPlayerId(GetTriggerPlayer())+1
+    let i=GetPlayerId(GetTriggerPlayer())
     let p=GetTriggerPlayer()
 
     if stopClickingAR == true
@@ -376,7 +376,7 @@ public function actionIconButton()
             heroUnitCodeToIndex.put(playHero[heroIndexToRemove], heroIndexToRemove)
             heroIndex--
 
-            if bannsCount[0] == 3 and bannsCount[1] == 0 // ban func
+            if bannsCount[0] == 3 and bannsCount[1] == 0
                 stopClickingAR = true
                 stopClickingAP = true
 
