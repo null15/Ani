@@ -1,0 +1,16 @@
+package Initialization
+
+import ClosureTimers
+
+init
+
+    //initialization()
+
+function initialization()
+
+    doPeriodically(10) (CallbackPeriodic cb) ->
+        print("1: "+GetUnitName(udg_Hero[1]))
+        print("2: "+GetUnitName(udg_Hero[2]))
+        print("3: "+GetUnitName(udg_Hero[3]))
+        print("4: "+GetUnitName(udg_Hero[4]))
+        print("5: "+GetUnitName(udg_Hero[5]))

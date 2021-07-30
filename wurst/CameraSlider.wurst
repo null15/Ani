@@ -1,39 +1,45 @@
 package CameraSlider
 
-import ClosureTimers
-
-
 framehandle fh
 framehandle label
+//string xy = "EscMenuLabelTextTemplate"
+//string yx = "EscMenuSliderTemplate"
 
 init
 
     gg_trg_Camera.destr()
 
-    doAfter(5) ->
+    if GetClickedButton() == udg_Button[1] or GetClickedButton() == udg_Button[2]
         createCamControll()
 
-string xy = "EscMenuLabelTextTemplate"
-string yx = "EscMenuSliderTemplate"
+
 
 function createSliderDistance()
-    fh = BlzCreateFrame(yx, BlzGetOriginFrame(ORIGIN_FRAME_GAME_UI, 0), 0, 0)
-    label = BlzCreateFrame(xy, fh, 0, 0)
-    
+    fh = BlzCreateFrame("EscMenuSliderTemplate",  BlzGetOriginFrame(ORIGIN_FRAME_GAME_UI, 0), 0, 0)
+    label = BlzCreateFrame("EscMenuLabelTextTemplate",  fh, 0, 0)
+
     BlzFrameSetPoint(label, FRAMEPOINT_LEFT, fh, FRAMEPOINT_RIGHT, 0, 0)
     BlzFrameSetAbsPoint(fh, FRAMEPOINT_LEFT, 0.009, 0.02)
 
     BlzFrameSetMinMaxValue(fh, 1000, 4000)
     BlzFrameSetValue(fh, 2500)
     BlzFrameSetStepSize(fh, 100)
+    
 
 function updateCam()
-    SetCameraField(CAMERA_FIELD_TARGET_DISTANCE, BlzFrameGetValue(BlzGetFrameByName(yx, 0)), 0)
-    BlzFrameSetText(BlzGetFrameByName(xy, 0), R2SW(BlzFrameGetValue(BlzGetFrameByName(yx, 0)), 1, 1))
+
+    SetCameraField(CAMERA_FIELD_TARGET_DISTANCE, BlzFrameGetValue(BlzGetFrameByName("EscMenuSliderTemplate", 0)), 0)
 
 function createCamControll()
+
+    BlzLoadTOCFile("war3mapImported\\Templates.toc")
+    createSliderDistance()
+    TimerStart(CreateTimer(), 0.1, true, function updateCam)
+
+    /*
     let t = CreateTrigger()
     t.registerDialogButtonEvent(udg_Button[1])
     t.addAction() ->
         createSliderDistance()
         TimerStart(CreateTimer(), 0.1, true, function updateCam)
+    */

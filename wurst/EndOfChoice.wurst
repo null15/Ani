@@ -1,6 +1,7 @@
 package EndOfChoice
 
 import ClosureTimers
+import Start
 
 init
 
@@ -23,6 +24,9 @@ function endOfChoiceAct()
 
         win[1] = win[1] + 1
 
+        DestroyTimer(TDD)
+        DestroyTimerDialog(TG)
+
         for he = 0 to 4
 
             SetPlayerState(Player(he), PLAYER_STATE_RESOURCE_LUMBER, GetPlayerState(Player(he), PLAYER_STATE_RESOURCE_LUMBER) + 1)
@@ -36,6 +40,10 @@ function endOfChoiceAct()
     else if GroupIsDeath(udg_CG[1]) and TC == false
 
         win[2] = win[2] + 1
+
+        DestroyTimer(TDD)
+        DestroyTimerDialog(TG)
+
         for he = 5 to 9
 
             SetPlayerState(Player(he), PLAYER_STATE_RESOURCE_LUMBER, GetPlayerState(Player(he), PLAYER_STATE_RESOURCE_LUMBER) + 1)
@@ -45,33 +53,6 @@ function endOfChoiceAct()
             DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "|cb91e3cc2The second team won and gained a point.")
             DisplayTextToPlayer(GetLocalPlayer(), 0, 0, " ")
             DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "Both teams are also awarded with |cd6c2b93e2000|r Gold.")
-
-
-    else if GroupIsDeath(udg_CG[2]) and GroupIsDeath(udg_CG[1]) and TC == true
-
-        if win[1] != 14 and win[2] != 14
-
-            win[1] = win[1] + 1
-            win[2] = win[2] + 1
-
-            doAfter(5) -> 
-                ClearTextMessages()
-                DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "|ca7d459c4Draw, both teams gained a point.")
-                DisplayTextToPlayer(GetLocalPlayer(), 0, 0, " ")
-                DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "Both teams are also given |cd6c2b93e2000|r Gold.")
-                
-                TC = false
-
-        else
-
-            doAfter(5) -> 
-                ClearTextMessages()
-                DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "|ca7d459c4Draw. As a team has 14 wins, both team gains no point for this round.")
-                DisplayTextToPlayer(GetLocalPlayer(), 0, 0, " ")
-                DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "Both teams are also given |cd6c2b93e2000|r Gold.")
-
-                TC = false
-            
     
     n = GetTriggerUnit()
     if GetUnitAbilityLevel(n, 'A0YT') > 0
@@ -179,7 +160,7 @@ function endOfChoiceAct()
                 CustomDefeatBJ(Player(i), "You lose!")
             
     else
-        TimerStart(udg_Timer, 45, false, null)
+        TimerStart(udg_Timer, 30, false, null)
         DestroyTimerDialog(udg_TB)
         DestroyTimerDialog(TG)
         udg_TB=CreateTimerDialog(udg_Timer)

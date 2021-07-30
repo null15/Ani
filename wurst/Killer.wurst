@@ -2,9 +2,9 @@ package Killer
 
 
 
-integer id
-integer id2
-integer i
+integer id = 0
+integer id2 = 0
+integer i = 0
 
 init
 

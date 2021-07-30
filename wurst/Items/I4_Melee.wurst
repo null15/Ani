@@ -1,6 +1,8 @@
 package I4_Melee
 
 import ItemConfiguration
+import ItemConfigurationCompiletime
+import ItemColors
 import Execute
 
 public integer mele

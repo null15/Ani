@@ -1,0 +1,109 @@
+package CambioEffect
+
+init
+
+    initCambioEffect()
+
+function cambioEffectCond() returns boolean
+    return GetLearnedSkill() == 'A0HC'
+
+function cambioEffectAct()
+    let t=GetExpiredTimer()
+    let id=GetHandleId(t)
+    let u=LoadUnitHandle(h, id, 0)
+    integer i=0
+    let idu=GetHandleId(u)
+    let strh=StringHash("time")
+    let hs=LoadInteger(h, idu, StringHash("d"))
+    let f=0
+    let time=LoadReal(h, idu, strh) + 0.04
+    integer ids=0
+    let ml=GetUnitState(u, UNIT_STATE_MAX_LIFE) * 0.025
+    txt=LoadTextTagHandle(h, id, 1)
+    SaveReal(h, idu, strh, time)
+    if hs >= 3 and hs <= 5 
+        ids='A0HE'
+    else if hs >= 6 and hs <= 8 
+        ids='A0HF'
+    else if hs > 8 
+        ids='A0HG'
+
+    if GetUnitAbilityLevel(u, 'A0HE') > 0 and hs > 5 
+        UnitRemoveAbility(u, 'A0HE')
+    else if GetUnitAbilityLevel(u, 'A0HF') > 0 and hs > 8 
+        UnitRemoveAbility(u, 'A0HF')
+    else if GetUnitAbilityLevel(u, 'A0HF') > 0 and hs < 8 
+        UnitRemoveAbility(u, 'A0HG')
+
+    if time >= 30 
+        SaveReal(h, idu, strh, 0)
+        UnitRemoveAbility(u, 'A1A3')
+        if hs > 0 
+            SaveInteger(h, idu, StringHash("d"), hs - 1)
+        
+
+    if GetUnitAbilityLevel(u, 'A1A3') > 0 
+        if GetUnitAbilityLevel(u, 'A0HE') == 0 and GetUnitAbilityLevel(u, 'A0HF') == 0 and GetUnitAbilityLevel(u, 'A0HG') == 0 
+            UnitAddAbility(u, ids)
+        
+        if GetLocalPlayer() == GetOwningPlayer(u) 
+            SetTextTagVisibility(txt, true)
+        
+    else
+        SetUnitState(u, UNIT_STATE_LIFE, GetWidgetLife(u) + ml * hs)
+        SaveInteger(h, idu, StringHash("d"), 0)
+        UnitRemoveAbility(u, 'A0HE')
+        UnitRemoveAbility(u, 'A0HF')
+        UnitRemoveAbility(u, 'A0HG')
+        SetTextTagVisibility(txt, false)
+
+    SetTextTagPos(txt, GetUnitX(u) - 190 * Cos(I2R(f)), GetUnitY(u) - 190 * Sin(I2R(f)), GetUnitFlyHeight(u) + 100 + ( 10.5 * 0.08 ) / 10)
+    while true
+        if i >= 10
+            break
+        if i < hs 
+            SetTextTagText(txt, s, ( 10.5 * 0.08 ) / 10)
+            s=s + "|cFFFFFF00•|r"
+        else
+            s=s + "•"
+            SetTextTagText(txt, s, ( 10.5 * 0.08 ) / 10)
+        
+        i=i + 1
+
+function cambioEffectStart()
+    let u=GetTriggerUnit()
+    let p=GetOwningPlayer(u)
+    let t=CreateTimer()
+    let id=GetHandleId(t)
+    integer i=1
+    txt=CreateTextTag()
+    s="•"
+    SetTextTagVisibility(txt, false)
+    if GetLocalPlayer() == p 
+        SetTextTagVisibility(txt, true)
+
+    while true
+        if i == 11
+            break
+        SetTextTagText(txt, s, ( 10.5 * 0.08 ) / 10)
+        s=s + "•"
+        i=i + 1
+
+    SetTextTagPosUnit(txt, u, ( 10.5 * 0.08 ) / 10)
+    SetTextTagColor(txt, 255, 255, 255, 255)
+    SaveUnitHandle(h, id, 0, u)
+    SaveTextTagHandle(h, id, 1, txt)
+    SaveInteger(h, GetHandleId(u), StringHash("d"), 0)
+    SaveReal(h, GetHandleId(u), StringHash("time"), 0)
+    TimerStart(t, 0.04, true, function cambioEffectAct)
+
+function initCambioEffect()
+    let t=CreateTrigger()
+    integer i=0
+    while true
+        TriggerRegisterPlayerUnitEvent(t,Player(i),EVENT_PLAYER_UNIT_SPELL_EFFECT,null)
+        i=i+1
+        if i == bj_MAX_PLAYER_SLOTS
+            break
+    TriggerAddAction(t,function cambioEffectStart)
+    TriggerAddCondition(t,Condition(function cambioEffectCond))

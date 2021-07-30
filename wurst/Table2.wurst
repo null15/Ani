@@ -9,13 +9,15 @@ init
 function trig_Table2_Actions()
     udg_Dialog=DialogCreate()
     DialogClear(udg_Dialog)
-    DialogSetMessage(udg_Dialog,"Are you ready to play?")
-    udg_Button[1]=DialogAddButton(udg_Dialog,"Yes! :)",0)
+    DialogSetMessage(udg_Dialog,"Which mode?")
+    udg_Button[1]=DialogAddButton(udg_Dialog,"Standard",0)
+    udg_Button[2]=DialogAddButton(udg_Dialog,"Testing",0)
+    udg_Button[3]=DialogAddButton(udg_Dialog,"All Random",0)
 
     print("Captain for team 1 is: " + GetPlayerName(teamCaptain[0]))
     DialogDisplay(teamCaptain[0], udg_Dialog, true)
 
-    TriggerRegisterDialogEvent(gg_trg_HeroesStock,udg_Dialog)
+    TriggerRegisterDialogEvent(gg_trg_Dialog2,udg_Dialog)
     DestroyTrigger(GetTriggeringTrigger())
     GroupEnumUnitsInRange(G,0,0,99999999,null)
     while true

@@ -1,6 +1,8 @@
 package I1_Strength
 
 import ItemConfiguration
+import ItemConfigurationCompiletime
+import ItemColors
 import Execute
 
 public integer stre

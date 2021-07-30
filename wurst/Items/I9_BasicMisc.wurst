@@ -1,6 +1,8 @@
 package I9_BasicMisc
 
 import ItemConfiguration
+import ItemConfigurationCompiletime
+import ItemColors
 import Execute
 
 public integer misc
@@ -11,122 +13,122 @@ init
 
     execute() ->
 
-        setupItem('I01M', CATEGORY, 750) // Medallion of Courage
+        setupItem('I01M', CATEGORY, 750) // Medallion of Courage //
 
-        // make this give stat ^, prob 7 to all stat <-------------------------------------------------------------------------------------
-
-        //////////////////////////
-
-        setupItem('I01F', CATEGORY, 750) // Speed Boots
-
-        // ^ make this give X ms and 3 all stat // <------------------------------------------------------------------------------------- 
+        // make this give stat ^, prob 6 to all stat <-------------------------------------------------------------------------------------
 
         //////////////////////////
 
-        setupItem('I02T', CATEGORY, 1700) // Orb of Wind
+        setupItem('I01F', CATEGORY, 750) // Speed Boots //
+
+        // ^ make this give 6 all stat // <------------------------------------------------------------------------------------- 
 
         //////////////////////////
 
-        setupItem('I02R', CATEGORY, 2000) // Orb of Fire
+        setupItem('I02T', CATEGORY, 1700) // Orb of Wind //
 
         //////////////////////////
 
-        setupItem('I02S', CATEGORY, 2000) // Orb of Ice
+        setupItem('I02R', CATEGORY, 2000) // Orb of Fire //
 
         //////////////////////////
 
-        setupItem('I01W', CATEGORY, 500) // Staff D
+        setupItem('I02S', CATEGORY, 2000) // Orb of Ice //
 
-        setupItem('I01X', CATEGORY, 1250) // Staff C
+        //////////////////////////
+
+        setupItem('I01W', CATEGORY, 500) // Staff D //
+
+        setupItem('I01X', CATEGORY, 1250) // Staff C //
         addRequirement('I01W')
 
-        setupItem('I01Y', CATEGORY, 2000) // Staff B
+        setupItem('I01Y', CATEGORY, 2000) // Staff B //
         addRequirement('I01X')
 
-        setupItem('I01Z', CATEGORY, 2750) // Staff A
+        setupItem('I01Z', CATEGORY, 2750) // Staff A //
         addRequirement('I01Y')
 
-        setupItem('I06C', CATEGORY, 3500) // Staff S
+        setupItem('I06C', CATEGORY, 3500) // Staff S //
         addRequirement('I01Z')
 
         ///////////////////////
 
-        setupItem('I01H', CATEGORY, 600) // Sword D
+        setupItem('I01H', CATEGORY, 600) // Sword D //
 
-        setupItem('I01J', CATEGORY, 1350) // Sword C
+        setupItem('I01J', CATEGORY, 1350) // Sword C //
         addRequirement('I01H')
 
-        setupItem('I01I', CATEGORY, 2100) // Sword B
+        setupItem('I01I', CATEGORY, 2100) // Sword B //
         addRequirement('I01J')
 
-        setupItem('I01K', CATEGORY, 2850) // Sword A
+        setupItem('I01K', CATEGORY, 2850) // Sword A //
         addRequirement('I01I')
 
-        setupItem('I01L', CATEGORY, 3600) // Hardened Sword
+        setupItem('I01L', CATEGORY, 3600) // Hardened Sword //
         addRequirement('I01K')
 
         //////////////////////////
 
-        setupItem('I03G', CATEGORY, 750) // Glove D 
+        setupItem('I03G', CATEGORY, 750) // Glove D //
         
-        setupItem('I03H', CATEGORY, 1500) // Glove E
+        setupItem('I03H', CATEGORY, 1500) // Glove E //
         addRequirement('I03G')
 
-        setupItem('I03I', CATEGORY, 2250) // Glove C
+        setupItem('I03I', CATEGORY, 2250) // Glove C //
         addRequirement('I03H')
 
-        setupItem('I03J', CATEGORY, 3000) // Glove B
+        setupItem('I03J', CATEGORY, 3000) // Glove B //
         addRequirement('I03I')
 
-        setupItem('I03K', CATEGORY, 3750) // Glove A
+        setupItem('I03K', CATEGORY, 3750) // Glove A //
         addRequirement('I03J')
 
         //////////////////////////
 
-        setupItem('I02E', CATEGORY, 500) // Vongola Ossa Impressione Ring D
+        setupItem('I02E', CATEGORY, 500) // Vongola Ossa Impressione Ring D //
             
-        setupItem('I02F', CATEGORY, 1250) // Vongola Ossa Impressione Ring C
+        setupItem('I02F', CATEGORY, 1250) // Vongola Ossa Impressione Ring C //
         addRequirement('I02E')
 
-        setupItem('I02G', CATEGORY, 2000) // Vongola Ossa Impressione Ring B
+        setupItem('I02G', CATEGORY, 2000) // Vongola Ossa Impressione Ring B //
         addRequirement('I02F')
 
-        setupItem('I02H', CATEGORY, 2750) // Vongola Ossa Impressione Ring A
+        setupItem('I02H', CATEGORY, 2750) // Vongola Ossa Impressione Ring A //
         addRequirement('I02G')
 
-        setupItem('I02I', CATEGORY, 3500) // Vongola Ossa Impressione Ring S
+        setupItem('I02I', CATEGORY, 3500) // Vongola Ossa Impressione Ring S //
         addRequirement('I02H')
 
         //////////////////////////
 
-        setupItem('I049', CATEGORY, 750) // Vongola 666 Ring D
+        setupItem('I049', CATEGORY, 750) // Vongola 666 Ring D //
             
-        setupItem('I04A', CATEGORY, 1500) // Vongola 666 Ring C
+        setupItem('I04A', CATEGORY, 1500) // Vongola 666 Ring C //
         addRequirement('I049')
 
-        setupItem('I04B', CATEGORY, 2500) // Vongola 666 Ring B
+        setupItem('I04B', CATEGORY, 2500) // Vongola 666 Ring B //
         addRequirement('I04A')
 
-        setupItem('I04C', CATEGORY, 3250) // Vongola 666 Ring A
+        setupItem('I04C', CATEGORY, 3250) // Vongola 666 Ring A //
         addRequirement('I04B')
 
-        setupItem('I04D', CATEGORY, 4000) // Vongola 666 Ring S
+        setupItem('I04D', CATEGORY, 4000) // Vongola 666 Ring S //
         addRequirement('I04C')
 
         //////////////////////////
 
-        setupItem('I02L', CATEGORY, 750) // Vongola Malocchio Ring D
+        setupItem('I02L', CATEGORY, 750) // Vongola Malocchio Ring D //
             
-        setupItem('I02M', CATEGORY, 1500) // Vongola Malocchio Ring C
+        setupItem('I02M', CATEGORY, 1500) // Vongola Malocchio Ring C //
         addRequirement('I02L')
 
-        setupItem('I02N', CATEGORY, 2500) // Vongola Malocchio Ring B
+        setupItem('I02N', CATEGORY, 2500) // Vongola Malocchio Ring B //
         addRequirement('I02M')
 
-        setupItem('I02O', CATEGORY, 3250) // Vongola Malocchio Ring A
+        setupItem('I02O', CATEGORY, 3250) // Vongola Malocchio Ring A //
         addRequirement('I02N')
 
-        setupItem('I02P', CATEGORY, 4000) // Vongola Malocchio Ring S
+        setupItem('I02P', CATEGORY, 4000) // Vongola Malocchio Ring S //
         addRequirement('I02O')
 
         //////////////////////////

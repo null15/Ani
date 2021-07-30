@@ -1,6 +1,8 @@
 package I2_Agility
 
 import ItemConfiguration
+import ItemConfigurationCompiletime
+import ItemColors
 import Execute
 
 public integer agil

@@ -1,0 +1,53 @@
+package ItemColors
+
+public constant ITEMNAME_TEALISH = colorA(132, 115, 230, 193)
+public constant ITEMDESC_SOMETHING = colorA(176, 173, 196, 255)
+public constant ITEMLINE_BLACK = colorA(34, 33, 33, 255)
+
+public constant STRENGTH_RED = colorA(223, 75, 75, 206)
+public constant AGILITY_GREEN = color(119, 230, 119)
+public constant INTELLIGENCE_BLUE = color(58, 60, 231)
+public constant ALLSTATS_ORANGE = color(230, 159, 79)
+
+public constant ARMOR_GRAY = color(90, 87, 87)
+public constant HEALTH_LIGHTGREEN = color(55, 116, 60)
+
+public constant ATTACK_DARKTEAL = color(93, 167, 209)
+public constant ATTACKSPEED_LIGHTGREEN = color(106, 167, 124)
+public constant MOVEMENTSPEED_DARKGREEN = color(106, 167, 124)
+
+public constant ACTIVE_PINK = color(225, 131, 228)
+public constant PASSIVE_PURPLE = color(123, 77, 150)
+public constant CASTTIME_LIGHTORANGE = color(180, 83, 112)
+public constant RANGE_GOLD = color(130, 146, 86)
+public constant COOLDOWN_DARKRED = color(212, 30, 115)
+public constant MANA_LIGHTBLUE = color(77, 132, 204)
+
+public constant MAGICRESIST_DARKBLUE = color(39, 30, 92)
+
+// ----------------------------------------------------USE-BELOW----------------------------------------------------------//
+
+public constant ITEMNAME = ITEMNAME_TEALISH.toColorString() // name
+public constant ITEMDESC = ITEMDESC_SOMETHING.toColorString() // desc
+public constant ITEMLINE = ITEMLINE_BLACK.toColorString() // line
+
+public constant ITEMSTR = STRENGTH_RED.toColorString() // str
+public constant ITEMAGI = AGILITY_GREEN.toColorString() // agi
+public constant ITEMINT = INTELLIGENCE_BLUE.toColorString() // int
+public constant ITEMALLSTATS = ALLSTATS_ORANGE.toColorString() // all stats
+
+public constant ITEMARMOR = ARMOR_GRAY.toColorString() // armor
+public constant ITEMHP = HEALTH_LIGHTGREEN.toColorString() // hp
+
+public constant ITEMATK = ATTACK_DARKTEAL.toColorString() // attack
+public constant ITEMAS = ATTACKSPEED_LIGHTGREEN.toColorString() // attack speed
+public constant ITEMMS = MOVEMENTSPEED_DARKGREEN.toColorString() // movement speed
+
+public constant ITEMACTIVE = ACTIVE_PINK.toColorString() // active
+public constant ITEMPASSIVE = PASSIVE_PURPLE.toColorString() // passive
+public constant ITEMCASTTIME = CASTTIME_LIGHTORANGE.toColorString() // casttime
+public constant ITEMRANGE = RANGE_GOLD.toColorString() // range
+public constant ITEMCD = COOLDOWN_DARKRED.toColorString() // cooldown
+public constant ITEMMP = MANA_LIGHTBLUE.toColorString() // mp cost
+
+public constant ITEMMR = MAGICRESIST_DARKBLUE.toColorString() // magic resist

@@ -1,5 +1,7 @@
 package HPBars
 
+trigger gg_trg_At_0s
+
 init
 
     initTrig_At_0s()

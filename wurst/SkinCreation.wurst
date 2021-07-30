@@ -69,7 +69,7 @@ public constant skinAokiji2 = compiletime(addSkin('H02U', 'H05X'))
 
 public constant skinKirito = compiletime(addSkin('H02F', 'H05Y'))
 
-public constant skinRyohei = compiletime(addSkin('H00H', 'H0AO'))
+// public constant skinRyohei = compiletime(addSkin('H00H', 'H0AO'))
 
 constant RUNTIME_LIST = compiletime(COMPILETIME_LIST)
 

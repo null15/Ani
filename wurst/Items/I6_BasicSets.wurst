@@ -1,6 +1,8 @@
 package I6_BasicSets
 
 import ItemConfiguration
+import ItemConfigurationCompiletime
+import ItemColors
 import Execute
 
 public integer sets

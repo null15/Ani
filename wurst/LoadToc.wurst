@@ -5,10 +5,7 @@ package LoadToc
 
 init
 
-    if GetClickedButton() == udg_Button[1]
-        if BlzLoadTOCFile("templates.toc")
-        else
-            print("Templates did not load.")
+    if GetClickedButton() == udg_Button[1] or GetClickedButton() == udg_Button[2]
 
         if BlzLoadTOCFile("war3mapImported\\HeroSelectorDraft.toc")
         else

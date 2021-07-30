@@ -1,0 +1,171 @@
+package HostCommands
+
+import HeroSelector
+
+init
+
+    roundsInit()
+    initTrig_LVL()
+    initTrig_Gold()
+    initTrig_Knight()
+    initTrig_Human()
+    initTrig_Hero()
+    initTrig_Hero2()
+    initTrig_Hero3()
+    initTrig_Hero4()
+    initTrig_Hero5()
+    initTrig_Hero6()
+    initTrig_Hero7()
+
+function trig_Hero7_Actions()
+    Hero[4]=CreateUnit(Player(5),'Obla',0,1000,0)
+    SetHeroLevelBJ(Hero[4],35,false)
+    UnitAddItemById(Hero[4],'I03R')
+    UnitAddItemById(Hero[4],'I02W')
+    UnitAddItemById(Hero[4],'I01E')
+    //UnitAddItemById(Hero[4],'I06R')
+    //UnitAddItemById(Hero[4],'I040')
+    SetUnitAbilityLevel(Hero[4],'AOww',1)
+    IssueImmediateOrder(Hero[4],"whirlwind")
+
+function initTrig_Hero7()
+    gg_trg_Hero7=CreateTrigger()
+    TriggerRegisterPlayerChatEvent(gg_trg_Hero7,teamCaptain[0],"-hero7",true)
+    TriggerAddAction(gg_trg_Hero7,function trig_Hero7_Actions)
+
+function trig_Hero6_Actions()
+    Hero[4]=CreateUnit(Player(5),'Obla',0,2000,0)
+    SetHeroLevelBJ(Hero[4],35,false)
+    UnitAddItemById(Hero[4],'I03R')
+    UnitAddItemById(Hero[4],'I02W')
+    UnitAddItemById(Hero[4],'I01E')
+    UnitAddItemById(Hero[4],'I06R')
+    UnitAddItemById(Hero[4],'I040')
+    SetUnitAbilityLevel(Hero[4],'AOww',1)
+    IssueImmediateOrder(Hero[4],"whirlwind")
+
+function initTrig_Hero6()
+    gg_trg_Hero6=CreateTrigger()
+    TriggerRegisterPlayerChatEvent(gg_trg_Hero6,teamCaptain[0],"-hero6",true)
+    TriggerAddAction(gg_trg_Hero6,function trig_Hero6_Actions)
+
+function trig_Hero5_Actions()
+    Hero[4]=CreateUnit(Player(5),'Obla',0,3000,0)
+    SetHeroLevelBJ(Hero[4],35,false)
+    UnitAddItemById(Hero[4],'I03R')
+    UnitAddItemById(Hero[4],'I02W')
+    UnitAddItemById(Hero[4],'I01E')
+    UnitAddItemById(Hero[4],'I06R')
+    UnitAddItemById(Hero[4],'I03X')
+    SetUnitAbilityLevel(Hero[4],'AOww',1)
+    IssueImmediateOrder(Hero[4],"whirlwind")
+
+function initTrig_Hero5()
+    gg_trg_Hero5=CreateTrigger()
+    TriggerRegisterPlayerChatEvent(gg_trg_Hero5,teamCaptain[0],"-hero5",true)
+    TriggerAddAction(gg_trg_Hero5,function trig_Hero5_Actions)
+
+function trig_Hero4_Actions()
+    Hero[4]=CreateUnit(Player(5),'Obla',0,4000,0)
+    SetHeroLevelBJ(Hero[4],35,false)
+    UnitAddItemById(Hero[4],'I03R')
+    UnitAddItemById(Hero[4],'I02W')
+    UnitAddItemById(Hero[4],'I01E')
+    UnitAddItemById(Hero[4],'I06R')
+    SetUnitAbilityLevel(Hero[4],'AOww',1)
+    IssueImmediateOrder(Hero[4],"whirlwind")
+
+function initTrig_Hero4()
+    gg_trg_Hero4=CreateTrigger()
+    TriggerRegisterPlayerChatEvent(gg_trg_Hero4,teamCaptain[0],"-hero4",true)
+    TriggerAddAction(gg_trg_Hero4,function trig_Hero4_Actions)
+
+function trig_Hero3_Actions()
+    Hero[4]=CreateUnit(Player(5),'Obla',0,-1000,0)
+    SetHeroLevelBJ(Hero[4],35,false)
+    UnitAddItemById(Hero[4],'I03R')
+    UnitAddItemById(Hero[4],'I02W')
+    UnitAddItemById(Hero[4],'I01E')
+    UnitAddItemById(Hero[4],'I040')
+    SetUnitAbilityLevel(Hero[4],'AOww',1)
+    IssueImmediateOrder(Hero[4],"whirlwind")
+
+function initTrig_Hero3()
+    gg_trg_Hero3=CreateTrigger()
+    TriggerRegisterPlayerChatEvent(gg_trg_Hero3,teamCaptain[0],"-hero3",true)
+    TriggerAddAction(gg_trg_Hero3,function trig_Hero3_Actions)
+
+function trig_Hero2_Actions()
+    Hero[4]=CreateUnit(Player(5),'Obla',0,-2000,0)
+    SetHeroLevelBJ(Hero[4],35,false)
+    UnitAddItemById(Hero[4],'I03R')
+    UnitAddItemById(Hero[4],'I02W')
+    UnitAddItemById(Hero[4],'I01E')
+    UnitAddItemById(Hero[4],'I03X')
+    SetUnitAbilityLevel(Hero[4],'AOww',1)
+    IssueImmediateOrder(Hero[4],"whirlwind")
+
+function initTrig_Hero2()
+    gg_trg_Hero2=CreateTrigger()
+    TriggerRegisterPlayerChatEvent(gg_trg_Hero2,teamCaptain[0],"-hero2",true)
+    TriggerAddAction(gg_trg_Hero2,function trig_Hero2_Actions)
+
+function trig_Hero_Actions()
+    CreateNUnitsAtLoc(1,'H07E',Player(0),GetRectCenter(gg_rct_GameZone),bj_UNIT_FACING)
+    SetHeroLevelBJ(GetLastCreatedUnit(),35,false)
+
+function initTrig_Hero()
+    DisableTrigger(gg_trg_Hero)
+    gg_trg_Hero=CreateTrigger()
+    TriggerRegisterPlayerChatEvent(gg_trg_Hero,teamCaptain[0],"-hero",true)
+    TriggerAddAction(gg_trg_Hero,function trig_Hero_Actions)
+
+function trig_Human_Actions()
+    CreateNUnitsAtLoc(2,'uabo',Player(PLAYER_NEUTRAL_AGGRESSIVE),GetRectCenter(gg_rct_GameZone),bj_UNIT_FACING)
+
+function initTrig_Human()
+    gg_trg_Human=CreateTrigger()
+    TriggerRegisterPlayerChatEvent(gg_trg_Human,teamCaptain[0],"-hum",true)
+    TriggerAddAction(gg_trg_Human,function trig_Human_Actions)
+
+function trig_Knight_Actions()
+    CreateNUnitsAtLoc(1,'hkni',Player(PLAYER_NEUTRAL_AGGRESSIVE),GetRectCenter(gg_rct_GameZone),bj_UNIT_FACING)
+
+function initTrig_Knight()
+    gg_trg_Knight=CreateTrigger()
+    TriggerRegisterPlayerChatEvent(gg_trg_Knight,teamCaptain[0],"-kni",true)
+    TriggerAddAction(gg_trg_Knight,function trig_Knight_Actions)
+
+function trig_Gold_Actions()
+    for i = 0 to bj_MAX_PLAYERS
+        AdjustPlayerStateBJ(1000000,ConvertedPlayer(i),PLAYER_STATE_RESOURCE_GOLD)
+
+function initTrig_Gold()
+    gg_trg_Gold=CreateTrigger()
+    TriggerRegisterPlayerChatEvent(gg_trg_Gold,teamCaptain[0],"-gold",true)
+    TriggerAddAction(gg_trg_Gold,function trig_Gold_Actions)
+
+function trig_LVL_Actions()
+    for i = 0 to bj_MAX_PLAYERS
+        SetHeroXP(udg_Hero[i],1000000000,false)
+
+function initTrig_LVL()
+    gg_trg_LVL=CreateTrigger()
+    TriggerRegisterPlayerChatEvent(gg_trg_LVL,teamCaptain[0],"-lvl",true)
+    TriggerAddAction(gg_trg_LVL,function trig_LVL_Actions)
+
+function condRounds() returns boolean
+    return Rounds==false
+
+function castRounds1()
+    let str=S2I(SubString(GetEventPlayerChatString(),8,10))
+    if str<50 and str>1 
+        Rounds=true
+        udg_rou=I2R(str)
+        DisplayTextToPlayer(GetLocalPlayer(),0,0,"Win score set to: |cFFFF0000"+I2S(str))
+
+function roundsInit()
+    let t=CreateTrigger()
+    TriggerRegisterPlayerChatEvent(t,teamCaptain[0],"-rounds ",false)
+    TriggerAddAction(t,function castRounds1)
+    TriggerAddCondition(t,Condition(function condRounds))

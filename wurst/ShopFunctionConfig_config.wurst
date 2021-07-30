@@ -10,6 +10,9 @@ import initlater ShopAPI
             //print("") // could not be bought
         else
             //print(boughtItem.getName() + " was bought") // was successfully bought
+            BlzSetItemDescription(boughtItem, itm.getDescription())
+            BlzSetItemExtendedTooltip(boughtItem, itm.getDescription())
+            //print(itm.getDescription())
 
 @config public function shopConfig_shopCanBuy(unit u, ItemInShop itm) returns bool
     let cost = getItemCostForHero(u, itm)

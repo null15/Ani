@@ -1,0 +1,77 @@
+package StaticField
+
+init
+
+    initTrig_StaticField()
+
+function staticFieldCond () returns boolean
+    return GetSpellAbilityId()=='A0UY'
+
+function staticFieldCast2 ()
+    let t=GetExpiredTimer()
+    let id=GetHandleId(t)
+    let u=LoadUnitHandle(h,id,0)
+    let x=GetUnitX(u)
+    let y=GetUnitY(u)
+    let dmg=GetHeroAgi(u,true)*0.8
+    let p=GetOwningPlayer(u)
+    if(OrderId2String(GetUnitCurrentOrder(u))!="channel")
+        PauseTimer(t)
+        DestroyTimer(t)
+        FlushChildHashtable(h,id)
+        SetUnitInvulnerable(u,false)
+        SetUnitTimeScale(u,1)
+    else
+        SetUnitInvulnerable(u,true)
+        UnitAddAbility(u,'A0UV')
+        UnitAddAbility(u,'A0UW')
+        UnitRemoveAbility(u,'A0UV')
+        UnitRemoveAbility(u,'A0UW')
+        GroupEnumUnitsInRange(G,x,y,350,Base)
+        while true
+            E=FirstOfGroup(G)
+            if E==null
+                break
+            if Condition_Base(p,E)
+                UnitDamageTarget(u,E,dmg,false,false,null,null,null)
+            
+            GroupRemoveUnit(G,E)
+        
+        n=CreateUnit(p,'e0QI',x,y,GetRandomReal(0,359))
+        UnitApplyTimedLife(n,1,0.01)
+        SetUnitScale(n,0.5,0.5,0.5)
+        SetUnitVertexColor(n,255,255,255,200)
+        
+        n=CreateUnit(p,'e0QI',x,y,GetRandomReal(0,359))
+        UnitApplyTimedLife(n,1,0.01)
+        SetUnitScale(n,1,1,1)
+        SetUnitVertexColor(n,255,255,255,150)
+        
+        n=CreateUnit(p,'e0QI',x,y,GetRandomReal(0,359)) 
+        UnitApplyTimedLife(n,1,0.01)
+        SetUnitScale(n,1.5,1.5,1.5)
+        SetUnitVertexColor(n,255,255,255,100)
+       
+        n=CreateUnit(p,'e0QI',x,y,GetRandomReal(0,359))
+        UnitApplyTimedLife(n,1,0.01)
+        SetUnitScale(n,2,2,2)
+        SetUnitVertexColor(n,255,255,255,50)
+
+function staticFieldCast ()
+    let u=GetTriggerUnit()
+    let t=CreateTimer()
+    let id=GetHandleId(t)
+    SaveUnitHandle(h,id,0,u)
+    SetUnitTimeScale(u,0.35)
+    SetUnitInvulnerable(u,true)
+    bj_lastPlayedSound=CreateSound("war3mapImported\\KilluaUltimate.mp3",false,false,true,12700,12700,"")
+    StartSound(bj_lastPlayedSound)
+    KillSoundWhenDone(bj_lastPlayedSound)
+    TimerStart(t,0.1,true,function staticFieldCast2)
+
+function initTrig_StaticField ()
+    gg_trg_StaticField.destr()
+    gg_trg_StaticField=CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ(gg_trg_StaticField,EVENT_PLAYER_UNIT_SPELL_EFFECT)
+    TriggerAddCondition(gg_trg_StaticField,Condition(function staticFieldCond))
+    TriggerAddAction(gg_trg_StaticField,function staticFieldCast)

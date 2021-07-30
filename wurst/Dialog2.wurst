@@ -1,0 +1,92 @@
+package Dialog2
+
+import HeroSelector
+//import SettingsUI
+
+init
+
+    initTrig_Dialog2()
+
+function trig_Dialog2_Conditions() returns bool
+
+    return GetClickedButton() == udg_Button[1] or GetClickedButton() == udg_Button[2] or GetClickedButton() == udg_Button[3]
+    
+function trig_Dialog2_Actions()
+    let x1=GetRectCenterX(gg_rct_Rect1)
+    let y1=GetRectCenterY(gg_rct_Rect1)
+    let g=CreateGroup()
+    let bu=GetClickedButton()
+
+    //nzInit() // Activates cheat
+
+    if bu == udg_Button[1]
+        standard = true
+    else if bu == udg_Button[2]
+        testing = true
+    else if bu == udg_Button[3]
+        randomAll = true
+
+    EnableTrigger(gg_trg_mult)
+    MultiboardAllowDisplayBJ( true )
+    PauseAllUnitsBJ(false)
+    GroupEnumUnitsInRect(G, gg_rct_Base, null)
+    while E != null
+        E=FirstOfGroup(G)
+
+        if GetPlayerSlotState(GetOwningPlayer(E)) != PLAYER_SLOT_STATE_PLAYING and GetUnitTypeId(E) == 'n008'
+            UnitAddAbility(E, 'Aloc')
+
+        GroupRemoveUnit(G, E)
+
+    EnableTrigger(gg_trg_PickPreloadSystem)
+        
+    if bu == udg_Button[1] or bu == udg_Button[2] or bu == udg_Button[3]
+
+        //if BlzLoadTOCFile("war3mapImported/SettingsUI.toc")
+        //else
+        //    print("Could not load TOC file SettingsUI")
+
+        //settingUI(0)
+
+        create(0)
+
+        for y = 0 to 10
+            CreateUnit(Player(y), 'ewsp', x1, y1, 0)
+        GroupEnumUnitsInRange(g, x1, y1, 500, null)
+            
+        TimerStart(udg_Timer,120.0,false,null)
+        udg_TB=CreateTimerDialog(udg_Timer)
+        TimerDialogSetTitle(udg_TB, "Round starts in:")
+        TimerDialogDisplay(udg_TB, true)
+        randcond=true
+
+        DialogDestroy(udg_Dialog)
+
+        start=true
+        udg_Button[1]=null
+        udg_Button[2]=null
+        udg_Dialog=null
+
+    //doAfter(1.5) -> 
+    //    ClearTextMessages()
+    //    DisplayTextToPlayer(Player(0), 0, 0, "|cff4f8f4fGame is now starting . . .")
+
+    DestroyGroup(g)
+    GroupEnumUnitsInRect(G, gg_rct_Base, null)
+    while E != null
+        E=FirstOfGroup(G)
+
+        if GetPlayerSlotState(GetOwningPlayer(E)) == PLAYER_SLOT_STATE_PLAYING and GetUnitTypeId(E) == 'n008'
+            UnitAddAbility(E, 'Alnv')
+        
+        GroupRemoveUnit(G, E)
+    
+
+
+
+function initTrig_Dialog2()
+    gg_trg_Dialog2.destr()
+    gg_trg_Dialog2=CreateTrigger()
+    TriggerAddCondition(gg_trg_Dialog2, Condition(function trig_Dialog2_Conditions))
+    TriggerAddAction(gg_trg_Dialog2, function trig_Dialog2_Actions)
+    

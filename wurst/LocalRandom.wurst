@@ -9,14 +9,14 @@ function trig_LocalRandom_Conditions() returns boolean
 
 function trig_LocalRandom_Actions()
     integer id
-    let i=GetPlayerId(GetTriggerPlayer())
+    let i=GetPlayerId(GetTriggerPlayer())+1
     unit array u
     rand[i]=true
     while true
         //BJDebugMsg(I2S(id))
         id=GetRandomInt(1,115)
         //BJDebugMsg(I2S(id))
-        if udg_RH[id]!=0
+        if udg_RH[id] != 0
             u[i+1]=CreateUnit(Player(i),udg_RH[id],GetRectCenterX(gg_rct_Rect1),GetRectCenterY(gg_rct_Rect1),0)
             DisplayTextToPlayer(Player(0),0,0,I2S(i))
             udg_RH[id]=0
@@ -32,8 +32,9 @@ function trig_LocalRandom_Actions()
 function initTrig_LocalRandom()
 
     gg_trg_LocalRandom.destr()
+    gg_trg_LocalRandom = CreateTrigger()
 
-    TriggerRegisterPlayerChatEvent(gg_trg_LocalRandom,Player(0),"",true)
+    TriggerRegisterPlayerChatEvent(gg_trg_LocalRandom,Player(0),"-r",true)
     TriggerAddCondition(gg_trg_LocalRandom,Condition(function trig_LocalRandom_Conditions))
     TriggerAddAction(gg_trg_LocalRandom,function trig_LocalRandom_Actions)
 

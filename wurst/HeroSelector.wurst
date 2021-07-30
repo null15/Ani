@@ -2,6 +2,11 @@ package HeroSelector
 
 import HashMap
 import ClosureTimers
+import ClosureForGroups
+
+public boolean standard = false
+public boolean testing = false
+public boolean randomAll = false
 
 public integer array playHero
 
@@ -108,7 +113,7 @@ function randomButtonAction()
         BlzFrameSetEnable(BlzGetTriggerFrame(), false) //disable the clicked button
         BlzFrameSetEnable(BlzGetTriggerFrame(), true) //enable it again.
             
-        if bannsCount[0] == 3 and bannsCount[1] == 0 // random func
+        if bannsCount[0] == 3 and bannsCount[1] == 3 and standard == true // random func standard
             if GetLocalPlayer() == GetTriggerPlayer()
                 BlzFrameSetVisible(box, false)
 
@@ -116,22 +121,128 @@ function randomButtonAction()
 
             let randomHero = GetRandomInt(0, heroIndex-1)
 
-            udg_Hero[i] = CreateUnit(p, playHero[randomHero], GetRectCenterX(gg_rct_Rect1), GetRectCenterY(gg_rct_Rect1), 0)
+            udg_Hero[i+1] = CreateUnit(p, playHero[randomHero], GetRectCenterX(gg_rct_Rect1), GetRectCenterY(gg_rct_Rect1), 0)
             playHero[randomHero] = playHero[heroIndex-1]
             
             heroUnitCodeToIndex.put(playHero[randomHero], randomHero)
             heroIndex--
             doAfter(0.5) -> 
                 stopClickingAR = true
-    
+
+        if bannsCount[0] == 3 and bannsCount[1] == 0 and testing == true // random func testing
+            if GetLocalPlayer() == GetTriggerPlayer()
+                BlzFrameSetVisible(box, false)
+
+            rand[i]=true
+
+            let randomHero = GetRandomInt(0, heroIndex-1)
+
+            udg_Hero[i+1] = CreateUnit(p, playHero[randomHero], GetRectCenterX(gg_rct_Rect1), GetRectCenterY(gg_rct_Rect1), 0)
+            playHero[randomHero] = playHero[heroIndex-1]
+            
+            heroUnitCodeToIndex.put(playHero[randomHero], randomHero)
+            heroIndex--
+            doAfter(0.5) -> 
+                stopClickingAR = true
+
+        if bannsCount[0] == 3 and bannsCount[1] == 3 and randomAll == true // random all func standard
+            if GetLocalPlayer() == GetTriggerPlayer()
+                BlzFrameSetVisible(box, false)
+
+            rand[i]=true
+
+            let randomHero = GetRandomInt(0, heroIndex-1)
+
+            udg_Hero[i+1] = CreateUnit(p, playHero[randomHero], GetRectCenterX(gg_rct_Rect1), GetRectCenterY(gg_rct_Rect1), 0)
+            playHero[randomHero] = playHero[heroIndex-1]
+            
+            heroUnitCodeToIndex.put(playHero[randomHero], randomHero)
+            heroIndex--
+            doAfter(0.5) -> 
+                stopClickingAR = true
+
     //else
         
         //BJDebugMsg("Please wait with picking until ban phase is over.")
     
     
+public function allRandom()
 
+    let r=gg_rct_Rect1
+    int i = 0
 
+    BlzFrameSetVisible(box, false)
 
+    udg_RM=true
+    forUnitsInRect(r) u ->
+        RemoveUnit(u)
+
+    while true
+
+    //if GetPlayerSlotState(Player(i)) == PLAYER_SLOT_STATE_PLAYING
+
+        rand[i]=true
+
+        let randomHero = GetRandomInt(0, heroIndex-1)
+        
+        udg_Hero[i+1] = CreateUnit(Player(i), playHero[randomHero], GetRectCenterX(gg_rct_Rect1), GetRectCenterY(gg_rct_Rect1), 0)
+        playHero[randomHero] = playHero[heroIndex-1]
+        
+        heroUnitCodeToIndex.put(playHero[randomHero], randomHero)
+        heroIndex--
+
+        rand[i] = true
+
+        if Player(i) == Player(0) or Player(i) == Player(1) or Player(i) == Player(2) or Player(i) == Player(3) or Player(i) == Player(4) 
+            GroupAddUnit(udg_CG[1], udg_Hero[i + 1])
+        else if Player(i) == Player(5) or Player(i) == Player(6) or Player(i) == Player(7) or Player(i) == Player(8) or Player(i) == Player(9) 
+            GroupAddUnit(udg_CG[2], udg_Hero[i + 1])
+        
+
+        i = i + 1
+        
+        if i == 10
+            break
+
+        TriggerSleepAction(0.25)
+        
+    //else
+    //    i = i + 1
+            
+    //    if i == 10
+    //        break
+    
+    ClearTextMessages()
+
+    print("                           |cffca6c6c• Team 1 •")
+    print("\n")
+
+    if GetPlayerSlotState(Player(0)) == PLAYER_SLOT_STATE_PLAYING
+        print("     -"+udg_Color[1]+" Player 1|r randomed "+GetUnitName(udg_Hero[1]))
+    else if GetPlayerSlotState(Player(1)) == PLAYER_SLOT_STATE_PLAYING
+        print("     -"+udg_Color[2]+" Player 2|r randomed "+GetUnitName(udg_Hero[2]))
+    else if GetPlayerSlotState(Player(2)) == PLAYER_SLOT_STATE_PLAYING
+        print("     -"+udg_Color[3]+" Player 2|r randomed "+GetUnitName(udg_Hero[3]))            
+    else if GetPlayerSlotState(Player(3)) == PLAYER_SLOT_STATE_PLAYING
+        print("     -"+udg_Color[4]+" Player 2|r randomed "+GetUnitName(udg_Hero[4]))
+    else if GetPlayerSlotState(Player(4)) == PLAYER_SLOT_STATE_PLAYING
+        print("     -"+udg_Color[5]+" Player 2|r randomed "+GetUnitName(udg_Hero[5]))
+
+    print("\n")
+    print("                           |cff8cb1ff• Team 2 •")
+    print("\n")
+
+    if GetPlayerSlotState(Player(5)) == PLAYER_SLOT_STATE_PLAYING
+        print("     -"+udg_Color[6]+" Player 6|r randomed "+GetUnitName(udg_Hero[6]))
+    else if GetPlayerSlotState(Player(6)) == PLAYER_SLOT_STATE_PLAYING
+        print("     -"+udg_Color[7]+" Player 7|r randomed "+GetUnitName(udg_Hero[7]))
+    else if GetPlayerSlotState(Player(7)) == PLAYER_SLOT_STATE_PLAYING
+        print("     -"+udg_Color[8]+" Player 8|r randomed "+GetUnitName(udg_Hero[8]))            
+    else if GetPlayerSlotState(Player(8)) == PLAYER_SLOT_STATE_PLAYING
+        print("     -"+udg_Color[9]+" Player 9|r randomed "+GetUnitName(udg_Hero[9]))
+    else if GetPlayerSlotState(Player(9)) == PLAYER_SLOT_STATE_PLAYING
+        print("     -"+udg_Color[10]+" Player 10|r randomed "+GetUnitName(udg_Hero[10]))
+            
 public function initHero()
 
     // 0 = Bleach
@@ -356,7 +467,7 @@ public function actionIconButton()
     integer bannButtonIndex
     let i=GetPlayerId(GetTriggerPlayer())
     let p=GetTriggerPlayer()
-    let randomHero = GetRandomInt(0, heroIndex-1)
+    let removeUnitFromRandomPool = heroUnitCodeToIndex.get(unitCode)
     
     BlzFrameSetEnable(BlzGetTriggerFrame(), false) //disable the clicked button
     BlzFrameSetEnable(BlzGetTriggerFrame(), true) //enable it again.
@@ -376,14 +487,19 @@ public function actionIconButton()
             heroUnitCodeToIndex.put(playHero[heroIndexToRemove], heroIndexToRemove)
             heroIndex--
 
-            if bannsCount[0] == 3 and bannsCount[1] == 0
-                stopClickingAR = true
-                stopClickingAP = true
+            if standard == true
+                if bannsCount[0] == 3 and bannsCount[1] == 3 // ban func standard
+                    stopClickingAR = true
+                    stopClickingAP = true
+            else if testing == true
+                if bannsCount[0] == 3 and bannsCount[1] == 0 // ban func testing
+                    stopClickingAR = true
+                    stopClickingAP = true
 
         else
             return
             
-    else if bannsCount[0] >= 3 and bannsCount[1] >= 0 // ban func
+    else if bannsCount[0] >= 3 and bannsCount[1] >= 3 and standard == true // ban func standard
 
         if stopClickingAP == true
             stopClickingAP = false
@@ -391,10 +507,25 @@ public function actionIconButton()
             if GetLocalPlayer() == GetTriggerPlayer()
                 BlzFrameSetVisible(box, false)
 
-            udg_Hero[i] = CreateUnit(p, unitCode, GetRectCenterX(gg_rct_Rect1), GetRectCenterY(gg_rct_Rect1), 0)
-            playHero[randomHero] = playHero[heroIndex-1]
-            
-            heroUnitCodeToIndex.put(playHero[randomHero], randomHero)
+            udg_Hero[i+1] = CreateUnit(p, unitCode, GetRectCenterX(gg_rct_Rect1), GetRectCenterY(gg_rct_Rect1), 0)
+            playHero[removeUnitFromRandomPool] = playHero[heroIndex-1]
+            heroUnitCodeToIndex.put(playHero[removeUnitFromRandomPool], removeUnitFromRandomPool)
+            heroIndex--
+
+            doAfter(0.5) ->
+                stopClickingAP = true
+
+    else if bannsCount[0] >= 3 and bannsCount[1] >= 0 and testing == true // ban func testing
+
+        if stopClickingAP == true
+            stopClickingAP = false
+
+            if GetLocalPlayer() == GetTriggerPlayer()
+                BlzFrameSetVisible(box, false)
+
+            udg_Hero[i+1] = CreateUnit(p, unitCode, GetRectCenterX(gg_rct_Rect1), GetRectCenterY(gg_rct_Rect1), 0)
+            playHero[removeUnitFromRandomPool] = playHero[heroIndex-1]
+            heroUnitCodeToIndex.put(playHero[removeUnitFromRandomPool], removeUnitFromRandomPool)
             heroIndex--
 
             doAfter(0.5) ->
@@ -486,6 +617,9 @@ public function create(integer index)
     trig = CreateTrigger()
     TriggerAddAction(trig, function randomButtonAction)
     BlzTriggerRegisterFrameEvent(trig, BlzGetFrameByName("IconButtonRandom", index), FRAMEEVENT_CONTROL_CLICK)
+
+    if GetClickedButton() == udg_Button[3]
+        allRandom()
 
 
 

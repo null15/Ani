@@ -1,74 +1,64 @@
 package Repick
 
 import HeroSelector
-
-integer y
-string repickCount = ""
+import AnimeShop
 
 init
 
     initTrig_Repick()
 
-function trig_Repick_Actions()
-
-    let i=GetPlayerId(GetTriggerPlayer())+1
-    integer j=0
-    let p=GetOwningPlayer(udg_Hero[i])
+function trig_Repick_Actions ()
+    let i=GetPlayerId(GetTriggerPlayer())
+    integer j = 0
+    let p=GetTriggerPlayer()
     item array t1
-    let lvl=GetHeroLevel(udg_Hero[i])
+    let lvl=GetHeroLevel(udg_Hero[i+1])
 
-    if rand[i-1]==true and udg_Repick[i]!=99 and udg_B==false and round < 30
-        sssb[i-1]=false
+    if rand[i]==true and udg_Repick[i]!=2 and udg_B==false 
+        sssb[i]=false
         while true
-            t1[j]=UnitRemoveItemFromSlot(udg_Hero[i],j)
-            if j == 5
+            t1[j]=UnitRemoveItemFromSlot(udg_Hero[i+1],j)
+            if j==5
                 break
             j=j+1
-
-        RemoveUnit(udg_Hero[i])
-        udg_Hero[i]=null
-        udg_Repick[i] = udg_Repick[i] + 1
-
-        while true
-            let randomHero = GetRandomInt(0, heroIndex-1)
-            if playHero[randomHero] != 0
-
-                udg_Hero[i] = CreateUnit(p, playHero[randomHero], GetRectCenterX(gg_rct_Rect1), GetRectCenterY(gg_rct_Rect1), 0)
-                playHero[randomHero] = playHero[heroIndex-1]
-
-                heroUnitCodeToIndex.put(playHero[randomHero], randomHero)
-                heroIndex--
-            
-                if Player(i-1)==Player(0)or Player(i-1)==Player(1)or Player(i-1)==Player(2)or Player(i-1)==Player(3)or Player(i-1)==Player(4)
-                    GroupAddUnit(udg_CG[1],udg_Hero[i])
-                else if Player(i-1)==Player(5)or Player(i-1)==Player(6)or Player(i-1)==Player(7)or Player(i-1)==Player(8)or Player(i-1)==Player(9)
-                    GroupAddUnit(udg_CG[2],udg_Hero[i])
-            
-            break
-
-        j=0
         
+        RemoveUnit(udg_Hero[i+1])
+        udg_Hero[i+1]=null
+        udg_Repick[i]=udg_Repick[i]+0 // was +1
         while true
-            UnitAddItem(udg_Hero[i],t1[j])
-            if j == 5
+                
+            let randomHero = GetRandomInt(0, heroIndex-1)
+
+            udg_Hero[i+1]=CreateUnit(p,playHero[randomHero],GetRectCenterX(gg_rct_Rect1),GetRectCenterY(gg_rct_Rect1),0)
+            playerShopUI[i].setInventoryUnit(udg_Hero[i+1])  
+            playHero[randomHero] = playHero[heroIndex-1]
+            heroUnitCodeToIndex.put(playHero[randomHero], randomHero)
+            heroIndex--
+
+            if Player(i)==Player(0)or Player(i)==Player(1)or Player(i)==Player(2)or Player(i)==Player(3)or Player(i)==Player(4)
+                GroupAddUnit(udg_CG[1],udg_Hero[i+1])
+            else if Player(i)==Player(5)or Player(i)==Player(6)or Player(i)==Player(7)or Player(i)==Player(8)or Player(i)==Player(9)
+                GroupAddUnit(udg_CG[2],udg_Hero[i+1])
+            
+        
+            if udg_Hero[i+1]!=null
+                break
+        
+        j=0
+        while true
+            UnitAddItem(udg_Hero[i+1],t1[j])
+            if j==5
                 break
             j=j+1
-
-        repickCount = I2S(udg_Repick[i])
-        SetHeroLevel(udg_Hero[i],lvl,false)
-
-        DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player"+udg_Color[i]+" ("+GetPlayerName(p)+")|r has repicked their hero into "+GetUnitName(udg_Hero[i]) + "|r.")
-        DisplayTextToPlayer(p,0,0,"\n|cff8ad48eRepick Count:|r [" + repickCount + "/15]")
-
+        
+        SetHeroLevel(udg_Hero[i+1],lvl,false)
+        DisplayTextToPlayer(GetLocalPlayer(),0,0,"Player "+udg_Color[i]+GetPlayerName(p)+"|r repicked into "+GetUnitName(udg_Hero[i+1]))
     else
-        repickCount = I2S(udg_Repick[i])
-        DisplayTextToPlayer(p,0,0,"Either you are not at |cffbb4ea9base|r, did not |cff9e4040random|r, played for more than |cff5398d85 rounds|r or used up your repicks.")
-        DisplayTextToPlayer(p,0,0,"\n|cffd88c4eRepick Count:|r [" + repickCount + "/15]")
+        DisplayTextToPlayer(p,0,0,"You cannot change hero.")
 
-function initTrig_Repick()
+function initTrig_Repick ()
     gg_trg_Repick.destr()
     gg_trg_Repick=CreateTrigger()
-
     TriggerRegisterPlayerChatEvent(gg_trg_Repick,Player(0),"-repick",true)
     TriggerRegisterPlayerChatEvent(gg_trg_Repick,Player(1),"-repick",true)
     TriggerRegisterPlayerChatEvent(gg_trg_Repick,Player(2),"-repick",true)
@@ -82,4 +72,3 @@ function initTrig_Repick()
     TriggerRegisterPlayerChatEvent(gg_trg_Repick,Player(10),"-repick",true)
     TriggerRegisterPlayerChatEvent(gg_trg_Repick,Player(11),"-repick",true)
     TriggerAddAction(gg_trg_Repick,function trig_Repick_Actions)
-

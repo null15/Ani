@@ -1,0 +1,206 @@
+package Swap
+
+import ClosureTimers
+
+item array t1
+item array t2
+
+bool swap = false
+bool swapdone = false
+
+trigger gg_trg_SwapYes
+trigger gg_trg_SwapNo
+
+int swapTo
+integer array swapRequested
+integer array swapRequester
+
+bool swapTimeout = false
+
+int o
+
+init
+
+    initTrig_SwapHeroes()
+
+
+function trig_SwapHeroes_Actions ()
+    let p=GetTriggerPlayer()
+    let i=GetPlayerId(p)+1
+    let j=S2I(SubString(GetEventPlayerChatString(),6,8))
+    let idu=GetUnitTypeId(udg_Hero[i])
+
+    if j>=1 and j<13 and i!=j and IsPlayerAlly(Player(j-1),Player(i-1))and udg_B==false and udg_Swap[j]==false and udg_Swap[i]==false and GetPlayerSlotState(Player(j-1))==PLAYER_SLOT_STATE_PLAYING and udg_Hero[j]!=null and swapTimeout == false
+        if idu != 'H07R' and idu != 'H06X' and idu != 'H06V' and idu != 'H06Z' and idu != 'H06W' and idu != 'H06P' and idu != 'H05E' and idu != 'H07A' and idu != 'H07D' and idu != 'H07B' and idu != 'H06R' and idu != 'H06S' and idu != 'H070' and idu != 'H06Q' and idu != 'H06N' and idu != 'H05B' and idu != 'H06D' and idu != 'H064' and idu != 'H065' and idu != 'H000' and idu != 'H05X' and idu != 'H05Y'
+            DisplayTextToPlayer(Player(j-1),0,0,"Player "+udg_Color[i]+GetPlayerName(Player(i-1))+"  "+GetUnitName(udg_Hero[i])+"|r -yes,-no.")
+            DisplayTextToPlayer(Player(0),0,0,I2S(j))
+            DisplayTextToPlayer(Player(0),0,0,I2S(i))
+            o = j
+            udg_Swap[j]=true
+            udg_Swap[i]=true
+            udg_SwapId[j]=i
+            swapTimeout = true
+        else
+            DisplayTimedTextToPlayer(p, 0, 0, 5, "|cffff2626OBS!|r Please disable your skin before trying to swap.")
+
+function trig_SwapOk_Actions ()
+    let p=GetTriggerPlayer()
+    let i=GetPlayerId(p)+1
+    item array t1
+    item array t2
+    unit u1
+    unit u2
+    if GetEventPlayerChatString()=="-yes"and udg_B==false and udg_Swap[i]==true and udg_Swap[udg_SwapId[i]]==true 
+        for j = 0 to 5
+            t1[j]=UnitRemoveItemFromSlot(udg_Hero[i],j)
+            t2[j]=UnitRemoveItemFromSlot(udg_Hero[udg_SwapId[i]],j)
+
+        for j = 0 to 5
+            UnitAddItem(udg_Hero[i],t2[j])
+            UnitAddItem(udg_Hero[udg_SwapId[i]],t1[j])
+        
+        SetUnitOwner(udg_Hero[i],Player(udg_SwapId[i]-1),true)
+        SetUnitOwner(udg_Hero[udg_SwapId[i]],Player(i-1),true)
+        u1=udg_Hero[i]
+        u2=udg_Hero[udg_SwapId[i]]
+        udg_Hero[i]=u2
+        udg_Hero[udg_SwapId[i]]=u1
+        udg_Swap[udg_SwapId[i]]=false
+        udg_Swap[i]=false
+
+        SetUnitPosition(u1,GetRectCenterX(gg_rct_Rect1),GetRectCenterY(gg_rct_Rect1))
+        SetUnitPosition(u2,GetRectCenterX(gg_rct_Rect1),GetRectCenterY(gg_rct_Rect1))
+
+    else if GetEventPlayerChatString()=="-no" and udg_B==false 
+        udg_Swap[udg_SwapId[i]]=false
+        udg_Swap[i]=false
+
+    doAfter(10) -> 
+        if swapTimeout == true
+            udg_Swap[o]=false
+            udg_Swap[i]=false
+            swapTimeout = false
+
+            print("|cff463636Swap is now available")
+
+function initTrig_SwapHeroes()
+    gg_trg_SwapHeroes=CreateTrigger()
+    gg_trg_SwapYes=CreateTrigger()
+    gg_trg_SwapNo=CreateTrigger()
+
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapHeroes, Player(0), "-swap ", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapHeroes, Player(1), "-swap ", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapHeroes, Player(2), "-swap ", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapHeroes, Player(3), "-swap ", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapHeroes, Player(4), "-swap ", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapHeroes, Player(5), "-swap ", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapHeroes, Player(6), "-swap ", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapHeroes, Player(7), "-swap ", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapHeroes, Player(8), "-swap ", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapHeroes, Player(9), "-swap ", false)
+    TriggerAddAction(gg_trg_SwapHeroes, function trig_SwapHeroes_Actions)
+
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapYes, Player(0), "-yes", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapYes, Player(1), "-yes", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapYes, Player(2), "-yes", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapYes, Player(3), "-yes", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapYes, Player(4), "-yes", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapYes, Player(5), "-yes", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapYes, Player(6), "-yes", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapYes, Player(7), "-yes", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapYes, Player(8), "-yes", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapYes, Player(9), "-yes", false)
+    TriggerAddAction(gg_trg_SwapYes, function trig_SwapOk_Actions)
+
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapYes, Player(0), "-no", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapYes, Player(1), "-no", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapYes, Player(2), "-no", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapYes, Player(3), "-no", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapYes, Player(4), "-no", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapYes, Player(5), "-no", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapYes, Player(6), "-no", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapYes, Player(7), "-no", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapYes, Player(8), "-no", false)
+    TriggerRegisterPlayerChatEvent(gg_trg_SwapYes, Player(9), "-no", false)
+    TriggerAddAction(gg_trg_SwapNo, function trig_SwapOk_Actions)
+
+
+
+
+/*
+
+
+function trig_SwapHeroes_Actions()
+    let p=GetTriggerPlayer()
+    let i=GetPlayerId(p) +1
+    let j=S2I(SubString(GetEventPlayerChatString(), 6, 8))
+
+    if swap == false and j < 11 and j != GetPlayerId(GetTriggerPlayer())
+
+        swap = true
+
+        swapRequester[j] = i
+
+        print("Swap initiated. Write -yes or undefined")
+
+        doAfter(10) ->
+            if swap == true 
+                swap = false
+                print("Swap is now available again.")
+
+            
+
+
+    if j >= 1 and j < 13 and i != j and IsPlayerAlly(Player(j - 1), Player(i - 1)) and udg_B == false and udg_Swap[j] == false and udg_Swap[i] == false and GetPlayerSlotState(Player(j - 1)) == PLAYER_SLOT_STATE_PLAYING and udg_Hero[j] != null 
+        
+        print("This went through.")
+
+        DisplayTextToPlayer(Player(j - 1), 0, 0, "Player " + udg_Color[i] + GetPlayerName(Player(i - 1)) + "  " + GetUnitName(udg_Hero[i]) + "|r -ok,-no.")
+        DisplayTextToPlayer(Player(0), 0, 0, I2S(j))
+        DisplayTextToPlayer(Player(0), 0, 0, I2S(i))
+        udg_Swap[j]=true
+        udg_Swap[i]=true
+        udg_SwapId[j]=i
+        trig_SwapOk_Actions()
+
+
+function swapYes()
+    let p=GetTriggerPlayer()
+    let i=GetPlayerId(p) +1
+    unit u1
+    unit u2
+
+    if GetEventPlayerChatString() == "-yes" and GetTriggerPlayer() == Player(o) and swap == true and IsPlayerAlly(p, Player(i)) and GetPlayerSlotState(p) == PLAYER_SLOT_STATE_PLAYING and udg_B == false
+
+        if swap == true and swapdone == false
+
+            for x = 0 to 5
+                t1[x]=UnitRemoveItemFromSlot(udg_Hero[i], x) // teal has to write -yes, --> this is teal
+                t2[x]=UnitRemoveItemFromSlot(udg_Hero[swapRequester[i]], x) // assume -swap 2 -> its teal
+
+            for x = 0 to 5
+                UnitAddItem(udg_Hero[i], t2[x])
+                UnitAddItem(udg_Hero[swapRequester[i]], t1[x])
+
+            SetUnitOwner(udg_Hero[i], Player(swapRequester[i] - 1), true)
+            SetUnitOwner(udg_Hero[swapRequester[i]], Player(i - 1), true)
+
+            u1=udg_Hero[i]
+            u2=udg_Hero[swapRequester[i]]
+            udg_Hero[i]=u2
+            udg_Hero[swapRequester[i]]=u1
+            
+            SetUnitPosition(u1, GetRectCenterX(gg_rct_Rect1), GetRectCenterY(gg_rct_Rect1))
+            SetUnitPosition(u2, GetRectCenterX(gg_rct_Rect1), GetRectCenterY(gg_rct_Rect1))
+
+            swapdone = true
+
+            print("Swap is done.")
+
+            doAfter(10) -> 
+                swap = false
+                swapdone = false
+
+    else
+        print("one of the conditions did not pass")
+*/

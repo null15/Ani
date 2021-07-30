@@ -1,0 +1,36 @@
+Frame "FRAME" "SuperParentSkin" {
+	Width 0.2,
+	Height 0.2,
+	LayerStyle "IGNORETRACKEVENTS",
+	Frame "GLUETEXTBUTTON" "ChangeSkin" {
+		Width 0.025,
+		Height 0.025,
+		ControlStyle "AUTOTRACK|HIGHLIGHTONMOUSEOVER",
+		UseActiveContext,
+		SetPoint BOTTOMLEFT, "SuperParentSkin", BOTTOMLEFT, 0.0000, 0.0000,
+		ControlBackdrop "ChangeSkinBackdrop",
+		Frame "BACKDROP" "ChangeSkinBackdrop" {
+			BackdropBackground "ui\glues\singleplayer\undeadcampaign3d\ice3b_ice3b",
+		}
+		ControlDisabledBackdrop "ChangeSkinBackdropDisabled",
+		Frame "BACKDROP" "ChangeSkinBackdropDisabled" {
+			BackdropBackground "ui\glues\singleplayer\undeadcampaign3d\ice3b_ice3b",
+		}
+		ControlPushedBackdrop "ChangeSkinBackdropPushed",
+		Frame "BACKDROP" "ChangeSkinBackdropPushed" {
+			BackdropBackground "ui\glues\singleplayer\undeadcampaign3d\ice3b_ice3b",
+			BackdropBackgroundInsets 0.002 0.002 0.002 0.002,
+		}
+		ControlMouseOverHighlight "ButtonHighLight",
+		Frame "HIGHLIGHT" "ButtonHighLight" {
+			HighlightType "FILETEXTURE",
+			HighlightAlphaFile "ui\widgets\console\human\commandbutton\human-activebutton",
+			HighlightAlphaMode "ADD",
+		}
+		ButtonText "BText_XX",
+		Frame "TEXT" "BText_XX" {
+			DecorateFileNames,
+			FrameFont "MasterFont", 0.0000001, "",
+		}
+	}
+}

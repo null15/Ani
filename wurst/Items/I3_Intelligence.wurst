@@ -1,6 +1,8 @@
 package I3_Intelligence
 
 import ItemConfiguration
+import ItemConfigurationCompiletime
+import ItemColors
 import Execute
 
 public integer inte

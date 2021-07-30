@@ -1,6 +1,8 @@
 package I0_Universal
 
 import ItemConfiguration
+import ItemConfigurationCompiletime
+import ItemColors
 import Execute
 
 public integer univ
@@ -8,16 +10,35 @@ public integer univ
 constant CATEGORY = 0
 init
  
-    execute() ->
+    execute() -> 
 
         setupItem('I020', CATEGORY, 4250) // Staff of Darkness
         addRequirement('I06C') // 
+        setInfo(ITEMNAME+"Staff of Darkness|r",
+        ITEMACTIVE+"Active|r"+ITEMDESC+": Locks target in place, unable to move within 400 radius.|n"+ 
+        ITEMPASSIVE+"Passive|r"+ITEMDESC+": Enemies within 600 radius will have their attack reduced, scales on their base attack.|n|n"+ 
+
+        ITEMDESC+"• 100% "+ITEMAS+"Attack Speed|n"+
+        ITEMDESC+"• 60 "+ITEMATK+"Attack|n"+
+        ITEMDESC+"• 30 "+ITEMALLSTATS+"All Stats|n|n"+
+
+        ITEMMP+"Mana|r"+ITEMDESC+": 50|n"+
+        ITEMRANGE+"Range|r"+ITEMDESC+": 700|n"+ 
+        ITEMCD+"Cooldown|r"+ITEMDESC+": 30")
+
 
         setupItem('I04T', CATEGORY, 4500) // Yata Mirror
         addRequirement('I03Z') // 
         addRequirement('I03Y') // 
         addRequirement('I01M') // 
         addRequirement('I01M') // 
+        setInfo(ITEMNAME+"Yata Mirror|r",
+        ITEMPASSIVE+"Passive|r"+ITEMDESC+": Returns 35% of damage received to the triggering enemy.|n|n"+ 
+
+        ITEMDESC+"• 50% "+ITEMMP+"Mana Regeneration|n"+
+        ITEMDESC+"• 40 "+ITEMALLSTATS+"All Stats|n|n"+
+
+        ITEMCD+"Cooldown|r"+ITEMDESC+": 30")
 
         setupItem('I03Q', CATEGORY, 4500) // Orb of Space
         addRequirement('I01M') // 
@@ -26,82 +47,252 @@ init
         setupItem('I03P', CATEGORY, 4500) // Orb of Time
         addRequirement('I01M') // 
         addRequirement('I06C') // 
+        setInfo(ITEMNAME+"Orb of Time|r",
+
+        ITEMACTIVE+"Active|r"+ITEMDESC+": Teleports your hero back to where it was 4 seconds ago.|n|n"+ 
+            
+        ITEMDESC+"• 35 "+ITEMALLSTATS+"All Stats|n|n"+
+
+        ITEMMP+"Mana|r"+ITEMDESC+": 50|n"+
+        ITEMCD+"Cooldown|r"+ITEMDESC+": 20")
 
         setupItem('I03R', CATEGORY, 4500) // Orb of Void
         addRequirement('I01M') // 
         addRequirement('I06C') // 
+        setInfo(ITEMNAME+"Orb of Void|r",
+        ITEMPASSIVE+"Passive|r"+ITEMDESC+":Blocks damage higher than 200 once each 25 seconds.|n|n"+ 
+            
+        ITEMDESC+"• 35 "+ITEMALLSTATS+"All Stats|n|n"+
+
+        ITEMCD+"Cooldown|r"+ITEMDESC+": 25")
         
         setupItem('I042', CATEGORY, 4700) // Captain Set
         addRequirement('I01I') // Sword B
         addRequirement('I02T') // Wind Orb
+        setInfo(ITEMNAME+"Captain Set|r",
+        ITEMACTIVE+"Active|r"+ITEMDESC+": Teleports you to a target point up to 500 units away, then increases your movement speed by 25% for 4 seconds.|n|n"+ 
+            
+        ITEMDESC+"• 30 "+ITEMALLSTATS+"All Stats|n"+		
+        ITEMDESC+"• 15 "+ITEMHP+"HP Regeneration|n"+
+        ITEMDESC+"• 30 "+ITEMARMOR+"Armour|n|n"+
+    
+        ITEMMP+"Mana|r"+ITEMDESC+": 50|n"+
+        ITEMRANGE+"Range|r"+ITEMDESC+": 500|n"+ 
+        ITEMCD+"Cooldown|r"+ITEMDESC+": 20")
 
         setupItem('I02Q', CATEGORY, 4750) // Hell Malocchio Ring
         addRequirement('I02P') // Fake Malocchio Ring
+        setInfo(ITEMNAME+"Hell Malocchio Ring|r",
+        ITEMACTIVE+"Active|r"+ITEMDESC+": Immunity to melee attacks for 4 seconds |n"+ 
+        ITEMPASSIVE+"Passive|r"+ITEMDESC+":Grants 2 armour aura to your hero.|n|n"+ 
+            
+        ITEMDESC+"• 20 "+ITEMALLSTATS+"All Stats|n"+
+        ITEMDESC+"• 750 "+ITEMHP+"HP|n"+
+        ITEMDESC+"• 25 "+ITEMHP+"HP Regeneration|n"+
+        ITEMDESC+"• 30 "+ITEMARMOR+"Armour|n|n"+
+    
+        ITEMMP+"Mana|r"+ITEMDESC+": 50|n"+
+        ITEMCD+"Cooldown|r"+ITEMDESC+": 30")
 
         setupItem('I05B', CATEGORY, 4750) // Mare Thunder Ring
         addRequirement('I05A') // 
+        setInfo(ITEMNAME+"Mare Thunder Ring|r",
+        ITEMACTIVE+"Active|r"+ITEMDESC+": Burns 12.5% of enemy's max mana pool in a 1100 unit radius. If the enemy unit is below 50 mana before you use the ring, they will be stunned for 2 seconds. |n"+ 
+        ITEMPASSIVE+"Passive|r"+ITEMDESC+":If you receive damage higher than 7.5% of your max HP in a single attack, the attacking unit will be stunned for 1 second. |n|n"+ 
+            
+        ITEMDESC+"• 30 "+ITEMALLSTATS+"All Stats|n"+
+        ITEMDESC+"• 500 "+ITEMMP+"MP|n|n"+
+    
+        ITEMMP+"Mana|r"+ITEMDESC+": 100|n"+
+        ITEMCD+"Cooldown|r"+ITEMDESC+": 30")
 
         setupItem('I01E', CATEGORY, 4750) // Vongola Sky Ring
         addRequirement('I01D') // 
+        setInfo(ITEMNAME+"Vongola Sky Ring|r",
+        ITEMACTIVE+"Active|r"+ITEMDESC+": Silences an enemy and slows their attack speed and movement speed by 50% for 3 seconds, also deals 2*All Stats damage to the enemy. n|n"+
+            
+        ITEMDESC+"• 30 "+ITEMALLSTATS+"All Stats|n"+
+        ITEMDESC+"• 50 "+ITEMATK+"Attack|n"+
+        ITEMDESC+"• 15 "+ITEMARMOR+"Armour|n|n"+
+    
+        ITEMMP+"Mana|r"+ITEMDESC+": 50|n"+
+        ITEMRANGE+"Range|r"+ITEMDESC+": 900|n"+ 
+        ITEMCD+"Cooldown|r"+ITEMDESC+": 25")
 
         setupItem('I043', CATEGORY, 4800) // Orb of Blood
         addRequirement('I033') // 
         addRequirement('I06L') // 
         addRequirement('I06M') // 
+        setInfo(ITEMNAME+"Orb of Blood|r",
+        ITEMACTIVE+"Active|r"+ITEMDESC+": Drains 10% of enemies' current HP in a 1000 radius around you and transfers 50% of it to you. n|n"+
+            
+        ITEMDESC+"• 2000 "+ITEMHP+"HP|n"+
+        ITEMDESC+"• 2000 "+ITEMMP+"MP|n"+
+        ITEMDESC+"• 15 "+ITEMHP+"HP Regeneration|n"+
+        ITEMDESC+"• 150% "+ITEMMP+"MP Regeneration|n|n"+
+    
+        ITEMRANGE+"Range|r"+ITEMDESC+": 1750|n"+ 
+        ITEMCD+"Cooldown|r"+ITEMDESC+": 25")
 
         setupItem('I04L', CATEGORY, 4900) // Ice Essence
         addRequirement('I02S') // 
         addRequirement('I01M') // 
         addRequirement('I02S') // 
+        setInfo(ITEMNAME+"Ice Essence|r",
+        ITEMACTIVE+"Active|r"+ITEMDESC+": Prevents the enemy from restoring their HP for 7 seconds, and also deals 1% their max HP per second for the duration. n|n"+
+            
+        ITEMDESC+"• 20 "+ITEMALLSTATS+"All Stats|n"+
+        ITEMDESC+"• 1200 "+ITEMHP+"HP|n|n"+
+
+        ITEMMP+"Mana|r"+ITEMDESC+": 100|n"+
+        ITEMRANGE+"Range|r"+ITEMDESC+": 700|n"+ 
+        ITEMCD+"Cooldown|r"+ITEMDESC+": 25")
 
         setupItem('I06J', CATEGORY, 5000) // Quincy Set
+        setInfo(ITEMNAME+"Quincy Set|r",
+        ITEMACTIVE+"Active|r"+ITEMDESC+": If an enemy uses an item or an ability within 7 seconds, their items and abilities will be silenced for 3 seconds.|n"+ 
+        ITEMPASSIVE+"Passive|r"+ITEMDESC+":Burns 0.5% of enemy's max MP per second in a 500 unit radius around you. |n|n"+ 
+            
+        ITEMDESC+"• 35 "+ITEMALLSTATS+"All Stats|n"+
+        ITEMDESC+"• 25% "+ITEMMS+"Movement Speed|n|n"+
+    
+        ITEMMP+"Mana|r"+ITEMDESC+": 200|n"+
+        ITEMRANGE+"Range|r"+ITEMDESC+": 900|n"+ 
+        ITEMCD+"Cooldown|r"+ITEMDESC+": 30")
 
         setupItem('I036', CATEGORY, 5000) // Madao Set
+        setInfo(ITEMNAME+"Madao Set|r",
+        ITEMACTIVE+"Active|r"+ITEMDESC+": Reveals invisible units in a 2000 unit radius around you for 10 seconds. n|n"+ 
+            
+        ITEMDESC+"• 25 "+ITEMALLSTATS+"All Stats|n"+
+        ITEMDESC+"• 650 "+ITEMHP+"HP|n"+
+        ITEMDESC+"• 15 "+ITEMHP+"HP Regeneration|n"+
+        ITEMDESC+"• 40% "+ITEMMP+"MP Regeneration|n"+
+        ITEMDESC+"• 60 "+ITEMATK+"Attack|n"+
+        ITEMDESC+"• 30 "+ITEMARMOR+"Armour|n|n"+
+    
+        ITEMRANGE+"Range|r"+ITEMDESC+": 2000|n"+ 
+        ITEMCD+"Cooldown|r"+ITEMDESC+": 20")
 
         setupItem('I06Q', CATEGORY, 5000) // Kaleidoscope Ruby
         addRequirement('I01W') // 
         addRequirement('I01W') // 
         addRequirement('I06C') // 
+        setInfo(ITEMNAME+"Kaleidoscope Ruby|r",
+        ITEMACTIVE+"Active|r"+ITEMDESC+": Shoots a beam in the target direction, dealing 2*All Stats damage to enemy units. |n"+ 
+        ITEMPASSIVE+"Passive|r"+ITEMDESC+":Decreases enemies' magic resistance by 15% in a 1000 unit radius around you. |n|n"+ 
+            
+        ITEMDESC+"• 35 "+ITEMALLSTATS+"All Stats|n|n"+
+
+        ITEMMP+"Mana|r"+ITEMDESC+": 50|n"+
+        ITEMRANGE+"Range|r"+ITEMDESC+": 2000|n"+ 
+        ITEMCD+"Cooldown|r"+ITEMDESC+": 15")
 
         setupItem('I06R', CATEGORY, 5000) // Kaleidoscope Sapphire
         addRequirement('I01W') // 
         addRequirement('I01W') // 
         addRequirement('I06C') // 
+        setInfo(ITEMNAME+"Kaleidoscope Sapphire|r",
+        ITEMACTIVE+"Active|r"+ITEMDESC+": After 3 seconds, dispels buffs and transformations from the enemy unit. |n"+ 
+        ITEMPASSIVE+"Passive|r"+ITEMDESC+":Increases allies' magic resistance by 20% in a 1000 unit radius around you. |n|n"+ 
+            
+        ITEMDESC+"• 35 "+ITEMALLSTATS+"All Stats|n|n"+
+
+        ITEMMP+"Mana|r"+ITEMDESC+": 100|n"+
+        ITEMRANGE+"Range|r"+ITEMDESC+": 700|n"+ 
+        ITEMCD+"Cooldown|r"+ITEMDESC+": 30")
 
         setupItem('I04G', CATEGORY, 5000) // Tornado
         addRequirement('I02T') // 
         addRequirement('I01X') // 
         addRequirement('I01X') // 
+        setInfo(ITEMNAME+"Tornado Staff|r",
+        ITEMACTIVE+"Active|r"+ITEMDESC+":Sweeps a target unit up into a cyclone, making them invulnerable. Lasts 2.5 seconds on a hero unit and 5 seconds on non-hero units. |n|n"+
+            
+        ITEMDESC+"• 30 "+ITEMALLSTATS+"All Stats|n|n"+
+
+        ITEMMP+"Mana|r"+ITEMDESC+": 50|n"+
+        ITEMRANGE+"Range|r"+ITEMDESC+": 600|n"+ 
+        ITEMCD+"Cooldown|r"+ITEMDESC+": 30")
 
         setupItem('I02W', CATEGORY, 5400) // Fire Boots
         addRequirement('I01X') // 
         addRequirement('I02R') // 
         addRequirement('I01M') // 
         addRequirement('I01F') // 
+        setInfo(ITEMNAME+"Fire Boots|r",
+        ITEMACTIVE+"Active|r"+ITEMDESC+":Allows you to overcome your maximum movement speed for 2.5 seconds, giving you bonus movement speed scaling with your agility*0.5 and leaving a damaging fire trail behind you. |n|n"+
+            
+        ITEMDESC+"• 30 "+ITEMALLSTATS+"All Stats|n"+
+        ITEMDESC+"• 200 "+ITEMMS+"Movement Speed|n|n"+
+    
+        ITEMMP+"Mana|r"+ITEMDESC+": 250|n"+
+        ITEMCD+"Cooldown|r"+ITEMDESC+": 60")
 
         setupItem('I054', CATEGORY, 5400) // Ice Boots
         addRequirement('I01X') // 
         addRequirement('I02S') // 
         addRequirement('I01M') // 
         addRequirement('I01F') // 
+        setInfo(ITEMNAME+"Ice Boots|r",
+        ITEMACTIVE+"Active|r"+ITEMDESC+": Restores 20% of your max MP pool, and also prevents you from losing mana for 5 seconds after use. |n|n"+
+            
+        ITEMDESC+"• 30 "+ITEMALLSTATS+"All Stats|n"+
+        ITEMDESC+"• 300 "+ITEMMS+"Movement Speed|n|n"+
+    
+        ITEMCD+"Cooldown|r"+ITEMDESC+": 40")
 
         setupItem('I046', CATEGORY, 5400) // Wind Boots
         addRequirement('I01X') // 
         addRequirement('I02T') // 
         addRequirement('I01M') // 
         addRequirement('I01F') // 
+        setInfo(ITEMNAME+"Wind Boots|r",
+        ITEMACTIVE+"Active|r"+ITEMDESC+":Pushes you forward 600 units in the direction you are facing and boosts your movement speed by 25% for 4 seconds. |n|n"+
+            
+        ITEMDESC+"• 30 "+ITEMALLSTATS+"All Stats|n"+
+        ITEMDESC+"• 200 "+ITEMMS+"Movement Speed|n|n"+
+    
+        ITEMMP+"Mana|r"+ITEMDESC+": 100|n"+
+        ITEMCD+"Cooldown|r"+ITEMDESC+": 10")
 
         setupItem('I03A', CATEGORY, 5700) // Alastor
         addRequirement('I02R')
         addRequirement('I02S')
         addRequirement('I02T')
+        setInfo(ITEMNAME+"Alastor|r",
+        ITEMACTIVE+"Active|r"+ITEMDESC+": Causes your hero to disappear for half a second, after which it creates an illusion which deals 33% damage and takes 200% damage. Removes buffs, transformations and debuffs from your hero. |n"+ 
+        ITEMPASSIVE+"Passive|r"+ITEMDESC+":Deals 100 damage per second to all enemies around you in a 700 unit radius. |n|n"+ 
+            
+        ITEMDESC+"• 35 "+ITEMALLSTATS+"All Stats|n"+
+        ITEMDESC+"• 40 "+ITEMHP+"HP Regeneration|n|n"+
+            
+        ITEMMP+"Mana|r"+ITEMDESC+": 75|n"+
+        ITEMCD+"Cooldown|r"+ITEMDESC+": 30")
         
         setupItem('I044', CATEGORY, 5700) // Seal of Elements
         addRequirement('I02T') // 
         addRequirement('I02R') // 
         addRequirement('I02S') // 
+        setInfo(ITEMNAME+"Seal of Elements|r",
+        ITEMACTIVE+"Active|r"+ITEMDESC+": Reveals the target area for 1.7 seconds before sending a ray of energy from the sun which deals 4*All stats damage in the target area in a 200 radius.  |n|n"+ 
+            
+        ITEMDESC+"• 35 "+ITEMALLSTATS+"All Stats|n"+
+        ITEMDESC+"• 15 "+ITEMHP+"HP Regeneration|n"+
+        ITEMDESC+"• 10 "+ITEMARMOR+"Armour|n|n"+
+            
+        ITEMMP+"Mana|r"+ITEMDESC+": 500|n"+
+        ITEMRANGE+"Range|r"+ITEMDESC+": Global|n"+
+        ITEMCD+"Cooldown|r"+ITEMDESC+": 12")
 
         setupItem('I04V', CATEGORY, 6300) // Imagine Breaker
         addRequirement('I01M') // 
         addRequirement('I01K') // 
         addRequirement('I03I') // 
+        setInfo(ITEMNAME+"Imagine Breaker|r",
+        ITEMACTIVE+"Active|r"+ITEMDESC+": Grants immunity to negative effects for 3 seconds, and clears buffs and debuffs on use. Can be used while the hero is stunned if ESC hotkey is used. |n|n"+ 
+            
+        ITEMDESC+"• 35 "+ITEMALLSTATS+"All Stats|n"+
+        ITEMDESC+"• 600 "+ITEMHP+"HP|n|n"+
+            
+        ITEMCD+"Cooldown|r"+ITEMDESC+": 35")

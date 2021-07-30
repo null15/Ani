@@ -1,6 +1,8 @@
 package I7_BasicVongola
 
 import ItemConfiguration
+import ItemConfigurationCompiletime
+import ItemColors
 import Execute
 
 public integer vong
@@ -9,117 +11,278 @@ constant CATEGORY = 7
 
 init
 
-    execute() ->
+	execute() ->
 
-        setupItem('I00R', CATEGORY, 500) // Vongola Storm Ring D
-                
-        setupItem('I00S', CATEGORY, 1250) // Vongola Storm Ring C
-        addRequirement('I00R')
+	setupItem('I00R', CATEGORY, 500) // Vongola Storm Ring D		
+	setInfo(ITEMNAME+"Vongola Storm Ring D|r",
+		
+	ITEMDESC+"• 7 "+ITEMAGI+"Agility|n"+
+	ITEMDESC+"• 7 "+ITEMINT+"Intelligence|n"+
+	ITEMDESC+"• 25% "+ITEMMP+"MP Regeneration")
+		
+	setupItem('I00S', CATEGORY, 1250) // Vongola Storm Ring C
+	addRequirement('I00R')
+	setInfo(ITEMNAME+"Vongola Storm Ring C|r",
+		
+	ITEMDESC+"• 10 "+ITEMAGI+"Agility|n"+
+	ITEMDESC+"• 10 "+ITEMINT+"Intelligence|n"+
+	ITEMDESC+"• 50% "+ITEMMP+"MP Regeneration")
+		
+	setupItem('I00T', CATEGORY, 2000) // Vongola Storm Ring B
+	addRequirement('I00S')
+	setInfo(ITEMNAME+"Vongola Storm Ring B|r",
+		
+	ITEMDESC+"• 14 "+ITEMAGI+"Agility|n"+
+	ITEMDESC+"• 14 "+ITEMINT+"Intelligence|n"+
+	ITEMDESC+"• 40% "+ITEMMP+"MP Regeneration")
+		
+	setupItem('I00U', CATEGORY, 2750) // Vongola Storm Ring A
+	addRequirement('I00T')
+	setInfo(ITEMNAME+"Vongola Storm Ring A|r",
+		
+	ITEMDESC+"• 22 "+ITEMAGI+"Agility|n"+
+	ITEMDESC+"• 22 "+ITEMINT+"Intelligence|n"+
+	ITEMDESC+"• 100% "+ITEMMP+"MP Regeneration")
+		
+	setupItem('I00V', CATEGORY, 3500) // Vongola Storm Ring S
+	addRequirement('I00U')		
+	setInfo(ITEMNAME+"Vongola Storm Ring S|r",
+		
+	ITEMDESC+"• 27 "+ITEMAGI+"Agility|n"+
+	ITEMDESC+"• 27 "+ITEMINT+"Intelligence|n"+
+	ITEMDESC+"• 125% "+ITEMMP+"MP Regeneration")
+		
+	//////////////////////////
 
-        setupItem('I00T', CATEGORY, 2000) // Vongola Storm Ring B
-        addRequirement('I00S')
+	setupItem('I00L', CATEGORY, 1000) // Vongola Cloud Ring D		
+	setInfo(ITEMNAME+"Vongola Cloud Ring D|r",
+		
+	ITEMDESC+"• 5 "+ITEMSTR+"Strength|n"+
+	ITEMDESC+"• 10 "+ITEMAGI+"Agility")
+		
+	setupItem('I00M', CATEGORY, 1750) // Vongola Cloud Ring C
+	addRequirement('I00L')
+	setInfo(ITEMNAME+"Vongola Cloud Ring C|r",
+		
+	ITEMDESC+"• 10 "+ITEMSTR+"Strength|n"+
+	ITEMDESC+"• 15 "+ITEMAGI+"Agility")
+		
+	setupItem('I00N', CATEGORY, 2500) // Vongola Cloud Ring B
+	addRequirement('I00M')
+	setInfo(ITEMNAME+"Vongola Cloud Ring B|r",
+		
+	ITEMDESC+"• 15 "+ITEMSTR+"Strength|n"+
+	ITEMDESC+"• 20 "+ITEMAGI+"Agility")
+		
+	setupItem('I00O', CATEGORY, 3250) // Vongola Cloud Ring A
+	addRequirement('I00N')
+	setInfo(ITEMNAME+"Vongola Cloud Ring A|r",
+		
+	ITEMDESC+"• 20 "+ITEMSTR+"Strength|n"+
+	ITEMDESC+"• 25 "+ITEMAGI+"Agility")
+		
+	setupItem('I00P', CATEGORY, 4000) // Vongola Cloud Ring S
+	addRequirement('I00O')		
+	setInfo(ITEMNAME+"Vongola Cloud Ring S|r",
+		
+	ITEMDESC+"• 25 "+ITEMSTR+"Strength|n"+
+	ITEMDESC+"• 30 "+ITEMAGI+"Agility")
+		
+	//////////////////////////
 
-        setupItem('I00U', CATEGORY, 2750) // Vongola Storm Ring A
-        addRequirement('I00T')
+		
+	setupItem('I00F', CATEGORY, 1000) // Vongola Mist Ring D
+	setInfo(ITEMNAME+"Vongola Mist Ring D|r",
+		
+	ITEMDESC+"• 5 "+ITEMSTR+"Strength|n"+
+	ITEMDESC+"• 10 "+ITEMINT+"Intelligence")
+		
+	setupItem('I00G', CATEGORY, 1750) // Vongola Mist Ring C
+	addRequirement('I00F')
+	setInfo(ITEMNAME+"Vongola Mist Ring C|r",
+		
+	ITEMDESC+"• 10 "+ITEMSTR+"Strength|n"+
+	ITEMDESC+"• 15 "+ITEMINT+"Intelligence")
+		
+	setupItem('I00H', CATEGORY, 2500) // Vongola Mist Ring B
+	addRequirement('I00G')
+	setInfo(ITEMNAME+"Vongola Mist Ring B|r",
+		
+	ITEMDESC+"• 15 "+ITEMSTR+"Strength|n"+
+	ITEMDESC+"• 20 "+ITEMINT+"Intelligence")
+		
+	setupItem('I00I', CATEGORY, 3250) // Vongola Mist Ring A
+	addRequirement('I00H')
+	setInfo(ITEMNAME+"Vongola Mist Ring A|r",
+		
+	ITEMDESC+"• 20 "+ITEMSTR+"Strength|n"+
+	ITEMDESC+"• 25 "+ITEMINT+"Intelligence")
+		
+	setupItem('I00J', CATEGORY, 4000) // Vongola Mist Ring S
+	addRequirement('I00I')
+	setInfo(ITEMNAME+"Vongola Mist Ring S|r",
+		
+	ITEMDESC+"• 25 "+ITEMSTR+"Strength|n"+
+	ITEMDESC+"• 30 "+ITEMINT+"Intelligence")
+		
+	//////////////////////////
 
-        setupItem('I00V', CATEGORY, 3500) // Vongola Storm Ring S
-        addRequirement('I00U')
+	setupItem('I00X', CATEGORY, 1000) // Vongola Rain Ring D        
+	setInfo(ITEMNAME+"Vongola Rain Ring D|r",
+	ITEMPASSIVE+"Passive|r"+ITEMDESC+":Reduces damage received by 10%, and slows enemies' attack speed and movement speed by 30% in a 1000 unit radius.|n|n"+  
+		
+	ITEMDESC+"• 10 "+ITEMATK+"Attack|n"+
+	ITEMDESC+"• 10% "+ITEMAS+"Attack Speed")
+		
+	setupItem('I00Y', CATEGORY, 1750) // Vongola Rain Ring C
+	addRequirement('I00X')
+	setInfo(ITEMNAME+"Vongola Rain Ring C|r",
+	ITEMPASSIVE+"Passive|r"+ITEMDESC+":Reduces damage received by 13%, and slows enemies' attack speed and movement speed by 30% in a 1000 unit radius.|n|n"+ 
+		
+	ITEMDESC+"• 15 "+ITEMATK+"Attack|n"+
+	ITEMDESC+"• 20% "+ITEMAS+"Attack Speed")
+		
+	setupItem('I00Z', CATEGORY, 2500) // Vongola Rain Ring B
+	addRequirement('I00Y')		
+	setInfo(ITEMNAME+"Vongola Rain Ring B|r",
+	ITEMPASSIVE+"Passive|r"+ITEMDESC+":Reduces damage received by 16%, and slows enemies' attack speed and movement speed by 30% in a 1000 unit radius.|n|n"+ 
+		
+	ITEMDESC+"• 20 "+ITEMATK+"Attack|n"+
+	ITEMDESC+"• 30% "+ITEMAS+"Attack Speed")
+		
+	setupItem('I010', CATEGORY, 3250) // Vongola Rain Ring A
+	addRequirement('I00Z')
+	setInfo(ITEMNAME+"Vongola Rain Ring A|r",
+	ITEMPASSIVE+"Passive|r"+ITEMDESC+":Reduces damage received by 19%, and slows enemies' attack speed and movement speed by 30% in a 1000 unit radius.|n|n"+ 
+		
+	ITEMDESC+"• 25 "+ITEMATK+"Attack|n"+
+	ITEMDESC+"• 40% "+ITEMAS+"Attack Speed")
+		
+	setupItem('I011', CATEGORY, 4000) // Vongola Rain Ring S
+	addRequirement('I010')
+	setInfo(ITEMNAME+"Vongola Rain Ring S|r",
+	ITEMPASSIVE+"Passive|r"+ITEMDESC+": Reduces damage received by 22%, and slows enemies' attack speed and movement speed by 30% in a 1000 unit radius.|n|n"+
+		
+	ITEMDESC+"• 30 "+ITEMATK+"Attack|n"+
+	ITEMDESC+"• 50% "+ITEMAS+"Attack Speed")
+	//////////////////////////
+	
+	setupItem('I019', CATEGORY, 1000) // Vongola Sky Ring D
+	setInfo(ITEMNAME+"Vongola Sky Ring D|r",
+		
+	ITEMDESC+"• 9 "+ITEMALLSTATS+"All Stats|n"+
+	ITEMDESC+"• 10 "+ITEMATK+"Attack|n"+
+	ITEMDESC+"• 3 "+ITEMARMOR+"Armour")
+		
+	setupItem('I01A', CATEGORY, 1750) // Vongola Sky Ring C
+	addRequirement('I019')
+	setInfo(ITEMNAME+"Vongola Sky Ring C|r",
+		
+	ITEMDESC+"• 13 "+ITEMALLSTATS+"All Stats|n"+
+	ITEMDESC+"• 20 "+ITEMATK+"Attack|n"+
+	ITEMDESC+"• 6 "+ITEMARMOR+"Armour")
+		
+	setupItem('I01B', CATEGORY, 2500) // Vongola Sky Ring B
+	addRequirement('I01A')
+	setInfo(ITEMNAME+"Vongola Sky Ring B|r",
+		
+	ITEMDESC+"• 16 "+ITEMALLSTATS+"All Stats|n"+
+	ITEMDESC+"• 30 "+ITEMATK+"Attack|n"+
+	ITEMDESC+"• 9 "+ITEMARMOR+"Armour")
+		
+	setupItem('I01C', CATEGORY, 3250) // Vongola Sky Ring A
+	addRequirement('I01B')
+	setInfo(ITEMNAME+"Vongola Sky Ring A|r",
+		
+	ITEMDESC+"• 19 "+ITEMALLSTATS+"All Stats|n"+
+	ITEMDESC+"• 40 "+ITEMATK+"Attack|n"+
+	ITEMDESC+"• 12 "+ITEMARMOR+"Armour")
+		
+	setupItem('I01D', CATEGORY, 4000) // Vongola Sky Ring S
+	addRequirement('I01C')
+	setInfo(ITEMNAME+"Vongola Sky Ring S|r",
+		
+	ITEMDESC+"• 22 "+ITEMALLSTATS+"All Stats|n"+
+	ITEMDESC+"• 50 "+ITEMATK+"Attack|n"+
+	ITEMDESC+"• 15 "+ITEMARMOR+"Armour")
+		
+	//////////////////////////
 
-        //////////////////////////
+	setupItem('I007', CATEGORY, 1000) // Vongola Sun Ring D
+	setInfo(ITEMNAME+"Vongola Sun Ring D|r",
+		
+	ITEMDESC+"• 10 "+ITEMSTR+"Strength|n"+
+	ITEMDESC+"• 5 "+ITEMHP+"HP Regeneration")
+		
+	setupItem('I009', CATEGORY, 1750) // Vongola Sun Ring C
+	addRequirement('I007')
+	setInfo(ITEMNAME+"Vongola Sun Ring C|r",
+		
+	ITEMDESC+"• 15 "+ITEMSTR+"Strength|n"+
+	ITEMDESC+"• 10 "+ITEMHP+"HP Regeneration")
+		
+	setupItem('I00A', CATEGORY, 2500) // Vongola Sun Ring B
+	addRequirement('I009')
+	setInfo(ITEMNAME+"Vongola Sun Ring B|r",
+		
+	ITEMDESC+"• 20 "+ITEMSTR+"Strength|n"+
+	ITEMDESC+"• 15 "+ITEMHP+"HP Regeneration")
+		
+	setupItem('I00B', CATEGORY, 3250) // Vongola Sun Ring A
+	addRequirement('I00A')
+	setInfo(ITEMNAME+"Vongola Sun Ring A|r",
+		
+	ITEMDESC+"• 25 "+ITEMSTR+"Strength|n"+
+	ITEMDESC+"• 15 "+ITEMHP+"HP Regeneration")
+		
+	setupItem('I00C', CATEGORY, 4000) // Vongola Sun Ring S
+	addRequirement('I00B')
+	setInfo(ITEMNAME+"Vongola Sun Ring S|r",
+		
+	ITEMDESC+"• 30 "+ITEMSTR+"Strength|n"+
+	ITEMDESC+"• 25 "+ITEMHP+"HP Regeneration")		
+	//////////////////////////
 
-        setupItem('I00L', CATEGORY, 1000) // Vongola Cloud Ring D
-            
-        setupItem('I00M', CATEGORY, 1750) // Vongola Cloud Ring C
-        addRequirement('I00L')
+	setupItem('I013', CATEGORY, 1000) // Vongola Thunder Ring D
+	setInfo(ITEMNAME+"Vongola Thunder Ring D|r",
+		
+	ITEMDESC+"• 5 "+ITEMINT+"Intelligence|n"+
+	ITEMDESC+"• 300 "+ITEMHP+"HP|n"+
+	ITEMDESC+"• 5 "+ITEMARMOR+"Armour")
+		
+		
+	setupItem('I014', CATEGORY, 1750) // Vongola Thunder Ring C
+	addRequirement('I013')
+	setInfo(ITEMNAME+"Vongola Thunder Ring C|r",
 
-        setupItem('I00N', CATEGORY, 2500) // Vongola Cloud Ring B
-        addRequirement('I00M')
-
-        setupItem('I00O', CATEGORY, 3250) // Vongola Cloud Ring A
-        addRequirement('I00N')
-
-        setupItem('I00P', CATEGORY, 4000) // Vongola Cloud Ring S
-        addRequirement('I00O')
-
-        //////////////////////////
-
-        
-        setupItem('I00F', CATEGORY, 1000) // Vongola Mist Ring D
-            
-        setupItem('I00G', CATEGORY, 1750) // Vongola Mist Ring C
-        addRequirement('I00F')
-
-        setupItem('I00H', CATEGORY, 2500) // Vongola Mist Ring B
-        addRequirement('I00G')
-
-        setupItem('I00I', CATEGORY, 3250) // Vongola Mist Ring A
-        addRequirement('I00H')
-
-        setupItem('I00J', CATEGORY, 4000) // Vongola Mist Ring S
-        addRequirement('I00I')
-
-        //////////////////////////
-
-        setupItem('I00X', CATEGORY, 1000) // Vongola Rain Ring D
-            
-        setupItem('I00Y', CATEGORY, 1750) // Vongola Rain Ring C
-        addRequirement('I00X')
-
-        setupItem('I00Z', CATEGORY, 2500) // Vongola Rain Ring B
-        addRequirement('I00Y')
-
-        setupItem('I010', CATEGORY, 3250) // Vongola Rain Ring A
-        addRequirement('I00Z')
-
-        setupItem('I011', CATEGORY, 4000) // Vongola Rain Ring S
-        addRequirement('I010')
-
-        //////////////////////////
-
-        setupItem('I019', CATEGORY, 1000) // Vongola Sky Ring D
-            
-        setupItem('I01A', CATEGORY, 1750) // Vongola Sky Ring C
-        addRequirement('I019')
-
-        setupItem('I01B', CATEGORY, 2500) // Vongola Sky Ring B
-        addRequirement('I01A')
-
-        setupItem('I01C', CATEGORY, 3250) // Vongola Sky Ring A
-        addRequirement('I01B')
-
-        setupItem('I01D', CATEGORY, 4000) // Vongola Sky Ring S
-        addRequirement('I01C')
-
-        //////////////////////////
-
-        setupItem('I007', CATEGORY, 1000) // Vongola Sun Ring D
-            
-        setupItem('I009', CATEGORY, 1750) // Vongola Sun Ring C
-        addRequirement('I007')
-
-        setupItem('I00A', CATEGORY, 2500) // Vongola Sun Ring B
-        addRequirement('I009')
-
-        setupItem('I00B', CATEGORY, 3250) // Vongola Sun Ring A
-        addRequirement('I00A')
-
-        setupItem('I00C', CATEGORY, 4000) // Vongola Sun Ring S
-        addRequirement('I00B')
-
-        //////////////////////////
-
-        setupItem('I013', CATEGORY, 1000) // Vongola Thunder Ring D
-            
-        setupItem('I014', CATEGORY, 1750) // Vongola Thunder Ring C
-        addRequirement('I013')
-
-        setupItem('I015', CATEGORY, 2500) // Vongola Thunder Ring B
-        addRequirement('I014')
-
-        setupItem('I016', CATEGORY, 3250) // Vongola Thunder Ring A
-        addRequirement('I015')
-
-        setupItem('I017', CATEGORY, 4000) // Vongola Thunder Ring S
-        addRequirement('I016')
-
-        //////////////////////////
+	ITEMDESC+"• 10 "+ITEMINT+"Intelligence|n"+
+	ITEMDESC+"• 600 "+ITEMHP+"HP|n"+
+	ITEMDESC+"• 10 "+ITEMARMOR+"Armour")
+		
+	setupItem('I015', CATEGORY, 2500) // Vongola Thunder Ring B
+	addRequirement('I014')
+	setInfo(ITEMNAME+"Vongola Thunder Ring B|r",
+		
+	ITEMDESC+"• 15 "+ITEMINT+"Intelligence|n"+
+	ITEMDESC+"• 900 "+ITEMHP+"HP|n"+
+	ITEMDESC+"• 15 "+ITEMARMOR+"Armour")
+		
+		
+	setupItem('I016', CATEGORY, 3250) // Vongola Thunder Ring A
+	addRequirement('I015')
+	setInfo(ITEMNAME+"Vongola Thunder Ring A|r",
+		
+	ITEMDESC+"• 20 "+ITEMINT+"Intelligence|n"+
+	ITEMDESC+"• 1200 "+ITEMHP+"HP|n"+
+	ITEMDESC+"• 20 "+ITEMARMOR+"Armour")
+		
+		
+	setupItem('I017', CATEGORY, 4000) // Vongola Thunder Ring S
+	addRequirement('I016')
+	setInfo(ITEMNAME+"Vongola Thunder Ring S|r",
+		
+	ITEMDESC+"• 25 "+ITEMINT+"Intelligence|n"+
+	ITEMDESC+"• 1500 "+ITEMHP+"HP|n"+
+	ITEMDESC+"• 25 "+ITEMARMOR+"Armour")
+		
+	//////////////////////////		

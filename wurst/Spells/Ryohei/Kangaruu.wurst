@@ -1,6 +1,6 @@
 package Kangaruu
 
-import SkinCreation
+//import SkinCreation
 
 init
 
@@ -52,8 +52,8 @@ function kangaruuCast()
 
 	if pid == 'H00H'
 		n=CreateUnit(p,'e01N',GetUnitX(u),GetUnitY(u),0)
-	else if pid == skinRyohei
-		n=CreateUnit(p,'e01N',GetUnitX(u),GetUnitY(u),0) // e01X
+	//else if pid == skinRyohei
+	//	n=CreateUnit(p,'e01N',GetUnitX(u),GetUnitY(u),0) // e01X
 
 	UnitApplyTimedLife(n,1,7+GetHeroLevel(u)/2)
 	PauseUnit(n,true)

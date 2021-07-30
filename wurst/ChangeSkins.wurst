@@ -11,8 +11,11 @@ trigger settingsAction
 init
 
     doAfter(5) -> 
-        BlzLoadTOCFile("war3mapImported\\SettingsOpen.toc")
-        settingsOpen(0)
+        if BlzLoadTOCFile("war3mapImported\\ChangeSkin.toc")
+            settingsOpen(0)
+        else
+            print("Could not load ChangeSkin.toc")
+
 
 function settingsAction()
     let ip=GetPlayerId(GetTriggerPlayer())
@@ -20,24 +23,32 @@ function settingsAction()
     item array it_
     integer num=0
     let i=GetPlayerId(GetTriggerPlayer())
+    let tp=GetTriggerPlayer()
     let p=GetOwningPlayer(u)
     let id=GetUnitTypeId(u)
+
+    BlzFrameSetEnable(BlzGetTriggerFrame(), false) //disable the clicked button
+    BlzFrameSetEnable(BlzGetTriggerFrame(), true) //enable it again.
 
     if gg_rct_Base.contains(u.getPos())
         rfhpick=false
 
         if NEXT_HERO_SKIN.has(id)
             let newId = NEXT_HERO_SKIN.get(id)
-            udg_Hero[i] = CreateUnit(p, newId, GetRectCenterX(gg_rct_Resp7), GetRectCenterY(gg_rct_Resp7), 0)
+            udg_Hero[i+1] = CreateUnit(p, newId, GetRectCenterX(gg_rct_Resp7), GetRectCenterY(gg_rct_Resp7), 0)
+
         else
             rfhpick=true
+            DisplayTimedTextToPlayer(tp, 0, 0, 5, "|cffa18b4cEither you are not at |cff2aca9abase |cffa18b4cor your character has no |cd6963982skin|cffa18b4c to change into.|r")
             return
+        
+
 
         rfhpick=true
-        Hero[ip]=udg_Hero[i]
-        udg_Hero[ip+1]=udg_Hero[i]
+        Hero[ip]=udg_Hero[i+1]
+        udg_Hero[ip+1]=udg_Hero[i+1]
         if GetHeroLevel(u)>1 
-            SetHeroLevel(udg_Hero[i],GetHeroLevel(u),false)
+            SetHeroLevel(udg_Hero[i+1],GetHeroLevel(u),false)
         
         while true
             if num==6
@@ -46,15 +57,15 @@ function settingsAction()
             num=num+1
         
         if ip<5 
-            GroupAddUnit(udg_CG[1],udg_Hero[i])
+            GroupAddUnit(udg_CG[1],udg_Hero[i+1])
         else if ip>4 and ip<10 
-            GroupAddUnit(udg_CG[2],udg_Hero[i])
+            GroupAddUnit(udg_CG[2],udg_Hero[i+1])
         
         num=0
         while true
             if num==6
                 break
-            UnitAddItemById(udg_Hero[i],GetItemTypeId(it_[num]))
+            UnitAddItemById(udg_Hero[i+1],GetItemTypeId(it_[num]))
             num=num+1
         
         RemoveUnit(u)
@@ -67,15 +78,15 @@ function settingsAction()
         SetHeroStr(Hero[ip],GetHeroStr(Hero[ip],false)+stats[ip]*3,true)
 
     else
-        print("|cffa18b4cEither you are not at |cff2aca9abase |cffa18b4cor your character has no |cd6963982skin|cffa18b4c to change into.|r")
+        DisplayTimedTextToPlayer(tp, 0, 0, 5, "|cffa18b4cEither you are not at |cff2aca9abase |cffa18b4cor your character has no |cd6963982skin|cffa18b4c to change into.|r")
 
 public function settingsOpen(integer index)
 
-    settingsOpen = BlzCreateFrame("OpenSettings", BlzGetOriginFrame(ORIGIN_FRAME_GAME_UI, 0), 0, index)
-    BlzFrameSetAbsPoint(settingsOpen, FRAMEPOINT_LEFT, -0.1, 0.5)
+    settingsOpen = BlzCreateFrame("SuperParentSkin", BlzGetOriginFrame(ORIGIN_FRAME_GAME_UI, 0), 0, index)
+    BlzFrameSetAbsPoint(settingsOpen, FRAMEPOINT_LEFT, 0.1517, 0.107)
 
     BlzFrameSetVisible(settingsOpen, true)
 
     settingsAction = CreateTrigger()
     TriggerAddAction(settingsAction, function settingsAction)
-    BlzTriggerRegisterFrameEvent(settingsAction, BlzGetFrameByName("OpenSettingsIcon1", index), FRAMEEVENT_CHECKBOX_CHECKED)
+    BlzTriggerRegisterFrameEvent(settingsAction, BlzGetFrameByName("ChangeSkin", index), FRAMEEVENT_CONTROL_CLICK)

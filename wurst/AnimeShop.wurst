@@ -8,7 +8,7 @@ import ShopAppearanceOverride
 //import RecommendedItems
 
 
-ShopUI array playerShopUI
+public ShopUI array playerShopUI
 
 unit array heroCopies
 
@@ -22,26 +22,25 @@ init
     let blmItems = new RecommendedItems(UnitIds.bloodmage)
 */
 
-
-    for i = 1 to bj_MAX_PLAYERS
+    for i = 0 to bj_MAX_PLAYERS
         heroCopies[i] = null
-        playerShopUI[i] = new ShopUI(players[i-1], null, new ShopAppearanceConfig ())
+        playerShopUI[i] = new ShopUI(players[i], null, new ShopAppearanceConfig ())
         CreateTrigger()
-        ..registerPlayerKeyPress(players[i-1], OSKEY_B, OSKEY_META.NONE, true)
+        ..registerPlayerKeyPress(players[i], OSKEY_B, OSKEY_META.NONE, true)
         ..addAction() ->
-            let id = GetTriggerPlayer().getId() + 1
+            let id = GetTriggerPlayer().getId() 
             if playerShopUI[id].isEnabled()
                 playerShopUI[id].closeShop()
                 if GetLocalPlayer().getId() == id
                     ClearSelection()
-                    SelectUnit(udg_Hero[id],true)
+                    SelectUnit(udg_Hero[id+1],true)
             else
                 playerShopUI[id].openShop()
     doAfter(5.01) -> 
         doPeriodically(1.) cb ->
-            for i = 1 to bj_MAX_PLAYERS
-                if udg_Hero[i] != null and heroCopies[i] != udg_Hero[i]
+            for i = 0 to bj_MAX_PLAYERS
+                if udg_Hero[i+1] != null and heroCopies[i] != udg_Hero[i+1]
                     if heroCopies[i] == null
-                        playerShopUI[i].start(udg_Hero[i])
-                    playerShopUI[i].setInventoryUnit(udg_Hero[i])   
-                    heroCopies[i] = udg_Hero[i]
+                        playerShopUI[i].start(udg_Hero[i+1])
+                    playerShopUI[i].setInventoryUnit(udg_Hero[i+1])   
+                    heroCopies[i] = udg_Hero[i+1]

@@ -1,6 +1,12 @@
 package Start
 
+import ClosureTimers
+
 trigger gg_trg_Start
+
+public trigger rounddraw
+
+public timer TDD
 
 init
 
@@ -157,9 +163,10 @@ function start_Actions()
 		DisableTrigger(gg_trg_ClearAllUnit)
 		EnableTrigger(eoc)
 		EnableTrigger(gg_trg_MoveToArena)
-		TimerStart(TD, 300, false, function EndOfRound)
+		TDD = CreateTimer()
+		TimerStart(TDD, 30, false, function endOfRound)
 		DestroyTimerDialog(TG)
-		TG=CreateTimerDialog(TD)
+		TG=CreateTimerDialog(TDD)
 		TimerDialogSetTitle(TG, "Time until round is over:")
 		TimerDialogSetTitleColor(TG, 0, 225, 255, 144)
 		TimerDialogDisplay(TG, true)
@@ -169,7 +176,7 @@ function start_Actions()
 		VoiceStartRound()
 	else
 		DestroyTimerDialog(TG)
-		PauseTimer(TD)
+		PauseTimer(TDD)
 
 		while true
 
@@ -257,3 +264,37 @@ function initStart()
 	TriggerRegisterTimerExpireEvent(gg_trg_Start, udg_Timer)
 	TriggerAddAction(gg_trg_Start, function start_Actions)
 
+
+function endOfRound()
+
+	integer i=0
+
+	TC = true
+
+	while true
+		if i > 12
+			break
+		KillUnit(Hero[i])
+		i=i + 1
+
+	if win[1] != 11 and win[2] != 11
+
+		win[1] = win[1] + 1
+		win[2] = win[2] + 1
+
+		TC = false
+
+		doAfter(10) -> 
+			ClearTextMessages()
+			DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "|ca7d459c4Draw, both teams gained a point.")
+			DisplayTextToPlayer(GetLocalPlayer(), 0, 0, " ")
+			DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "Both teams are also given |cd6c2b93e2000|r Gold.")
+	else
+
+		TC = false
+
+		doAfter(10) -> 
+			ClearTextMessages()
+			DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "|ca7d459c4Draw. As a team has 14 wins, both team gains no point for this round.")
+			DisplayTextToPlayer(GetLocalPlayer(), 0, 0, " ")
+			DisplayTextToPlayer(GetLocalPlayer(), 0, 0, "Both teams are also given |cd6c2b93e2000|r Gold.")

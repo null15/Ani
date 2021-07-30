@@ -1,6 +1,103 @@
 ---
-projectName: Anime Arena v1.0.0
+projectName: FreshWurstProject
 dependencies:
 - https://github.com/wurstscript/wurstStdlib2
 - https://github.com/Jampi0n/wurst-advanced-shop-ui
 - https://github.com/Jampi0n/wurst-advanced-shop-ui:main
+buildMapData:
+  name: "|cff81b862Anime Battle v1.0.0|r" # Name shown ingame, may be colored
+  fileName: Anime Battle v1.0.0 # Name of the map file
+  author: Nyaa # Name of the author
+  scenarioData:
+    description: "|cff81b862Anime Arena map, where the goal is to kill the enemy team to score a point.\n\nFirst team to reach 12 wins the game (adjustable by team 1 captain). \n\nFeatures several characters from different anime franchises, including skins to a few."
+    suggestedPlayers: Anime fans # Hint text displayed in lobby
+    loadingScreen:
+      background: Generic
+      title: Anime Battle v1.0.0
+      subTitle: Changelog
+      text: • Introduced several QoL changes, such as integrated shop into the new Custom UI (open it with B).|n|n|n• A new mode has been introduced (Draft), and several bugs have been patched.|n|n|n• Feel free to stay up to date on our site www.****.netlify.app
+  optionsFlags:
+    hideMinimapPreview: false
+    forcesFixed: false
+    maskedAreasPartiallyVisible: false
+    showWavesOnCliffShores: false
+    showWavesOnRollingShores: false
+    useItemClassificationSystem: false
+  players:
+  - id: 0
+    name: Player 0
+    race: HUMAN
+    controller: USER
+    fixedStartLoc: false
+  - id: 1
+    name: Player 1
+    race: HUMAN
+    controller: USER
+    fixedStartLoc: false
+  - id: 2
+    name: Player 2
+    race: HUMAN
+    controller: USER
+    fixedStartLoc: false
+  - id: 3
+    name: Player 3
+    race: HUMAN
+    controller: COMPUTER
+    fixedStartLoc: false
+  - id: 4
+    name: Player 4
+    race: HUMAN
+    controller: USER
+    fixedStartLoc: false
+  - id: 5
+    name: Player 5
+    race: HUMAN
+    controller: USER
+    fixedStartLoc: false
+  - id: 6
+    name: Player 6
+    race: HUMAN
+    controller: USER
+    fixedStartLoc: false
+  - id: 7
+    name: Player 7
+    race: HUMAN
+    controller: USER
+    fixedStartLoc: false
+  - id: 8
+    name: Player 8
+    race: HUMAN
+    controller: USER
+    fixedStartLoc: false
+  - id: 9
+    name: Player 9
+    race: HUMAN
+    controller: USER
+    fixedStartLoc: false
+  forces:
+  - name: Vongola
+    playerIds:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    flags:
+      allied: true
+      alliedVictory: true
+      sharedVision: true
+      sharedControl: false
+      sharedControlAdvanced: false
+  - name: Millefiore
+    playerIds:
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    flags:
+      allied: true
+      alliedVictory: true
+      sharedVision: true
+      sharedControl: false
+      sharedControlAdvanced: false
